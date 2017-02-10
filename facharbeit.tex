@@ -1,0 +1,704 @@
+\documentclass[12pt,numbers=noenddot,parskip,bibliography=totocnumbered,listof=totocnumbered]{scrreprt}
+\usepackage[paper=a4paper,left=30mm,right=25mm,top=30mm,bottom=30mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[hyphens]{url}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{tocstyle}
+\usetocstyle{allwithdot}
+\usepackage{lmodern}
+\usepackage[numbers, sort&compress]{natbib}
+\usepackage{graphicx} 
+\usepackage{subfigure} 
+\usepackage{filecontents}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{pifont}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage[automark]{scrlayer-scrpage}
+
+\begin{filecontents}{books.bib}
+
+@MISC{winrichtlinien,
+author = "{Microsoft Corporation}",
+year = "2014",
+title = "Windows App Development: Guidelines for targeting",
+howpublished = "\url{http://msdn.microsoft.com/en-us/library/windows/apps/hh465326.aspx}",
+note = "Zuletzt aufgerufen am 06.08.2014"
+}
+
+@MISC{rproject,
+author = "{The R Foundation}",
+year = "2014",
+title = "The R Project for Statistical Computing",
+howpublished = "\url{http://www.r-project.org/}",
+note = "Zuletzt aufgerufen am 22.09.2014"
+}
+
+@MISC{applerichtlinien,
+author = "{Apple Inc.}",
+year = "2014",
+title = "iOS Human Interface Guidelines: Layout",
+howpublished = "\url{https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/LayoutandAppearance.html}",
+note = "Zuletzt aufgerufen am 09.08.2014"
+}
+
+@MISC{androidrichtlinien,
+author = "{{Google Inc.}}",
+year = "2014",
+title = "Android Developers: Metrics and Grids",
+howpublished = "\url{http://developer.android.com/design/style/metrics-grids.html}",
+note = "Zuletzt aufgerufen am 09.08.2014"
+}
+
+@MISC{sonyverge,
+author = "Dante D'Orazio",
+year = "2012",
+title = "Sony Xperia Sola's 'floating touch' screen technology explained",
+howpublished = "\url{http://www.theverge.com/2012/3/14/2871193/sony-xperia-sola-floating-touch-hover-event-screen-technology}",
+note = "Zuletzt aufgerufen am 07.08.2014"
+}
+
+@ARTICLE{monkeys,
+author = "K. Dandekar and B.I. Raju and M.A. Srinivasan",
+title = "3-D finite-element models of human and monkey fingertips to investigate the mechanics of tactile sense",
+pages = "S. 682-691",
+year = "2003",
+journal = "Journal of biomechanical Engineering",
+volume = "125"
+}
+
+@INCOLLECTION{jin,
+author = "Zhao Xia Jin and Tom Plocher and Liana Kiff",
+title = "Touch screen user interfaces for older adults: button size and spacing",
+booktitle = "Proceedings of the 4th international conference on Universal access in human computer interaction: coping with diversity (UAHCI'07)",
+publisher = "Springer Verlag",
+year = "2007",
+editor = "Constantine Stephanidis",
+pages = "933-941",
+address = "Berlin, Heidelberg"
+}
+
+@ARTICLE{touchmouse,
+author = "Charlotte Travis and Pietro Murano",
+title = "A comparative study of the usability of touch-based and mouse-based interaction",
+journal = "Int. J. Pervasive Computing and Communications",
+volume = "10",
+number = "1",
+year = "2014",
+pages = "115-134"
+}
+
+@MISC{dorol,
+author = "{Doro Deutschland}",
+year = "2014",
+title = "Doro Liberto 810",
+howpublished = "\url{http://www.dorodeutschland.de/Produkte/Mobiltelefone-und-Zubehor/Doro-Liberto-810/}",
+note = "Zuletzt aufgerufen am 24.08.2014"
+}
+
+@MISC{gOne,
+author = "Andreas Brohme",
+year = "2014",
+title = "Android One: Google startet seine Billig-Smartphone-Offensive",
+howpublished = "\url{http://www.spiegel.de/netzwelt/gadgets/android-one-google-soll-billig-smartphone-bald-praesentieren-a-989376.html}",
+note = "Zuletzt aufgerufen am 04.09.2014"
+}
+
+@INPROCEEDINGS{mousetouchmk,
+author = "Farzan Sasangohar and I. Scott MacKenzie and Stacey D. Scott",
+title = "Evaluation of mouse and touch input for a tabletop display using Fitts' reciprocal tapping task",
+booktitle = "Proceedings of the Human Factors and Ergonomics Society Annual Meeting",
+volume = "53",
+number = "12",
+pages = "839-843",
+year = "2009", 
+organization = "SAGE Publications"
+}
+
+@MISC{synaptics,
+author = "{Synaptics Inc.}",
+year = "1998",
+title = "Synaptics TouchPad Interfacing Guide (510-000080-A, Second Edition)",
+howpublished = "\url{http://www.synaptics.com/sites/default/files/ACF126.pdf}",
+note = "Zuletzt aufgerufen am 18.08.2014"
+}
+
+@BOOK{nui,
+author = "Daniel Wigdor and Dennis Wixon",
+title = "Brave NUI World: Designing Natural User Interfaces for Touch and Gesture",
+year = "2011",
+edition = "1st",
+publisher = "Morgan Kaufmann Publishers Inc.",
+address = "San Francisco, CA, USA",
+}
+
+@INCOLLECTION{sus,
+address = "London",
+author = "John Brooke",
+booktitle = "Usability evaluation in industry",
+editor = "Jordan, P. W. and Weerdmeester, B. and Thomas, A. and Mclelland, I. L.",
+publisher = "Taylor and Francis",
+title = "SUS: A quick and dirty usability scale",
+year = "1996"
+}
+
+@ARTICLE{sus2013,
+title = "SUS: A Retrospective",
+author = "John Brooke",
+journal = "Journal of Usability Studies",
+volume="8",
+number="2",
+pages="29-40",
+year="2013"
+}
+
+@ARTICLE{fitts,
+author = "I. Scott MacKenzie",
+title = "Fitts' Law As a Research and Design Tool in Human-computer Interaction",
+journal = "Hum.-Comput. Interact.",
+issue_date = "March 1992",
+volume = "7",
+number = "1",
+year = "1992",
+pages = "91-139",
+numpages = "49",
+publisher = "L. Erlbaum Associates Inc.",
+address = "Hillsdale, NJ, USA",
+} 
+\end{filecontents}
+
+% Stil der Seiten
+\pagestyle{scrheadings}
+\clearscrheadfoot
+
+%Abstand der Fussnoten
+\deffootnote{1em}{1em}{\textsuperscript{\thefootnotemark\ }}
+
+%Zeilenabstand
+\onehalfspacing
+
+%Regeln, bis zu welcher Tiefe Überschriften angezeigt werden sollen (Anzeige der Überschriften im Verzeichnis / Anzeige der Nummerierung)
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%Seitenstil: Kopfzeile ohne Nummer und normale Fußzeile, z.B. für Nicht-Kapitel-Seiten im Inhaltsverzeichnis. Vererbung mit Präfix=[Seitenstil].
+\newpairofpagestyles{nochapternumber}{\ohead{\textbf{\headmark}}\ofoot[\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}]{\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}}
+}
+
+%Kopfzeile (Kapitel / Standard)
+\ohead{\textbf{\headmark}\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\thechapter}}
+
+%Fußzeile (Kapitel / Standard)
+\ofoot[\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}]{\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}}
+
+%Kapitel in Kopfzeile ohne Zahl
+\renewcommand*{\chaptermarkformat}{}
+
+%Schriftarten
+\addtokomafont{pagenumber}{\sffamily \upshape}
+\addtokomafont{pageheadfoot}{\sffamily \upshape}
+
+%-------------------
+%Ende des Kopfbereiches
+%-------------------
+
+%START---------------------------------------------------------------------------------
+\begin{document}
+%Beginn der Titelseite
+\begin{titlepage}
+\begin{center}
+\null
+\vfill
+\LARGE\textsf{\textbf{Unterstützung der Touchinteraktion durch Annäherungserkennung auf Smartphones}}
+
+\vfill
+\LARGE\textrm{\textbf{Bachelorarbeit}}
+
+\large\textrm{Fachbereich Mathematik und Informatik\\
+\vspace{.5em}
+Universität Bremen}
+
+\vfill
+\large\textsc{Zur Erlangung des akademischen Grades}\\
+\vspace{.75em}
+\textbf{Bachelor of Science (B.Sc.)}\\
+\vspace{.75em}
+\textsc{im Studiengang Digitale Medien}
+
+\vfill\small\textsc{
+Vorgelegt von\\
+Jan-Hendrik Wolf\\
+Geboren am 19. März 1991\\
+Matrikel-Nr: 2616233}\\
+%Mainstraße 36\\
+%28199 Bremen\\
+%\ding{38} 0151 15530761\\
+%\ding{41} mail@jan-wolf.de\\
+\vspace{1cm}
+\small\textbf{Erstgutachter:  Prof. Dr. Rainer Malaka\\
+Zweitgutachter: Dr.-Ing. Dennis Krannich}\\
+\vspace{1cm}
+\small\textsc{Bremen, 30. September 2014}
+%Sommersemester 2014
+\end{center}
+\end{titlepage}
+%Ende der Titelseite
+
+\chapter*{Danksagung}
+\pagenumbering{roman}
+Hiermit möchte ich mich bei allen Personen herzlich bedanken, die mich während der Anfertigung dieser Bachelorarbeit unterstützt haben.
+
+Besonders bedanken möchte ich mich bei\dots
+\begin{itemize}
+\item Frederic Pollmann für die außerordentliche Betreuung.
+\item Prof. Dr. Rainer Malaka und Dr.-Ing. Dennis Krannich für die Einwilligung als Erst- und Zweitprüfer.
+\item allen Testteilnehmern meiner Studie für die freiwillige Unterstützung.
+\item meinen Korrekturlesern Björn Staritz und Joachim Benedikt Pahl.
+\item meiner Familie für die tolle Unterstützung neben und während dieser Arbeit.
+\end{itemize}
+
+%Inhaltsverzeichnis
+\tableofcontents
+\thispagestyle{nochapternumber}
+
+%START-----------------------------------------------------------------------------------
+\chapter*{Zusammenfassung}
+Für ein verbessertes Verständnis der Usability von Annäherungserkennung und zur Überprüfung der Mindestgrößen von Bedienelementen wurde eine Studie mit 18 Testpersonen durchgeführt. Die Testpersonen absolvierten dazu zwei unterschiedliche Tests auf einem Smartphone mit integrierter Annäherungserkennung und der dazugehörigen Testanwendung. Durch mehrmalige Wiederholungen der Aufgaben unter Veränderung der jeweiligen Zustände der Annäherungserkennung wurden anhand der erhobenen Daten die Unterschiede mehrerer Parameter bestimmt.
+
+Es konnte gezeigt werden, dass die Annäherungserkennung für die Aufgabenerledigung nach Meinung der Testpersonen unterstützend wirkte. Für die üblichen Schaltflächengrößen unterschied sich die Anzahl der verblieben Testpersonen im Test jedoch kaum. Bei aktivierter Annäherungserkennung konnten lediglich bei Schaltflächengrößen zwischen $2{,}4$ mm  und $1{,}4$ mm signifikant mehr Testpersonen im Test verbleiben. Weiterhin wurden für jede Testperson die Parameter nach Fitts' Law ermittelt. Dabei erhöhte sich mit eingeschalteter Annäherungserkennung die Zeitdauer bis zur endgültigen Ausführung einer Interaktion. Bei ausgeschalteter Annäherungserkennung war die Zeitdauer am geringsten und während der aktivierten Selektionshilfe am größten. Die Zeitdauer war zwischen der eingeschalteten Annäherungserkennung und der aktivierten Selektionshilfe, sowie zwischen der ausgeschalteten und der eingeschalteten Annäherungserkennung signifikant.
+
+\chapter{Einleitung}
+\pagenumbering{arabic}
+In den letzten Jahren ist die Verbreitung von Smartphones im Alltag vieler Anwender zunehmend sichtbar geworden. Viele Funktionen von ehemaligen Geräten des alltäglichen Bedarfs werden mittlerweile vom Smartphone bedient. Zudem wächst die Anzahl von peripheren Geräten, wie z.B. in Bereichen der Haussteuerung, Überwachungstechnik und dem Unterhaltungsbereich, die sich über Smartphones auch herstellerübergreifend konfigurieren und steuern lassen. Das Smartphone ist somit als Steuerungszentrale im "`Internet der Dinge"' ein wichtiger Bestandteil geworden.\\
+Somit ist es nicht verwunderlich, dass stetig neue Geräte dieser Art für unterschiedlichste Zielgruppen auf den Markt gebracht werden. Mittlerweile bieten sogar etablierte Hersteller bekannter Seniorenhandys Varianten in Form von Smartphones an \citep{dorol}. Mit Einsteigergeräten, wie z.B. dem "`Google One"' \citep{gOne}, werden auch Menschen mit geringem Einkommen angesprochen. Durch diese stetige Verbreitung nimmt gleichzeitig die Wichtigkeit einer adäquaten Interaktion auf mobilen Endgeräten zu.
+
+Aufgrund der Tatsache, dass Anwender von den bisher weit verbreiteten Desktop-PCs und Laptops an große Bedienoberflächen mit umfangreichen Funktionen gewöhnt sind, besteht die Herausforderung auf mobilen Endgeräten auch darin, Anwendungen auf kleineren Bildschirmen ähnlich funktional auszustatten. Dies erfordert eine effiziente Ausnutzung der verfügbaren Bildschirmfläche.\\
+Im Bezug auf die Eingabe zählt bei Desktop-PCs und Laptops die Maus und Tastatur zu den etablierten Eingabegeräten. Mobile Endgeräte sind jedoch nur dann besonders sinnvoll, wenn keine zusätzlichen Eingabegeräte nötig sind. Damit das Mitführen eines zusätzlichen Eingabegerätes entfällt, erfolgt die Interaktion auf vielen mobilen Endgeräten hauptsächlich über die Fingerberührung unter Mitnutzung zusätzlicher Sensoren, wie z.B. Neigungs- und Lichtsensoren. Zudem ist das Anwählen von Schaltflächen auf dem Bildschirm mittels der Finger die intuitivste Form der Eingabe. Unter einer bestimmten Schaltflächengröße erhöht sich jedoch die Fehlerrate der Interaktion \citep{mousetouchmk}.\\
+Grund hierfür ist der fehlende Mauszeiger als indirektes Eingabegerät. Während die Position des Mauszeigers die Position der Interaktion definiert, weicht die Position des Fingers von der Position der Interaktion meist leicht ab, da der Finger eine größere Berührungsfläche besitzt. Zusätzlich verdeckt der Finger durch seine Größe kleine Schaltflächen, wohingegen der Mauszeiger weiterhin eine präzise Selektion ermöglicht. Um diesem sogenannten "`Fat-Finger-Problem"' \citep{monkeys} entgegenzuwirken, ist die Mindestgröße der Bedienelemente auf diesen Bildschirmen im Vergleich zu Bedienelementen für Mausinteraktionen auf vielen Systemen vergrößert worden \citep{jin}.\\
+Ein weiterer Vorteil der Mausinteraktion gegenüber der Interaktion durch Berührung ist der Umstand, dass die aktuelle Position des Mauszeigers auch vor dem Klicken auf der Bedienoberfläche sichtbar ist. Die Positionierung und der Klick mittels des Mauszeigers können somit unabhängig voneinander erfolgen. Dies ermöglicht das Schweben des Mauszeigers über einer Schaltfläche und wird als "`Hovering"' (engl. für "`Schweben"') bezeichnet. Auf Laptops und Desktop-PCs ist dies eine gängige Interaktionsform und wird meist verwendet, um die Eigenschaften von Objekten auf dem Bildschirm, wie z.B. das Aussehen, zu verändern. Durch derartige Eigenschaftsänderungen kann der Anwender das Objekt beispielsweise als Schaltfläche identifizieren.
+\begin{figure}
+\centering
+\subfigure[Zusätzliche, visuelle Ebene: Bildschirmlupe.]{\includegraphics[width=0.49\textwidth]{img/einleitung1_hoverlupe.png}}
+\hfill
+\subfigure[Selektion ohne Ausführung: Menüauswahl.]{\includegraphics[width=0.49\textwidth]{img/einleitung1_hovermenu.png}}
+\caption{Schematische Darstellung für "`Hovering"' als Interaktionsform.}
+\label{hoveringdesktop}
+\end{figure}
+Abbildung~\ref{hoveringdesktop} zeigt zwei Anwendungsbeispiele, die diese Interaktionsform nutzen.
+
+Bisher war es jedoch nicht möglich, dass sogenannte "`Hovering"' in das Repertoire der Interaktionsformen mobiler Endgeräte zu übernehmen. Dies änderte sich nachdem Sony im Mai 2012 erstmals ein Smartphone mit integrierter Annäherungserkennung für den gesamten Markt veröffentlichte. In einigen nativen Anwendungen von Sony ließ sich nun auch diese Interaktionsform auf einem berührungsempfindlichen Bildschirm verwenden \citep{sonyverge}. Die Verbreitung und Integration der Annäherungserkennung ist bisher jedoch lediglich in einigen wenigen Smartphones erfolgt.
+
+In der vorliegenden Bachelorarbeit soll untersucht werden, ob visuelle Hover-""Effekte auf berührungsempfindlichen Geräten mit integrierter Annährungserkennung die Usability von Bedienelementen im Bezug auf Geschwindigkeit und Präzision verbessern können und auf diese Weise eine beschleunigte Integration dieser Technologie gerechtfertigt werden kann. Um dabei das Erscheinungsbild der Bedienoberfläche nicht essentiell zu verändern oder zu überlagern, werden für die Untersuchungen wenn möglich die nativen Bedienelemente unter Android verwendet und allein um Hervorhebungen erweitert.
+
+\section{Gegenwärtiger Stand der Technik mobiler Endgeräte}
+Zum jetzigen Zeitpunkt ist die Anzahl der mobilen Geräte mit integrierter Annäherungserkennung stark begrenzt. Zudem nutzen die Bedienoberflächen auf heutigen Smartphones mit Annäherungserkennung die Möglichkeiten der Technologie nur in vereinzelten Fällen aus. Im Folgenden soll ein kurzer Überblick auf die gegenwärtige Hardware und Software gegeben werden, die diese Annäherungserkennung unterstützt.
+
+\subsection{Hardware}
+Bereits im Jahr 1998 erwähnte der Touchpad-Hersteller Synaptics in einem Dokument die allgemeine Funktionsweise und diverse Spezifikationen zur Annäherungserkennung auf berührungsempfindliche Oberflächen und demonstrierte damit die technische Umsetzbarkeit \citep{synaptics}. Die Erkennung funktioniert theoretisch auf allen kapazitiven Eingabegeräten. Dazu wird die elektrische Kapazität des jeweiligen Fingers ermittelt und anschließend die ungefähre Entfernung des Fingers zur Oberfläche approximiert.
+
+Die Technologie erweckte jedoch erst im Jahr 2012 die Aufmerksamkeit der Öffentlichkeit. Sony vermarktete zu dieser Zeit mit dem \mbox{Xperia™ sola} das erste Smartphone mit Annäherungserkennung und bewarb die Technologie unter dem Namen \mbox{Floating Touch™}.\\
+Zu Beginn des Jahres 2013 brachte als zweiter Hersteller auch Samsung mit dem \mbox{Galaxy S4} ein Gerät mit ähnlicher Technologie namens \mbox{AirView™} auf den Markt. Im Gegensatz zu Sony, integrierte Samsung im Jahr 2014 die Annäherungserkennung auch in das Nachfolgemodell, das \mbox{Samsung Galaxy S5}.
+
+\subsection{Software}
+In mobilen Endgeräten mit integrierter Annäherungserkennung wurden unterschiedliche Ansätze zur Nutzung dieser Technologie in Benutzungsoberflächen verfolgt.\\
+Sony verwendete die Technologie, um Hintergrundbilder auf dem Hauptbildschirm während der Fingerannäherung zu bewegen. Zusätzlich wurde der interne Internetbrowser des Smartphones angepasst, sodass die Annäherungserkennung auch auf Webseiten verwendet werden konnte. Bisher konnten die auf Webseiten häufig verwendeten und auf Annäherung sensiblen Bedienelementen nur auf Geräten mit Maussteuerung genutzt werden. Um die Webseite dennoch auf Geräten mit berührungsempfindlichen Bildschirmen bedienen zu können, wurden derartige Bedienelemente vom Internetbrowser durch auf Druck reagierende Bedienelemente getauscht. Durch die von Sony unternommenen Anpassungen am Internetbrowser waren diese Bedienelemente wieder im vollen Umfang nutzbar.
+
+Der Hersteller Samsung bietet in seinen Smartphones ebenfalls Anwendungen an, die auf Annäherung reagieren. Sie lassen sich in zwei Arten unterteilen: In der Ersten werden Informationen auf kleinem Raum durch Annäherung vergrößert bzw. neu angeordnet, sodass sich die Übersicht für den Nutzer verbessert. Als Beispiel dient hier die Galerieanwendung (siehe Abbildung~\ref{samsungeinleitung1}). In der Galerie werden Bilder bei Annäherung vergrößert, sodass der Nutzer eine Vorschau erhält.
+\begin{figure}
+\centering
+\subfigure[Normalzustand der Galerie.]{\includegraphics[width=0.49\textwidth]{img/software1_nohover.png}}
+\hfill
+\subfigure[Bildvergrößerung bei Annäherung.]{\includegraphics[width=0.49\textwidth]{img/software1_hover.png}}
+\caption{Objektvergrößerungen bei Annäherung des Fingers mit aktiviertem \mbox{AirView™} auf einem \mbox{Samsung Galaxy S4}.}
+\label{samsungeinleitung1}
+\end{figure}
+Die zweite Art der Anwendungen zeigen bei Annäherung nicht Vergrößerungen oder detailliertere Ausführungen, sondern zuvor nicht sichtbare Informationen an. Somit können weitere Zusatzinformationen eingeblendet werden (siehe Abbildung~\ref{samsungeinleitung2}). Als Beispiel dient der Wahlbildschirm, in der bei Annäherung auf eine aktive Kurzwahltaste der darauf jeweils gespeicherte Kurzwahlkontakt angezeigt wird.
+\begin{figure}
+\centering
+\subfigure[Normalzustand des Wahlbildschirms.]{\includegraphics[width=0.49\textwidth]{img/software2_nohover.png}}
+\hfill
+\subfigure[Kurzwahlinformationen bei Annäherung.]{\includegraphics[width=0.49\textwidth]{img/software2_hover.png}}
+\caption{Einblenden zusätzlicher Informationen bei Annäherung des Fingers auf einem Samsung Galaxy S4 mit aktiviertem \mbox{AirView™.}}
+\label{samsungeinleitung2}
+\end{figure}
+
+\section{Bisherige Leitfäden für Bedienelemente}
+Aufgrund der geringeren Abmessungen mobiler Endgeräte im Vergleich zu stationären Geräten und der direkten Bedienung mittels berührungsempfindlicher Bildschirme, ist die Gestaltung der Bedienelemente ein entscheidendes Kriterium für die reibungslose Interaktion zwischen Mensch und Maschine. Alle Hersteller der populären mobilen Betriebssysteme bieten umfangreiche Leitfäden an, die Empfehlungen für Anwendungsentwickler zur Gestaltung von Bedienelementen darstellen. In diesen Leitfäden werden u.A. Mindestangaben zu Größen und Abständen kommuniziert (siehe Tabelle~\ref{leitfadenalle}). In Leitfäden für Desktop-Computer werden keine empfohlenen Mindestgrößen genannt.\\
+Studien zeigen, dass diese Leitfäden durchaus nötig sind. So arbeiten Nutzer mit Mausinteraktionen gegenüber Berührungsinteraktionen bisher präziser und schneller. Darüber hinaus wird die Interaktion mit der Maus bei Aufgaben, die genaue Selektionen benötigen, von Nutzern bevorzugt \citep{touchmouse}.
+\begin{table}
+\centering
+\renewcommand{\arraystretch}{2}
+\setlength{\tabcolsep}{12pt}
+\begin{tabular}{ l c c c }
+Plattform & Hersteller & Minimale Größe & Empfohlene Größe\\\hline
+Android \citep{androidrichtlinien} & Google Inc. & $7$ mm & $9$ mm\\
+iOS \citep{applerichtlinien} & Apple Inc. & $7$ mm & $7$ mm\\
+Windows \citep{winrichtlinien} & Microsoft Corp. & $7$ mm & $9$ mm\\
+\end{tabular}
+\caption{Mindestgrößen von Bedienelementen für Geräte mit berührungsempfindlichen Bildschirmen.}
+\label{leitfadenalle}
+\end{table}
+Aus diesen Gründen sollen die genannten Untersuchungen in dieser Bachelorarbeit auch prüfen, ob die Mindestgrößen unter Anwendung der Annäherungserkennung verkleinert werden können und die Präzision somit gesteigert werden kann.
+
+\section{Lösungsansätze mittels Annäherungserkennung}
+Durch die Annäherungserkennung werden Interaktionen auf einer weiteren Ebene ermöglicht und erweitern das Repertoire für den Designer einer Anwendung. Sony und Samsung haben mittlerweile Anwendungszenarios für die Annäherungserkennung demonstriert und damit gleichzeitig interessante Lösungen vorgestellt.\\
+Dieser Abschnitt soll diese Palette an Möglichkeiten erweitern und gleichzeitig den Bezug zu den behandelten Tests herstellen. Gleichzeitig wird im letzten Unterabschnitt auch auf bestehende Probleme der Annäherungserkennung hingewiesen und ein möglicher Lösungsansatz vorgestellt.
+
+\subsection{Schaltflächenerkennung}\label{sec:schaltflächenerkennung}
+Das Aussehen einer Schaltfläche variiert zwischen den unterschiedlichen Handymodellen, Betriebssystemen (z.B. iOS, Android) und Gerätetypen. Beispielsweise besitzen Schaltflächen auf einem mobilen Endgerät unter iOS andere Erscheinungsmerkmale als auf mobilen Endgeräte mit Android. Dieser Umstand wird durch die Etablierung des Natural User Interfaces \citep{nui} verstärkt, da es die Abgrenzungen zu klassischen Schaltflächen aufweicht. Anstatt von Schaltflächen werden durch Wischgesten innerhalb bestimmter Bildschirmbereiche neue Aktionen ausgeführt. So werden mittlerweile für digitale Karten die klassischen Schaltflächen verstärkt durch Kneif- und Wischgesten ersetzt und ähneln damit der analogen Nutzung von Papierkarten.\\
+Die Folge daraus könnten Schaltflächen sein, die für einzelne Nutzer nicht mehr als solche zu erkennen sind. Während auf Geräten mit Mausinteraktion die Listeneinträge bei Überlagerungen mit dem Mauszeiger hervorgehoben werden und damit als Schaltfläche erkennbar werden, fehlen diese Indikatoren bisher bei Bedienoberflächen für Geräte mit berührungsempfindlichen Bildschirmen. Die Annäherungserkennung könnte diese Lücke füllen und die aktuelle Fingerposition, ähnlich der Mauszeigerposition, in das Erscheinungsbild der Bedienoberfläche einbeziehen.
+%Zudem müssen einige Nutzer dadurch nicht mehr mit der Befürchtung damit bereits eine Funktion auszulösen, den Bildschirm berühren, um anhand des darauffolgenden visuellem Feedback zu beurteilen, ob es sich an der Touchposition um eine Schaltfläche handelt.
+
+\subsection{Tabellenhervorhebungen}
+Durch die Annäherungserkennung bietet sich ein interessanter Lösungsansatz für eine Vereinfachung der visuellen Orientierung in vielspaltigen Tabellen an. Beim Suchen von einzelnen Einträgen in großen Tabellen ist bei manchen Nutzern zu beobachten, dass einzelne Zeilen mit dem Finger überfahren werden. Dieses Verhalten könnte ausgenutzt werden, um den Nutzer in dieser Situation durch das Hervorheben ganzer Tabellenzeilen zu unterstützen. Im Rahmen dieser Bachelorarbeit wird eine derartige Tabellenhervorhebungen implementiert und getestet.
+
+\subsection{Fingerpositionsmarkierungen}
+In vielen Situationen kann es vorkommen, dass mehrere Schaltflächen auf engem Raum nebeneinander platziert sind, z.B. auf Bildschirmtastaturen, Webseiten ohne Größenanpassung auf entsprechende Bildschirmgrößen oder in Form von selektierbaren Straßenzügen in Kartenanwendungen bei großen Maßstäben. Durch die Annäherungserkennung ließe sich die aktuell durch den Finger überflogene Schaltfläche hervorheben (vgl. Abschnitt~\ref{sec:schaltflächenerkennung}) und dadurch eventuell die Selektierung durch den Nutzer vereinfachen. Eine mögliche Verbesserung der Usability durch Fingerpositionsmarkierungen soll im Rahmen dieser Bachelorarbeit überprüft werden.
+
+\subsection{Vorhersage der Touchposition}
+Als Ergänzung zur Fingerpositionsmarkierung wäre mittels der Annäherungserkennung eine Vorhersage der nachfolgenden Touchposition möglich, indem beispielsweise innerhalb eines definierten Radius die Touchposition auf die Schwebeposition des Fingers verschoben wird. Schwebt der Finger eines Nutzer für eine Weile über einer sich hervorhebenden Schaltfläche, so würde nach dieser Interpretation selbst eine anschließende, leicht verfehlte Berührung ausreichen, um die Schaltfläche dennoch zu aktivieren. Diese Ergänzung soll ebenfalls in einem Test evaluiert werden. Es ist dabei zu prüfen, ob somit die Genauigkeit auch bei kleinen Schaltflächen erhöht werden kann, die die Mindestgrößen laut der Leitfäden für Bedienelementen unterschreiten.
+
+\subsection{Probleme der Annäherungserkennung}\label{sec:kalibrierung}
+Während der Implementierungsphase der in dieser Bachelorarbeit beschriebenen Testanwendung, konnten im Bezug auf die ermittelte Schwebeposition des Fingers auffallende Verschiebungen zur tatsächlichen Fingerposition beobachtet werden. Es war somit anzunehmen, dass die Fingerlokalisierung in Geräten mit Annäherungserkennung noch bestehende Ungenauigkeiten aufweist. Weiterhin kann je nach Anstellwinkel des Fingers der dichteste Punkt zum Bildschirm variieren und dies möglicherweise eine zusätzliche Ungenauigkeit zur Folge haben. Bei internen Tests zeigten sich teilweise deutliche Unterschiede zwischen den Schwebe- und Touchpositionen. Dies hätte zur Folge, dass kleine Schaltflächen in den Tests der Studie unter Umständen nicht mehr korrekt hervorgehoben werden.
+
+Um die Verschiebungen zwischen der Schwebe- und Touchposition des Fingers nachzuvollziehen, wurde der Testanwendung eine optional zuschaltbare Ebene innerhalb der Benutzungsoberfläche hinzugefügt, die die letzte Touch- und Schwebeposition anhand von Kreuzen sichtbar machte. Bei internen Versuchen mit der Testanwendung wurde deutlich, dass in bestimmten Bereichen die beiden Kreuze nicht aufeinander lagen und die Touch- und Schwebeposition sich somit unterschiedlich stark unterschieden.
+
+Um mögliche Zusammenhänge der Verschiebungen zwischen der Touch- und Schwebeposition des Fingers nachzuweisen, wurde eine weitere Testanwendung entwickelt, die die letzte Schwebe- und Touchposition aufzeichnete. Dabei sollten Nutzer eine Abfolge von verschiedenen Punkten auf dem Bildschirm berühren. Die jeweiligen Schwebe- und Touchpositionen waren für die Testperson zu diesem Zeitpunkt nicht sichtbar und wurden erst nach dem eigentlichen Test angezeigt.
+\begin{figure}
+\centering
+\subfigure[Interaktion mit dem Finger.]{\includegraphics[width=0.45\textwidth]{img/kalibrierung1_finger.png}}
+\hfill
+\subfigure[Interaktion mit dem Daumen.]{\includegraphics[width=0.45\textwidth]{img/kalibrierung1_daumen.png}}
+\caption{Visualisierung der relativen Verschiebungen zwischen der Touch- und Schwebeposition. Die Pfeile inkl. Farbtemperatur zeigen die Distanz der Verschiebung an.}
+\label{klickschwebepositionen}
+\end{figure}
+Anschließend wurden die Werte mittels eines eigens geschriebenen Hilfsprogramms ausgewertet und visualisiert.
+
+Die Abbildung~\ref{klickschwebepositionen} zeigt die relativen Verschiebungen zwischen der Touch- und Schwebeposition an und verdeutlicht gleichzeitig die teilweise sehr starken Schwankungen beider Werte. Obwohl an mehreren Stellen Tendenzen zur Verschiebungsrichtung erkennbar sind, besitzen die Werte dennoch eine große Streuung. Die Möglichkeit, die Schwebepositionen auf die Touchpositionen zu verschieben (und andersherum), wären theoretisch möglich, z.B. durch eine lineare oder polynominale Regression. Da die Ermittlung dieser Variablen den Umfang dieser Bachelorarbeit jedoch übersteigen würde, konnte eine Kalibrierung nicht verfolgt werden. Stattdessen wurde eine unkompliziertere und optional zuschaltbare Selektionshilfe implementiert. Tätigt der Nutzer eine Eingabe auf dem berührungsempfindlichen Bildschirm, wird anstatt die tatsächliche Berührungspostions des Fingers zu berücksichtigen, die direkt vorhergehende Schwebeposition der Annäherungserkennung verwendet. Die Selektionshilfe wendet diese Manipulation jedoch nur an, wenn der Positionsunterschied der Schwebe- und Berührungsposition \mbox{$7$ mm} unterschreitet.
+
+\chapter{Methodik}
+In diesem Kapitel wird erläutert, wie die oben genannten Ansätze anhand von verschiedenen Usability-Tests überprüft werden.
+
+\section{Testpersonen}
+Die Testanwendung wurde in Usability-Tests von 18 Personen untersucht. Die Personen waren zwischen 20 und 35 Jahre alt (med: $23$ Jahre, \O: $25{,}6$ Jahre). Beide Geschlechter (8 weiblich, 10 männlich) waren ausgewogen im Test vertreten. Das berufliche Umfeld der Testpersonen konzentrierte sich überwiegend auf Studenten und Mitarbeiter im universitären Bereich. Zudem besaßen alle Testpersonen gute Erfahrungen in der Nutzung von Desktop-PCs, Laptops, Tablets oder Smartphones. Die dazugehörige Gewichtung im Bezug auf die Nutzung von Desktop-PCs, Laptops und anderen berührungsempfindlichen Geräten sind in Tabelle~\ref{nutzungtestpersonen} dargestellt.
+\begin{table}
+\centering
+\renewcommand{\arraystretch}{2}
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabular}{ p{4.8cm} | c c c c c}
+& Desktop-PC & Laptop & Tablet & Smartphone & Sonstige\\\hline
+Weniger als 1x pro Monat & 9 von 18 & 0 von 18 & 10 von 17 & 1 von 18 & 10 von 18 \\
+Weniger als 1x pro Woche & 0 von 18 & 1 von 18 & 4 von 17 & 0 von 18 & 4 von 18 \\
+Weniger als 1x pro Tag & 3 von 18 & 0 von 18 & 2 von 17 & 0 von 18 & 3 von 18 \\
+Mehrmals am Tag & 6 von 18 & 17 von 18 & 1 von 17 & 17 von 18 & 1 von 18 \\
+\hline
+Am häufigsten benutzt & 3 von 18 & 8 von 18 & 0 von 17 & 7 von 18 & 0 von 18 \\
+\end{tabular}
+\caption{Gerätenutzung der Testpersonen.}
+\label{nutzungtestpersonen}
+\end{table}
+Lediglich eine Person nahm innerhalb der letzten sechs Monate an Studien zu Interaktionen an Mobilgeräten oder an Studien der Digitalen Medien AG der Universität Bremen teil.
+
+\section{Apparat}
+Die Testumgebung besteht aus einem Testgerät und der zugehörigen für die Untersuchungen konzipierten Testanwendung.
+
+Bei dem Testgerät handelt es sich um ein \mbox{Samsung Galaxy S4}. Das darauf installierte Betriebssystem basiert auf Android in der \mbox{Version 4.4} \mbox{(API-Level: 19)}. Der kapazitive Touchscreen des Smartphones mit einer Bildschirmdiagonalen von 5 Zoll besitzt eine Auflösung von \mbox{1920$\times$1080} Pixeln und unterstützt die Annäherungserkennung.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.68\textwidth]{img/apparatus1.jpg}
+\caption{Testbeschreibung des ersten Tests.}
+\label{apparattestbeschreibung}
+\end{figure}
+Die Testumgebung beinhaltet als zweite Komponente die Testanwendung, die den Testpersonen unterschiedliche Aufgaben stellt. Die Testanwendung wurde in Java entwickelt und eigens für das \mbox{Samsung Galaxy S4} konzipiert. Dazu wurde zudem die Bedienoberfläche der Testanwendung auf die entsprechende Bildschirmgröße angepasst und die von Samsung dokumentierte API für \mbox{AirView™} in die Testanwendung integriert. Schließlich wurde die Testanwendung mittels des Android-SDKs in \mbox{Version 19} kompiliert und auf dem Testgerät installiert. Der Quelltext liegt in digitaler Form auf dem beiliegenden Datenträger dieser Bachelorarbeit vor. Zusätzlich wird dort auch eine installierbare APK-Datei zur Verfügung gestellt.\\
+Innerhalb der Testanwendung wird zu Beginn jeder Testsitzung eine Identifikationsnummer angezeigt, die für die jeweilige Testsitzung bestimmt wurde. Während jeder Testsitzung werden von der Testanwendung alle relevanten Interaktionen des Nutzers protokolliert und mit der zugehörigen Identifikationsnummer in eine auf dem Testgerät angelegten Textdatei gespeichert.\\
+Die Testanwendung ist in zwei unterschiedliche Tests unterteilt und wurde so gestaltet, dass vor jedem Testbeginn eine entsprechende Testbeschreibung angezeigt wird (siehe Abbildung~\ref{apparattestbeschreibung}).
+
+\subsection{Test 1: Listenauswahl}
+\begin{figure}
+\centering
+\includegraphics[width=0.68\textwidth]{img/test1_screenshot1.png}
+\caption{Bildschirmfoto der Personenliste im ersten Test.}
+\label{test1screenshot}
+\end{figure}
+\begin{figure}
+\centering
+\subfigure[Phase 1: Zu suchende Person wird beschrieben.]{\includegraphics[width=0.64\textwidth]{img/test1_phase1.jpg}}
+\vfill
+\subfigure[Phase 2: Anzeige einer pseudozufälligen Personenliste.]{\includegraphics[width=0.64\textwidth]{img/test1_phase2.jpg}}
+\vfill
+\subfigure[Phase 3: Gesuchte Person in der unteren Leiste auswählen.]{\includegraphics[width=0.64\textwidth]{img/test1_phase3.jpg}}
+\caption{Aufbau von Test 1: Drei unterschiedliche Phasen pro Durchgang.}
+\label{test1phasen}
+\end{figure}
+Die Testanwendung ermöglicht im ersten Test, die Wirkung von Hervorhebungen der Listeneinträge bei Annäherung zu überprüfen.\\
+Hierzu wird dem Nutzer ein Anweisungsbildschirm mit zwei pseudozufälligen Personeneigenschaften eingeblendet (siehe Abbildung~\ref{test1phasen}). Eine pseudozufällige Auswahl bedeutet, dass die Auswahl von der Testanwendung vorgegeben wurde und dem Nutzer eine Zufälligkeit suggeriert wird. Nachdem der Nutzer sich die Eigenschaften eingeprägt und anschließend auf "`Starten"' gedrückt hat, wird eine mehrspaltige Personenliste mit sieben fiktiven Personen und ihren Eigenschaften angezeigt (siehe Abbildung~\ref{test1screenshot}). Nähert sich der Finger des Nutzers nun einem Listeneintrag, so wird dieser hervorgehoben. Der Test ist so aufgebaut, dass pro Anweisung nur exakt eine Person die gesuchten Eigenschaften besitzt. Der Nutzer soll anschließend die korrekte Person auswählen, indem die Schaltfläche mit dem entsprechenden Personennamen (Buchstaben von A-G) berührt wird. Sollte die falsche Schaltfläche berührt werden, so wird der Nutzer mittels einer kurzen Texteinblendung über die Falschberührung informiert und erneut an die zu suchende Eigenschaften erinnert. War die Personenauswahl korrekt, so werden dem Nutzer in weiteren Runden neue Eigenschaften auf dem Anweisungsbildschirm angezeigt. Der Test ist beendet, sobald der Nutzer insgesamt sieben unterschiedliche Anweisungen befolgt hat.
+
+Um zu überprüfen, ob die Hervorhebungen der Listeneinträge bei Annäherungen einen Einfluss auf die Aufgabenerfüllung gehabt haben, wird der Test ein zweites Mal wiederholt. Die Annäherungserkennung wird dabei nur in einem der beiden Durchläufe eingeschaltet.
+
+\subsection{Test 2: Präzisionstest}
+\begin{figure}
+\centering
+\subfigure[Darstellung während des Haltens der grünen Schaltfläche.]{\includegraphics[width=0.45\textwidth]{img/test2_screenshot1.png}\label{test2screenshots:gruen}}
+\hfill
+\subfigure[Darstellung während des Versuchs, die blaue Schaltfläche zu berühren.]{\includegraphics[width=0.45\textwidth]{img/test2_screenshot2.png}\label{test2screenshots:blau}}
+\caption{Bildschirmfotos der Bedienoberfläche in Test 2.}
+\label{test2screenshots}
+\end{figure}
+Die Testanwendung überprüft im zweiten Test die Wirkung von Hervorhebungen auf die Auswahlgenauigkeit kleiner Bedienelemente.\\
+Um auch in diesem Test die Auswirkungen der Annäherungserkennung zu untersuchen, wird dieser Test zwei Mal wiederholt. In der ersten Testvariante bleibt die Annäherungserkennung ausgeschaltet. In der zweiten Testvariante werden mittels eingeschalteter Annäherungserkennung die Zielschaltflächen bei Annäherung hervorgehoben. Die dritte Testvariante erweitert die zweite Testvariante durch eine zugeschaltete Selektionshilfe (vgl. Abschnitt~\ref{sec:kalibrierung}).
+
+Beim Start jeder Testvariante zeigt die Bedienoberfläche einen Anweisungstext an, die den Nutzer auf das Halten der grünen, runden Schaltfläche am unteren Bildschirmrand hinweist (siehe Abbildung \ref{test2phasen}).
+\begin{figure}
+\centering
+\subfigure[Phase 1: Halten der grünen Schaltfläche.]{\includegraphics[width=0.64\textwidth]{img/test2_phase1.jpg}}
+\vfill
+\subfigure[Phase 2: Blaue Schaltfläche leuchtet pseudozufällig auf.]{\includegraphics[width=0.64\textwidth]{img/test2_phase2.jpg}}
+\vfill
+\subfigure[Phase 3: Berühren der blauen Schaltfläche.]{\includegraphics[width=0.64\textwidth]{img/test2_phase3.jpg}}
+\caption{Aufbau von Test 2: Drei unterschiedliche Phasen pro Durchgang.}
+\label{test2phasen}
+\end{figure}
+Hierzu muss die Schaltfläche für eineinhalb Sekunden berührt werden, ohne dabei den Finger anzuheben. Während dieser Zeit wird dem Nutzer ein Fortschrittsbalken angezeigt (siehe Abbildung \ref{test2screenshots:gruen}). Zusätzlich blendet die Testanwendung ab diesem Zeitpunkt ein quadratisches Gitter mit quadratischen, grauen Schaltflächen ein. Eine dieser Schaltfläche wird nach Ablauf der Zeit pseudozufällig von der Testanwendung ausgewählt und blaugefärbt. Der Nutzer soll diese Schaltfläche im Anschluss berühren. Ist die Annäherungserkennung aktiviert, wird die Schaltfläche hervorgehoben, die die momentane Fingerschwebepostion überspannt (siehe Abbildung \ref{test2screenshots:blau}). Wird nun der Bildschirm berührt, so wird dem Nutzer über die Einblendung eines Anweisungsbildschirms die erfolgreiche oder misslungene Berührung mitgeteilt. Die Berührung gilt als erfolgreich, wenn die blaue Schaltfläche berührt wurde.\\
+Ist die Berührung misslungen, so wird die Einfärbung solange zurückgesetzt, bis der Nutzer die grüne Schaltfläche erneut und für eine zusätzliche Sekunde gehalten hat. Der Nutzer hat anschließend vier weitere Versuche, um die blaue Schaltfläche zu treffen, andernfalls wird der Test beendet und ggf. zur nächsten Testvariante gewechselt. Bei einer erfolgreichen Berührung wird dem Nutzer neben den bereits erwähnten Benachrichtigungen die Erhöhung des Schwierigkeitsgrades signalisiert. Gleichzeitig wird die grüne Schaltfläche wieder am unteren Bildschirmrand eingeblendet und der Nutzer kann den Test im nächsten Schwierigkeitsgrad fortsetzen. Die jeweilige Testvariante wird beendet, sobald alle Schwierigkeitsgrade vom Nutzer bewältigt worden sind.
+
+Bei der Konzeption der Testanwendung ist berücksichtigt worden, dass beliebig viele Schwierigkeitsgrade und Schaltflächengrößen getestet werden können. Für diesen Test ist die Testanwendung so konfiguriert, dass jede Testperson insgesamt 26 Schwierigkeitsgrade absolvieren kann. Die Schaltflächengrößen werden sich dabei mit steigendem Schwierigkeitsgrad kontinuierlich verringern.\\
+Die Testanwendung ist so gestaltet, dass neben dem obligatorischen Zeitpunkt der Interaktion sowohl die Position der grünen und blauen Schaltflächen auf dem Bildschirm, als auch die genauen Berührungspunkte auf diesen Schaltflächen selbst protokolliert werden. Im Falle einer eventuelle Formelanwendung nach Fitts \citep{fitts} sind somit alle Parameter für jeden Versuch und Schwierigkeitsgrad vorhanden.
+
+\subsection{Ausbalancieren von Gewöhnungseffekten}
+Damit die erhobenen Messwerte, u.A. die Auswahlgeschwindigkeiten, nicht durch mögliche Gewöhnungen während vorhergehender Testdurchgänge verfälscht werden, muss die Reihenfolge der Testdurchgänge entsprechend variiert werden. Dies soll sicherstellen, dass etwaige Gewöhnungen gleichmäßig auf die Testvarianten verteilt werden.\\
+Hierzu sind die Testpersonen gemäß des Latin Squares in unterschiedliche Gruppen einzuteilen. Aus diesem Grund wurde bei der Konzeption der Testanwendung darauf geachtet, dass die Tests in unterschiedlichen Reihenfolgen gestartet werden können. Konkret bedeutet dies, dass jede Testvariante in beiden Tests gleichmäßig auf die erste, zweite und ggf. dritte Wiederholung gelegt wurde.\\
+Im ersten Test hat dies zur Folge, dass die Anweisungen durch ihre fixe Position innerhalb des gesamten Tests gleichmäßig mittels aller Testvarianten bearbeitet werden. Entsprechend werden allen Eigenschaften in der Personenliste in Abhängigkeit zur jeweiligen Wiederholung anderen Personen zugeteilt.\\
+Auch im zweiten Test ist die Positionsreihenfolge der blauen Zielschaltflächen immer die gleiche. Durch die unterschiedliche Reihenfolge der Testvarianten je Testgruppe wird auch im zweiten Test jede Position gleichmäßig mittels aller Testvarianten getestet. Die Schaltflächengröße wird hingegen nicht ausbalanciert und verringert sich fortlaufend mit jedem Schwierigkeitsgrad.\\
+Aus Sicht des Nutzers haben die genannten Vorkehrung die Folge, dass die Reihenfolge der Ereignisse in jedem einzelnen Test scheinbar zufällig ausgewählt worden sind. In Wirklichkeit fand jedoch eine konkrete Berechnung und Auswahl statt.
+
+\subsection{Fragebögen}
+Um für die spätere Auswertung auch demografische Informationen und subjektive Bewertungen der jeweiligen Testpersonen miteinzubeziehen, werden jeder Testperson mehrere Fragebögen ausgehändigt.
+
+\subsubsection{Personenfragebogen}
+Zur Aufnahme allgemeiner Personeninformationen wurde für die Studie ein Personenfragebogen angefertigt (siehe Anhang \ref{lab:Personenfragebogen}).\\
+Neben den allgemeinen Informationen, wie z.B. Alter, Geschlecht, Berufsfeld und Händigkeit, werden auch spezifischere Informationen erfasst, u.A. die Sehstärke, während der Testsitzung getragene Sehhilfen, vorherige Studienteilnahmen und bestehende Erfahrungen mit berührungsempfindlichen Bildschirmen.
+Damit der Testleiter mögliche Störeinflüsse während des Tests aufnehmen kann, verfügt der Personenfragebogen zusätzlich über ein entsprechendes Textfeld.
+
+\subsubsection{System Usability Scale}
+Der System Usability Scale wurde 1986 von John Brooke entwickelt und umfasst zehn Fragen zur Bewertung des jeweils vorliegenden Systems \citep{sus}. Der Fragebogen ist eine verbreitete Möglichkeit die Usability eines Systems in kurzer Zeit zu testen \citep{sus2013}. Somit kann die Usability sowohl allgemein, als auch für jeden Test einzeln verglichen werden. Dies setzt voraus, dass für jeden Test und der dazugehörigen Testvariante ein System Usability Scale angefertigt wird (siehe Anhang \ref{lab:Bewertungsbögen}).
+
+\subsubsection{Zusätzlicher Fragebogen}
+Ein zusätzlicher Fragebogen bestehend aus überwiegend frei beantwortbaren Fragen soll es den Testpersonen als Ergänzung zum System Usability Scale ermöglichen, die positiven und negativen Gedanken während der Tests zum Ausdruck zu bringen. Auch Verbesserungsvorschläge oder sonstige Anmerkungen der Testperson können hier aufgenommen werden. Zusätzlich werden die Testpersonen für den Ausblick nach möglichen Anwendungsgebieten gefragt (siehe Anhang \ref{lab:Bewertungsbögen}).
+
+\section{Prozedur}
+\begin{figure}
+\centering
+\subfigure[Räumlichkeiten der Testsitzung.]{\includegraphics[width=0.64\textwidth]{img/prozedur1.jpg}}
+\vfill
+\subfigure[Testumgebung und Fragebögen.]{\includegraphics[width=0.64\textwidth]{img/prozedur2.jpg}}
+\vfill
+\subfigure[Testperson füllt Personenfragebogen aus.]{\includegraphics[width=0.64\textwidth]{img/prozedur3.jpg}}
+\caption{Räumlichkeiten, Aufbau und Lichtverhältnisse während der Studie}
+\label{prozedurumgebung}
+\end{figure}
+Die Studie fand innerhalb eines ruhigen und hellen Raumes statt (siehe Abbildung~\ref{prozedurumgebung}). Der Testleiter saß rechts neben der Testperson an einem Tisch mit ausreichend Platz. Es soll hiermit sichergestellt werden, dass der Test von der Testperson ungestört und bei guten Lichtverhältnissen durchlaufen werden kann.
+
+Jede Testperson nahm ausschließlich freiwillig am Test teil. Nach Betreten des Raumes erhielt jede Testperson etwas zu trinken und wurde nach ihrem Wohlbefinden befragt. Im Anschluss gab es eine sehr allgemeine und knappe Beschreibung der Thematik. Danach wurde der Testperson ein Studieninformationsblatt ausgehändigt, dass Anhaltspunkte über den allgemeinen Ablauf und die Datenverarbeitung enthielt (siehe Anhang \ref{lab:Studieninformationen}).\\
+Als nächstes wurde jede Testperson gebeten, einen Personenfragebogen auszufüllen. Vom Testleiter wurde jeder Testperson dazu genügend Zeit zum Ausfüllen gegeben.\\
+Nach Vollendung des Personenfragebogens wurde die Testperson mit der Annäherungserkennung vertraut gemacht. Hierzu wurde der Testperson vom Testleiter eine entsprechende Liste gezeigt, die die Listeneinträge bei Annäherung hervorheben konnte. Die Testperson hatte dabei die Gelegenheit mit der Liste zu interagieren.
+
+Anschließend wurde die Testanwendung konfiguriert: Der Testleiter startete hierzu unter Angabe der korrekten Testgruppe einen neuen Test. Infolgedessen zeigte die Testanwendung eine Identifikationsnummer an, die vom Testleiter in die vorhergesehenen Felder auf den Fragebögen eingetragen wurde. Danach wurde die Testumgebung der Testperson übergeben. Während der Tests durfte das Testgerät von der Testperson festgehalten, jedoch nicht von der Tischfläche angehoben werden.\\
+Bevor mit dem Test begonnen werden konnte, wurde die Testperson darum gebeten, sich die Testbeschreibung durchzulesen und mögliche Fragen zu äußern. Sobald alle Fragen geklärt wurden, begann die Testperson mit dem ersten Test.\\
+Nachdem die Testperson die erster Testvariante des Tests abgeschlossen hat, wurde ihr der System Usability Scale überreicht. Die Testperson konnte diesen nach "`Bauchgefühl"' ausfüllen und im Anschluss mit der Wiederholung fortfahren. Wurde der System Usability Scale auch für diese Testvariante ausgefüllt, leitete der Testleiter schließlich den zweiten Test ein.
+
+Die Testperson wurde gebeten, die Testbeschreibung des zweiten Tests durchzulesen und mögliche Fragen anzuzeigen. Danach konnte die Testperson mit dem Test beginnen. Insgesamt wurde dieser Test von der Testperson zwei Mal wiederholt. Jede Testvariante wurde dabei ebenfalls mit einem System Usability Scale abgeschlossen.
+
+Nachdem alle Tests der Testanwendung vollständig absolviert wurden, führte der Testleiter eine abschließende Befragung der Testperson gemäß des zusätzlichen Fragebogens durch und protokollierte eigenständig die von der Testperson gegebenen Antworten auf dem Fragebogen, um eine möglichst ausführliche Rückmeldung zu erhalten. 
+
+\section{Design}\label{sec:design}
+Die gesamte Testsitzung ist in zwei verschiedene Tests aufgeteilt. Der erste Test besitzt einen Faktor mit zwei Settings und der zweite Test ist ein 3 x 26 Design. Beide Test sind zudem ein Within-subjects Design.
+
+Der erste Test berücksichtigt die unabhängige Variable {\ttfamily Annäherungserkennung} mit den nominalen Zuständen \emph{ausgeschaltet} und \emph{eingeschaltet}. Der erste Test besitzt somit zwei Settings. Die abhängige Variable {\ttfamily Zeit} beschreibt die Zeitspanne (in ms) zwischen der Listeneinblendung und der Berührung der korrespondierenden Schaltfläche. Bei Fehlselektionen wird die Variable nicht zurückgesetzt.
+
+Der zweite Test berücksichtigt zwei unabhängige Variablen, {\ttfamily Schaltflächengröße} und {\ttfamily Annäherungserkennung}. Die unabhängige Variable {\ttfamily Schaltflächengröße} besitzt 26 diskrete Zustände, beginnend bei \emph{10mm} und endend bei \emph{1,4mm}. Die unabhängige Variable {\ttfamily Annäherungserkennung} besitzt die nominalen Zustände \emph{ausgeschaltet}, \emph{eingeschaltet} und \emph{eingeschaltet mit Selektionshilfe}. Der Test ermittelt für jedes Setting die Werte von vier abhängigen Variablen: Die {\ttfamily Gesamtzeit} (in ms) gibt die Zeitspanne zwischen der Fingeranhebung nach der ersten Blaufärbung der Zielschaltfläche bis zur Berührung dieser Schaltfläche an - bei Fehlberührungen wird die Variable nicht zurückgesetzt. Die abhängige Variable {\ttfamily Zeit} wird hingegen vor jedem Neuversuch zurückgesetzt. Die {\ttfamily Fehlerzahl} gibt die Anzahl der Fehlberührungen an und wird den Wert \emph{4} nicht übersteigen, da nach dem vierten Fehlversuch der Test vorzeitig beendet wird. Bei einem Testabbruch wird die abhängige Variable {\ttfamily Abbrüche} von \emph{0} auf \emph{1} gesetzt. Sollten einige Settings aufgrund eines Testabbruchs übersprungen worden sein, so bleiben für diese Settings die abhängigen Variablen {\ttfamily Zeit} und {\ttfamily Gesamtzeit} in der Auswertung unberücksichtigt. Die abhängige Variable {\ttfamily Fehlerzahl} wird in diesem Fall auf den Wert \emph{5} und die abhängige Variable {\ttfamily Abbrüche} auf den Wert \emph{1} gesetzt.
+
+\begin{table}
+\centering
+\renewcommand{\arraystretch}{2}
+\setlength{\tabcolsep}{5pt}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\begin{tabular}{|C{.7cm}|C{.7cm}|c|c|c|c|c|}
+\cline{3-7}
+\multicolumn{2}{c|}{} & \multicolumn{2}{c|}{Test 1} & \multicolumn{3}{c|}{Test 2} \\
+\cline{3-7}
+\multicolumn{2}{c|}{} & \small 1. Durchgang & \small 2. Durchgang & \small 1. Durchgang & \small 2. Durchgang & \small 3. Durchgang \\
+\hline
+\multirow{6}{*}{\begin{sideways} Gruppe~ \end{sideways}} & A & I & II & I & II & III \\
+\cline{2-7}
+& B & I & II & II & III & I \\
+\cline{2-7}
+& C & I & II & III & I & II \\
+\cline{2-7}
+& D & II & I & I & II & III \\
+\cline{2-7}
+& E & II & I & II & III & I \\
+\cline{2-7}
+& F & II & I & III & I & II \\
+\hline
+\end{tabular}
+\caption{Übersicht über das Counterbalancing der Zustände \emph{ausgeschaltet} (I), \emph{eingeschaltet} (II) und \emph{Selektionshilfe} (III) in beiden Tests.}
+\label{counterbalancing}
+\end{table}
+Um ein Counterbalancing zu erwirken, wurden gemäß des Latin Squares die Tests in mehreren Reihenfolgen durchlaufen. Der erste Test benötigt gemäß der Zustandsanzahl der unabhängigen Variable {\ttfamily Annäherungserkennung} zwei Reihenfolgen. Der zweite Test muss für ein entsprechendes Counterbalancing aufgrund des zusätzlichen Zustands \emph{eingeschaltet mit Selektionshilfe} mit drei verschiedenen Reihenfolgen getestet werden. Die Tabelle~\ref{counterbalancing} stellt das Counterbalancing in vereinfachter Form dar.
+
+\chapter{Ergebnisse}
+In diesem Kapitel wird die Auswertung der erhobenen Daten erläutert und die Ergebnisse der Studie präsentiert.
+
+Die Protokolldaten wurden anhand eines eigens entwickelten Programms analysiert und für die statistische Auswertung unter R \citep{rproject} aufbereitet. Die Protokolldaten, der entsprechende Programmcode und die aufbereiten Daten sind in digitaler Form auf dem beiliegenden Datenträger dieser Bachelorarbeit gespeichert. Darüber hinaus finden sich auch die Quelltexte für R inklusive aller grafischen Datendiagramme auf diesem Datenträger.
+
+\section{Test 1: Listenauswahl}
+\begin{figure}
+\centering
+\includegraphics[width=0.68\textwidth]{img/BoxplotTest1.png}
+\caption{Kastengrafik mit den Zeitwerten für beide Settings aus Test 1.}
+\label{ergebnistest1}
+\end{figure}
+Eine Korrektur der Messdaten ist für die Auswertung des ersten Tests nicht nötig gewesen. Somit fand innerhalb der 252 Trials keine Verringerung der Messdaten statt. Die durchschnittliche Gesamtzeit über alle Trials beträgt $7305.7$ ms. Trennt man die Gesamtzeiten in die beiden Settings auf, so lag die durchschnittliche Gesamtzeit mit eingeschalteter Annäherungserkennung bei $7290.7$ ms und ist damit um $0.41\%$ kleiner als mit ausgeschalteter Annäherungserkennung mit $7320.8$ ms. Zur Übersicht stellt die Abbildung~\ref{ergebnistest1} die Ergebnisse der beiden Settings grafisch dar.\\
+Die Unterschiede zwischen den Gesamtzeiten der beiden Settings waren nicht signifikant ($F_{1,17}\approx 0.003$, $p > .05$).\\
+Ein signifikanter Unterschied bestand jedoch zwischen den zu suchenden Personeneigenschaften in der Personenliste ($F_{6,102}\approx 8.558$, $p < .05$). Ein etwaiger Einfluss der Personeneigenschaften auf die Gesamtzeiten zwischen den beiden Settings ist damit nicht auszuschließen.
+
+\section{Test 2: Präzisionstest}
+Bevor es zu einer statistischen Auswertung des zweiten Tests kam, wurden alle fehlerhaften Werte mit deutlichen Messfehlern entfernt. Die Gesamtzahl der Trials verkleinerte sich von 1404 auf 1402. Zur Auswertung wurden die verbliebenen Testpersonen anschließend für jede Schaltflächengröße anhand der Anzahl der Abbrüche ermittelt und grafisch in einem Balkendiagramm dargestellt (siehe Abbildung~\ref{ergebnistest2survivals:10mm}). Ein Abbruch liegt vor, sobald die Testperson auch nach vier Versuchen die korrespondierende Schaltfläche nicht getroffen hat.\\
+Das Diagramm zeigt, dass sich die Anzahl der verbliebenen Testpersonen bis zu einer Schaltflächengröße von $4{,}5$ mm nicht verringerte. Bei Schaltflächengrößen von mindestens $2{,}8$ mm verblieben die Testpersonen mit ausgeschalteter Annäherungserkennung mindestens genauso lange im Test, während sich die Anzahl der Testpersonen mit aktiverer Selektionshilfe leicht verringerte. Signifikante Unterschiede würden sich erst feststellen lassen, wenn ausschließlich die Schaltflächengrößen zwischen $2{,}4$ mm und $1{,}4$ mm betrachtet werden. In diesem Fall würden mehr Testpersonen mit eingeschalteter Annäherungserkennung oder Selektionshilfe im Test verbleiben.
+\begin{figure}
+\centering
+\subfigure[Schaltflächengrößen von $10$ mm bis $1{,}4$ mm.]{\includegraphics[width=\textwidth]{img/BarplotTest2Survivals.png}\label{ergebnistest2survivals:10mm}}
+\vfill
+\subfigure[Schaltflächengrößen von $2{,}4$ mm bis $1{,}4$ mm.]{\includegraphics[width=\textwidth]{img/BarplotTest2SurvivalsSubset.png}\label{ergebnistest2survivals:2.4mm}}
+\caption{Balkendiagramm der verbliebenen Testpersonen aus Test 2.}
+\label{ergebnistest2survivals}
+\end{figure}\\
+Betrachtet man den Test mit allen Schaltflächengrößen von $10$ mm und $1{,}4$ mm, so wurden keine signifikanten Unterschiede zwischen der Anzahl der verbliebenen Testpersonen in den jeweiligen Settings festgestellt ($F_{2,50}\approx 1.831$, $p > .05$). Signifikante Unterschiede sind festzustellen, sobald der Test ausschließlich mit den Schaltflächengrößen von $2{,}4$ mm bis $1{,}4$ mm betrachtet wird ($F_{2,6}\approx 8.725$, $p < .05$). Die Abbildung~\ref{ergebnistest2survivals:2.4mm} stellt diesen Wertebereich übersichtlich in einer Vergrößerung dar. Die signifikanten Unterschiede wurden mittels eines t-Test für gepaarte Stichproben ermittelt. Die Anzahl der verbliebenen Testpersonen ist mit ausgeschalteter Annäherungserkennung ($M = 9.75$, $SD\approx 4.03$) signifikant kleiner als mit eingeschalteter Annäherungserkennung ($M = 14.5$, $SD\approx 2.52$, $t(3) = -4.6082$, $p < .05$). Die Anzahl der verbliebenen Testpersonen mit aktivierter Selektionshilfe ($M = 14.75$, $SD = 0.50$) steht mit keinem Setting in einem signifikanten Zusammenhang.
+
+Um die Geschwindigkeit jedes Settings zu bewerten, wurden die Parameter aus den Rohdaten in ein Modell nach Fitts' Law transferiert. Hierzu wurden zunächst die unrealistisch kleinen Zeiten und die oberen Ausreißer entfernt ($75\%$-Quantil). Für jede Testperson wurde anschließend ein Diagramm erstellt, dass für jede Schaltflächengröße und Annäherungserkennung den "`Index of Difficulty"' und die Zeit (siehe Abschnitt~\ref{sec:design}) in einem Koordinatensystem darstellt. Im darauffolgenden Schritt wurde pro Annäherungserkennung eine Regressionsgerade über die Punkte inklusive dem dazugehörigen Korrelationskoeffizienten berechnet. Die Abbildung~\ref{ergebnistest2fitts} zeigt den Datensatz einer Testperson.
+\begin{figure}
+\centering
+\includegraphics[width=0.68\textwidth]{img/fittsUser12.png}
+\caption{Diagramm zur Bewertung von Fitts' Law.}
+\label{ergebnistest2fitts}
+\end{figure}
+Nach einer anfänglichen Begutachtung der Diagramme aller Testpersonen und einer darauffolgenden statistischen Auswertung wurde deutlich, dass sich die Steigungen der Regressionsgerade unter den einzelnen Testvarianten immer signifikant voneinander unterscheiden ($F_{2,34}\approx 13.063$, $p < .05$). Eine zusätzliche Reaktionszeit muss aufgrund des Versuchsaufbaus nicht berücksichtigt werden, da keine indirekte Eingabe erfolgt. Mittels eines t-Test für gepaarte Stichproben wurden die signifikanten Unterschiede für jedes Settings-Paar ermittelt. Die Steigung der Regressionsgerade für die Trials mit Selektionshilfe war dabei am steilsten ($M \approx 284.08$, $SD \approx 177.44$) und damit signifikant größer ($t(17) = -5.3199$, $p < .05$) als die Steigung mit ausgeschalteter Annäherungserkennung ($M \approx 77.04$, $SD \approx 46.68$). Auch die Steigung mit ausgeschalteter Annäherungserkennung war gegenüber der Steigung mit eingeschalteter Annäherungserkennung ($M \approx 187.25$, $SD \approx 142.27$) signifikant kleiner ($t(17) = -3.1949$, $p < .05$). Es konnten keine signifikanten Unterschiede zwischen den Steigungen der Regressionsgeraden mit Selektionshilfe und eingeschalteter Annäherungserkennung festgestellt werden. Umso höher dabei die Steigung der Regressionsgerade ausfällt, desto länger wird nach Fitts im Allgemeinen für die Selektion benötigt.
+
+\section{System Usability Scale}
+\begin{figure}
+\centering
+\subfigure[Test 1: Listenauswahl.]{\includegraphics[width=0.49\textwidth]{img/BoxplotSUSTest1.png}}
+\hfill
+\subfigure[Test 2: Präzisionstest.]{\includegraphics[width=0.49\textwidth]{img/BoxplotSUSTest2.png}}
+\caption{Kastengrafik mit den Scores des System Usability Scales für die Testreihen in beiden Tests.}
+\label{ergebnisSUS}
+\end{figure}
+Nach der Auswertung aller System Usability Scales (siehe Abbildung~\ref{ergebnisSUS}), wurde für den ersten Test ein durchschnittlicher Score von $81{,}8$ ermittelt. Nach Auftrennung der Scores in die beiden Settings, lag der Score mit eingeschalteter Annäherungserkennung bei $80{,}6$ und ist damit kleiner als mit ausgeschalteter Annäherungserkennung mit $83{,}1$.\\
+Der zweite Test erhielt einen durchschnittlichen Score von $74{,}3$. Durch die Auftrennung der Scores in die drei Settings, erhielt das Setting mit eingeschalteter Annäherungserkennung bei einem Score von $75{,}8$ den höchsten Wert. Das Setting mit ausgeschalteter Annäherungserkennung erhielt mit einem Score von $73{,}6$ den zweithöchsten Wert. Der Score des Settings mit aktivierter Selektionshilfe war mit $73{,}3$ der kleinste Wert.\\
+Nach der statistischen Betrachtung wurden sowohl für den ersten Test ($F_{2,34}\approx 1.937$, $p > .05$) als auch für den zweiten Test ($F_{1,17}\approx 0.246$, $p > .05$) keine signifikanten Unterschiede zwischen den Settings festgestellt. In beiden Tests fielen die Scores jedoch überdurchschnittlich gut aus \citep{sus2013}: Im ersten Test wurden für beide Testvarianten exzellente Ergebnisse erzielt. Die Testvarianten im zweiten Tests erzielten gute Ergebnisse.
+
+\chapter{Diskussion}
+Die statistischen Ergebnisse des ersten Tests deuten nicht darauf hin, dass durch die Annäherungserkennung eine Verbesserung der Usability während der Interaktion mit Listen erwirkt wird. Auch die Ergebnisse des System Usability Scores zeigen, dass sich die Usability bei eingeschalteter Annäherungserkennung verschlechterte.\\
+Das schlechte Abschneiden des ersten Tests ist höchstwahrscheinlich auch durch den Testaufbau stark beeinflusst worden: Durch die Notizen des Testleiters wurde festgestellt, dass 5 von 18 Personen die Hervorhebungen mangels fehlender Fingerannäherung nicht gesehen haben. Zudem gaben 9 von 18 Testpersonen explizit an, dass ihnen der Testaufbau nicht gefallen hat: Entweder hielten sie die Listeneinträge aufgrund der Hervorhebungen bei Annäherung für Schaltflächen oder sie bemängelten die Bedienung in zwei Schritten. Dementsprechend wäre das direkte Anwählen der Listen intuitiver gewesen, anstatt zusätzliche Schaltflächen am unteren Bildschirmrand zu verwenden.\\
+Aus diesem Grund wäre ein erneuter Testdurchgang mit anwählbaren Schaltflächen interessant. Die Hervorhebungen bei Annäherung können nämlich bei richtiger Umsetzung für die Nutzer durchaus eine Hilfestellung sein. Immerhin haben 7 von 18 Testpersonen angegeben, dass ihnen die Hervorhebungen im ersten Test als hilfreich in Erinnerung geblieben sind. Zudem sind im Bezug auf die Schaltflächenidentifizierung die Beobachtungen des Testleiters interessant: Bei mehreren Testpersonen wurde beobachtet, dass diese die Listeneinträge während der Hervorhebungen bei der Annäherung anschließend anwählten und sie somit von der Testbeschreibung abwichen.
+
+Die Bewertung bei eingeschalteter Annäherungserkennung fiel im zweiten Tests hingegen deutlich besser aus. So gaben im zusätzlichen Fragebogen 14 von 18 Personen an, dass die Hervorhebungen bei der Lösung der Aufgaben geholfen haben. Die Ergebnisse des System Usability Scores bestätigen diese Annahme, da sich diese bei eingeschalteter Annäherungserkennung im Vergleich zu den beiden anderen Alternativen leicht verbessern. Betrachtet man die statistischen Ergebnisse zur verbliebenen Nutzeranzahl pro Schaltflächengröße, zeigt sich, dass die eingeschaltete Annäherungserkennung bei sehr kleinen Schaltflächen ab $2{,}4$ mm signifikant besser abschneidet und die Nutzer bei derartigen Szenarios unterstützt. Dies würde beispielsweise eine Implementation der Annäherungserkennung in Anwendungen rechtfertigen, die über sehr kleine Schaltflächen verfügen, u.A. in Kartenanwendungen oder im Internetbrowser bei kleinen Zoomstufen.\\
+Bei größeren Schaltflächen konnten keine signifikanten Unterschiede festgestellt werden. Ob die Annäherungserkennung auch in diesen Fällen eingeschaltet werden sollte, ist möglicherweise eine nutzerspezifische Frage. Zumal im zusätzlichen Fragebogen 6 von 18 Testpersonen angeben, dass die Hervorhebungen gelegentlich unpräzise und störend waren. Zudem ist laut den Ergebnissen zu Fitts' Law erkennbar, dass sich die Zeitdauer bis zur endgültigen Ausführung einer Interaktion mit eingeschalteter Annäherungserkennung erhöhte. Darüber hinaus deuten die hohen Standardabweichungen, die für die Steigungen der Regressionsgeraden ermittelt wurden, darauf hin, dass sich die individuellen Fertigkeiten der Testpersonen stark unterscheiden.
+
+Die Selektionshilfe erhielt für den System Usability Score die, wenn auch geringfügig, schlechtesten Ergebnisse. Die Zeitdauer bis zur endgültigen Ausführung einer Interaktion war bei der Selektionshilfe laut der Auswertung nach Fitts' Law ebenfalls am höchsten. Bei Schaltflächen in einem Größenbereich von $2{,}4$ mm bis $1{,}4$ mm ist die Implementation einer Selektionshilfe dennoch denkbar, da die Anzahl der verbliebenen Nutzer mit dieser Methode am höchsten war. Es ist jedoch anzumerken, dass die Anzahl der verbliebenen Nutzer mit aktivierter Selektionshilfe sich nicht signifikant von denen der anderen Testvarianten unterscheidet. Um die Präzision und Geschwindigkeit der Selektionshilfe hinreichend zu optimieren, sind somit weitere Anpassungen des Algorithmus nötig.
+
+\section{Vergleich zu den bisherigen Leitfäden}
+Die Erkenntnisse, die innerhalb dieser Bachelorarbeit erlangt wurden, deuten darauf hin, dass eine Verringerung der Mindestgrößen für Bedienelemente trotz Annäherungserkennung nicht sinnvoll wären. Zwar konnte die Präzision der Touchposition bei Schaltflächengrößen zwischen $2{,}4$ mm und $1{,}4$ mm durch Einblenden von Hervorhebungen bei Fingerannäherung erhöht werden, jedoch erfolgt dies in einem sehr kleinen, von $7$ mm weit entferntem, Größenbereich und eine Implementation ist somit nur in derartigen Spezialfällen ratsam. Darüber hinaus bleibt das Fat-Finger-Problem ungelöst: Im zusätzlichen Fragebogen gaben 7 von 18 Testpersonen an, dass sie diesen Umstand als störend empfanden.\\
+Hinzu kommt die mangelnde Unterstützung dieser Technologie seitens der Hardwarehersteller, sowie die noch zu geringe Geschwindigkeit und Genauigkeit der Fingerlokalisierung auf mobilen Endgeräte mit bereits integrierter Annäherungserkennung.
+
+\section{Limitierungen}
+Trotz aller Bemühungen die Tests bestmöglich auszuführen, hat durch das universitäre Umfeld eine indirekte Fokussierung der Testpersonen stattgefunden. Gerne hätte ich auch ältere Personen in meiner Studie die Testanwendung testen lassen. Allerdings haben sich hauptsächlich junge Menschen gemeldet. Auch eine Akquise meinerseits änderte daran nichts. Die wenigen in Frage gekommenen Testpersonen mit hohem Alter (z.B. Seniorenalter) konnten somit leider nicht teilnehmen, da dem Schaffen einer möglichst homogenen Gruppe eine höhere Priorität eingeräumt wurde.
+
+Auch der Umfang der Tests hätte durchaus ausgeweitet werden können. Zwar wurden auch die genannten Parameter zur Bestimmung der Fehlerrate und Ausführungszeit protokolliert und statistisch untersucht, jedoch hätte eine wissenschaftliche Auswertung mit hinreichender Güte den Umfang dieser Bachelorarbeit weit überstiegen.
+
+\chapter{Fazit}
+Im Rahmen dieser Bachelorarbeit wurde für ein verbessertes Verständnis der Usability von Annäherungserkennung und zur Überprüfung der Mindestgrößen von Bedienelementen eine Studie durchgeführt. Hierzu wurde eine eigens entwickelte Testanwendung konzipiert und implementiert. Nachdem die 18 Testpersonen die Tests innerhalb der Testanwendung mehrmals wiederholten, wurden durch statistische Analysen der erhobenen Daten die Unterschiede mehrerer Parameter unter Berücksichtigung der jeweiligen Zustände der Annäherungserkennung ermittelt.
+
+Auch wenn die Ergebnisse der System Usability Scores für die jeweiligen Annäherungserkennungen sich in beiden Tests nicht signifikant voneinander unterscheiden, konnte der zusätzliche Fragebogen zeigen, dass die Annäherungserkennung von der Mehrheit der Nutzer angenommen und bevorzugt wird. Nach dem subjektiven Empfinden der Nutzer unterstützte es sie bei der Erledigung ihrer Aufgaben.
+
+Bei Tests mit Listeneinträgen konnte kein signifikanter Unterschied zwischen den Bearbeitungszeiten bei ein- und ausgeschalteter Annäherungserkennung gefunden werden. Beim Präzisionstest unterschied sich bei üblichen Schaltflächengrößen die Anzahl der verblieben Testpersonen im Test kaum. Lediglich bei Schaltflächengrößen zwischen $2{,}4$ mm und $1{,}4$ mm konnten mit eingeschalteter Annäherungserkennung signifikant mehr Testpersonen im Test verbleiben. Laut den Ergebnissen zu Fitts' Law erhöhte sich mit eingeschalteter Annäherungserkennung jedoch die Zeitdauer bis zur endgültigen Ausführung einer Interaktion. Die Zeitdauer war zum Vergleich bei ausgeschalteter Annäherungserkennung am geringsten und während der aktivierten Selektionshilfe am größten. Die Zeitdauer war zwischen der ausgeschalteten und der eingeschalteten Annäherungserkennung, sowie zwischen der eingeschalteten Annäherungserkennung und der aktivierten Selektionshilfe signifikant. Außerdem gaben 14 von 18 Personen im zusätzlichen Fragebogen an, dass ihnen die Hervorhebungen bei der Lösung der Aufgaben geholfen haben.
+
+Als Ausblick wäre für die weitere Forschung eine Auswertung der verbleibenden Datensätze interessant. Die gesamten Daten befinden sich ebenfalls auf dem beiliegendem Datenträger. Das größte Potential ergibt sich meiner Meinung nach bei der Optimierung der Selektionshilfe, die zu einem fortgeschrittenem Forschungsstand idealerweise die Touchpositionen des Nutzers unbemerkt im Hintergrund optimiert. Es wäre denkbar, dass sich somit besonders kleine Schaltflächen mit wenig Aufwand anwählen lassen. Mögliche Einsatzgebiete für eine derartige Selektionshilfe ergeben sich beispielsweise in Kartenanwendungen und Webseiten bei geringen Zoomstufen, auf Bedienoberflächen für Platzreservierungen und bei Bildschirmtastaturen.
+
+Weitere mögliche Forschungsgebiete bestehen in Szenarien der Textselektion und Schaltflächenidentifizierung, z.B. durch visuelle Hervorhebungen bei Annäherung.\\
+Alternativ wären anstatt von Hervorhebungen zusätzliche visuelle Ebenen denkbar, z.B. die Entwicklung eines Fingerpositionszeigers mit einem beliebigen Positionsversatz zur Lösung des Fat-Finger-Problems. Eine anfängliche Implementation findet sich ebenfalls im Quelltext der Testanwendung. Der Quelltext ist auf dem beiliegendem Datenträger gespeichert.
+
+Unabhängig von den oberen Themen, ließe sich auch im Hardwarebereich forschen. So könnte die Annäherungserkennung in diesem Feld von Geschwindigkeits- und Genauigkeitserhöhungen bei der Fingerlokalisierung profitieren. Eventuell lassen sich auch geeignete Szenarien für die Annäherungserkennung finden, bei denen die Nutzung von mehreren Fingern mit einem Mehrwert verbunden ist. In diesem Fall müssen auch hardwareseitig noch die nötigen Voraussetzung geschaffen werden.
+
+\begin{appendix} 
+\chapter{Anhang}
+\newpage
+\section{Studieninformationen}
+\vspace*{\fill}
+\center{\frame{\includegraphics[width=.98\textwidth, page=1]{apx/Studieninformationen}}}
+\label{lab:Studieninformationen}
+\vspace*{\fill}
+
+\section{Personenfragebogen}
+\vspace*{\fill}
+\center{\frame{\includegraphics[width=.98\textwidth, page=1]{apx/Personenfragebogen}}}
+\label{lab:Personenfragebogen}
+\vspace*{\fill}
+\clearpage
+\vspace*{\fill}
+\center{\frame{\includegraphics[width=.98\textwidth, page=2]{apx/Personenfragebogen}}}
+\vspace*{\fill}
+ 
+\section{Bewertungsbögen}
+\vspace*{\fill}
+\center{\frame{\includegraphics[width=.98\textwidth, page=1]{apx/Bewertungsboegen}}}
+\label{lab:Bewertungsbögen}
+\vspace*{\fill}
+\clearpage
+\vspace*{\fill}
+\center{\frame{\includegraphics[width=.98\textwidth, page=2]{apx/Bewertungsboegen}}}
+\vspace*{\fill}
+\clearpage
+\vspace*{\fill}
+\center{\frame{\includegraphics[width=.98\textwidth, page=3]{apx/Bewertungsboegen}}}
+\vspace*{\fill}
+\clearpage
+\vspace*{\fill}
+\center{\frame{\includegraphics[width=.98\textwidth, page=4]{apx/Bewertungsboegen}}}
+\vspace*{\fill}
+\clearpage
+\vspace*{\fill}
+\center{\frame{\includegraphics[width=.98\textwidth, page=5]{apx/Bewertungsboegen}}}
+\vspace*{\fill}
+\clearpage
+\vspace*{\fill}
+\center{\frame{\includegraphics[width=.98\textwidth, page=6]{apx/Bewertungsboegen}}}
+\vspace*{\fill}
+
+\end{appendix}
+
+%ENDE-----------------------------------------------------------------------------------
+% Literaturverzeichnis
+\clearpage
+\pagenumbering{roman}
+\bibliographystyle{mlu_ifg}
+\bibliography{books}
+
+%Abbildungsverzeichnis
+\listoffigures
+
+% Erklärung
+\chapter*{Erklärung}
+\thispagestyle{empty}
+Ich versichere hiermit, dass ich die vorliegende Bachelorarbeit selbständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Die Arbeit wurde keiner anderen Prüfungsbehörde vorgelegt und auch nicht veröffentlicht.
+\begin{center}
+\begin{tabular}{lp{2em}l} 
+ \hspace{5cm}   && \hspace{4cm} \\\cline{1-1}\cline{3-3} 
+ Bremen, \today    && Jan-Hendrik Wolf 
+\end{tabular} 
+\end{center}
+\end{document}
