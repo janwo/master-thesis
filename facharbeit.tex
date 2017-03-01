@@ -9,7 +9,7 @@
 \usepackage{lmodern}
 \usepackage[numbers, sort&compress]{natbib}
 \usepackage{graphicx} 
-\usepackage{subfigure} 
+\usepackage{subcaption}
 \usepackage{filecontents}
 \usepackage{rotating}
 \usepackage{multirow}
@@ -281,9 +281,9 @@ Grund hierfür ist der fehlende Mauszeiger als indirektes Eingabegerät. Währen
 Ein weiterer Vorteil der Mausinteraktion gegenüber der Interaktion durch Berührung ist der Umstand, dass die aktuelle Position des Mauszeigers auch vor dem Klicken auf der Bedienoberfläche sichtbar ist. Die Positionierung und der Klick mittels des Mauszeigers können somit unabhängig voneinander erfolgen. Dies ermöglicht das Schweben des Mauszeigers über einer Schaltfläche und wird als "`Hovering"' (engl. für "`Schweben"') bezeichnet. Auf Laptops und Desktop-PCs ist dies eine gängige Interaktionsform und wird meist verwendet, um die Eigenschaften von Objekten auf dem Bildschirm, wie z.B. das Aussehen, zu verändern. Durch derartige Eigenschaftsänderungen kann der Anwender das Objekt beispielsweise als Schaltfläche identifizieren.
 \begin{figure}
 \centering
-\subfigure[Zusätzliche, visuelle Ebene: Bildschirmlupe.]{\includegraphics[width=0.49\textwidth]{img/einleitung1_hoverlupe.png}}
+\subcaption{Zusätzliche, visuelle Ebene: Bildschirmlupe.}%{\includegraphics[width=0.49\textwidth]{img/einleitung1_hoverlupe.png}}
 \hfill
-\subfigure[Selektion ohne Ausführung: Menüauswahl.]{\includegraphics[width=0.49\textwidth]{img/einleitung1_hovermenu.png}}
+\subcaption{Selektion ohne Ausführung: Menüauswahl.}%{\includegraphics[width=0.49\textwidth]{img/einleitung1_hovermenu.png}}
 \caption{Schematische Darstellung für "`Hovering"' als Interaktionsform.}
 \label{hoveringdesktop}
 \end{figure}
@@ -309,21 +309,13 @@ Sony verwendete die Technologie, um Hintergrundbilder auf dem Hauptbildschirm w�
 Der Hersteller Samsung bietet in seinen Smartphones ebenfalls Anwendungen an, die auf Annäherung reagieren. Sie lassen sich in zwei Arten unterteilen: In der Ersten werden Informationen auf kleinem Raum durch Annäherung vergrößert bzw. neu angeordnet, sodass sich die Übersicht für den Nutzer verbessert. Als Beispiel dient hier die Galerieanwendung (siehe Abbildung~\ref{samsungeinleitung1}). In der Galerie werden Bilder bei Annäherung vergrößert, sodass der Nutzer eine Vorschau erhält.
 \begin{figure}
 \centering
-\subfigure[Normalzustand der Galerie.]{\includegraphics[width=0.49\textwidth]{img/software1_nohover.png}}
+\subcaption{Normalzustand der Galerie.}%{\includegraphics[width=0.49\textwidth]{img/software1_nohover.png}}
 \hfill
-\subfigure[Bildvergrößerung bei Annäherung.]{\includegraphics[width=0.49\textwidth]{img/software1_hover.png}}
+\subcaption{Bildvergrößerung bei Annäherung.}%{\includegraphics[width=0.49\textwidth]{img/software1_hover.png}}
 \caption{Objektvergrößerungen bei Annäherung des Fingers mit aktiviertem \mbox{AirView™} auf einem \mbox{Samsung Galaxy S4}.}
 \label{samsungeinleitung1}
 \end{figure}
 Die zweite Art der Anwendungen zeigen bei Annäherung nicht Vergrößerungen oder detailliertere Ausführungen, sondern zuvor nicht sichtbare Informationen an. Somit können weitere Zusatzinformationen eingeblendet werden (siehe Abbildung~\ref{samsungeinleitung2}). Als Beispiel dient der Wahlbildschirm, in der bei Annäherung auf eine aktive Kurzwahltaste der darauf jeweils gespeicherte Kurzwahlkontakt angezeigt wird.
-\begin{figure}
-\centering
-\subfigure[Normalzustand des Wahlbildschirms.]{\includegraphics[width=0.49\textwidth]{img/software2_nohover.png}}
-\hfill
-\subfigure[Kurzwahlinformationen bei Annäherung.]{\includegraphics[width=0.49\textwidth]{img/software2_hover.png}}
-\caption{Einblenden zusätzlicher Informationen bei Annäherung des Fingers auf einem Samsung Galaxy S4 mit aktiviertem \mbox{AirView™.}}
-\label{samsungeinleitung2}
-\end{figure}
 
 \section{Bisherige Leitfäden für Bedienelemente}
 Aufgrund der geringeren Abmessungen mobiler Endgeräte im Vergleich zu stationären Geräten und der direkten Bedienung mittels berührungsempfindlicher Bildschirme, ist die Gestaltung der Bedienelemente ein entscheidendes Kriterium für die reibungslose Interaktion zwischen Mensch und Maschine. Alle Hersteller der populären mobilen Betriebssysteme bieten umfangreiche Leitfäden an, die Empfehlungen für Anwendungsentwickler zur Gestaltung von Bedienelementen darstellen. In diesen Leitfäden werden u.A. Mindestangaben zu Größen und Abständen kommuniziert (siehe Tabelle~\ref{leitfadenalle}). In Leitfäden für Desktop-Computer werden keine empfohlenen Mindestgrößen genannt.\\
@@ -369,10 +361,7 @@ Um die Verschiebungen zwischen der Schwebe- und Touchposition des Fingers nachzu
 Um mögliche Zusammenhänge der Verschiebungen zwischen der Touch- und Schwebeposition des Fingers nachzuweisen, wurde eine weitere Testanwendung entwickelt, die die letzte Schwebe- und Touchposition aufzeichnete. Dabei sollten Nutzer eine Abfolge von verschiedenen Punkten auf dem Bildschirm berühren. Die jeweiligen Schwebe- und Touchpositionen waren für die Testperson zu diesem Zeitpunkt nicht sichtbar und wurden erst nach dem eigentlichen Test angezeigt.
 \begin{figure}
 \centering
-\subfigure[Interaktion mit dem Finger.]{\includegraphics[width=0.45\textwidth]{img/kalibrierung1_finger.png}}
-\hfill
-\subfigure[Interaktion mit dem Daumen.]{\includegraphics[width=0.45\textwidth]{img/kalibrierung1_daumen.png}}
-\caption{Visualisierung der relativen Verschiebungen zwischen der Touch- und Schwebeposition. Die Pfeile inkl. Farbtemperatur zeigen die Distanz der Verschiebung an.}
+
 \label{klickschwebepositionen}
 \end{figure}
 Anschließend wurden die Werte mittels eines eigens geschriebenen Hilfsprogramms ausgewertet und visualisiert.
@@ -409,7 +398,7 @@ Bei dem Testgerät handelt es sich um ein \mbox{Samsung Galaxy S4}. Das darauf i
 
 \begin{figure}
 \centering
-\includegraphics[width=0.68\textwidth]{img/apparatus1.jpg}
+%\includegraphics[width=0.68\textwidth]{img/apparatus1.jpg}
 \caption{Testbeschreibung des ersten Tests.}
 \label{apparattestbeschreibung}
 \end{figure}
@@ -420,17 +409,17 @@ Die Testanwendung ist in zwei unterschiedliche Tests unterteilt und wurde so ges
 \subsection{Test 1: Listenauswahl}
 \begin{figure}
 \centering
-\includegraphics[width=0.68\textwidth]{img/test1_screenshot1.png}
+%\includegraphics[width=0.68\textwidth]{img/test1_screenshot1.png}
 \caption{Bildschirmfoto der Personenliste im ersten Test.}
 \label{test1screenshot}
 \end{figure}
 \begin{figure}
 \centering
-\subfigure[Phase 1: Zu suchende Person wird beschrieben.]{\includegraphics[width=0.64\textwidth]{img/test1_phase1.jpg}}
+\subcaption{Phase 1: Zu suchende Person wird beschrieben.}%{\includegraphics[width=0.64\textwidth]{img/test1_phase1.jpg}}
 \vfill
-\subfigure[Phase 2: Anzeige einer pseudozufälligen Personenliste.]{\includegraphics[width=0.64\textwidth]{img/test1_phase2.jpg}}
+\subcaption{Phase 2: Anzeige einer pseudozufälligen Personenliste.}%{\includegraphics[width=0.64\textwidth]{img/test1_phase2.jpg}}
 \vfill
-\subfigure[Phase 3: Gesuchte Person in der unteren Leiste auswählen.]{\includegraphics[width=0.64\textwidth]{img/test1_phase3.jpg}}
+\subcaption{Phase 3: Gesuchte Person in der unteren Leiste auswählen.}%{\includegraphics[width=0.64\textwidth]{img/test1_phase3.jpg}}
 \caption{Aufbau von Test 1: Drei unterschiedliche Phasen pro Durchgang.}
 \label{test1phasen}
 \end{figure}
@@ -440,25 +429,18 @@ Hierzu wird dem Nutzer ein Anweisungsbildschirm mit zwei pseudozufälligen Perso
 Um zu überprüfen, ob die Hervorhebungen der Listeneinträge bei Annäherungen einen Einfluss auf die Aufgabenerfüllung gehabt haben, wird der Test ein zweites Mal wiederholt. Die Annäherungserkennung wird dabei nur in einem der beiden Durchläufe eingeschaltet.
 
 \subsection{Test 2: Präzisionstest}
-\begin{figure}
-\centering
-\subfigure[Darstellung während des Haltens der grünen Schaltfläche.]{\includegraphics[width=0.45\textwidth]{img/test2_screenshot1.png}\label{test2screenshots:gruen}}
-\hfill
-\subfigure[Darstellung während des Versuchs, die blaue Schaltfläche zu berühren.]{\includegraphics[width=0.45\textwidth]{img/test2_screenshot2.png}\label{test2screenshots:blau}}
-\caption{Bildschirmfotos der Bedienoberfläche in Test 2.}
-\label{test2screenshots}
-\end{figure}
+
 Die Testanwendung überprüft im zweiten Test die Wirkung von Hervorhebungen auf die Auswahlgenauigkeit kleiner Bedienelemente.\\
 Um auch in diesem Test die Auswirkungen der Annäherungserkennung zu untersuchen, wird dieser Test zwei Mal wiederholt. In der ersten Testvariante bleibt die Annäherungserkennung ausgeschaltet. In der zweiten Testvariante werden mittels eingeschalteter Annäherungserkennung die Zielschaltflächen bei Annäherung hervorgehoben. Die dritte Testvariante erweitert die zweite Testvariante durch eine zugeschaltete Selektionshilfe (vgl. Abschnitt~\ref{sec:kalibrierung}).
 
 Beim Start jeder Testvariante zeigt die Bedienoberfläche einen Anweisungstext an, die den Nutzer auf das Halten der grünen, runden Schaltfläche am unteren Bildschirmrand hinweist (siehe Abbildung \ref{test2phasen}).
 \begin{figure}
 \centering
-\subfigure[Phase 1: Halten der grünen Schaltfläche.]{\includegraphics[width=0.64\textwidth]{img/test2_phase1.jpg}}
+\subcaption{Phase 1: Halten der grünen Schaltfläche.}%{\includegraphics[width=0.64\textwidth]{img/test2_phase1.jpg}}
 \vfill
-\subfigure[Phase 2: Blaue Schaltfläche leuchtet pseudozufällig auf.]{\includegraphics[width=0.64\textwidth]{img/test2_phase2.jpg}}
+\subcaption{Phase 2: Blaue Schaltfläche leuchtet pseudozufällig auf}]%{\includegraphics[width=0.64\textwidth]{img/test2_phase2.jpg}}
 \vfill
-\subfigure[Phase 3: Berühren der blauen Schaltfläche.]{\includegraphics[width=0.64\textwidth]{img/test2_phase3.jpg}}
+\subcaption{Phase 3: Berühren der blauen Schaltfläche.}%{\includegraphics[width=0.64\textwidth]{img/test2_phase3.jpg}}
 \caption{Aufbau von Test 2: Drei unterschiedliche Phasen pro Durchgang.}
 \label{test2phasen}
 \end{figure}
@@ -492,11 +474,11 @@ Ein zusätzlicher Fragebogen bestehend aus überwiegend frei beantwortbaren Frag
 \section{Prozedur}
 \begin{figure}
 \centering
-\subfigure[Räumlichkeiten der Testsitzung.]{\includegraphics[width=0.64\textwidth]{img/prozedur1.jpg}}
+\subcaption{Räumlichkeiten der Testsitzung.}%{\includegraphics[width=0.64\textwidth]{img/prozedur1.jpg}}
 \vfill
-\subfigure[Testumgebung und Fragebögen.]{\includegraphics[width=0.64\textwidth]{img/prozedur2.jpg}}
+\subcaption{Testumgebung und Fragebögen.}%{\includegraphics[width=0.64\textwidth]{img/prozedur2.jpg}}
 \vfill
-\subfigure[Testperson füllt Personenfragebogen aus.]{\includegraphics[width=0.64\textwidth]{img/prozedur3.jpg}}
+\subcaption{Testperson füllt Personenfragebogen aus.}%{\includegraphics[width=0.64\textwidth]{img/prozedur3.jpg}}
 \caption{Räumlichkeiten, Aufbau und Lichtverhältnisse während der Studie}
 \label{prozedurumgebung}
 \end{figure}
@@ -558,7 +540,7 @@ Die Protokolldaten wurden anhand eines eigens entwickelten Programms analysiert 
 \section{Test 1: Listenauswahl}
 \begin{figure}
 \centering
-\includegraphics[width=0.68\textwidth]{img/BoxplotTest1.png}
+%\includegraphics[width=0.68\textwidth]{img/BoxplotTest1.png}
 \caption{Kastengrafik mit den Zeitwerten für beide Settings aus Test 1.}
 \label{ergebnistest1}
 \end{figure}
@@ -571,9 +553,9 @@ Bevor es zu einer statistischen Auswertung des zweiten Tests kam, wurden alle fe
 Das Diagramm zeigt, dass sich die Anzahl der verbliebenen Testpersonen bis zu einer Schaltflächengröße von $4{,}5$ mm nicht verringerte. Bei Schaltflächengrößen von mindestens $2{,}8$ mm verblieben die Testpersonen mit ausgeschalteter Annäherungserkennung mindestens genauso lange im Test, während sich die Anzahl der Testpersonen mit aktiverer Selektionshilfe leicht verringerte. Signifikante Unterschiede würden sich erst feststellen lassen, wenn ausschließlich die Schaltflächengrößen zwischen $2{,}4$ mm und $1{,}4$ mm betrachtet werden. In diesem Fall würden mehr Testpersonen mit eingeschalteter Annäherungserkennung oder Selektionshilfe im Test verbleiben.
 \begin{figure}
 \centering
-\subfigure[Schaltflächengrößen von $10$ mm bis $1{,}4$ mm.]{\includegraphics[width=\textwidth]{img/BarplotTest2Survivals.png}\label{ergebnistest2survivals:10mm}}
+\subcaption{Schaltflächengrößen von $10$ mm bis $1{,}4$ mm.}%{\includegraphics[width=\textwidth]{img/BarplotTest2Survivals.png}\label{ergebnistest2survivals:10mm}}
 \vfill
-\subfigure[Schaltflächengrößen von $2{,}4$ mm bis $1{,}4$ mm.]{\includegraphics[width=\textwidth]{img/BarplotTest2SurvivalsSubset.png}\label{ergebnistest2survivals:2.4mm}}
+\subcaption{Schaltflächengrößen von $2{,}4$ mm bis $1{,}4$ mm.}%{\includegraphics[width=\textwidth]{img/BarplotTest2SurvivalsSubset.png}\label{ergebnistest2survivals:2.4mm}}
 \caption{Balkendiagramm der verbliebenen Testpersonen aus Test 2.}
 \label{ergebnistest2survivals}
 \end{figure}\\
@@ -582,7 +564,7 @@ Betrachtet man den Test mit allen Schaltflächengrößen von $10$ mm und $1{,}4$
 Um die Geschwindigkeit jedes Settings zu bewerten, wurden die Parameter aus den Rohdaten in ein Modell nach Fitts' Law transferiert. Hierzu wurden zunächst die unrealistisch kleinen Zeiten und die oberen Ausreißer entfernt ($75\%$-Quantil). Für jede Testperson wurde anschließend ein Diagramm erstellt, dass für jede Schaltflächengröße und Annäherungserkennung den "`Index of Difficulty"' und die Zeit (siehe Abschnitt~\ref{sec:design}) in einem Koordinatensystem darstellt. Im darauffolgenden Schritt wurde pro Annäherungserkennung eine Regressionsgerade über die Punkte inklusive dem dazugehörigen Korrelationskoeffizienten berechnet. Die Abbildung~\ref{ergebnistest2fitts} zeigt den Datensatz einer Testperson.
 \begin{figure}
 \centering
-\includegraphics[width=0.68\textwidth]{img/fittsUser12.png}
+%\includegraphics[width=0.68\textwidth]{img/fittsUser12.png}
 \caption{Diagramm zur Bewertung von Fitts' Law.}
 \label{ergebnistest2fitts}
 \end{figure}
@@ -591,9 +573,9 @@ Nach einer anfänglichen Begutachtung der Diagramme aller Testpersonen und einer
 \section{System Usability Scale}
 \begin{figure}
 \centering
-\subfigure[Test 1: Listenauswahl.]{\includegraphics[width=0.49\textwidth]{img/BoxplotSUSTest1.png}}
+\subcaption{Test 1: Listenauswahl.}%{\includegraphics[width=0.49\textwidth]{img/BoxplotSUSTest1.png}}
 \hfill
-\subfigure[Test 2: Präzisionstest.]{\includegraphics[width=0.49\textwidth]{img/BoxplotSUSTest2.png}}
+\subcaption{Test 2: Präzisionstest.}%{\includegraphics[width=0.49\textwidth]{img/BoxplotSUSTest2.png}}
 \caption{Kastengrafik mit den Scores des System Usability Scales für die Testreihen in beiden Tests.}
 \label{ergebnisSUS}
 \end{figure}
@@ -639,44 +621,44 @@ Unabhängig von den oberen Themen, ließe sich auch im Hardwarebereich forschen.
 \newpage
 \section{Studieninformationen}
 \vspace*{\fill}
-\center{\frame{\includegraphics[width=.98\textwidth, page=1]{apx/Studieninformationen}}}
+%\center{\frame{\includegraphics[width=.98\textwidth, page=1]{apx/Studieninformationen}}}
 \label{lab:Studieninformationen}
 \vspace*{\fill}
 
 \section{Personenfragebogen}
 \vspace*{\fill}
-\center{\frame{\includegraphics[width=.98\textwidth, page=1]{apx/Personenfragebogen}}}
+%\center{\frame{\includegraphics[width=.98\textwidth, page=1]{apx/Personenfragebogen}}}
 \label{lab:Personenfragebogen}
 \vspace*{\fill}
 \clearpage
 \vspace*{\fill}
-\center{\frame{\includegraphics[width=.98\textwidth, page=2]{apx/Personenfragebogen}}}
+%\center{\frame{\includegraphics[width=.98\textwidth, page=2]{apx/Personenfragebogen}}}
 \vspace*{\fill}
  
 \section{Bewertungsbögen}
 \vspace*{\fill}
-\center{\frame{\includegraphics[width=.98\textwidth, page=1]{apx/Bewertungsboegen}}}
+%\center{\frame{\includegraphics[width=.98\textwidth, page=1]{apx/Bewertungsboegen}}}
 \label{lab:Bewertungsbögen}
 \vspace*{\fill}
 \clearpage
 \vspace*{\fill}
-\center{\frame{\includegraphics[width=.98\textwidth, page=2]{apx/Bewertungsboegen}}}
+%\center{\frame{\includegraphics[width=.98\textwidth, page=2]{apx/Bewertungsboegen}}}
 \vspace*{\fill}
 \clearpage
 \vspace*{\fill}
-\center{\frame{\includegraphics[width=.98\textwidth, page=3]{apx/Bewertungsboegen}}}
+%\center{\frame{\includegraphics[width=.98\textwidth, page=3]{apx/Bewertungsboegen}}}
 \vspace*{\fill}
 \clearpage
 \vspace*{\fill}
-\center{\frame{\includegraphics[width=.98\textwidth, page=4]{apx/Bewertungsboegen}}}
+%\center{\frame{\includegraphics[width=.98\textwidth, page=4]{apx/Bewertungsboegen}}}
 \vspace*{\fill}
 \clearpage
 \vspace*{\fill}
-\center{\frame{\includegraphics[width=.98\textwidth, page=5]{apx/Bewertungsboegen}}}
+%\center{\frame{\includegraphics[width=.98\textwidth, page=5]{apx/Bewertungsboegen}}}
 \vspace*{\fill}
 \clearpage
 \vspace*{\fill}
-\center{\frame{\includegraphics[width=.98\textwidth, page=6]{apx/Bewertungsboegen}}}
+%\center{\frame{\includegraphics[width=.98\textwidth, page=6]{apx/Bewertungsboegen}}}
 \vspace*{\fill}
 
 \end{appendix}
