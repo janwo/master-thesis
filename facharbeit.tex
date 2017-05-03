@@ -9,7 +9,6 @@
 \usepackage[numbers, sort&compress]{natbib}
 \usepackage{graphicx} 
 \usepackage{subcaption}
-\usepackage{filecontents}
 \usepackage{rotating}
 \usepackage{multirow}
 \usepackage{tabularx}
@@ -17,157 +16,6 @@
 \usepackage{setspace}
 \usepackage{amsmath}
 \usepackage[automark]{scrlayer-scrpage}
-
-\begin{filecontents}{books.bib}
-
-@MISC{winrichtlinien,
-author = "{Microsoft Corporation}",
-year = "2014",
-title = "Windows App Development: Guidelines for targeting",
-howpublished = "\url{http://msdn.microsoft.com/en-us/library/windows/apps/hh465326.aspx}",
-note = "Zuletzt aufgerufen am 06.08.2014"
-}
-
-@MISC{rproject,
-author = "{The R Foundation}",
-year = "2014",
-title = "The R Project for Statistical Computing",
-howpublished = "\url{http://www.r-project.org/}",
-note = "Zuletzt aufgerufen am 22.09.2014"
-}
-
-@MISC{applerichtlinien,
-author = "{Apple Inc.}",
-year = "2014",
-title = "iOS Human Interface Guidelines: Layout",
-howpublished = "\url{https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/LayoutandAppearance.html}",
-note = "Zuletzt aufgerufen am 09.08.2014"
-}
-
-@MISC{androidrichtlinien,
-author = "{{Google Inc.}}",
-year = "2014",
-title = "Android Developers: Metrics and Grids",
-howpublished = "\url{http://developer.android.com/design/style/metrics-grids.html}",
-note = "Zuletzt aufgerufen am 09.08.2014"
-}
-
-@MISC{sonyverge,
-author = "Dante D'Orazio",
-year = "2012",
-title = "Sony Xperia Sola's 'floating touch' screen technology explained",
-howpublished = "\url{http://www.theverge.com/2012/3/14/2871193/sony-xperia-sola-floating-touch-hover-event-screen-technology}",
-note = "Zuletzt aufgerufen am 07.08.2014"
-}
-
-@ARTICLE{monkeys,
-author = "K. Dandekar and B.I. Raju and M.A. Srinivasan",
-title = "3-D finite-element models of human and monkey fingertips to investigate the mechanics of tactile sense",
-pages = "S. 682-691",
-year = "2003",
-journal = "Journal of biomechanical Engineering",
-volume = "125"
-}
-
-@INCOLLECTION{jin,
-author = "Zhao Xia Jin and Tom Plocher and Liana Kiff",
-title = "Touch screen user interfaces for older adults: button size and spacing",
-booktitle = "Proceedings of the 4th international conference on Universal access in human computer interaction: coping with diversity (UAHCI'07)",
-publisher = "Springer Verlag",
-year = "2007",
-editor = "Constantine Stephanidis",
-pages = "933-941",
-address = "Berlin, Heidelberg"
-}
-
-@ARTICLE{touchmouse,
-author = "Charlotte Travis and Pietro Murano",
-title = "A comparative study of the usability of touch-based and mouse-based interaction",
-journal = "Int. J. Pervasive Computing and Communications",
-volume = "10",
-number = "1",
-year = "2014",
-pages = "115-134"
-}
-
-@MISC{dorol,
-author = "{Doro Deutschland}",
-year = "2014",
-title = "Doro Liberto 810",
-howpublished = "\url{http://www.dorodeutschland.de/Produkte/Mobiltelefone-und-Zubehor/Doro-Liberto-810/}",
-note = "Zuletzt aufgerufen am 24.08.2014"
-}
-
-@MISC{gOne,
-author = "Andreas Brohme",
-year = "2014",
-title = "Android One: Google startet seine Billig-Smartphone-Offensive",
-howpublished = "\url{http://www.spiegel.de/netzwelt/gadgets/android-one-google-soll-billig-smartphone-bald-praesentieren-a-989376.html}",
-note = "Zuletzt aufgerufen am 04.09.2014"
-}
-
-@INPROCEEDINGS{mousetouchmk,
-author = "Farzan Sasangohar and I. Scott MacKenzie and Stacey D. Scott",
-title = "Evaluation of mouse and touch input for a tabletop display using Fitts' reciprocal tapping task",
-booktitle = "Proceedings of the Human Factors and Ergonomics Society Annual Meeting",
-volume = "53",
-number = "12",
-pages = "839-843",
-year = "2009", 
-organization = "SAGE Publications"
-}
-
-@MISC{synaptics,
-author = "{Synaptics Inc.}",
-year = "1998",
-title = "Synaptics TouchPad Interfacing Guide (510-000080-A, Second Edition)",
-howpublished = "\url{http://www.synaptics.com/sites/default/files/ACF126.pdf}",
-note = "Zuletzt aufgerufen am 18.08.2014"
-}
-
-@BOOK{nui,
-author = "Daniel Wigdor and Dennis Wixon",
-title = "Brave NUI World: Designing Natural User Interfaces for Touch and Gesture",
-year = "2011",
-edition = "1st",
-publisher = "Morgan Kaufmann Publishers Inc.",
-address = "San Francisco, CA, USA",
-}
-
-@INCOLLECTION{sus,
-address = "London",
-author = "John Brooke",
-booktitle = "Usability evaluation in industry",
-editor = "Jordan, P. W. and Weerdmeester, B. and Thomas, A. and Mclelland, I. L.",
-publisher = "Taylor and Francis",
-title = "SUS: A quick and dirty usability scale",
-year = "1996"
-}
-
-@ARTICLE{sus2013,
-title = "SUS: A Retrospective",
-author = "John Brooke",
-journal = "Journal of Usability Studies",
-volume="8",
-number="2",
-pages="29-40",
-year="2013"
-}
-
-@ARTICLE{fitts,
-author = "I. Scott MacKenzie",
-title = "Fitts' Law As a Research and Design Tool in Human-computer Interaction",
-journal = "Hum.-Comput. Interact.",
-issue_date = "March 1992",
-volume = "7",
-number = "1",
-year = "1992",
-pages = "91-139",
-numpages = "49",
-publisher = "L. Erlbaum Associates Inc.",
-address = "Hillsdale, NJ, USA",
-} 
-\end{filecontents}
 
 % Stil der Seiten
 \pagestyle{scrheadings}
@@ -183,40 +31,32 @@ address = "Hillsdale, NJ, USA",
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 
-%Seitenstil: Kopfzeile ohne Nummer und normale Fußzeile, z.B. für Nicht-Kapitel-Seiten im Inhaltsverzeichnis. Vererbung mit Präfix=[Seitenstil].
-\newpairofpagestyles{nochapternumber}{\ohead{\textbf{\headmark}}\ofoot[\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}]{\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}}
-}
-
 %Kopfzeile (Kapitel / Standard)
-\ohead{\textbf{\headmark}\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\thechapter}}
+\ohead{\headmark}
 
 %Fußzeile (Kapitel / Standard)
 \ofoot[\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}]{\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}}
 
-%Kapitel in Kopfzeile ohne Zahl
-\renewcommand*{\chaptermarkformat}{}
-
 %Schriftarten
 \addtokomafont{pagenumber}{\sffamily \upshape}
-\addtokomafont{pageheadfoot}{\sffamily \upshape}\usepackage[defaultfam,light,tabular,lining]{montserrat} %% Option 'defaultfam'
-%% only if the base font of the document is to be sans serig
+\addtokomafont{pageheadfoot}{\sffamily \upshape}\usepackage[defaultfam,light,tabular,lining]{montserrat}
 \usepackage[T1]{fontenc}
 \renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
 
-%-------------------
-%Ende des Kopfbereiches
-%-------------------
-
-%START---------------------------------------------------------------------------------
 \begin{document}
-%Beginn der Titelseite
+	
+% TItelseite
 \begin{titlepage}
 \null
 \vfill
-%#The Collective Guide: A machine for collective recommendations and its desire for disclosure
-\Huge\textsf{\textbf{The Collective Guide
+% The Collective Guide: A machine for collective recommendations and its desire for disclosure
+% Honestly transforms experiences in a collective into public recommendations
+% The Honest Machine: Transforms experiences in a collective into honest recommendations
+% The bold attempt of transforming experiences in a collective into  recommendations
+
+\Huge\textsf{\textbf{The Honest Machine
 \vspace{0.5em}}}\\
-\LARGE\textsf{A machine for disclosed / transparent recommendations in a collective}
+\LARGE\textsf{ The attempt of converting experiences in a collective into honest recommendations }
 \vspace{1.5em}\\
 \Large\textsf{Jan-Hendrik Wolf}
 \vfill
@@ -224,69 +64,27 @@ address = "Hillsdale, NJ, USA",
 \vfill
 \small{Thesis submitted to the Universität Bremen in partial fulfillment of the requirements for a M.Sc. degree in Digital Media\\
 Bremen, 30. Juli 2017}
-
-%Sommersemester 2017
 \end{titlepage}
-%Ende der Titelseite
+
+% Anfang des Bodies
+\thispagestyle{nochapternumber}
+\pagenumbering{roman}
 
 %Inhaltsverzeichnis
 \tableofcontents
-\thispagestyle{nochapternumber}
-
-%START-----------------------------------------------------------------------------------
-
-% Kein Umbruch: \mbox{Xperia™ sola}  \mbox{$7$ mm}
-
-%  (siehe Abbildung~\ref{samsungeinleitung1})
-
-%\begin{figure}
-%\centering
-%\subcaption{Normalzustand der Galerie.}{\includegraphics[width=0.49\textwidth]{img/software1_nohover.png}}
-%\hfill
-%\subcaption{Bildvergrößerung bei Annäherung.}{\includegraphics[width=0.49\textwidth]{img/software1_hover.png}}
-%\caption{Objektvergrößerungen bei Annäherung des Fingers mit aktiviertem \mbox{AirView™} auf einem \mbox{Samsung Galaxy S4}.}
-%\label{samsungeinleitung1}
-%\end{figure}
-
-% \citep{touchmouse}
-
-%\begin{table}
-%\centering
-%\renewcommand{\arraystretch}{2}
-%\setlength{\tabcolsep}{12pt}
-%\begin{tabular}{ l c c c }
-%Plattform & Hersteller & Minimale Größe & Empfohlene Größe\\\hline
-%Android \citep{androidrichtlinien} & Google Inc. & $7$ mm & $9$ mm\\
-%iOS \citep{applerichtlinien} & Apple Inc. & $7$ mm & $7$ mm\\
-%Windows \citep{winrichtlinien} & Microsoft Corp. & $7$ mm & $9$ mm\\
-%\end{tabular}
-%\caption{Mindestgrößen von Bedienelementen für Geräte mit berührungsempfindlichen Bildschirmen.}
-%\label{leitfadenalle}
-%\end{table}
-
-%(med: $23$ Jahre, \O: $25{,}6$ Jahre)
-
-% \mbox{1920$\times$1080}
-
-
-%\begin{figure}
-%\centering
-%\subcaption{Phase 1: Halten der grünen Schaltfläche.}%{\includegraphics[width=0.64\textwidth]{img/test2_phase1.jpg}}
-%\vfill
-%\subcaption{Phase 2: Blaue Schaltfläche leuchtet pseudozufällig auf}]%{\includegraphics[width=0.64\textwidth]{img/test2_phase2.jpg}}
-%\vfill
-%\subcaption{Phase 3: Berühren der blauen Schaltfläche.}%{\includegraphics[width=0.64\textwidth]{img/test2_phase3.jpg}}
-%\caption{Aufbau von Test 2: Drei unterschiedliche Phasen pro Durchgang.}
-%\label{test2phasen}
-%\end{figure}
-
-%{\ttfamily Annäherungserkennung} mit den nominalen Zuständen \emph{ausgeschaltet} und \emph{eingeschaltet}.
 
 \chapter*{Abstract}
 
 \chapter{Introduction}
 \pagenumbering{arabic}
+Recommendations are an omnipresent phenomenon in our society. People ask their friends for being their shopping companion, buy magazines in order to know which product works best for them, commit their Sunday planning to their family members or scroll through explicitly selected content in the world wide web. We are constantly exposed to recommendations in conversations, commercials and in environments with subconscious influence. Companies are developing new types of recommendations with consistent improvements in a growing number of areas in the people's life. Recommendations made with machine learning can give even better results than humans do, e.g. in cancer screening or fraud detection \citep{mldoctors} As a reasonable result people start to fully accept recommendations made by machines in favour of human made recommendations. Notwithstanding of the fact that most of the recommendation systems, foremost in the area of social networks, do not expose the process of the decision-making and it's relevance for commercial use to the end user. Consequently
+Das Projekt hinter dieser Masterarbeit verfolgt die Aufgabe, dem Nutzer eine 
 
+We continually to give recommendations to friends is a regular form of social interaction, the motivation in commercials or in the world wide web 
+
+
+
+Why do we ask for advice?
 
 - Fülle an Ideen für Freizeitaktivitäten und Interessen.
 - Menschen kennen meist nur einen kleinen Bereich mangels des Wissens der anderen Bereiche.
@@ -295,8 +93,6 @@ Bremen, 30. Juli 2017}
 - Bestehende, automatisierte Ratgeber (z.B. Facebook) geben undurchsichtige Vorschläge - es wird keine Auskunft über über deren Generierung gegeben. Wieviele Quellen bezieht die Empfehlung bspw. ein? => Mystifizierte Vorschläge.
 - "Lass uns den Ratgeber demokratisieren", jeden einzelnen Nutzer miteinbeziehen und Transparenz schaffen (z.B. auf Filterblase hinweisen).
 - Ziel: Ansatz umsetzen, evaluieren und Erkenntnisse gewinnen, ob die Transparenz angenommen wird und die Planung der Freizeitgestaltung erleichtert wird.
-
-
 
 Warum folgen wir dem Ratschlag unserees Freundes so gern, selbst wenn wir finden, dass er jetzt daneben gegriffen hatte. Sprich über einige konkrete und glaubhafte Fälle. Um so die Problematik zu kennzeichnen. Und gib dann drei automatische Fälle im Beispiel an.
 
@@ -320,7 +116,7 @@ Erläuterung der Vor- und Nachteile.
 
 Auf solchem Wege kannst Du Dein Thema gewinnen. Das, was diese Systeme heute versuchen, ist vermutlich überhaupt nichts Neues. Zeige das auf! Im Gegenteil, es wird alter Wein in neuen Schläuchen sein. Was geht verloren, was wird gewonnen und wie wird ideologisch den Leuten vorgemacht, sie könnten jetzt sich viel besser verlassen auf das, was ihnen da gezeigt wird.  Sobald der Ratgeber irgendwie selbst kommerziell ist, glaube ich ihm kein Wort.
 
-\chapter{The Collective Guide}
+\chapter{The Honest Machine}
 
 \section{The Principles}
 
@@ -359,7 +155,6 @@ Das Thema, wie in der Einführung, aufgreifen und die Ergebnisse der Studie wied
 \vspace*{\fill}
 \end{appendix}
 
-%ENDE-----------------------------------------------------------------------------------
 % Literaturverzeichnis
 \clearpage
 \pagenumbering{roman}
