@@ -10,6 +10,7 @@
 \usepackage{graphicx} 
 \usepackage{subcaption}
 \usepackage{rotating}
+\usepackage{transparent}
 \usepackage{multirow}
 \usepackage{tabularx}
 \usepackage{pifont}
@@ -32,10 +33,13 @@
 \setcounter{secnumdepth}{3}
 
 %Kopfzeile (Kapitel / Standard)
-\ohead{\headmark}
+\ohead{\transparent{0.5}\headmark\transparent{0.5}\transparent{1}}
 
 %Fußzeile (Kapitel / Standard)
 \ofoot[\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}]{\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}}
+
+%Kapitel in Kopfzeile ohne Zahl
+\renewcommand*{\chaptermarkformat}{}
 
 %Schriftarten
 \addtokomafont{pagenumber}{\sffamily \upshape}
@@ -67,7 +71,6 @@ Bremen, 30. Juli 2017}
 \end{titlepage}
 
 % Anfang des Bodies
-\thispagestyle{nochapternumber}
 \pagenumbering{roman}
 
 %Inhaltsverzeichnis
@@ -77,24 +80,18 @@ Bremen, 30. Juli 2017}
 
 \chapter{Introduction}
 \pagenumbering{arabic}
-Recommendations are an omnipresent phenomenon in our society. People ask their friends for being their shopping companion, buy magazines in order to know which product works best for them, commit their Sunday planning to their family members or scroll through explicitly selected content in the world wide web. We are constantly exposed to recommendations in conversations, commercials and in environments with subconscious influence. Companies are developing new types of recommendations with consistent improvements in a growing number of areas in the people's life. Recommendations made with machine learning can give even better results than humans do, e.g. in cancer screening or fraud detection \citep{mldoctors} As a reasonable result people start to fully accept recommendations made by machines in favour of human made recommendations. Notwithstanding of the fact that most of the recommendation systems, foremost in the area of social networks, do not expose the process of the decision-making and it's relevance for commercial use to the end user. Consequently
-Das Projekt hinter dieser Masterarbeit verfolgt die Aufgabe, dem Nutzer eine 
+Recommendations are an omnipresent phenomenon in our society. People ask their friends for being their shopping companion, buy magazines in order to know which product works best for them, commit their Sunday planning to their family members or scroll through explicitly selected content in the world wide web. We are constantly exposed to recommendations in conversations, commercials and in environments with subconscious influence. Companies are developing new types of recommendations with consistent improvements in a growing number of areas in the people's life. Recommendations made with machine learning can give better results than humans do, e.g. in cancer screening or fraud detection. As a reasonable result people start to fully accept recommendations made by machines in favour of human made recommendations \citep{mldoctors}. Notwithstanding of the fact that most of the recommendation systems do not expose the process and relevance of the decision-making to the end user. Thus, the end user has no grounds for comprehend or criticise made recommendations.
 
-We continually to give recommendations to friends is a regular form of social interaction, the motivation in commercials or in the world wide web 
-
-
-
-Why do we ask for advice?
+The thesis examines the development of recommendations from an unidirectional broadcast towards a high complex process by giving worth mentioning examples of recommendations made in media over the last decades. In what extend has the end user exchanged it's autonomy of decisions towards a higher quality of the recommendations. How can a recommendation system hold the balance between both aspects and how can such a application looks like in particular?
 
 - Fülle an Ideen für Freizeitaktivitäten und Interessen.
 - Menschen kennen meist nur einen kleinen Bereich mangels des Wissens der anderen Bereiche.
 - Ratgeber sind nicht individuell auf den Einzelnen abgestimmt, parteiisch und konzentrieren sich auf spezielle Ereignisse.
 - Seit XXXX gibt es Empfehlungsalgorithmen, werden zunehmend beliebter und es gibt eine Fülle an nützlichen Anwendungsbeispielen: Diese Algorithmen könnte man nutzen, um Nutzern bei der Filterung zu helfen und die Ideen und Interessen an einem Ort zu speichern.
-- Bestehende, automatisierte Ratgeber (z.B. Facebook) geben undurchsichtige Vorschläge - es wird keine Auskunft über über deren Generierung gegeben. Wieviele Quellen bezieht die Empfehlung bspw. ein? => Mystifizierte Vorschläge.
-- "Lass uns den Ratgeber demokratisieren", jeden einzelnen Nutzer miteinbeziehen und Transparenz schaffen (z.B. auf Filterblase hinweisen).
+- Bestehende, automatisierte Ratgeber (z.B. Facebook) geben undurchsichtige Vorschläge - es wird keine Auskunft über über deren Generierung gegeben. 
+Wieviele Quellen bezieht die Empfehlung bspw. ein? Mystifizierte Vorschläge.
+- "Lass den Ratgeber demokratisieren", jeden einzelnen Nutzer miteinbeziehen und Transparenz schaffen (z.B. auf Filterblase hinweisen).
 - Ziel: Ansatz umsetzen, evaluieren und Erkenntnisse gewinnen, ob die Transparenz angenommen wird und die Planung der Freizeitgestaltung erleichtert wird.
-
-Warum folgen wir dem Ratschlag unserees Freundes so gern, selbst wenn wir finden, dass er jetzt daneben gegriffen hatte. Sprich über einige konkrete und glaubhafte Fälle. Um so die Problematik zu kennzeichnen. Und gib dann drei automatische Fälle im Beispiel an.
 
 \chapter{The Shine and Despair of Guides}
 
@@ -110,6 +107,12 @@ Stiftung Warentest
 
 \section{The Human}
 Erläuterung der Vor- und Nachteile.
+
+Warum folgen wir dem Ratschlag unserees Freundes so gern, selbst wenn wir finden, dass er jetzt daneben gegriffen hatte. Sprich über einige konkrete und glaubhafte Fälle. Um so die Problematik zu kennzeichnen. Und gib dann drei automatische Fälle im Beispiel an.
+
+
+Why do we ask for advice?
+
 
 \section{The Machine}
 Erläuterung der Vor- und Nachteile.
