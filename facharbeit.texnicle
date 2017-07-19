@@ -85,7 +85,7 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="UISETTINGS" id="z104">
-        <attribute name="pdfviewscrollrect" type="string">{{0, 10686.307438006454}, {604, 780.70743801335448}}</attribute>
+        <attribute name="pdfviewscrollrect" type="string">{{0, 10006.433057840837}, {604, 780.70743801354183}}</attribute>
         <attribute name="showpdfthumbnails" type="bool">0</attribute>
         <attribute name="selectedcontrolstab" type="int16">0</attribute>
         <attribute name="maxoutlinedepth" type="int16">6</attribute>
@@ -96,13 +96,13 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="TEXFILE" id="z105">
-        <attribute name="wasopen" type="bool">1</attribute>
-        <attribute name="visiblerect" type="string">{{0, 2749}, {548, 757}}</attribute>
-        <attribute name="lasteditdate" type="date">521844263.03766202926635742188</attribute>
+        <attribute name="wasopen" type="bool">0</attribute>
+        <attribute name="visiblerect" type="string">{{0, 4243.5}, {548, 757}}</attribute>
+        <attribute name="lasteditdate" type="date">522167435.27924400568008422852</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">521844268.14530199766159057617</attribute>
+        <attribute name="fileloaddate" type="date">522167440.46446901559829711914</attribute>
         <attribute name="extension" type="string">tex</attribute>
-        <attribute name="cursor" type="string">{8760, 0}</attribute>
+        <attribute name="cursor" type="string">{10006, 41}</attribute>
         <attribute name="sortindex" type="int32">0</attribute>
         <attribute name="name" type="string">facharbeit.tex</attribute>
         <attribute name="isexpanded" type="bool">0</attribute>
@@ -114,13 +114,13 @@
         <relationship name="bookmarks" type="0/0" destination="BOOKMARK"></relationship>
     </object>
     <object type="FILE" id="z106">
-        <attribute name="wasopen" type="bool">0</attribute>
-        <attribute name="visiblerect" type="string">{{0, 132}, {554, 757}}</attribute>
-        <attribute name="lasteditdate" type="date">521841079.68566799163818359375</attribute>
+        <attribute name="wasopen" type="bool">1</attribute>
+        <attribute name="visiblerect" type="string">{{0, 412.5}, {554, 757}}</attribute>
+        <attribute name="lasteditdate" type="date">522148035.39366698265075683594</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">521841080.69084298610687255859</attribute>
+        <attribute name="fileloaddate" type="date">522148034.26138997077941894531</attribute>
         <attribute name="extension" type="string">bib</attribute>
-        <attribute name="cursor" type="string">{474, 0}</attribute>
+        <attribute name="cursor" type="string">{1247, 9}</attribute>
         <attribute name="sortindex" type="int32">0</attribute>
         <attribute name="name" type="string">books.bib</attribute>
         <attribute name="isexpanded" type="bool">0</attribute>
