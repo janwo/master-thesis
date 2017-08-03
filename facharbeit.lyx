@@ -1,0 +1,1437 @@
+#LyX file created by tex2lyx 2.2
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /Users/janwolf/Documents/Workspace/masterthesis/
+\textclass scrreprt
+\begin_preamble
+\usepackage[hyphens]{url}
+\usepackage[english]{babel}
+\usepackage{tocstyle}
+\usetocstyle{allwithdot}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{rotating}
+\usepackage{transparent}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{pifont}
+\usepackage[automark]{scrlayer-scrpage}
+
+
+% Stil der Seiten
+
+\clearscrheadfoot
+
+%Abstand der Fussnoten
+\deffootnote{1em}{1em}{\textsuperscript{\thefootnotemark\ }}
+
+%Zeilenabstand
+
+
+%Regeln, bis zu welcher Tiefe Überschriften angezeigt werden sollen (Anzeige der Überschriften im Verzeichnis / Anzeige der Nummerierung)
+
+
+
+%Kopfzeile (Kapitel / Standard)
+\ohead{\transparent{0.5}\headmark\transparent{0.5}\transparent{1}}
+
+%Fußzeile (Kapitel / Standard)
+\ofoot[\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}]{\rlap{\hspace{.5cm}\rule[-0.7ex]{.8pt}{\baselineskip}\hspace{.5cm}\pagemark}}
+
+%Kapitel in Kopfzeile ohne Zahl
+\renewcommand*{\chaptermarkformat}{}
+
+%Schriftarten
+\addtokomafont{pagenumber}{\sffamily \upshape}
+\addtokomafont{pageheadfoot}{\sffamily \upshape}\usepackage[defaultfam,light,tabular,lining]{montserrat}
+\renewcommand*{\oldstylenums}[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
+
+
+\end_preamble
+\options numbers=noenddot,parskip,bibliography=totocnumbered,listof=totocnumbered
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman "lmodern" "default"
+\font_sans "default" "default"
+\font_typewriter "lmodern" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4paperpaper
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle scrheadings
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% TItelseite
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+null
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace vfill
+\end_inset
+
+
+\size giant
+
+\family sans
+
+\series bold
+Free your free time 
+\begin_inset VSpace 0.5em
+\end_inset
+
+
+\series default
+
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\size largest
+
+\family sans
+ Assessment of a recommendation machine to increase 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%one's quota of 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+the amount of spare time spent collectively 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%and in person 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\family default
+ 
+\begin_inset VSpace 1.5em
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\size larger
+
+\family sans
+Jan-Hendrik Wolf
+\family default
+ 
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\size small
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+Thesis submitted to the University Bremen in partial fulfillment of the requirements for a M.Sc. degree in Digital Media
+\begin_inset Newline newline
+\end_inset
+
+ Bremen, 30. Juli 2017
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Anfang des Bodies
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagenumbering{roman}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%Inhaltsverzeichnis
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Abstract
+\end_layout
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Argumente:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Große Auswahl
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Oft solitäre Dinge
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Nicht Facebook weil dies die Online-Zeit erhöhen will
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Abgrenzen zu: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Wirkliche Freizeit, nicht Arbeit
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Nicht ungeplante Zeit
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Die Freizeitfüllung nicht digital sondern offline stattfinden lassen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Gone are the days of leisure and self-determined free time. Gone are the days of accepting boredom and time of waiting. The influence of media changed the way we organize our free time. 
+\begin_inset Newline newline
+\end_inset
+
+ Social networks like Facebook or search engines like Google opened up enough opportunities to choose from and made it unreasonable to feel boredom and vacancy, which was an acceptable part of our free time thirty years ago. Not staying in touch over a certain timeframe is not taken for granted anymore due to the growing number of channels in communication. We stress ourselves, trying to fill any possible gap in our free time. Any intervening period during a bus ride, in the waiting room or alone at home is filled with a constantly growing abundance of minor activities. Maintain your friendships, social web profiles and all manner of incoming information.The digitalization made all this possible and the smartphone is the most popular toolbox to pursue these habits. 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%quelle
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+This development is continued by examples like shopping malls become larger, the number of sports grows and even ordinary commercial products are sold as a new experience. This confusing number of opportunities make us feel afraid to miss a thing. We are constantly trying to transform interims into productive free time, anyhow refuse ourselves to the unexpected. According to a series of studies 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 14"
+before ""
+key "freizeitmonitor"
+
+\end_inset
+
+, we are constantly increase our personal stress level this way. The artificial impression is build up that time is running short.
+\end_layout
+
+\begin_layout Standard
+This phenomenon has impact on the way we spend our free time. The winning activities for the last five years had been activities you are doing alone, whereas social activities had been the most notably losers. It seems evident that it takes more time to meet and spend time with each other personally, than staying in contact via messengers and social media. However, why do we not use the advantages of computer technology in a way that motivates people to preferably spend their free time in a context of social activities again? Is it possible that an application, the embodiment of digitalization in the current state, can invert the trend towards a free time with social activities in focus?
+\end_layout
+
+\begin_layout Standard
+The thesis will call attention to the constant change of one's free time under decades of digital influence. It will investigate to what extend the ubiquitous accessibility of everyones attention certainly played its part to this development and proposes a possible solution to invert the trend. A puristic application that does not focus on chat components, self-portraits and its time-consuming relatives. The aim is to conceptualize and implement an application that helps to organize one's free time with a small timestamp online and its constant motivation, in contrary to existing solutions like Facebook, to make people meet each other in person again rather than digitally. The thesis will end with an evaluation of application users to validate whether it is a rather drastic and humorously ironic idea to come up with another digital application or a step forward to one's organization free time with more social activities.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% single activity does not last  more than two hours. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% most notably surfing the web, listening to music and go to the gym.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Fülle an Ideen für Freizeitaktivitäten und Interessen.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Menschen kennen meist nur einen kleinen Bereich mangels des Wissens der anderen Bereiche.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Ratgeber sind nicht individuell auf den Einzelnen abgestimmt, parteiisch und konzentrieren sich auf spezielle Ereignisse.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Seit XXXX gibt es Empfehlungsalgorithmen, werden zunehmend beliebter und es gibt eine Fülle an nützlichen Anwendungsbeispielen: Diese Algorithmen könnte man nutzen, um Nutzern bei der Filterung zu helfen und die Ideen und Interessen an einem Ort zu speichern.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%Bestehende, automatisierte Ratgeber (z.B. Facebook) geben undurchsichtige Vorschläge - es wird keine Auskunft über über deren Generierung gegeben. 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%Wieviele Quellen bezieht die Empfehlung bspw. ein? Mystifizierte Vorschläge.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+The Evolution Of Free Time
+\end_layout
+
+\begin_layout Standard
+The following chapter gives a general definition of free time that is used in the context of this thesis. The second section provides a historical overview of the development of free time and summarizes key changes towards a society of time pressures. In order to compare the machine to alternatives, other contemporary organization tools are discussed at the end of this chapter.
+\end_layout
+
+\begin_layout Section
+Definition
+\end_layout
+
+\begin_layout Standard
+There is an ongoing progress of defining free time in leisure studies. Several definitions of free time and leisure time have been constituted in multiple ways. German leisure studies distinguish between positive and negative definitions of leisure. 
+\begin_inset Newline newline
+\end_inset
+
+Originated in the protestant work ethic 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.27"
+before ""
+key "weber2006"
+
+\end_inset
+
+ and industrialization, negative definitions of leisure describe the time off from non-eligible activities, including employment, transit time, hygiene and eating 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.408"
+before ""
+key "Prahl2010"
+
+\end_inset
+
+. Unfortunately these definitions partially exclude individuals, who are unemployed, elderly or teenagers. 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+after ""
+before ""
+key "scheuch1972"
+
+\end_inset
+
+ tries to overcome this major weakness of negative definitions and suggests to set the type of activity in relation to the functional role of the individual in society. Leisure time is not meant to be a quantitative time unit anymore, but rather defines itself as a phenomenon of its own 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.31"
+before ""
+key "scheuch1972"
+
+\end_inset
+
+. With 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+after ""
+before ""
+key "scheuch1972"
+
+\end_inset
+
+ the development of new definitions of leisure started.
+\begin_inset Newline newline
+\end_inset
+
+Positive definitions of leisure focuses on the fact, that an activity 
+\begin_inset Quotes eld
+\end_inset
+
+has been chosen primarily for its own sake, for the experience itself
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.15"
+before ""
+key "freysinger"
+
+\end_inset
+
+. The quality becomes the predominant feature of leisure
+\begin_inset Foot
+status collapsed
+
+
+\begin_layout Standard
+In most cases, it is easy to determine, whether someone enjoys an activity and feels satisfied. Consequently positive definitions are a good way to distinguish between leisure and non-leisure time. But does an individual spend leisure time by doing sports in the gym to loose weight? Does a pop band, who plays for a hobby, have leisure time at a party when asked to play, although they rather would like to enjoy the party without performing? Sometimes it is not possible to distinguish, whether someone is spending leisure or non-leisure time. Only the persons themselves can tell.
+\end_layout
+
+\end_inset
+
+ and is not bound to the sole classification in time anymore. Positive definitions of leisure are the most common way of defining leisure internationally.
+\end_layout
+
+\begin_layout Standard
+In international leisure studies the definitions of free time are comparable with the just mentioned negative definitions of leisure. The American sociologist 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+after ""
+before ""
+key "stebbins2007"
+
+\end_inset
+
+ describes free time as the
+\begin_inset Quotes eld
+\end_inset
+
+time away from unpleasant obligation
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.4"
+before ""
+key "stebbins2007"
+
+\end_inset
+
+, as a figurative subtraction of unpleasant time from one's total time, that shows little variation to negative definitions of leisure. In accordance to positive definitions of leisure 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+after ""
+before ""
+key "stebbins2007"
+
+\end_inset
+
+ defines leisure as an 
+\begin_inset Quotes eld
+\end_inset
+
+uncoerced activity engaged in during free time, which people want to do and, in either a satisfying or a fulfilling way (or both), use their abilities and resources to succeed at this
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+There are numerous definitions of free time and leisure and the entire field is complex. The discussions in context of this thesis will stick to the definitions constituted by 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+after ""
+before ""
+key "stebbins2007"
+
+\end_inset
+
+ as his statements are well applicable on positive and negative definitions of leisure. In summary, free time in this thesis is meant to be the time away from eligible activities, whereas leisure time corresponds to the execution of uncoerced activities that let each individual feel fulfillment and satisfaction.
+\end_layout
+
+\begin_layout Section
+Historical Development
+\end_layout
+
+\begin_layout Standard
+The emergence of free time is a result of a large set of historical developments. An awareness of free time cannot be developed without the awareness of time. Long before humans used tools to map time onto a scale, time was mostly perceived in a cyclic manner, regarded as a succession of recurring phases. The alteration of day and night, the intake of food, recurring rituals or seasonal phenomena are examples of the very beginning of an awareness of time. The mapping of time onto a linear scale, which allows to define a specific point in time as well as to measure the duration of activities, was introduced by the ancient Egyptians with the sothic cycle and the first sundials. 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.25-27"
+before ""
+key "whitrow1989"
+
+\end_inset
+
+ The precision was coarse and varied along different parts of the world until centuries later mechanical watches raised the precision to a practical level 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.103"
+before ""
+key "whitrow1989"
+
+\end_inset
+
+. However, it was primarily the reformation and the accompanying protestant work ethic that paved the way for an economization of time as part of the European capitalism 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.22"
+before ""
+key "weber2006"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+With the industrial revolution, factory workers had to align their division of time in the rhythm of the steam engines and lost the freedom to allocate their working-hours autonomously 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.160"
+before ""
+key "whitrow1989"
+
+\end_inset
+
+. With the industrialization a clear distinction between free time and working time was possible. Basically, time is bound equally to each one of us and cannot run short. Money is the collectible counterpart and can be transferred to other individuals independently. As loan was now solely coupled to working hours, the evaluation of time with money transformed time into a scarce resource that each individual was able to sell to employers 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.54"
+before ""
+key "marx1867"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The industrial revolution did not only rise the number of working hours to a maximum PRAHL 2002, it also initiated a broad set of still going processes to streamline and densify time in line with the maxim 
+\begin_inset Quotes eld
+\end_inset
+
+Time is money
+\begin_inset Quotes erd
+\end_inset
+
+ - the famous statement by one of the founding fathers of the United States of America, Benjamin Franklin 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.22"
+before ""
+key "weber2006"
+
+\end_inset
+
+. The invention of the railroad introduced the standard time as it became necessary to have a unified time along different cities. The telegraph and the undersea cable boosted the communication and shortened the physical distance between people. Shortly after, the mass production of pocket watches started. Watches became ubiquitous and started to dominate everybody's life - Lewis Mumford said, 
+\begin_inset Quotes eld
+\end_inset
+
+the clock, not the steam-engine, is the key-machine of the modern industrial age
+\begin_inset Quotes erd
+\end_inset
+
+. 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p.161-"
+before ""
+key "whitrow1989"
+
+\end_inset
+
+ The densification of time continued with the invention of electricity and the light bulb that leveraged the alteration of day and night. With the sale of roll film cameras people were able to easily capture and fix every thinkable situation in time. At the beginning of the 20th century, the first mass production of cars (e.g. Ford Model T) and airplanes further decreased the physical distance and increased the traveling speed. INTERNET GLOBALISIERUNG
+\end_layout
+
+\begin_layout Standard
+Among the densification, the number of working hours decreased due to the efforts of the labor movement. Moreover, it has since been recognized that the mass production and the resulting high supply of goods cannot persist without a respective demand. Consequently, the amount of free time increased. PRAHL, 2002
+\end_layout
+
+\begin_layout Standard
+ARBEISZEITFLEXIBILISUERNG PAPI TAG
+\end_layout
+
+\begin_layout Section
+Contemporary Organization
+\end_layout
+
+\begin_layout Itemize
+Wie haben wir damals ratschlage bekommen? 
+\end_layout
+
+\begin_layout Itemize
+Macher zu wähler 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Wenn wir fremde Ziele zu unseren machen, entsteht auf Dauer ungesunder Stress.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Großer Stress entsteht, wenn man etwas macht, das einem nicht entspricht, wenn man mit Aufgaben konfrontiert ist, mit denen man sich nicht innerlich verbinden kann.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+The Machine
+\end_layout
+
+\begin_layout Section
+Concept
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Autonomy of Decisions
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% - *Allgemein:* Was soll der Ratgeber leisten? 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% - Sol sich nicht auf individuellen Rat verlassen.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% - Alle Beteiligten werden mit einbezogen.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% - Vorschläge geben und dem Nutzer die Entscheidung überlassen, ob er dieser nachgehen mag.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% - Besitzt nicht den Anspruch, dem Menschen die Entscheidungen abzunehmen. Auch deshalb, da die Aufgabe, Empfehlungen zu geben, nicht wohldefiniert ist, da diese zu vielschichtig ist.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% - Weiterhin bestehen geläufige Probleme der Empfehlungsalgorithmen, wie bspw. dem Cold Start und der Filterblase
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Abgrenzung zu Facebook: Thesen unterfüttern, auch ob Facebook die Zeit verplempert -> inwiefern limitiert und verhindert der Prototyp dies 
+\end_layout
+
+\begin_layout Section
+Implementation
+\end_layout
+
+\begin_layout Subsection
+Design Language
+\end_layout
+
+\begin_layout Subsection
+Groups of Interest and Events
+\end_layout
+
+\begin_layout Subsection
+Explorative Components
+\end_layout
+
+\begin_layout Subsection
+The Recommendation Algorithm
+\end_layout
+
+\begin_layout Itemize
+Wie sollen die Empfehlungen konkret gegeben werden? (Mit Codebeispielen) 
+\end_layout
+
+\begin_layout Itemize
+Andere Aktivitäten empfehlen, basierend auf bewertete Aktivitäten (explizit, kontextsensitiv) 
+\end_layout
+
+\begin_layout Section
+Required Hardware and Software
+\end_layout
+
+\begin_layout Chapter
+Methodology
+\end_layout
+
+\begin_layout Section
+Technical Validation
+\end_layout
+
+\begin_layout Itemize
+Beispielhaftes Modell und Anwendung des Algorithmus. 
+\end_layout
+
+\begin_layout Section
+User-centered Validation
+\end_layout
+
+\begin_layout Subsection
+Recruitement
+\end_layout
+
+\begin_layout Subsection
+Participants
+\end_layout
+
+\begin_layout Subsection
+System Usability Score
+\end_layout
+
+\begin_layout Itemize
+Evaluation der Usability 
+\end_layout
+
+\begin_layout Itemize
+Ausschließen, dass Empfehlungen bewertet werden und nicht die Defizite der Applikation 
+\end_layout
+
+\begin_layout Subsection
+Opening Questionnaire
+\end_layout
+
+\begin_layout Subsection
+Closing Questionnaire
+\end_layout
+
+\begin_layout Itemize
+Nutzerzentriertes Evaluieren der Empfehlungsalgorithmen. 
+\end_layout
+
+\begin_layout Itemize
+Ist es gelungen, die Freizeitgestaltung zu vereinfachen? 
+\end_layout
+
+\begin_layout Section
+Structured Interview
+\end_layout
+
+\begin_layout Itemize
+Hast du mind. einen Streifzug unternommen? 
+\end_layout
+
+\begin_layout Itemize
+Hat es deine Freizeitgestaltung direkt oder indirekt beeinflusst (hatte es impact)? 
+\end_layout
+
+\begin_layout Chapter
+Results
+\end_layout
+
+\begin_layout Section
+Technical Validation
+\end_layout
+
+\begin_layout Section
+System Usability Score
+\end_layout
+
+\begin_layout Section
+Opening Questionnaire
+\end_layout
+
+\begin_layout Section
+Closing Questionnaire
+\end_layout
+
+\begin_layout Section
+Structured Interview
+\end_layout
+
+\begin_layout Chapter
+Analysis
+\end_layout
+
+\begin_layout Standard
+Ergebnisse der Studie wiederholen und in den Kontext stellen
+\end_layout
+
+\begin_layout Chapter
+Conclusion
+\end_layout
+
+\begin_layout Itemize
+Thema, wie in der Einführung, aufgreifen 
+\end_layout
+
+\begin_layout Itemize
+Ausblick formulieren 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Implementation von Bucketlisten? 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\start_of_appendix
+
+\end_layout
+
+\begin_layout Chapter
+Appendix
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Studymaterial
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset VSpace vfill*
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%
+\backslash
+center{
+\backslash
+frame{
+\backslash
+includegraphics[width=.98
+\backslash
+textwidth, page=1]{apx/Studieninformationen}}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "lab:Studymaterial"
+
+\end_inset
+
+ 
+\begin_inset VSpace vfill*
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Literaturverzeichnis
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+pagenumbering{roman}
+\end_layout
+
+\end_inset
+
+  
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "books"
+options "mlu_ifg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%Abbildungsverzeichnis
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Erklärung
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Declaration of academic honesty
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+ XXXX 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Tabular 
+<lyxtabular version="3" rows="2" columns="3">
+<features rotate="0" tabularvalignment="middle" tabularwidth="0pt">
+<column alignment="left" valignment="top">
+<column alignment="none" valignment="top" width="2em">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset space \hspace{}
+\length 5cm
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\begin_inset space \hspace{}
+\length 4cm
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Bremen, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Jan-Hendrik Wolf 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
