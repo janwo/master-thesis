@@ -30,6 +30,13 @@
 %Abstand der Fussnoten
 \deffootnote{1em}{1em}{\textsuperscript{\thefootnotemark\ }}
 
+%Abstände für Absatzbereiche
+\RedeclareSectionCommands[
+    beforeskip=-3.25ex plus -1ex minus -0.2ex,
+    afterskip=1sp,
+    indent=0pt
+  ]{paragraph,subparagraph}
+
 %Zeilenabstand
 \onehalfspacing
 
@@ -75,12 +82,7 @@
 
 \Huge\textsf{\textbf{Free your free time
 \vspace{0.5em}}}\\
-\LARGE\textsf{ Assessment of a recommendation machine to increase 
-%one's quota of 
-the amount of
-spare time spent collectively 
-%and in person 
-} \vspace{1.5em}\\
+\LARGE\textsf{ Assessment of a machine to increase spare time spent collectively} \vspace{1.5em}\\
 \Large\textsf{Jan-Hendrik Wolf}
 \vfill
 \vfill
@@ -99,17 +101,6 @@ Bremen, 30. Juli 2017}
 
 \chapter{Introduction}
 \pagenumbering{arabic}
-
-% Argumente:
-% Große Auswahl
-% Oft solitäre Dinge
-% Nicht Facebook weil dies die Online-Zeit erhöhen will
-
-% Abgrenzen zu: 
-% Wirkliche Freizeit, nicht Arbeit
-% Nicht ungeplante Zeit
-% Die Freizeitfüllung nicht digital sondern offline stattfinden lassen
-
 Gone are the days of leisure and self-determined free time. Gone are the days of accepting boredom and time of waiting. The influence of media changed the way we organize our free time.  
 
 Social networks like Facebook or search engines like Google opened up enough opportunities to choose from and made it unreasonable to feel boredom and vacancy, which was an acceptable part of our free time thirty years ago. Not staying in touch over a certain timeframe is not taken for granted anymore due to the growing number of channels in communication. We stress ourselves, trying to fill any possible gap in our free time. Any intervening period during a bus ride, in the waiting room or alone at home is filled with a constantly growing abundance of minor activities. Maintain your friendships, social web profiles and all manner of incoming information. The digitalization \footnote{With digitalization I refer to the integration of digital technologies into our everyday life by the digitization of everything that can be digitized \citep{digitalization}.} made all this possible and the smartphone is the most popular toolbox to pursue these habits. %quelle (are they already habits?)
@@ -118,16 +109,7 @@ This development is continued by examples like shopping malls become larger, the
 
 This phenomenon has impact on the way we spend our free time. The winning activities for the last five years had been activities you are doing alone, whereas social activities had been the most notably losers. It seems evident that it takes more time to meet and spend time with each other personally, than staying in contact via messengers and social media. However, why do we not use the advantages of computer technology in a way that motivates people to preferably spend their free time in a context of social activities again? Is it possible that an application, the embodiment of the digitalization, can invert the trend towards a free time with social activities in focus? % <-- question / discuss
 
-The thesis will call attention to the constant change of one's free time under decades of digital influence. It will investigate to what extend the ubiquitous accessibility of everyones attention certainly played its part to this development and proposes a possible solution to invert the trend. A puristic application that does not focus on chat components, self-portraits and its time-consuming relatives. The aim is to conceptualize and implement an application that helps to organize one's free time with a small timestamp online and its constant motivation, in contrary to existing solutions like Facebook, to make people meet each other in person again rather than digitally. The thesis will end with an evaluation of application users to validate whether it is a rather drastic and humorously ironic idea to come up with another digital application or a step forward to one's organization free time with more social activities.
-
-% single activity does not last  more than two hours. 
-% most notably surfing the web, listening to music and go to the gym.
-% Fülle an Ideen für Freizeitaktivitäten und Interessen.
-% Menschen kennen meist nur einen kleinen Bereich mangels des Wissens der anderen Bereiche.
-% Ratgeber sind nicht individuell auf den Einzelnen abgestimmt, parteiisch und konzentrieren sich auf spezielle Ereignisse.
-% Seit XXXX gibt es Empfehlungsalgorithmen, werden zunehmend beliebter und es gibt eine Fülle an nützlichen Anwendungsbeispielen: Diese Algorithmen könnte man nutzen, um Nutzern bei der Filterung zu helfen und die Ideen und Interessen an einem Ort zu speichern.
-%Bestehende, automatisierte Ratgeber (z.B. Facebook) geben undurchsichtige Vorschläge - es wird keine Auskunft über über deren Generierung gegeben. 
-%Wieviele Quellen bezieht die Empfehlung bspw. ein? Mystifizierte Vorschläge.
+The thesis will call attention to the constant change of one's free time under decades of digital influence. It will investigate to what extend the ubiquitous accessibility of everyones attention certainly played its part to this development and proposes a possible solution to invert the trend. A puristic application that does not focus on chat components, self-portraits and its time-consuming relatives. The aim is to conceptualize and implement an application that helps to organize one's free time with a small timestamp online and its constant motivation, in contrary to existing solutions like Facebook, to make people meet each other in person again rather than digitally. The thesis will end with an evaluation of the application to validate whether it is a rather drastic and humorously ironic idea to come up with another digital application or a step forward to one's organization free time with more social activities.
 
 \chapter{The Evolution Of Free Time}
 
@@ -139,13 +121,13 @@ There is an ongoing progress of defining free time in leisure studies. Several d
 
 Originating in the protestant work ethic \citep[p.27]{weber2006} and industrialization, negative definitions of leisure describe the time off from non-eligible activities, including employment, transit time, hygiene and eating \citep[p.137]{prahl2002}. Unfortunately these definitions partially exclude individuals, who are unemployed, elderly or teenagers. \citeauthor{scheuch1972} tries to overcome this major weakness of negative definitions and suggests to set the type of activity in relation to the functional role of the individual in society. Leisure time is not meant to be a quantitative time unit anymore, but is rather defined as a phenomenon of its own \citep[p.31]{scheuch1972}. With \citeauthor{scheuch1972} the development of new definitions of leisure started.
 
-Positive definitions of leisure focus on the fact, that an activity ``has been chosen primarily for its own sake, for the experience itself'' \citep[p.15]{freysinger2000}. Quality becomes the predominant feature of leisure\footnote{In most cases, it is easy to determine, whether someone enjoys an activity and feels satisfied. Consequently positive definitions are a good way to distinguish between leisure and non-leisure time. But does an individual spend leisure time by doing sports in the gym to loose weight? Does a pop band, who plays for a hobby, have leisure time at a party when asked to play, although they rather would like to enjoy the party without performing? Sometimes it is not possible to distinguish, whether someone is spending leisure or non-leisure time. Only the persons themselves can tell.}  and is no longer bound to soley be classified as time. Positive definitions of leisure are the most common way of defining leisure internationally.
+Positive definitions of leisure focus on the fact, that an activity ``has been chosen primarily for its own sake, for the experience itself'' \citep[p.15]{freysinger2000}. Quality becomes the predominant feature of leisure\footnote{In most cases, it is easy to determine, whether someone enjoys an activity and feels satisfied. Consequently positive definitions are a good way to distinguish between leisure and non-leisure time. But does an individual spend leisure time by doing sports in the gym to loose weight? Does a pop band, who plays for a hobby, have leisure time at a party when asked to play, although they rather would like to enjoy the party without performing? Sometimes it is not possible to distinguish, whether someone is spending leisure or non-leisure time. Only the persons themselves can tell.} and is no longer soley bound to time. Positive definitions of leisure are the most common way of defining leisure internationally.
 
 In international leisure studies the definitions of free time are comparable with negative definitions of leisure mentioned above. The American sociologist \citeauthor{stebbins2007} describes free time as the ``time away from unpleasant obligation'' \cite[p.4]{stebbins2007}, as a quasi subtraction of the unpleasant from one's totally available time. \citeauthor{stebbins2007} defintion shows little variation to negative definitions of leisure. In accordance with positive definitions of leisure \citeauthor{stebbins2007} defines leisure as an ``uncoerced  activity engaged in during free time, which people want to do and, in either a satisfying or a fulfilling way (or both), use their abilities and resources to succeed at this''. 
 
 There are numerous definitions of free time and leisure and the entire field is complex. In this thesis My discussion in this thesis will use the definitions constituted by \citeauthor{stebbins2007} as his statements are well applicable to positive and negative definitions of leisure. In summary, \textit{free time} in this thesis is meant to be the time away from eligible activities, whereas \textit{leisure time} corresponds to executing uncoerced activities leading to fulfillment and satisfaction.
  
-\section{Historical Development} % Historic?
+\section{Historical Development}
 
 The emergence of free time is a result of a large set of historical developments. An awareness of free time cannot be developed without the awareness of time. Long before humans used tools to map time onto a scale, time was mostly perceived in a cyclic manner, regarded as a succession of recurring phases. The alteration of day and night, the intake of food, recurring rituals or seasonal phenomena are examples of the very beginning of an awareness of time. The mapping of time onto a linear scale, which allows to define a specific point in time as well as to measure the duration of activities, was introduced by the ancient Egyptians with the sothic cycle and the first sundials. \citep[p.25-27]{whitrow1989} The precision was coarse and varied in different regions of the world until centuries later mechanical clocks raised the precision to a practical level \citep[p.103]{whitrow1989}. However, it was primarily the reformation and the accompanying protestant work ethic that paved the way for an economization of time as part of European capitalism \citep[p.22]{weber2006}.
 
@@ -162,14 +144,6 @@ An ever-accelerating communication is the result of the technological progress t
 
 \section{Present Development}
 The historical development towards an always-on society strongly influenced today's lifestyle. The following section mentions several statistics and behaviors of present leisure time in the 2020s.
-
-Studies on people's most done leisure activities are conducted in Germany on a regular basis. In a conducted study by \citeauthor{freizeitmonitor2016}, 3000 people over the age of 14 years were surveyed in face-to-face interviews. Participants were asked to name their leisure activities of the past week as shown in figure \ref{topleisureactivities}. \citeauthor{freizeitmonitor2016} distinguishes between three major groups: 
-
-\begin{labeling}{regeneration}
-\item[media use] Six of the top ten leisure activities are media-related. This involves the use of classic and new media formats. Especiallly young people use the internet as a tool to coordinate activities or maintain social contacts.
-\item[regeneration] The traditional regeneration after work is still an important part of modern leisure activities.
-\item[socialize] The purpose of this major group is to spend leisure time together with family, friends and acquaintances.
-\end{labeling}
 
 \begin{figure}
 \centering
@@ -191,19 +165,22 @@ Studies on people's most done leisure activities are conducted in Germany on a r
 \addplot [fill=white] table [y expr=\coordindex, x=Percentage]{plotdata/topactivities.csv};
 \end{axis}
 \end{tikzpicture}
-\caption{Most done leisure activities at least once a week by those polled. \citep{freizeitmonitor2016}}
+\caption{The study conducted by \citep{freizeitmonitor2016} surveyed 3000 people over the age of 14 years in face-to-face interviews. Participants were asked to name their leisure activities of the past week. The chart shows the most mentioned activities.}
 \label{topleisureactivities}
 \end{figure}
 \pgfplotsset{compat=newest}
 
-The broad range of leisure opportunities and an ongoing densification of time influences the way we choose activities during free time. According to \citeauthor{schulze2005} there are six forms of existence \citep[p.198-206]{schulze2005}. It seems like today's time pressure let people rather stay in the form of existence to ``choose'' existing activities instead of ``influence'' things by their own. In other words, instead of being a musician yourself, you go to a musical event and listen to professional artists. This allows time savings and professional music enjoyment in one place. In a networked world, things are easily accessible and people tend to develop different expectations. This begins primarily for children as soon as they have access to interactive media, which often provide little space for one's own personal level of imagination. Compare a computer game with a book or a construction kit - a computer game gives complete visual and audiovisual information, whereas the book and the construction kit are incomplete enough to make room for fantasy. Ever-faster communication and global competition support and promote this form of existence. Meanwhile, a large number of leisure activities are available to meet a strong demand. The market has become highly complex for many people. Although recommendations from friends or acquaintances for leisure activities are valuable and trustworthy, it is not uncommon to consult other information sources via multiple channels. This explains the existence of various magazines, radio programmes, TV formats and websites\footnote{An incomplete list of examples in these channels: ``Kultur heute'' (program by german radio station ``Deutschlandfunk), ``Das ist los im Norden'' (program by north german radio station ``ffn''), ``MIX'' (german magazine and website - operates in Bremen, Bremerhaven and the surrounding area), ``www.wasgehtheuteab.de'' (german website - operates in Germany), ``eventful.com'' (american website - operates worldwide), ``eventim.de'' (german website - operates worldwide), ``eventbrite.de'' (american website - operates worldwide), ``'ttt - titel thesen temperamente'' (program by german television channel ``ARD'').}. 
-The study shows that 
+The broad range of leisure opportunities and an ongoing densification of time influences the way we choose activities during free time. According to \citeauthor{schulze2005} there are six forms of existence \citep[p.198-206]{schulze2005}. It seems like today's time pressure let people rather stay in the form of existence to ``choose'' existing activities instead of ``influence'' things by their own. In other words, instead of being a musician yourself, you go to a musical event and listen to professional artists. This allows time savings and professional music enjoyment in one place. In a networked world, things are easily accessible and people tend to develop different expectations. This begins primarily for children as soon as they have access to interactive media, which often provide little space for one's own personal level of imagination. Compare a computer game with a book or a construction kit - a computer game gives complete visual and audiovisual information, whereas the book and the construction kit are incomplete enough to make room for fantasy. Ever-faster communication and global competition support and promote this form of existence. Meanwhile, a large number of leisure activities are available to meet a strong demand. The market has become highly complex for many people. Although recommendations from friends or acquaintances for leisure activities are valuable and trustworthy, it is not uncommon to consult other information sources via multiple channels. According to a conducted study by \citeauthor{freizeitmonitor2016}, six of the top ten most done leisure activities are media-related as shown in figure \ref{topleisureactivities}. This affinity to media and the large number of leisure activities explains the existence of various magazines, radio programmes, TV formats and websites\footnote{An incomplete list of examples in these channels: ``Kultur heute'' (program by german radio station ``Deutschlandfunk), ``Das ist los im Norden'' (program by north german radio station ``ffn''), ``MIX'' (german magazine and website - operates in Bremen, Bremerhaven and the surrounding area), ``www.wasgehtheuteab.de'' (german website - operates in Germany), ``eventful.com'' (american website - operates worldwide), ``eventim.de'' (german website - operates worldwide), ``eventbrite.de'' (american website - operates worldwide), ``'ttt - titel thesen temperamente'' (program by german television channel ``ARD'').}. Apart of the strong media consumption, \citeauthor{freizeitmonitor2016} extracts two additional major groups. The following main groups were identified:
 
-However, social networks are likely to be the most popular source for young adults today. Facebook is the largest social network and explains on one of its marketing sites that 440 million people use the event features alone on Facebook - 35 million of them daily \citep{facebook2017}. In the year of 2015, around 47 million events were created on Facebook \citep{facebook2017}. A social network can use its strengths in this field to give individualized information to people. The network either returns a list of potential attendees or recommends events of interest, like those organised by friends. In a digitized world, automated recommendations coexist and possibly compete in various fields with those given by acquaintances and friends.
+\begin{labeling}{regeneration}
+\item[media use] This involves the use of classic and new media formats. Especiallly young people use the internet as a tool to coordinate activities or maintain social contacts.
+\item[regeneration] The traditional regeneration after work is still an important part of modern leisure activities.
+\item[socialize] The purpose of this major group is to spend leisure time together with family, friends and acquaintances.
+\end{labeling}
 
+The same study reveals that 98\% of young adults used the Internet in the last week, which makes the internet the most popular leisure activity in this age group \cite{freizeitmonitor2016}. Thus, the internet is likely to be the most popular source for young adults today. 91\% of young adults said that they had been active in social media in the last week \cite{freizeitmonitor2016}. Facebook is the largest social network and explains on one of its marketing sites that 440 million people use the event features alone on Facebook - 35 million of them daily \citep{facebook2017}. In the year of 2015, around 47 million events were created on Facebook \citep{facebook2017}. A social network can use its strengths in this field to give individualized information to people. The network either returns a list of potential attendees or recommends events of interest, like those organised by friends. In a digitized world, automated recommendations coexist and possibly compete in various fields with those given by acquaintances and friends.
 
-
-HAt auch nachteile sovial feeds
+The disadvantage of communicating via social networks, instant messaging services and similar methods is that they make it unnecessary to meet in person anymore. This extensive use of these communication technologies in conjunction with the perceived scarcity of time have an impact on the way we spend our free time. As shown in figure \ref{topfivechangingleisureactivities}, the 5-year comparison shows that primarily common activities show the highest drop rate, whereas solitary activities show the highest growth in this trend. This is worrying, but not an unusual development. The personal presence of people is becoming increasingly unimportant with social networks and comparable technologies, as they seek to establish themselves as a medium in between.
 
 \begin{figure}
 \begin{tikzpicture}
@@ -224,22 +201,12 @@ HAt auch nachteile sovial feeds
 \addplot [fill=white] table [y=Position, x=Percentage]{plotdata/trendofactivities.csv};
 \end{axis}
 \end{tikzpicture}
-\caption{Top-five trending and abandoning leisure activities done at least once a week by those polled. \citep{freizeitmonitor2016}}
+\caption{Top-five trending and abandoning leisure activities done at least once a week in a 5-year comparison by those polled. \citep{freizeitmonitor2016}}
 \label{topfivechangingleisureactivities}
 \end{figure}
 
-
-\citep{farmer2017}
-
-\begin{itemize} 
-	\item Wie haben wir damals ratschlage bekommen?
-	\end{itemize} 
-
-% Wenn wir fremde Ziele zu unseren machen, entsteht auf Dauer ungesunder Stress.
-% Großer Stress entsteht, wenn man etwas macht, das einem nicht entspricht, wenn man mit Aufgaben konfrontiert ist, mit denen man sich nicht innerlich verbinden kann.
-
 \chapter{The Machine}
-This chapter presents the conception and implementation of a machine that has the aspiration to provide people an alternative organisational assistance to plan their free time with fellow people. As part of the conception, precautions are made and reviewed to respect the mentioned developments in free time. To complete the description of the machine, important aspects of the later implementation are explained in detail, in which the concept constitutes its foundation.
+This chapter presents the conception and implementation of a machine that has the aspiration to provide people an alternative organisational assistance to plan their free time with fellow people. As part of the conception, precautions are made and reviewed to respect the mentioned developments in free time. To complete the description of the machine, important aspects of the later implementation are explained in detail, in which the concept constitutes its foundation.% minimal eingreifend und einschneidend, maximal die Selbständigkeit fördernd.Jeder verbringt und plant seine freizeit unterschiedlich. Eine Frage der Qualität. Ein Schichtarbeiter wird seine Freizeit sicherlich anders gestalten, als ein Beamter, der täglich zur gleichen Zeit nach Hause kommt.
 
 \section{Concept}
 Although smartphone applications are the epitome of digitalization and thus make a decisive contribution to our feeling of time pressure, the machine should be based on a smartphone application. This is intended to investigate whether it is the technology or the design of such applications that causes us to be short of time. The following concept aims to shorten the time spent organizing activities in favor of time spent qualitatively. In this sense, the individual also spends more leisure time. It should be noted that maximising leisure time cannot be considered as the primary goal. The maximum amount of free time is reached as soon as the individual can no longer complete the necessary tasks in one's free time. For this reason, the aim of the machine is not to maximize leisure time. The machine is intended to expand leisure time, which means an optimization of free time. The following sections explain how the application is supposed to decrease online time in favor of offline time as well as the basic idea of the application.
@@ -247,50 +214,64 @@ Although smartphone applications are the epitome of digitalization and thus make
 \subsection{Proposal of Actions}
 This section lists five different actions that can help to decrease the amount of online time in favor of offline time. Every action is introduced with an underlying explanation.
 
-\subsubsection{Action 1: Do not thrive self-promotion online}
+\paragraph{Action 1: Do not thrive self-promotion online}
 The first action to increase leisure time is the strong limitation of an individuals self-promotion. As an essential part of the comprehensible intrinsic need to be liked by others, self-promotion influences the way we clothe and express ourselves. However, it can be overly optimized on social media as the individual is able to decide what to share with the public. The individual can build up their own personalities, manipulate their outer appearance and the surrounding environment. I think it is reasonable to say that individuals economize their self-promotion for likes and shares on social media. This ever-improved false picture let individuals become more and more subject to a greater social pressure to compete with the apparent norm of a gradually optimized presentation of everybody's personality \citep{jay2012}. Thus, the individual spends more time on social media to maintain their profiles and to keep part of the discussion. Studies show that there is a correlation between somebodies relative happiness and the hours spend as well as the number of years registered on Facebook \citep[p.119]{chou2012}.\newline
-In order to decrease the time spent on such activities, the machine has a reduced number of possible spaces thriving self-promotion. The user is able to set a profile photo and a short description of their own. This way, the user has the ability to introduce theirselves to the community and everybody can get an idea of each other. However, there will be no further interactive elements to shape one's self-promotion. This design prevents possible competitions along users in the context of self-promotion and shall free up space in everybody's free time.
+In order to decrease the time spent on such activities, the machine has a reduced number of possible spaces thriving self-promotion. Only a profile photo and a short description of the person shall be allowed. This way, new members have the ability to introduce theirselves to the community and everybody can get an idea of each other. However, there will be no further interactive elements to shape one's self-promotion. This design prevents possible competitions along members in the context of self-promotion and shall free up space in everybody's free time.
 
-\subsubsection{Action 2: No social feeds or unrelated features}
-The second action is the avoidance of secondary features that are not essential for organizing activities. Secondary features may include the display of an advertisement, news and any kind of social feeds. A social feed allows individuals to upload videos, status updates or photos. As the essential part of their business models, most social networks engage their users to contribute or interact with the social feed. This way, the social feed is an awarding advertising space. A higher engagement and retention time means more ad-placements and a higher profit. Consequently, social media applications like Facebook and Twitter do not reward users to meet in person. On the contrary, the more time individuals spend on their platform, the greater is the probability to receive more likes and comments. However, meeting in person would have the advantage of a more conscious communication as facial gestures are an essential part of it  \citep{vanderkam2017}. That is the reason why job interviews and presentations are most likely done in-person \citep{vanderkam2017}. In addition, studies show that in comparison to textual conversations, in-person meetings let communication partners feel more satisfied and increase the level of mutual attention \citep{vanderkam2017}. \newline
+\paragraph{Action 2: No social feeds or unrelated features}
+The second action is the avoidance of secondary features that are not essential for organizing activities. Secondary features may include the display of an advertisement, news and any kind of social feeds. A social feed allows individuals to upload videos, status updates or photos. As the essential part of their business models, most social networks engage community members to contribute or interact with the social feed. This way, the social feed is an awarding advertising space. A higher engagement and retention time means more ad-placements and a higher profit. Consequently, social media applications like Facebook and Twitter do not reward anybody to meet in person. On the contrary, the more time individuals spend on their platform, the greater is the probability to receive more likes and comments. Most of the people may not have won much in the end. Instead of being active by themselves, they consume the content of the social feeds. In addition, meeting in person would have the advantage of a more conscious communication as facial gestures are an essential part of it  \citep{vanderkam2017}. That is the reason why job interviews and presentations are most likely done in-person \citep{vanderkam2017}. In addition, studies show that in comparison to textual conversations, in-person meetings let communication partners feel more satisfied and increase the level of mutual attention \citep{vanderkam2017}. \newline
 In the interest of refocusing to in-person meetings, the machine does not mislead individuals to spend time unnecessarily for other purposes. Thus, the application will not feature a social feed or any kind of advertisement.
 
-\subsubsection{Action 3: Make a strong effort to reduce instant messaging}
+\paragraph{Action 3: Make a strong effort to reduce instant messaging}
 The third action is limiting instant messaging. As mentioned in the previous section, in-person meetings have many advantages. In order to keep the motivation at in-person meetings as high as possible, a general chat is not used in the application. Nevertheless, during the planning of a meeting, it must be possible to communicate with each other online. At this point, it is essential to offer a chat function, as it must be possible for members to establish an initial communication.
 
-\subsubsection{Action 4: Make use of machine-generated recommendations}
+\paragraph{Action 4: Make use of machine-generated recommendations}
 The fourth action is the use of machine-generated recommendations. As already explained in the previous chapter, there are different sources of recommendations with their own advantages and disadvantages. While friends and acquaintances usually have a more detailed knowledge of a person's personal preferences, machines have the ability to compare a large set of data from large databases to identify analogies. In addition, publishers of magazine recommendations, such as the MIX-Verlag\footnote{The MIX-Verlag is a german publishing house that publishes every month a magazine with event recommendations for Bremen, Bremerhaven and the surrounding area.}, also benefit from a wide spectrum of activities and may even receive insider tips from event hosts and their readers. However, all submitted information is reviewed and finally forwarded to the readers in a filtered format. Consequently, even recommendations from editorial sources are affected by the influence of third parties. Also when recommendations are made by acquaintances, it is possible that their interests are implicated. An acquaintance might decide to withhold a restaurant recommendation from someone as they would like to visit the restaurant undisturbed at the same time.\newline
-In contrast, a corresponding algorithm can generate neutral recommendations on the basis of the same parameter types. In addition, users need to be able to make their own suggestions for activities. As a result, the database becomes more and more extensive, offers an increasing variety of activities and insider tips and recommendations are made on the ground of the users behavior while using the machine. This is why the machine recommendations should also be part of the machine's features.
+In contrast, a corresponding algorithm can generate neutral recommendations on the basis of the same parameter types. In addition, community members need to be able to make their own suggestions for activities. As a result, the database becomes more and more extensive and offers an increasing variety of activities and insider tips. Thus, all members in the community define the ground for potential recommendations by interacting with the machine. This is why machine recommendations should also be part of the machine's features.
+% Wenn wir fremde Ziele zu unseren machen, entsteht auf Dauer ungesunder Stress.
+% Großer Stress entsteht, wenn man etwas macht, das einem nicht entspricht, wenn man mit Aufgaben konfrontiert ist, mit denen man sich nicht innerlich verbinden kann.
+% Menschen kennen meist nur einen kleinen Bereich mangels des Wissens der anderen Bereiche.
+% Ratgeber sind nicht individuell auf den Einzelnen abgestimmt, parteiisch und konzentrieren sich auf spezielle Ereignisse.
+% Seit XXXX gibt es Empfehlungsalgorithmen, werden zunehmend beliebter und es gibt eine Fülle an nützlichen Anwendungsbeispielen: Diese Algorithmen könnte man nutzen, um Nutzern bei der Filterung zu helfen und die Ideen und Interessen an einem Ort zu speichern.
 
-\subsubsection{Action 5: Keep it simple stupid}
-The fifth and last action is a thought-out user interface that focuses on the most essential features and is designed to keep the time of interaction with the machine as short as necessary. As discussed in the previous chapter, there are many applications for organizing events that have many different features due to their size and thus increase the level of complexity. Although applications with a wide range of features are certainly interesting, these applications have a greater potential for distraction. An application does not have to be very complex to plan events in a comfortable way. \newline
-This means that less relevant features, which unnecessarily require the user's attention, are excluded from the machine. Instead, users have to be able to quickly select and manage activities with little effort and within a short time. An explorative page can provide an overview of all local activities in a matter of seconds.
+\paragraph{Action 5: Keep it simple stupid}
+The fifth and last action is a thought-out human-computer interface that focuses on the most essential features and is designed to keep the time of interaction with the machine as short as necessary. As discussed in the previous chapter, there are many applications for organizing events that have many different features due to their size and thus increase the level of complexity. Although applications with a wide range of features are certainly interesting, these applications have a greater potential for distraction. An application does not have to be very complex to plan events in a comfortable way. \newline
+This means that less relevant features, which unnecessarily require one's attention, are excluded from the machine. Instead, it has to be possible to quickly select and manage activities with little effort and within a short time. An explorative page can provide an overview of all local activities in a matter of seconds.
 
 \subsection{Basic Idea}
-When people want to spend time together, they are often looking for like-minded people with whom they can carry out a particular activity with pleasure. Because of this reason it is reasonable to give users the possibility to classify themselves among different groups of interests, so that like-minded people can easily find each other for an activity. In a community of this kind, it should be possible to plan common activities and to add additional people. Before the activities take place, all participants need the opportunity to inform themselves and discuss the detailed procedure. 
+When people want to spend time together, they are often looking for like-minded people with whom they can carry out a particular activity with pleasure. Because of this reason it is reasonable to give all members the possibility to classify themselves among different groups of interests, so that like-minded people can easily find each other for an activity. In a community of this kind, it should be possible to plan common activities and to add additional people. Before the activities take place, all participants need the opportunity to inform themselves and discuss the detailed procedure. 
 
-On the basis of these principles, one could notice that it is not easy to distinguish between interest groups and activities. Another terminology must be applied to simplify a distinction. Where do we find similar constructs within other areas? In the wildlife, animals group themselves in hordes or packs, depending on their species. While a herd of animals shows strong self-dynamics that may not always meet the individual desires of each animal, there are clear patterns in a pack. Hence, a comparison of a pack with a group of interests seems to be appropriate. Shared characteristics become apparent as soon as one applies the concept of the pack to the group of interests. In both concepts each member pursues similar intentions. However, hierarchies, as they exist in wildlife, do not exist. Thus, I like to use the metaphor of a pack to describe an interest group within the application.
+On the basis of these principles, one could notice that it is not easy to distinguish between interest groups and activities. Another terminology must be applied to simplify a distinction. Where do we find similar constructs within other areas? In the wildlife, animals group themselves in hordes or packs, depending on their species. While a herd of animals shows strong self-dynamics that may not always meet the individual desires of each animal, there are clear patterns in a pack. Shared characteristics become apparent as soon as one applies the concept of the pack to the group of interests. Hence, a comparison seems to be appropriate. In both concepts each member pursues similar intentions. However, hierarchies and genetic relatedness, as they exist in wildlife, are not required. Thus, I like to use the metaphor of a pack to describe an interest group within the application.
 
-To complete the terminology, a corresponding name for an activity and the application is needed. Every time wolves start hunting, we speak of a raid. Likewise, such a metaphor applies perfectly to the machine's structure as well. This is why an activity will be called a raid in the context of the application.
+To complete the terminology, a corresponding name for an activity and the application is needed. Every time wolves start hunting, we speak of a stroll. In the context of this application it should be noted that you can not take hunting literally. The objective is rather the execution of the activity in general by members of any given interest group. Likewise, such a metaphor applies perfectly to the machine's structure as well. This is why an activity will be called a stroll in the context of the application.
 
 The name of the application should follow the same terminology. To support the acceptance of the application in german-speaking countries and thereby increase the probability of a meaningful evaluation, the german term "Rudel" (pack) can be used. In order to keep the total number of terms small, the group of interests will be entitled after the german translation as well, which is why a group of interest is renamed to "Rudel" (pack). In order to find the application in search results more easily and to differentiate the name of the application from the group of interests, the term can be slightly varied and shortened. In this case, the name "rudl" seems to be a fitting name for this application.
 
 Now that the general idea and its related terminology has been defined, the implementation of the application will be explained in the next section.
 
 \section{Implementation}
-In this section, various components are presented that are necessary to implement the machine in accordance with the above concept. In this context, a visual language will be presented to encourage a simple interaction between the user and the machine. Afterwards, the entire structure and layout of the application will be illustrated and how users can organize their leisure activities in line with the concept. At the end of this section, the recommendation algorithm is explained using the corresponding data storage technology.
+In this section, various components are presented that are necessary to implement the machine in accordance with the above concept. In this context, a visual language will be presented to encourage a simple interaction between the individual and the machine. Afterwards, the entire structure and layout of the application will be illustrated and how members of the community can organize their leisure activities in line with the concept. At the end of this section, the recommendation algorithm is explained using the corresponding data storage technology.
 
 \subsection{Visual Language} 
+The visual language is an underlying set of rules for the design of all visual components within the application. A standardized visual language increases the memorability, defines and implicitly limits the number of possible interaction styles and simplifies the overall handling for anyone interacting with the application.
 
-
+To ensure that each member associates the metaphor of the pack and the stroll with a positive attitude, it is important to provide a friendly look and feel throughout the entire application. This is why a palette of light colors shall be used. Green nuances influences the primary and secondary colors as shown in figure \ref{colorpalette} to reinforce the metaphor and its relationship to nature. The primary and secondary colors are intended to highlight those components that deserve attention. That includes essential buttons and the logo of the application.
 %Colors, Icon, Elements, Style of Writing
 
 \begin{figure}
 \centering
 \includegraphics[width=0.68\textwidth]{img/colors.png}
-\caption{Color palette.}
+\caption{Greenish primary and secondary colors define a light color palette.}
 \label{colorpalette}
 \end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.68\textwidth]{img/icons.png}
+\caption{A selection of designed logos with different shapes and colors.}
+\label{icons}
+\end{figure}
+
 
 
 \begin{figure}
