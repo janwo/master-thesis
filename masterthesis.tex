@@ -1,4 +1,4 @@
-\documentclass[12pt,numbers=noenddot,parskip,bibliography=totocnumbered,listof=totocnumbered]{scrreprt}
+\documentclass[12pt,numbers=noenddot,parskip,bibliography=totocnumbered,listof=totocnumbered,draft=true]{scrreprt}
 \usepackage[paper=a4paper,left=30mm,right=25mm,top=30mm,bottom=30mm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[hyphens]{url}
@@ -8,7 +8,7 @@
 \usepackage{lmodern}
 \usepackage[sort&compress]{natbib}
 \usepackage{graphicx} 
-\usepackage{subcaption}
+\usepackage{subfig}
 \usepackage{rotating}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
@@ -16,12 +16,12 @@
 \usepackage{multirow}
 \usepackage{scrextend}
 \usepackage{tabularx}
+\usepackage{listings}
 \usepackage{pifont}
 \usepackage{enumitem}
 \usepackage{setspace}
 \usepackage{amsmath}
 \usepackage[automark]{scrlayer-scrpage}
-\pgfplotstableset{col sep=semicolon}
 
 % Stil der Seiten
 \pagestyle{scrheadings}
@@ -62,6 +62,40 @@
 % Auflistungen
 \setkomafont{labelinglabel}{\textit}
 \pgfplotsset{compat=newest}
+\pgfplotstableset{col sep=semicolon}
+\graphicspath{ {img/} }
+
+% Code
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  keywordstyle=\bfseries,
+  ndkeywordstyle=\bfseries,
+  identifierstyle=\ttfamily,
+  commentstyle=\ttfamily,
+  stringstyle=\ttfamily,
+  sensitive=true
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
 
 \begin{document}
 	
@@ -81,10 +115,11 @@
 % Keine Negation
 % Freizeitgestaltung verbessern
 
-\Huge\textsf{\textbf{Free your free time
-\vspace{0.5em}}}\\
-\LARGE\textsf{ Assessment of a machine to increase spare time spent collectively} \vspace{1.5em}\\
-\Large\textsf{Jan-Hendrik Wolf}
+\Huge\textbf{Free your free time}
+\bigskip\\
+\LARGE{ Assessment of a machine to increase spare time spent collectively}
+\medskip\\
+\Large{Jan-Hendrik Wolf}
 \vfill
 \vfill
 \vfill
@@ -150,7 +185,7 @@ The historical development towards an always-on society strongly influenced toda
 \centering
 \begin{tikzpicture}
 \begin{axis}[xbar,
-    width=0.68\textwidth,
+    width=0.66\textwidth,
     tickwidth = 0pt,
     xtick=\empty,
     enlarge x limits=0.25,
@@ -187,7 +222,7 @@ The disadvantage of communicating via social networks, instant messaging service
 \begin{axis}[xbar, 
     enlarge x limits=0.25,
     xtick=\empty,
-    width=0.68\textwidth,
+    width=0.66\textwidth,
     tickwidth = 0pt,
     y=0.75cm,
     y axis line style = { opacity = 0 },
@@ -257,35 +292,68 @@ The visual language is an underlying set of rules for the design of all visual c
 
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth]{img/colors.png}
+\includegraphics[width=0.875\linewidth]{colors.png}
 \caption[Color palette]{Greenish tones define primary and secondary colors and a light color palette.}
 \label{colors}
 \end{figure}
 
 To ensure that each member associates the metaphor of the pack and the stroll with a positive attitude, it is important to provide a friendly look and feel throughout the entire application. This is why a palette of light colors shall be used. Green nuances influences the primary and secondary colors as shown in figure \ref{colors} to reinforce the metaphor and its relationship to nature. The primary and secondary colors are intended to heighlight those components that deserve attention. That includes essential buttons and the logo of the application. In the same manner, the logo of the application draws attention to the concept of packs, strolls and wolves by illustrating a howling wolf in front of a moon colored in the primary color. In line with the goal of the visual language, simplicity and a high memorability were respected in the design. Figure \ref{icons} shows the final logo with a selection of alternatives and previous iterations.
-
+ 
 \begin{figure}
-\begin{subfigure}{0.45\textwidth}
-\includegraphics[width=\linewidth]{img/icons.png}
-\caption{A selection of logos with different shapes and colors. The non-transparent icon is the final version of the logo.}
-\label{icons}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.45\textwidth}
-\includegraphics[width=\linewidth]{img/fonts.png}
-\caption{The typeface consits of two sans serif fonts: Quicksand is used for headings, whereas Lato is used for floating text.}
-\label{fonts}
-\end{subfigure}
-\caption[Icons and typefaces]{Icons and typefaces as definied by the visual language.}
+\centering
+\subfloat[][]{\label{icons}\includegraphics[width=0.33\textwidth]{icons.png}}
+\qquad\qquad
+\subfloat[][]{\label{fonts}\includegraphics[width=0.33\textwidth]{fonts.png}}
+\caption[Icons and typefaces]{Icons and typefaces as definied by the visual language: Multiple iterations of the logo \subref{icons} with different shapes and colors. The non-transparent icon is the final version of the logo. The typeface \subref{fonts} consits of two sans serif fonts - Quicksand is used for headings, whereas Lato is used for floating text.}
 \end{figure}
 
 Not only the colors and icons contribute to the positive attitude, it can also be influenced by the writing style and typeface. Correspondingly, the typefaces as shown in figure \ref{fonts} are sans serif fonts to ensure the necessary simplicity. Formulated texts shall always make positive statements and do not blame human beings for interaction errors, whenever possible.
 
-As the visual language can ensure a streamlined design of the application, the corresponding features are presented in the next section.
+As the visual language can ensure a streamlined design of the application, the following sections describe the corresponding features.
 
-%If a user wants to join an activity, it has to be easy to indicate their participation. 
 
 \subsection{Organisation of Interest Groups}
+
+\begin{figure}
+\centering
+\subfloat[][]{\label{searchrudel}\includegraphics[width=\linewidth]{searchrudel.png}}
+\qquad
+\subfloat[][]{\label{createrudel0}\includegraphics[width=\linewidth]{createrudel0.png}}
+
+\subfloat[][]{\label{createrudel1}\includegraphics[width=\linewidth]{createrudel1.png}}
+\qquad
+\subfloat[][]{\label{rudel}\includegraphics[width=\linewidth]{rudel.png}}
+\caption[Screenshots of the organisation of interest groups]{Icons and typefaces as definied by the visual language: Multiple iterations of the logo \subref{icons} with different shapes and colors. The non-transparent icon is the final version of the logo. The typeface \subref{fonts} consits of two sans serif fonts - Quicksand is used for headings, whereas Lato is used for floating text.}
+\end{figure}
+%
+%\begin{figure}
+%\begin{subfigure}{0.45\textwidth}
+%\includegraphics[width=\linewidth]{searchrudel.png}
+%\caption{Search for interest groups.}
+%\label{searchrudel}
+
+%\end{subfigure}
+%\hfill
+%\begin{subfigure}{0.45\textwidth}
+%\includegraphics[width=\linewidth]{createrudel0.png}
+%\caption{Specify a name for the interest group.}
+%\label{createrudel0}
+%\end{subfigure}
+%\begin{subfigure}{0.45\textwidth}
+%\includegraphics[width=\linewidth]{createrudel1.png}
+%\caption{Specify an icon for the interest group.}
+%\label{createrudel1}
+%\end{subfigure}
+%\hfill
+%\begin{subfigure}{0.45\textwidth}
+%\includegraphics[width=\linewidth]{rudel.png}
+%\caption{Organisation for panel for an interest group.}
+%\label{rudel}
+%\end{subfigure}
+%\caption{}
+%\end{figure}
+
+%If a user wants to join an activity, it has to be easy to indicate their participation. 
 
 \subsection{Organisation of Activities}
 
@@ -370,10 +438,10 @@ Ergebnisse der Studie wiederholen und in den Kontext stellen
 \chapter{Appendix}
 \newpage
 \section{Studymaterial}
-\vspace*{\fill}
+\vfill
 %\center{\frame{\includegraphics[width=.98\textwidth, page=1]{apx/Studieninformationen}}}
 \label{lab:Studymaterial}
-\vspace*{\fill}
+\vfill
 
 % Literaturverzeichnis
 \clearpage
