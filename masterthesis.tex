@@ -20,6 +20,7 @@
 \usepackage{pifont}
 \usepackage{enumitem}
 \usepackage{setspace}
+\usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage[automark]{scrlayer-scrpage}
 
@@ -65,6 +66,8 @@
 \pgfplotstableset{col sep=semicolon}
 \graphicspath{ {img/} }
 \setlist[itemize]{wide, itemsep=0pt, parsep=\medskipamount}
+\addtokomafont{caption}{\small}
+\addtokomafont{captionlabel}{\small}
 
 % Code
 \lstdefinelanguage{JavaScript}{
@@ -216,7 +219,7 @@ The broad range of leisure opportunities and an ongoing densification of time in
 
 The same study reveals that 98\% of young adults used the Internet in the last week, which makes the internet the most popular leisure activity in this age group \cite{freizeitmonitor2016}. Thus, the internet is likely to be the most popular source for young adults today. 91\% of young adults said that they had been active in social media in the last week \cite{freizeitmonitor2016}. Facebook is the largest social network and explains on one of its marketing sites that 440 million people use the event features alone on Facebook - 35 million of them daily \citep{facebook2017}. In the year of 2015, around 47 million events were created on Facebook \citep{facebook2017}. A social network can use its strengths in this field to give individualized information to people. The network either returns a list of potential attendees or recommends events of interest, like those organized by friends. In a digitized world, automated recommendations coexist and possibly compete in various fields with those given by acquaintances and friends.
 
-The disadvantage of communicating via social networks, instant messaging services and similar methods is that they make it unnecessary to meet in person anymore. This extensive use of these communication technologies in conjunction with the perceived scarcity of time have an impact on the way we spend our free time. As shown in figure \ref{topfivechangingleisureactivities}, the 5-year comparison shows that primarily common activities show the highest drop rate, whereas solitary activities show the highest growth in this trend. This is worrying, but not an unusual development. The personal presence of people is becoming increasingly unimportant with social networks and comparable technologies, as they seek to establish themselves as a medium in between.
+The disadvantage of communicating via social networks, instant messaging services and similar methods is that they make it unnecessary to meet in person anymore. This extensive use of these communication technologies in conjunction with the perceived scarcity of time have an impact on the way we spend our free time. As shown in figure \ref{topfivechangingleisureactivities}, the 5-year comparison shows that primarily common activities show the highest drop rate, whereas solitary activities show the highest growth in this trend. This is worrying, but not an unusual development. The personal presence of people is becoming increasingly unimportant with social networks and comparable technologies, as they seek to establish themselves as a medium in between. Interpersonal relationships also suffer from the already mentioned rationalization of time in which ever arising time gaps are being filled. Social media become the passive communication channel through which people make their experiences available to the public. This way, leisure time has become part of one's self-promotion and is therefore increasingly subject to a performance principle, just like employment does.
 
 \begin{figure}
 \begin{tikzpicture}
@@ -248,7 +251,9 @@ As part of the conception, precautions are made and reviewed to respect the ment
 % minimal eingreifend und einschneidend, maximal die Selbständigkeit fördernd.Jeder verbringt und plant seine freizeit unterschiedlich. Eine Frage der Qualität. Ein Schichtarbeiter wird seine Freizeit sicherlich anders gestalten, als ein Beamter, der täglich zur gleichen Zeit nach Hause kommt.
 
 \section{Concept}
-Although smartphone applications are the epitome of digitalization and thus make a decisive contribution to our feeling of time pressure, the machine should be based on a smartphone application. This is intended to investigate whether it is the technology or the design of such applications that causes us to be short of time. The following concept aims to shorten the time spent organizing activities in favor of time spent qualitatively. In this sense, the individual also spends more leisure time. It should be noted that maximizing leisure time cannot be considered as the primary goal. The maximum amount of free time is reached as soon as the individual can no longer complete the necessary tasks in one's free time. For this reason, the aim of the machine is not to maximize leisure time. The machine is intended to expand leisure time, which means an optimization of free time. The following sections explain how the application is supposed to decrease online time in favor of offline time as well as the basic idea of the application.
+Although smartphone applications are the epitome of digitalization and thus make a decisive contribution to our feeling of time pressure, the machine should be based on a smartphone application. This is intended to investigate whether it is the technology or the design of such applications that causes us to be short of time. The following concept aims to shorten the time spent organizing activities in favor of time spent qualitatively. In this sense, the individual also spends more leisure time. 
+
+A clear distinction between leisure time and free time can be problematical, once applied for the general public. While many people consider shopping to be a necessary part of their daily routine, shopping on vacation can be fun as a stopover on a day trip. Thus, the respective boundaries between leisure time and free time are defined by subjective aspects, for example  Consequently, the boundaries are fuzzy in an objective context and it is difficult to find suitable constraints. For this reason, maximizing leisure time cannot be considered as the primary goal. Instead, the machine is intended to expand leisure time only and thereby optimize free time. The following sections explain how the application is supposed to decrease online time in favor of offline time as well as the basic idea of the application.
 
 \subsection{Proposal of Actions}
 This section lists five different actions that can help to decrease the amount of online time in favor of offline time. Every action is introduced with an underlying explanation.
@@ -265,13 +270,8 @@ In the interest of refocusing to in-person meetings, the machine does not mislea
 The third action is limiting instant messaging. As mentioned in the previous section, in-person meetings have many advantages. In order to keep the motivation at in-person meetings as high as possible, a general chat is not used in the application. Nevertheless, during the planning of a meeting, it must be possible to communicate with each other online. At this point, it is essential to offer a chat function, as it must be possible for members to establish an initial communication.
 
 \paragraph{Action 4: Make use of machine-generated recommendations}
-The fourth action is the use of machine-generated recommendations. As already explained in the previous chapter, there are different sources of recommendations with their own advantages and disadvantages. While friends and acquaintances usually have a more detailed knowledge of a person's personal preferences, machines have the ability to compare a large set of data from large databases to identify analogies. In addition, publishers of magazine recommendations, such as the MIX-Verlag\footnote{The MIX-Verlag is a german publishing house that publishes every month a magazine with event recommendations for Bremen, Bremerhaven and the surrounding area.}, also benefit from a wide spectrum of activities and may even receive insider tips from event hosts and their readers. However, all submitted information is reviewed and finally forwarded to the readers in a filtered format. Consequently, even recommendations from editorial sources are affected by the influence of third parties. Also when recommendations are made by acquaintances, it is possible that their interests are implicated. An acquaintance might decide to withhold a restaurant recommendation from someone as they would like to visit the restaurant undisturbed at the same time.\newline
+The fourth action is the use of machine-generated recommendations. As already explained in the previous chapter, there are different sources of recommendations with their own advantages and disadvantages. While friends and acquaintances usually have a more detailed knowledge of a person's personal preferences, machines have the ability to compare a large set of data from large databases to identify analogies. In addition, publishers of magazine recommendations, such as the MIX-Verlag\footnote{The MIX-Verlag is a german publishing house that publishes every month a magazine with event recommendations for Bremen, Bremerhaven and the surrounding area.}, also benefit from a wide spectrum of activities and may even receive insider tips from event hosts and their readers. However, all submitted information is reviewed and finally forwarded to the readers in a filtered format. Consequently, recommendations from editorial sources can be influenced by third parties in a political, financial or local manner. Likewise, recommendations made by acquaintances can also become subject of their respective interests. An acquaintance might decide to withhold a restaurant recommendation from someone as they would like to visit the restaurant undisturbed at the same time.\newline
 In contrast, a corresponding algorithm can generate neutral recommendations on the basis of the same parameter types. In addition, community members need to be able to make their own suggestions for activities. As a result, the database becomes more and more extensive and offers an increasing variety of activities and insider tips. Thus, all members in the community define the ground for potential recommendations by interacting with the machine. This is why machine recommendations should also be part of the machine's features.
-% Wenn wir fremde Ziele zu unseren machen, entsteht auf Dauer ungesunder Stress.
-% Großer Stress entsteht, wenn man etwas macht, das einem nicht entspricht, wenn man mit Aufgaben konfrontiert ist, mit denen man sich nicht innerlich verbinden kann.
-% Menschen kennen meist nur einen kleinen Bereich mangels des Wissens der anderen Bereiche.
-% Ratgeber sind nicht individuell auf den Einzelnen abgestimmt, parteiisch und konzentrieren sich auf spezielle Ereignisse.
-% Seit XXXX gibt es Empfehlungsalgorithmen, werden zunehmend beliebter und es gibt eine Fülle an nützlichen Anwendungsbeispielen: Diese Algorithmen könnte man nutzen, um Nutzern bei der Filterung zu helfen und die Ideen und Interessen an einem Ort zu speichern.
 
 \paragraph{Action 5: Keep it simple stupid}
 The fifth and last action is a thought-out human-computer interface that focuses on the most essential features and is designed to keep the time of interaction with the machine as short as necessary. As discussed in the previous chapter, there are many applications for organizing events that have many different features due to their size and thus increase the level of complexity. Although applications with a wide range of features are certainly interesting, these applications have a greater potential for distraction. An application does not have to be very complex to plan events in a comfortable way. \newline
@@ -524,20 +524,36 @@ The last component in this section is an overview of all upcoming and past activ
 Interest groups and activities form the foundation of the application. At present, interest groups and the related activities are accessible in a limited manner. To prevent members from having to search for new or popular interest groups and activities on their own, there has to be a feature to inform members about corresponding entries within the application. In contrast to notifications, this feature is primarily meant to address entries that the member has not yet interacted with. Similar to magazine guides, it can be convenient to browse through new and popular interest groups, activities and members. Thus, the application should provide a browsing feature that is intended to be shown right after opening the application. Figure \ref{explore} shows the exploration page, which is divided into three sections organized in tabs. Each section provides an overview of interest groups, activities or members in orders of recommendation quality, popularity and recency. The recommendations are the result of the recommendation algorithm as described in the next section.
 
 \subsection{The Recommendation Algorithm}
+Without media tools, people generally have a narrowed picture of possible leisure activities in the region. Accordingly, it is important to inform about possible leisure activities. Because of the reasons mentioned in a preceding section, the application will provide recommendations that are generated by the machine itself. As machine generated recommendations can involve far more input variables than editorially selected ones, it is possible and desirable to make recommendations on the basis of as many members, interest groups and activities as possible.
+
+The recommendations made by the application are not meant to patronize members or take their decisions. The autonomy of all members has to be encouraged as well as their freedom to decide either to agree with a recommendation, indicate a lack of interest or fully ignore it. The algorithm should not limit this freedom or influence the final decision of a member. Otherwise, people might do something that does not correspond to their personal needs and risk stress or dissatisfaction on a long-term basis.
+
+An analysis of every single interest group or activity describes the procedure of content based filtering. Attributes are assigned to each recommendation item to allow a comparison among all the other items \citep[p.42]{klahold2009}. Nonetheless, this implies that each member that creates an interest group or activity would have to add comprehensive descriptions of its attributes. As the number of possible attributes increases, existing recommendation elements may need to be checked and perhaps added again. This does not only require a high level of organizational work, but it would also be questionable whether members will save time. In addition, it is possible that members may provide misleading information by accident or on purpose. For this reason, it should be impossible for everybody to influence recommendations made to other members. This is why the input variables shall be exclusively based on the data provided by registered members. With this in mind, it makes sense to avoid a corresponding functionality to let members categorize interest groups and activities.\footnote{One imagines a beach club manager, who would like to promote the interest group ``Go to the beach club''. Out of this motivation, the manager decides to equip the interest group with appropriate categories indicating that activities of this particular interest group are independent from weather conditions. Clearly, this does not correspond to the truth and was chosen out of pure self-interest.} This can be done by using collaborative filtering. 
+
+Collaborative filtering is based on the behavior of members, for example on any interest group they follow or activity they join. \citep[p.62]{klahold2009} Thereby, the algorithm does not compare the similarity of recommendation elements, but rather compares the interactions between recommendation elements and members. This can be illustrated by a member-item matrix as shown in figure \ref{matrix}.
+
+\begin{figure}
+\centering
+$\bordermatrix{~ & \mathit{Item}_1& \mathit{Item}_2 & \cdots & \mathit{Item}_m \cr
+\vphantom{\vdots}\mathit{User}_1 & neutral & \mathbf{likes} & \cdots & neutral \cr
+\vphantom{\vdots}\mathit{User}_2 & dislikes & \mathbf{likes} & \cdots & \mathbf{likes} \cr
+\vdotswithin{\mathit{User}_1} & \vdotswithin{dislikes}  & \vdotswithin{likes} & \ddots & \vdotswithin{neutral} \cr
+\vphantom{\vdots}\mathit{User}_n & dislikes & \mathbf{likes} & \cdots & neutral }$
+\caption[Member-item matrix of collaborative filtering]{Matrix of $m$ items and $n$ members as used in collaborative filtering.}
+\label{matrix}
+\end{figure}
 
 
-\begin{itemize} 
-	\item Sol sich nicht auf individuellen Rat verlassen.
-\item Alle Beteiligten werden mit einbezogen.
-\item Vorschläge geben und dem Nutzer die Entscheidung überlassen, ob er dieser nachgehen mag.
-\item Besitzt nicht den Anspruch, dem Menschen die Entscheidungen abzunehmen. Auch deshalb, da die Aufgabe, Empfehlungen zu geben, nicht wohldefiniert ist, da diese zu vielschichtig ist.
-\item Weiterhin bestehen geläufige Probleme der Empfehlungsalgorithmen, wie bspw. dem Cold Start und der Filterblase
-	\item Wie sollen die Empfehlungen konkret gegeben werden? (Mit Codebeispielen)
-	\item Andere Aktivitäten empfehlen, basierend auf bewertete Aktivitäten (explizit, kontextsensitiv)
-	\item Kritische Betrachtung, Autonomy of Decisions
-\end{itemize} 
+
+ (Mit Codebeispielen) Andere Aktivitäten empfehlen, basierend auf bewertete Aktivitäten (explizit, kontextsensitiv)
+
+Weiterhin bestehen geläufige Probleme der Empfehlungsalgorithmen, wie bspw. dem Cold Start und der Filterblase
+Kritische Betrachtung
 
 \section{Required Hardware and Software}
+The complexity of the application is extremely challenging and the implementation by a single person cannot be completed in a predictable time. It is necessary to use already implemented third-party modules that have to be configured and integrated accordingly. Beyond the software, an application of this kind can only be operated on a real existing computer. This section gives an overview explaining the rough infrastructure of software and hardware for the entire application.
+
+
 
 \chapter{Empirical Method}
 
@@ -558,34 +574,29 @@ Interest groups and activities form the foundation of the application. At presen
 	\item Ausschließen, dass Empfehlungen bewertet werden und nicht die Defizite der Applikation
 \end{itemize} 
 
-\subsection{Opening Questionnaire}
-
-\subsection{Closing Questionnaire}
+\subsection{Questionnaire}
+Maßnahmen alle als Teil der Evaluation
 \begin{itemize} 
 	\item Nutzerzentriertes Evaluieren der Empfehlungsalgorithmen.
 	\item Ist es gelungen, die Freizeitgestaltung zu vereinfachen?
-\end{itemize} 
-
-\section{Structured Interview}
-\begin{itemize} 
 	\item Hast du mind. einen Streifzug unternommen?
 	\item Hat es deine Freizeitgestaltung direkt oder indirekt beeinflusst (hatte es impact)?
-\end{itemize}
+\end{itemize} 
 
 \chapter{Results}
 
 \section{Technical Validation}
 
-\section{System Usability Score}
+\section{User-centered Validation}
 
-\section{Opening Questionnaire}
+\subsection{System Usability Score}
 
-\section{Closing Questionnaire}
-
-\section{Structured Interview}
+\subsection{Questionnaire}
 
 \chapter{Analysis}
 Ergebnisse der Studie wiederholen und in den Kontext stellen
+
+virtuell aktuell was ist physisch? ab wann?
 
 \chapter{Conclusion}
 \begin{itemize} 
@@ -596,7 +607,6 @@ Ergebnisse der Studie wiederholen und in den Kontext stellen
 	\end{itemize} 
 \end{itemize} 
 
-
 \appendix
 \chapter{Appendix}
 \newpage
@@ -605,7 +615,16 @@ Ergebnisse der Studie wiederholen und in den Kontext stellen
 \center{\frame{\includegraphics[width=.98\textwidth, page=1]{inlinepdf/sus}}}
 \label{sus}
 \vfill
-%\clearpage
+\clearpage
+\vfill
+\center{\frame{\includegraphics[width=.98\textwidth, page=1]{inlinepdf/qualitativequestionaire}}}
+\label{qualitativequestionaire0}
+\vfill
+\clearpage
+\vfill
+\center{\frame{\includegraphics[width=.98\textwidth, page=2]{inlinepdf/qualitativequestionaire}}}
+\label{qualitativequestionaire1}
+\vfill
 
 % Literaturverzeichnis
 \clearpage
