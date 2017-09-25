@@ -543,7 +543,7 @@ $\bordermatrix{~ & \mathit{Item}_1& \mathit{Item}_2 & \cdots & \mathit{Item}_m \
 \label{matrix}
 \end{figure}
 
-
+BASSIS DARAUF SIMALRAITY SCORE
 
  (Mit Codebeispielen) Andere Aktivitäten empfehlen, basierend auf bewertete Aktivitäten (explizit, kontextsensitiv)
 
@@ -551,9 +551,16 @@ Weiterhin bestehen geläufige Probleme der Empfehlungsalgorithmen, wie bspw. dem
 Kritische Betrachtung
 
 \section{Required Hardware and Software}
-The complexity of the application is extremely challenging and the implementation by a single person cannot be completed in a predictable time. It is necessary to use already implemented third-party modules that have to be configured and integrated accordingly. Beyond the software, an application of this kind can only be operated on a real existing computer. This section gives an overview explaining the rough infrastructure of software and hardware for the entire application.
+The complexity of the application is extremely challenging and the implementation by a single person cannot be completed in a predictable time. Solely the co-action of multiple third-party components and the integration of the individual implementation, makes it possible to oversee and operate such a complex system. Thus, this section gives an overview explaining the rough infrastructure of software and hardware for the entire application.
 
+The hardware of the machine is made up by a set of components. On the one hand, a web server is required to store and execute the corresponding database and the non-public and public program code. In theory, the location of the server is irrelevant as long as the location provides a reliable connection to the internet. Due to privacy concerns, it is desirable to use a server located inside Germany.
+On the other hand, all the devices that belong to members and are equipped with modern browsers, can be considered as potential components of the entire machine. These devices use the world wide web to access the public program code from the web server and execute it locally. Resulting database queries and non-public computing operations are again sent to the web server via an application programming interface. In a broader sense, all devices share the computing load this way.
 
+The software also requires a lot of precautions within the program code to implement all these processes. Again, it is necessary to use already implemented third-party modules, which have to be configured and integrated accordingly. The main software component is the Node.js framework\footnote{https://nodejs.org/}, which can perform system wide operations on a server or any other computer by using Javascript. The framework offers various modules via a platform that can be downloaded by the developer. Both, the public program code as well as the non-public program code uses many functionalities that are provided by those downloadable modules. The non-public program code is built upon the hapi.js\footnote{https://hapijs.com/} framework in order to handle the essential features of a web server, for example encryption, routing, authentication, validation or logging. Additional plugins can be integrated to add support for alternative login methods, database controllers or monitoring services. 
+KURZER AUFBAU, DATENBANK, REDIS, DOCKER
+
+The public program code is based on the Angular\footnote{https://angular.io/} framework.
+ALLES WIRD INITIAL HERUNTERGELADEN UND DANN LOKAL AUSGEFÜHRT, ERLEICHTERT DAS ERSTELLEN VON KOMPONENTEN; WIEDERVERWENDBAR. LÄUFT PERFORMANT AUF MOBILEN GERÄTEN.
 
 \chapter{Empirical Method}
 
