@@ -14,6 +14,8 @@
 \pgfplotsset{compat=newest}
 \usepackage{transparent}
 \usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning,arrows,automata}
 \usepackage{scrextend}
 \usepackage{tabularx}
 \usepackage[final]{listings}
@@ -273,7 +275,7 @@ When people want to spend time together, they are often looking for like-minded 
 
 On the basis of these principles, one could notice that it is not easy to distinguish between interest groups and activities. Another terminology must be applied to simplify a distinction. Where do we find similar constructs within other areas? In the wildlife, animals group themselves in hordes or packs, depending on their species. While a herd of animals shows strong self-dynamics that may not always meet the individual desires of each animal, there are clear patterns in a pack. Shared characteristics become apparent as soon as one applies the concept of the pack to the group of interests. Hence, a comparison seems to be appropriate. In both concepts each member pursues similar intentions. However, hierarchies and genetic relatedness, as they exist in wildlife, are not required. Thus, I like to use the metaphor of a pack to describe an interest group within the application.
 
-To complete the terminology, a corresponding name for an activity and the application is needed. Every time wolves start hunting, we speak of an excursion. Likewise, such a metaphor applies perfectly to the machine's structure as well. In the context of this application it should be noted that you cannot take hunting literally. The objective is rather the execution of the activity in general by members of any given interest group. This is why an activity will be called an excursion in the context of the application. 
+To complete the terminology, a corresponding name for an activity and the application is needed. Every time wolves start hunting, we speak of an expedition. Likewise, such a metaphor applies perfectly to the machine's structure as well. In the context of this application it should be noted that you cannot take hunting literally. The objective is rather the execution of the activity in general by members of any given interest group. This is why an activity will be called an expedition in the context of the application. 
 
 The name of the application should follow the same terminology. To support the acceptance of the application in german-speaking countries and thereby increase the probability of a meaningful evaluation, the german term "Rudel" (pack) can be used. In order to keep the total number of terms small, the group of interests will be entitled after the german translation as well, which is why a group of interest is renamed to "Rudel" (pack). In order to find the application in search results more easily and to differentiate the name of the application from the group of interests, the term can be slightly varied and shortened. In this case, the name "rudl" seems to be a fitting name for this application.
 
@@ -287,12 +289,12 @@ The visual language is an underlying set of rules for the design of all visual c
 
 \begin{figure}
 \centering
-\includegraphics[width=0.875\linewidth]{colors.png}
+\includegraphics[width=\textwidth]{colors.png}
 \caption[Color palette]{Greenish tones define primary and secondary colors and a light color palette.}
 \label{colors}
 \end{figure}
 
-To ensure that each member associates the metaphor of the pack and the excursion with a positive attitude, it is important to provide a friendly look and feel throughout the entire application. This is why a palette of light colors shall be used. Green nuances influences the primary and secondary colors as shown in figure \ref{colors} to reinforce the metaphor and its relationship to nature. The primary and secondary colors are intended to highlight those components that deserve attention. That includes essential buttons and the logo of the application. In the same manner, the logo of the application draws attention to the concept of packs, excursions and wolves by illustrating a howling wolf in front of a moon colored in the primary color. In line with the goal of the visual language, simplicity and a high memorability were respected in the design. Figure \ref{icons} shows the final logo with a selection of alternatives and previous iterations.
+To ensure that each member associates the metaphor of the pack and the expedition with a positive attitude, it is important to provide a friendly look and feel throughout the entire application. This is why a palette of light colors shall be used. Green nuances influences the primary and secondary colors as shown in figure \ref{colors} to reinforce the metaphor and its relationship to nature. The primary and secondary colors are intended to highlight those components that deserve attention. That includes essential buttons and the logo of the application. In the same manner, the logo of the application draws attention to the concept of packs, expeditions and wolves by illustrating a howling wolf in front of a moon colored in the primary color. In line with the goal of the visual language, simplicity and a high memorability were respected in the design. Figure \ref{icons} shows the final logo with a selection of alternatives and previous iterations.
  
 \begin{figure}
 \begin{subfigure}[t]{0.45\textwidth}
@@ -331,7 +333,7 @@ As the visual language can ensure a streamlined design of the application, the f
 \label{createrudel0}
 \end{subfigure}
 
-\medskip
+\bigskip
 
 \begin{subfigure}[t]{0.45\textwidth}
 \centering
@@ -349,7 +351,7 @@ As the visual language can ensure a streamlined design of the application, the f
 \caption[Organization of interest groups]{The panel of an interest group (\subref{rudel}) reveals all important information and is accessible via the search interface (\subref{searchrudel}). Interests groups are created in two steps: (\subref{createrudel0}) specify a name for the interest group and (\subref{createrudel1}) specify an icon for the interest group.}
 \end{figure}
 
-Joining together into interest groups is along with excursions the most important objective of the application. Interest groups can consist of friends, family members or people unknown to each other. In order to let members properly find interest groups, the application should provide an easy accessible search function. Thus, the search function as shown in figure \ref{rudel} is shown prominently at the top of the application screen and can be activated at any time. Figure \ref{searchrudel} shows an activated search function with all interest groups that are related to an entered search term. Any interest group in the list can be opened at will. 
+Joining together into interest groups is along with expeditions the most important objective of the application. Interest groups can consist of friends, family members or people unknown to each other. In order to let members properly find interest groups, the application should provide an easy accessible search function. Thus, the search function as shown in figure \ref{rudel} is shown prominently at the top of the application screen and can be activated at any time. Figure \ref{searchrudel} shows an activated search function with all interest groups that are related to an entered search term. Any interest group in the list can be opened at will. 
 
 In the case that a member is unable to find the corresponding interest group, a direct option to create one appears. In comparison to existing interest groups, the option does not come with an icon to look less attractive. This may lead to fewer duplicates and motivates everybody to select an existing interest group, if applicable. Once the option is selected, a name as shown in figure \ref{createrudel0} and an icon as shown in figure \ref{createrudel1} has to be set to properly create an interest group. A collection of 993 icons across seven categories shall increase the memorability and interactivity of an interest group. Once finished, the just created interest group is set as shown in figure \ref{rudel} and every member is able to join the group.
 
@@ -373,7 +375,7 @@ The whole concept of the application remains in the virtual space as long as the
 \label{createexpedition1}
 \end{subfigure}
 
-\medskip
+\bigskip
 
 \begin{subfigure}[t]{0.45\textwidth}
 \centering
@@ -406,7 +408,7 @@ The whole concept of the application remains in the virtual space as long as the
 \label{expeditionattendees}
 \end{subfigure}
 
-\medskip
+\bigskip
 
 \begin{subfigure}[t]{0.45\textwidth}
 \centering
@@ -424,7 +426,7 @@ The whole concept of the application remains in the virtual space as long as the
 \caption[Organisation of activities]{The activity panel (\subref{expedition}) comes with a map of the meeting point (\subref{expeditionmap}), invitation capabilities (\subref{expeditionattendees}) and a discussion board (\subref{expeditiondiscussion}) to let members plan their activity in detail.}
 \end{figure}
 
-To create an activity, a member clicks the corresponding button in the head area of the interest group and runs through four steps: At first, the member has to enter a short description, may adjust the name of the activity and turn on the access control\footnote{Excursions are either freely accessible to everyone or restricted to a certain group of people. The creator may like to turn on this access control during this step. In this case, everyone interested has to apply for the participation at the activity. Once the creator has confirmed the request, the member automatically joins the activity.} as shown in figure \ref{createexpedition0}. In the next step, the member has the option to change the icon. Figure \ref{createexpedition1} illustrates how it is possible to change the icon accordingly. The third step as shown in figure \ref{createexpedition2} displays a map to set the meeting point. In the last step, the creator sets the date and time and may decide for privacy reasons to apply an inaccuracy to the time, see figure \ref{createexpedition3}.
+To create an activity, a member clicks the corresponding button in the head area of the interest group and runs through four steps: At first, the member has to enter a short description, may adjust the name of the activity and turn on the access control\footnote{Expeditions are either freely accessible to everyone or restricted to a certain group of people. The creator may like to turn on this access control during this step. In this case, everyone interested has to apply for the participation at the activity. Once the creator has confirmed the request, the member automatically joins the activity.} as shown in figure \ref{createexpedition0}. In the next step, the member has the option to change the icon. Figure \ref{createexpedition1} illustrates how it is possible to change the icon accordingly. The third step as shown in figure \ref{createexpedition2} displays a map to set the meeting point. In the last step, the creator sets the date and time and may decide for privacy reasons to apply an inaccuracy to the time, see figure \ref{createexpedition3}.
 
 Every activity panel is structured analogical to an interest group as it contains a head area and three separated sections. Figure \ref{expedition} illustrates the head area, which displays all relevant information in order to meet in person. In the event that important information in the head area are missing, all attendees can chat with each other easily in the discussion section as shown in figure \ref{expeditiondiscussion}. This is the only way within the entire application to chat with each other and to make further plannings. The location section as shown in figure \ref{expeditionmap} comes with a large map and the ability to open third-party applications to properly navigate to the meeting point. The purpose of the last section as shown in figure \ref{expeditionattendees} is to invite other members to the activity. Everybody can enter the members name to send a corresponding notification. This way, it is easy to tell friends and acquaintances about the activity.
 
@@ -444,7 +446,7 @@ Every activity panel is structured analogical to an interest group as it contain
 \label{settings}
 \end{subfigure}
 
-\medskip
+\bigskip
 
 \begin{subfigure}[t]{0.45\textwidth}
 \centering
@@ -500,7 +502,7 @@ The last component in this section is an overview of all upcoming and past activ
 \label{exploreexpeditions}
 \end{subfigure}
 
-\medskip
+\bigskip
 
 \begin{subfigure}[t]{0.45\textwidth}
 \centering
@@ -561,6 +563,67 @@ J(\mathit{Member_1}, \mathit{Member_2}) &= \frac{|\mathit{Member_1} \cap \mathit
 \end{align*}
 In order to recommend $\mathit{Member_1}$ matching interest groups, the similarity between $\mathit{Member_1}$ and all other members has to be calculated. $\mathit{Member_3}$ receives a coefficient of $0$ and is therefore ranked behind $\mathit{Member_2}$. The next step is to sort all other members in a descending order by their coefficients. In this sequence, all joined interest groups of every member are collected that have never got the attention of $\mathit{Member_1}$. As soon as the requested number of recommendations has been reached, the process stops and the corresponding recommendations can be displayed. In this particular scenario, $\mathit{Group_3}$ is going to be the top item in this list.
 
+\begin{figure}
+\begin{subfigure}[t]{\textwidth}
+\centering
+\begin{tikzpicture}[table/.style={matrix of nodes, nodes in empty cells, column sep=-\pgflinewidth, row sep=-\pgflinewidth, nodes={draw,anchor=center,minimum width=2cm,minimum height=2cm}, row 1/.style={nodes={minimum height=1cm}}}]
+
+\node [relation=2, label=above:Member] (member) {id \nodepart{two} name};
+
+\node [relation=2, label=above:Expedition, right=1cm of member] (expedition) {id%
+\nodepart{two} name};
+
+\node [relation=2, label=above:InterestGroup, left=1cm of member] (interestgroup) {id%
+\nodepart{two} name };
+    
+\node [relation=2, label=above:INTERESTED\_IN, below=1.25cm of member] (interestedin) {member%
+\nodepart{two} interest group};
+    
+\node [relation=2, label=above:BELONGS\_TO, left=1cm of interestedin] (belongsto) {interest group%
+\nodepart{two} expedition};
+
+\node [relation=2, label=above:JOINS\_EXPEDITION, right=1cm of interestedin] (joinsexpedition) {member%
+\nodepart{two} expedition};
+
+\draw(interestgroup.one south)--++(0,-.5)-|(belongsto.two south);
+%\draw (Professor-2-3.south)--++(0,-.75)-|(Course-1-1.north);
+%\draw (Course-2-1.south)--++(0,-.5)-|(Student-1-2.south);
+\end{tikzpicture}
+\caption{}
+\label{relationaldatabase}
+\end{subfigure}
+
+\bigskip
+
+\begin{subfigure}[b]{\textwidth}
+\centering
+\begin{tikzpicture}[>=stealth',shorten >=1pt,node distance=3cm,on grid,initial/.style = {}]
+  \node[state]          (P)                        {$P$};
+  \node[state]          (B) [above right =of P]    {$B$};
+  \node[state]          (M) [below right =of P]    {$M$};
+  \node[state]          (D) [above right =of B]    {$D$};
+  \node[state]          (C) [below right =of B]    {$C$};
+  \node[state]          (L) [below right =of C]    {$L$};
+\tikzset{mystyle/.style={->,double=orange}} 
+\tikzset{every node/.style={fill=white}} 
+\path (C)     edge [mystyle]    node   {$3$} (B)
+      (D)     edge [mystyle]    node   {$10$} (B) 
+      (L)     edge [mystyle]    node   {$10$} (M)
+      (B)     edge [mystyle]    node   {$10$} (P);
+\tikzset{mystyle/.style={<->,double=orange}}   
+\path (P)     edge [mystyle]   node   {$4$} (M)
+      (C)     edge [mystyle]   node   {$9$} (M) 
+      (C)     edge [mystyle]   node   {$4$} (D)
+      (B)     edge [mystyle]   node   {$5$} (M);
+\tikzset{mystyle/.style={<->,relative=false,in=0,out=60,double=orange}}
+\path (L)     edge [mystyle]   node   {$10$} (D); 
+\end{tikzpicture}
+\caption{}
+\label{graph database}
+\end{subfigure}%
+\caption[Comparison of relational and graph databases]{Comparison of relational and graph databases.}
+\label{databases}
+\end{figure}
 
 \begin{figure}
 \centering
@@ -630,22 +693,22 @@ RETURN u2
 \begin{figure}
 \centering
 \begin{lstlisting}
-// Retrieve the nearest excursions within the distance of 0.5 kilometers to u.
+// Retrieve the nearest expeditions within the distance of 0.5 kilometers to u.
 MATCH (u:User {id: $user.id})
 WITH u CALL spatial.closest("Expedition", $user.location, 0.5) YIELD node AS e 
 WITH e, u 
 
-// Keep only the excursions that belong to a joined interest group of u and are dated within the next seven days.
+// Keep only the expeditions that belong to a joined interest group of u and are dated within the next seven days.
 WHERE (e)-[:BELONGS_TO_RUDEL]->(:Rudel)<-[:LIKES_RUDEL]-(u) AND NOT (e)<-[:JOINS_EXPEDITION]-(u) AND e.date > TIMESTAMP() AND e.date < TIMESTAMP() + 604800 
 WITH e
 
-// Return the ten topmost recent excursions.
+// Return the ten topmost recent expeditions.
 ORDER BY e.date 
 LIMIT 10
 RETURN e
 \end{lstlisting}
-\caption[Algorithm to recommend excursions]{The entire algorithm to recommend excursions to a particular user.}
-\label{recommendationalogirthmexcursions}
+\caption[Algorithm to recommend expeditions]{The entire algorithm to recommend expeditions to a particular user.}
+\label{recommendationalogirthmexpeditions}
 \end{figure}
 
  (Mit Codebeispielen) Andere Aktivitäten empfehlen, basierend auf bewertete Aktivitäten (explizit, kontextsensitiv)
