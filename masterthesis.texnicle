@@ -10,7 +10,7 @@
             <plist version="1.0">
                 <dict>
                     <key>NSPersistenceFrameworkVersion</key>
-                    <integer>754</integer>
+                    <integer>847</integer>
                     <key>NSStoreModelVersionHashes</key>
                     <dict>
                         <key>Bookmark</key>
@@ -68,7 +68,7 @@
         <relationship name="selected" type="1/1" destination="FILE" idrefs="z109"></relationship>
         <relationship name="settings" type="1/1" destination="SETTINGS" idrefs="z103"></relationship>
         <relationship name="uisettings" type="1/1" destination="UISETTINGS" idrefs="z104"></relationship>
-        <relationship name="items" type="0/0" destination="PROJECTITEM" idrefs="z105 z107 z110 z109 z106 z111 z108 z113 z112"></relationship>
+        <relationship name="items" type="0/0" destination="PROJECTITEM" idrefs="z110 z109 z113 z112 z106 z105 z111 z107 z108"></relationship>
     </object>
     <object type="SETTINGS" id="z103">
         <attribute name="stoponerror" type="bool">1</attribute>
@@ -85,7 +85,7 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="UISETTINGS" id="z104">
-        <attribute name="pdfviewscrollrect" type="string">{{0, 39477.887666475479}, {604, 546.99247249430482}}</attribute>
+        <attribute name="pdfviewscrollrect" type="string">{{0, 12575.515571349501}, {603.87495856453813, 537.54151120161259}}</attribute>
         <attribute name="showpdfthumbnails" type="bool">0</attribute>
         <attribute name="selectedcontrolstab" type="int16">0</attribute>
         <attribute name="maxoutlinedepth" type="int16">7</attribute>
@@ -121,12 +121,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z109 z111 z107 z112 z110 z108"></relationship>
     </object>
     <object type="FILE" id="z107">
-        <attribute name="visiblerect" type="string">{{0, 1950.5}, {557.5, 726}}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 1950.5}, {541.5, 633}}</attribute>
         <attribute name="cursor" type="string">{3448, 0}</attribute>
-        <attribute name="wasopen" type="bool">0</attribute>
-        <attribute name="lasteditdate" type="date">528031914.30523699522018432617</attribute>
+        <attribute name="wasopen" type="bool">1</attribute>
+        <attribute name="lasteditdate" type="date">528068250.89788299798965454102</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">528031917.61665302515029907227</attribute>
+        <attribute name="fileloaddate" type="date">528068250.21187698841094970703</attribute>
         <attribute name="extension" type="string">bib</attribute>
         <attribute name="sortindex" type="int32">5</attribute>
         <attribute name="name" type="string">books.bib</attribute>
@@ -148,12 +148,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z105 z113"></relationship>
     </object>
     <object type="TEXFILE" id="z109">
-        <attribute name="visiblerect" type="string">{{0, 17035}, {557.5, 757}}</attribute>
-        <attribute name="cursor" type="string">{59156, 0}</attribute>
-        <attribute name="wasopen" type="bool">1</attribute>
-        <attribute name="lasteditdate" type="date">528062637.76547002792358398438</attribute>
+        <attribute name="visiblerect" type="string">{{0, 18027}, {557.5, 703}}</attribute>
+        <attribute name="cursor" type="string">{62122, 0}</attribute>
+        <attribute name="wasopen" type="bool">0</attribute>
+        <attribute name="lasteditdate" type="date">528289782.09518599510192871094</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">528064106.75110697746276855469</attribute>
+        <attribute name="fileloaddate" type="date">528289782.89846098423004150391</attribute>
         <attribute name="extension" type="string">tex</attribute>
         <attribute name="sortindex" type="int32">3</attribute>
         <attribute name="name" type="string">masterthesis.tex</attribute>

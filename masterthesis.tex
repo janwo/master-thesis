@@ -1,9 +1,9 @@
-\documentclass[12pt,numbers=noenddot,parskip,bibliography=totocnumbered,listof=totocnumbered]{scrreprt}
+\documentclass[12pt,numbers=noenddot,parskip,bibliography=totocnumbered,listof=totocnumbered,draft]{scrreprt}
 \usepackage[paper=a4paper,left=30mm,right=25mm,top=30mm,bottom=30mm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[hyphens]{url}
 \usepackage[english]{babel}
-\DeclareTOCStyleEntry[entrynumberformat=\adddot]{tocline}{figure}
+\DeclareTOCStyleEntry[dynnumwidth]{tocline}{figure}
 \newcommand*{\adddot}[1]{#1\unskip.\hfil}
 \usepackage{lmodern}
 \usepackage[sort&compress]{natbib}
@@ -16,7 +16,8 @@
 \usepackage{multirow}
 \usepackage{scrextend}
 \usepackage{tabularx}
-\usepackage{listings}
+\usepackage[final]{listings}
+\usepackage{relsize}
 \usepackage{pifont}
 \usepackage{enumitem}
 \usepackage{setspace}
@@ -70,15 +71,12 @@
 \addtokomafont{captionlabel}{\small}
 
 % Code
-\lstdefinelanguage{JavaScript}{
-  keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with},
+\lstdefinelanguage{cypher}{
+  keywords={CALL, CREATE, LENGTH, CONSTRAINT, ON, INDEX, UNIQUE, DETACH, DELETE, DROP, FOREACH, LIMIT, LOAD, CSV, MATCH, MERGE, OPTIONAL, ORDER, BY, REMOVE, RETURN, SET, SKIP, START, UNION, ALL, WING, USING, JOIN, PERIODIC, COMMIT, SCAN, WITH, WHERE, AS, AND, DISTINCT, CONTAINS, ENDS, IN, IS, NOT, NULL, OR, XOR, CASE, COUNT, COLLECT, DESC, TOFLOAT},
   morecomment=[l]{//},
-  morecomment=[s]{/*}{*/},
   morestring=[b]',
   morestring=[b]",
-  ndkeywords={class, export, boolean, throw, implements, import, this},
   keywordstyle=\bfseries,
-  ndkeywordstyle=\bfseries,
   identifierstyle=\ttfamily,
   commentstyle=\ttfamily,
   stringstyle=\ttfamily,
@@ -86,19 +84,12 @@
 }
 
 \lstset{
-   language=JavaScript,
-   backgroundcolor=\color{lightgray},
+   language=cypher,
    extendedchars=true,
    basicstyle=\footnotesize\ttfamily,
-   showstringspaces=false,
-   showspaces=false,
-   numbers=left,
-   numberstyle=\footnotesize,
-   numbersep=9pt,
+   numbers=none,
    tabsize=2,
-   breaklines=true,
-   showtabs=false,
-   captionpos=b
+   breaklines=true
 }
 
 \begin{document}
@@ -530,20 +521,132 @@ The recommendations made by the application are not meant to patronize members o
 
 An analysis of every single interest group or activity describes the procedure of content based filtering. Attributes are assigned to each recommendation item to allow a comparison among all the other items \citep[p.42]{klahold2009}. Nonetheless, this implies that each member that creates an interest group or activity would have to add comprehensive descriptions of its attributes. As the number of possible attributes increases, existing recommendation elements may need to be checked and perhaps added again. This does not only require a high level of organizational work, but it would also be questionable whether members will save time. In addition, it is possible that members may provide misleading information by accident or on purpose. For this reason, it should be impossible for everybody to influence recommendations made to other members. This is why the input variables shall be exclusively based on the data provided by registered members. With this in mind, it makes sense to avoid a corresponding functionality to let members categorize interest groups and activities.\footnote{One imagines a beach club manager, who would like to promote the interest group ``Go to the beach club''. Out of this motivation, the manager decides to equip the interest group with appropriate categories indicating that activities of this particular interest group are independent from weather conditions. Clearly, this does not correspond to the truth and was chosen out of pure self-interest.} This can be done by using collaborative filtering. 
 
-Collaborative filtering is based on the behavior of members, for example on any interest group they follow or activity they join. \citep[p.62]{klahold2009} Thereby, the algorithm does not compare the similarity of recommendation elements, but rather compares the interactions between recommendation elements and members. This can be illustrated by a member-item matrix as shown in figure \ref{matrix}.
+Collaborative filtering is based on the behavior of members, for example on any interest group they follow or activity they join. \citep[p.62]{klahold2009} Thereby, the algorithm does not compare the similarity of recommendation elements, but rather compares the interactions between recommendation elements and members. This can be illustrated by a member-item matrices as shown in figure \ref{matrix}.
 
 \begin{figure}
+\begin{subfigure}[t]{0.5\textwidth}
 \centering
-$\bordermatrix{~ & \mathit{Item}_1& \mathit{Item}_2 & \cdots & \mathit{Item}_m \cr
-\vphantom{\vdots}\mathit{User}_1 & neutral & \mathbf{likes} & \cdots & neutral \cr
-\vphantom{\vdots}\mathit{User}_2 & dislikes & \mathbf{likes} & \cdots & \mathbf{likes} \cr
-\vdotswithin{\mathit{User}_1} & \vdotswithin{dislikes}  & \vdotswithin{likes} & \ddots & \vdotswithin{neutral} \cr
-\vphantom{\vdots}\mathit{User}_n & dislikes & \mathbf{likes} & \cdots & neutral }$
-\caption[Member-item matrix of collaborative filtering]{Matrix of $m$ items and $n$ members as used in collaborative filtering.}
+$\bordermatrix{~ & \mathit{Item_1} & \mathit{Item_2} & \mathit{Item_m} \cr
+\vphantom{\vdots}\mathit{Person_1} & 1 &  & \cdots  \cr
+\vphantom{\vdots}\mathit{Person_2} & 3 & 4 & \cdots \cr
+\vphantom{\vdots}\mathit{Person_n} & \vdotswithin{3} & \vdotswithin{4} & \ddots  }$
+\caption{}
+\label{nummatrix}
+\end{subfigure}%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+$\bordermatrix{~ & \mathit{Group_1} & \mathit{Group_2} & \mathit{Group_3} \cr
+\vphantom{\vdots}\mathit{Member_1} &  & \mathit{joined} &  \cr
+\vphantom{\vdots}\mathit{Member_2} & \mathit{left} & \mathit{joined} & \mathit{joined} \cr
+\vphantom{\vdots}\mathit{Member_3} & &  & \mathit{joined} }$
+\caption{}
+\label{boolmatrix}
+\end{subfigure}
+\caption[Member-item matrices of collaborative filtering]{Different types of matrices as used in collaborative filtering. (\subref{nummatrix}) Numerical matrix of $m$ items and $n$ persons. (\subref{boolmatrix}) Boolean 3x3 matrix of 3 groups and 3 members.}
 \label{matrix}
 \end{figure}
 
-BASSIS DARAUF SIMALRAITY SCORE 
+Interactions can be compared on a multi-level scale, for instance as in movie and customer reviews, or are analysed with the help of a boolean criteria, for example to determine whether a customer has purchased a product or not. On the basis of these matrices, you can calculate corresponding similarity scores. The score indicates the similarity between two members based on their interactions. There are different calculation methods that can be used for multi-level comparisons including the euclidean distance, cosine-based vector similarity, the Pearson's correlation, or the k-nearest neighbor algorithm. Other methods support only boolean comparisons, such as the Jaccard similarity. 
+
+This application is rather simple and allows members to either show interest in a particular interest group or leave the group again. In addition, it is possible that a member did not yet interact with an interest group. For both calculation methods, it is problematic for this last case to define a certain value, like 0 or false\footnote{In a multi-level comparison, 0 could be interpreted as a bad rating, whereas false is considered negatively in a boolean comparison.} As it is fine to ignore all non-valued recommendation elements for the purpose of this application, the recommendations are made in a boolean comparison by using the Jaccard similarity. 
+
+The Jaccard coefficient measures the similarity between two sample sets and is defined as the size of the intersection divided by the union of two finite sample sets:
+\[
+\mathlarger{J(\mathit{A}, \mathit{B}) = \frac{|\mathit{A} \cap \mathit{B}|}{|\mathit{A} \cup \mathit{B}|}}
+\] 
+
+Figure \ref{boolmatrix} shows an exemplary scenario in which members have interacted with different interest groups. The calculation of the Jaccard coefficient between $\mathit{Member_1}$ and $\mathit{Member_2}$ in terms of commonly joined interest groups is:
+\begin{align*}
+J(\mathit{Member_1}, \mathit{Member_2}) &= \frac{|\mathit{Member_1} \cap \mathit{Member_2}|}{|\mathit{Member_1} \cup \mathit{Member_2}|} \\ &= \frac{|\{\mathit{Group_2}\} \cap \{\mathit{Group_2, Group_3}\}|}{|\{\mathit{Group_2}\} \cup \{\mathit{Group_2, Group_3}\}|} = \frac{|\{\mathit{Group_2}\}|}{|\{\mathit{Group_2, Group_3}\}|} \\ &= 0.5
+\end{align*}
+In order to recommend $\mathit{Member_1}$ matching interest groups, the similarity between $\mathit{Member_1}$ and all other members has to be calculated. $\mathit{Member_3}$ receives a coefficient of $0$ and is therefore ranked behind $\mathit{Member_2}$. The next step is to sort all other members in a descending order by their coefficients. In this sequence, all joined interest groups of every member are collected that have never got the attention of $\mathit{Member_1}$. As soon as the requested number of recommendations has been reached, the process stops and the corresponding recommendations can be displayed. In this particular scenario, $\mathit{Group_3}$ is going to be the top item in this list.
+
+
+\begin{figure}
+\centering
+\begin{lstlisting}
+// Find all users that have at least one joined interest group in common with u1.
+MATCH (u1:User {id: $userId})-[:LIKES_RUDEL]->(intersection:Rudel)<-[:LIKES_RUDEL]-(u2:User) 
+WHERE u2 <> u1 
+
+// For every user: Count the number of joined interest groups that the corresponding user has in common with u1.
+WITH u1, COUNT(DISTINCT intersection) AS intersection, u2 
+
+// Retrieve and transform all joined interest groups of u1 and the corresponding user to sample sets.
+MATCH (rudel_u1:Rudel)<-[:LIKES_RUDEL]-(u1), (u2)-[:LIKES_RUDEL]->(rudel_u2:Rudel) 
+WITH COLLECT(DISTINCT rudel_u1) AS rudel_u1, u1, intersection, u2, COLLECT(DISTINCT rudel_u2) AS rudel_u2 
+
+// Take the union of both sample sets.
+WITH u1, LENGTH(rudel_u1 + filter(x IN rudel_u2 
+WHERE NOT x IN rudel_u1)) AS union, intersection, u2 
+
+// Calculate the Jaccard coefficient of u1 and the corresponding user. 
+WITH TOFLOAT(intersection) / union AS similarity, u1, u2 
+
+// Order all users by their coefficient.
+ORDER BY similarity DESC 
+
+// In this sequence, find the ten topmost interest groups that the corresponding users had joined, but got no attention by u1.
+MATCH (r:Rudel)<-[:LIKES_RUDEL]-(u2) 
+WHERE NOT (r)<-[:LIKES_RUDEL]-(u1) AND NOT (r)<-[:DISLIKES_RUDEL]-(u1) 
+WITH DISTINCT r 
+LIMIT 10
+RETURN r
+\end{lstlisting}
+\caption[Algorithm to recommend interest groups]{The entire algorithm to recommend interest groups to a particular member.}
+\label{recommendationalogirthminterestgroups}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{lstlisting}
+// Find all users that got no attention by u1 and joined at least one interest group commonly.
+MATCH (u1:User {id: $userId})-[:LIKES_RUDEL]->(intersection:Rudel)<-[:LIKES_RUDEL]-(u2:User) 
+WHERE u2 <> u1 AND NOT (u1)-[:LIKES_USER|:DISLIKES_USER]->(u2) 
+
+// For every user: Count the number of joined interest groups that the corresponding user has in common with u1.
+WITH u1, COUNT(DISTINCT intersection) AS intersection, u2 
+
+// Retrieve and transform all joined interest groups of u1 and the corresponding user to sample sets.
+MATCH (rudel_u1:Rudel)<-[:LIKES_RUDEL]-(u1), (u2)-[:LIKES_RUDEL]->(rudel_u2:Rudel) 
+WITH COLLECT(DISTINCT rudel_u1) AS rudel_u1, u1, intersection, u2, COLLECT(DISTINCT rudel_u2) AS rudel_u2 
+
+// Take the union of both sample sets.
+WITH u1, LENGTH(rudel_u1 + filter(x IN rudel_u2 
+WHERE NOT x IN rudel_u1)) AS union, intersection, u2 
+
+// Calculate the Jaccard coefficient of u1 and the corresponding user. 
+WITH TOFLOAT(intersection) / union AS similarity, u1, u2 
+
+// Return the ten topmost users in the order of their coefficient.
+ORDER BY similarity DESC 
+LIMIT 10
+RETURN u2
+\end{lstlisting}
+\caption[Algorithm to recommend members]{The entire algorithm to recommend members to a particular member.}
+\label{recommendationalogirthmmembers}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{lstlisting}
+// Retrieve the nearest excursions within the distance of 0.5 kilometers to u.
+MATCH (u:User {id: $user.id})
+WITH u CALL spatial.closest("Expedition", $user.location, 0.5) YIELD node AS e 
+WITH e, u 
+
+// Keep only the excursions that belong to a joined interest group of u and are dated within the next seven days.
+WHERE (e)-[:BELONGS_TO_RUDEL]->(:Rudel)<-[:LIKES_RUDEL]-(u) AND NOT (e)<-[:JOINS_EXPEDITION]-(u) AND e.date > TIMESTAMP() AND e.date < TIMESTAMP() + 604800 
+WITH e
+
+// Return the ten topmost recent excursions.
+ORDER BY e.date 
+LIMIT 10
+RETURN e
+\end{lstlisting}
+\caption[Algorithm to recommend excursions]{The entire algorithm to recommend excursions to a particular user.}
+\label{recommendationalogirthmexcursions}
+\end{figure}
 
  (Mit Codebeispielen) Andere Aktivitäten empfehlen, basierend auf bewertete Aktivitäten (explizit, kontextsensitiv)
 
