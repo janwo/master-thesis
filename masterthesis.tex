@@ -566,28 +566,27 @@ In order to recommend $\mathit{Member_1}$ matching interest groups, the similari
 \begin{figure}
 \begin{subfigure}[t]{\textwidth}
 \centering
-\begin{tikzpicture}[table/.style={matrix of nodes, nodes in empty cells, column sep=-\pgflinewidth, row sep=-\pgflinewidth, nodes={draw,anchor=center,minimum width=2cm,minimum height=2cm}, row 1/.style={nodes={minimum height=1cm}}}]
+\begin{tikzpicture}[table/.style={matrix of nodes, nodes in empty cells, nodes={rectangle, anchor=center, minimum height=1.25em, 
+      font=\sffamily,text height=1.5ex, text depth=.25ex, align=center, draw}}]
 
-\node [relation=2, label=above:Member] (member) {id \nodepart{two} name};
+\matrix(expedition) [table, label=above:Expedition, text width=7em, column 1/.style={nodes={text width=1.5em}}] {id & name\\0 & Expedition 1\\1 & Expedition 2\\};
 
-\node [relation=2, label=above:Expedition, right=1cm of member] (expedition) {id%
-\nodepart{two} name};
+\matrix(member) [table, label=above:Member, text width=3em, right=.5em of expedition, column 1/.style={nodes={text width=1.5em}}] {id & name\\0 & Kim \\1 & Alex\\};
 
-\node [relation=2, label=above:InterestGroup, left=1cm of member] (interestgroup) {id%
-\nodepart{two} name };
+\matrix(group) [table, label=above:Group, left=.5em of expedition, text width=5em, column 1/.style={nodes={text width=1.5em}}] {id & name\\0 & Group 1\\};
     
-\node [relation=2, label=above:INTERESTED\_IN, below=1.25cm of member] (interestedin) {member%
-\nodepart{two} interest group};
+\matrix(interestedin) [table, label=below:INTERESTED\_IN, below=5em of expedition, text width=4.5em, column 1/.style={nodes={text width=3em}}] {group & member\\0 & 0\\0 & 1\\};
     
-\node [relation=2, label=above:BELONGS\_TO, left=1cm of interestedin] (belongsto) {interest group%
-\nodepart{two} expedition};
+\matrix(belongsto) [table, label=below:BELONGS\_TO, left=.5em of interestedin, text width=5.5em, column 1/.style={nodes={text width=3em}}] {group & expedition\\0 & 0\\0 & 1\\};
 
-\node [relation=2, label=above:JOINS\_EXPEDITION, right=1cm of interestedin] (joinsexpedition) {member%
-\nodepart{two} expedition};
+\matrix(joinsexpedition) [table, label=below:JOINS\_EXPEDITION, right=.5em of interestedin, text width=5.5em] {member & expedition\\0 & 1\\1 & 0\\};
 
-\draw(interestgroup.one south)--++(0,-.5)-|(belongsto.two south);
-%\draw (Professor-2-3.south)--++(0,-.75)-|(Course-1-1.north);
-%\draw (Course-2-1.south)--++(0,-.5)-|(Student-1-2.south);
+\draw(group-2-1.south)--++(-.5em,-2.75em)-|(belongsto-1-1.north);
+\draw (group-2-1.south)--++(.5em,-2.75em)-|(interestedin-1-2.north);
+\draw (expedition-3-1.south)--++(-.5em,-3em)-|(belongsto-1-2.north);
+\draw (expedition-3-1.south)--++(.5em,-3em)-|(joinsexpedition-1-2.north);
+\draw (member-3-1.south)--++(-.5em,-4em)-|(interestedin-1-1.north);
+\draw (member-3-1.south)--++(.5em,-4em)-|(joinsexpedition-1-1.north);
 \end{tikzpicture}
 \caption{}
 \label{relationaldatabase}
@@ -597,26 +596,18 @@ In order to recommend $\mathit{Member_1}$ matching interest groups, the similari
 
 \begin{subfigure}[b]{\textwidth}
 \centering
-\begin{tikzpicture}[>=stealth',shorten >=1pt,node distance=3cm,on grid,initial/.style = {}]
-  \node[state]          (P)                        {$P$};
-  \node[state]          (B) [above right =of P]    {$B$};
-  \node[state]          (M) [below right =of P]    {$M$};
-  \node[state]          (D) [above right =of B]    {$D$};
-  \node[state]          (C) [below right =of B]    {$C$};
-  \node[state]          (L) [below right =of C]    {$L$};
-\tikzset{mystyle/.style={->,double=orange}} 
-\tikzset{every node/.style={fill=white}} 
-\path (C)     edge [mystyle]    node   {$3$} (B)
-      (D)     edge [mystyle]    node   {$10$} (B) 
-      (L)     edge [mystyle]    node   {$10$} (M)
-      (B)     edge [mystyle]    node   {$10$} (P);
-\tikzset{mystyle/.style={<->,double=orange}}   
-\path (P)     edge [mystyle]   node   {$4$} (M)
-      (C)     edge [mystyle]   node   {$9$} (M) 
-      (C)     edge [mystyle]   node   {$4$} (D)
-      (B)     edge [mystyle]   node   {$5$} (M);
-\tikzset{mystyle/.style={<->,relative=false,in=0,out=60,double=orange}}
-\path (L)     edge [mystyle]   node   {$10$} (D); 
+\begin{tikzpicture}[>=stealth', shorten >=1pt, node distance=2.5em, on grid, every text node part/.style={align=center}, every edge/.style={->}]
+	\node[state] (m0) {Member\\ \small{id: 0\\ name: Kim}};
+ 	\node[state] (m1) [right =of m0] {Member\\ \small{id: 1\\ name: Alex}};
+ 	\node[state] (g0) [below left =of m0] {Group\\ \small{id: 0\\ name: Group 1}};  
+ 	\node[state] (e0) [below right =of m0] {Expedition\\  \small{id: 0\\ name: Expedition 1}};
+ 	\node[state] (e1) [right =of e0] {Expedition\\  \small{id: 1\\ name: Expedition 2}};
+	\path (m0) edge node {INTERESTED\_IN} (g0)
+	(m1) edge node {INTERESTED\_IN} (g0)
+	(e0) edge node {BELONGS\_TO} (g0)
+	(e1) edge node {BELONGS\_TO} (g0)
+	(m0) edge node {JOINS\_EXPEDITION} (e1)
+	(m1) edge node {JOINS\_EXPEDITION} (e0);
 \end{tikzpicture}
 \caption{}
 \label{graph database}
