@@ -3,19 +3,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage[hyphens]{url}
 \usepackage[english]{babel}
-\DeclareTOCStyleEntry[dynnumwidth]{tocline}{figure}
-\newcommand*{\adddot}[1]{#1\unskip.\hfil}
 \usepackage{lmodern}
 \usepackage[sort&compress]{natbib}
 \usepackage{graphicx} 
 \usepackage{subcaption}
 \usepackage{rotating}
 \usepackage{pgfplots}
-\pgfplotsset{compat=newest}
 \usepackage{transparent}
 \usepackage{multirow}
 \usepackage{tikz}
-\usetikzlibrary{matrix,positioning,arrows,automata}
 \usepackage{scrextend}
 \usepackage{tabularx}
 \usepackage[final]{listings}
@@ -64,13 +60,20 @@
 \renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
 
 % Auflistungen
+\DeclareTOCStyleEntry[dynnumwidth]{tocline}{figure}
+\newcommand*{\adddot}[1]{#1\unskip.\hfil}
 \setkomafont{labelinglabel}{\textit}
-\pgfplotsset{compat=newest}
-\pgfplotstableset{col sep=semicolon}
 \graphicspath{ {img/} }
 \setlist[itemize]{wide, itemsep=0pt, parsep=\medskipamount}
 \addtokomafont{caption}{\small}
 \addtokomafont{captionlabel}{\small}
+
+% pgf-Settings
+\usetikzlibrary{matrix,positioning,arrows,automata,fit}
+\pgfplotsset{compat=newest}
+\pgfplotstableset{col sep=semicolon}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
 
 % Code
 \lstdefinelanguage{cypher}{
@@ -548,7 +551,7 @@ $\bordermatrix{~ & \mathit{Group_1} & \mathit{Group_2} & \mathit{Group_3} \cr
 \label{matrix}
 \end{figure}
 
-Interactions can be compared on a multi-level scale, for instance as in movie and customer reviews, or are analysed with the help of a boolean criteria, for example to determine whether a customer has purchased a product or not. On the basis of these matrices, you can calculate corresponding similarity scores. The score indicates the similarity between two members based on their interactions. There are different calculation methods that can be used for multi-level comparisons including the euclidean distance, cosine-based vector similarity, the Pearson's correlation, or the k-nearest neighbor algorithm. Other methods support only boolean comparisons, such as the Jaccard similarity. 
+Interactions can be compared on a multi-level scale, for instance as in movie and customer reviews, or are analysed with the help of a boolean criteria, for example to determine whether a customer has purchased a product or not. On the basis of these matrices, you can calculate corresponding similarity scores. The score indicates the similarity between two members based on their interactions. There are different calculation methods that can be used for multi-level comparisons including the euclidean distance \citep[p.75]{klahold2009}, cosine-based vector similarity \citep[p.71]{klahold2009}, the Pearson's correlation \citep[p.72]{klahold2009}, or the k-nearest neighbor \citep[p.76]{klahold2009} algorithm. Other methods support only boolean comparisons, such as the Jaccard similarity \citep[p.74]{klahold2009}. 
 
 This application is rather simple and allows members to either show interest in a particular interest group or leave the group again. In addition, it is possible that a member did not yet interact with an interest group. For both calculation methods, it is problematic for this last case to define a certain value, like 0 or false\footnote{In a multi-level comparison, 0 could be interpreted as a bad rating, whereas false is considered negatively in a boolean comparison.} As it is fine to ignore all non-valued recommendation elements for the purpose of this application, the recommendations are made in a boolean comparison by using the Jaccard similarity. 
 
@@ -566,27 +569,26 @@ In order to recommend $\mathit{Member_1}$ matching interest groups, the similari
 \begin{figure}
 \begin{subfigure}[t]{\textwidth}
 \centering
-\begin{tikzpicture}[table/.style={matrix of nodes, nodes in empty cells, nodes={rectangle, anchor=center, minimum height=1.25em, 
-      font=\sffamily,text height=1.5ex, text depth=.25ex, align=center, draw}}]
+\begin{tikzpicture}[table/.style={matrix of nodes, nodes in empty cells, nodes = {rectangle, anchor = center, minimum height = 1.25em, font = \sffamily, text height = 1.5ex, text depth = .25ex, align = center, draw}}]
 
-\matrix(expedition) [table, label=above:Expedition, text width=7em, column 1/.style={nodes={text width=1.5em}}] {id & name\\0 & Expedition 1\\1 & Expedition 2\\};
+\matrix(expedition) [table, label = above:Expedition, text width = 3em, column 1/.style = {nodes = {text width = 1.5em}}] {id & name\\0 & Exp1\\1 & Exp2\\};
 
-\matrix(member) [table, label=above:Member, text width=3em, right=.5em of expedition, column 1/.style={nodes={text width=1.5em}}] {id & name\\0 & Kim \\1 & Alex\\};
+\matrix(member) [table, label = above:Member, text width = 3em, right = .5em of expedition, column 1/.style = {nodes = {text width = 1.5em}}] {id & name\\0 & Kim \\1 & Alex\\};
 
-\matrix(group) [table, label=above:Group, left=.5em of expedition, text width=5em, column 1/.style={nodes={text width=1.5em}}] {id & name\\0 & Group 1\\};
+\matrix(group) [table, label = above:Group, left = .5em of expedition, text width = 3em, column 1/.style = {nodes = {text width = 1.5em}}] {id & name\\0 & Grp1\\};
     
-\matrix(interestedin) [table, label=below:INTERESTED\_IN, below=5em of expedition, text width=4.5em, column 1/.style={nodes={text width=3em}}] {group & member\\0 & 0\\0 & 1\\};
+\matrix(interestedin) [table, label = below:INTERESTED\_IN, below = 5em of expedition, text width = 4.5em, column 1/.style = {nodes = {text width = 3em}}] {group & member\\0 & 0\\0 & 1\\};
     
-\matrix(belongsto) [table, label=below:BELONGS\_TO, left=.5em of interestedin, text width=5.5em, column 1/.style={nodes={text width=3em}}] {group & expedition\\0 & 0\\0 & 1\\};
+\matrix(belongsto) [table, label = below:BELONGS\_TO, left = .5em of interestedin, text width = 5.5em, column 1/.style = {nodes = {text width = 3em}}] {group & expedition\\0 & 0\\0 & 1\\};
 
-\matrix(joinsexpedition) [table, label=below:JOINS\_EXPEDITION, right=.5em of interestedin, text width=5.5em] {member & expedition\\0 & 1\\1 & 0\\};
+\matrix(joinsexpedition) [table, label = below:JOINS\_EXPEDITION, right = .5em of interestedin, text width = 5.5em] {member & expedition\\0 & 1\\1 & 0\\};
 
-\draw(group-2-1.south)--++(-.5em,-2.75em)-|(belongsto-1-1.north);
-\draw (group-2-1.south)--++(.5em,-2.75em)-|(interestedin-1-2.north);
-\draw (expedition-3-1.south)--++(-.5em,-3em)-|(belongsto-1-2.north);
-\draw (expedition-3-1.south)--++(.5em,-3em)-|(joinsexpedition-1-2.north);
-\draw (member-3-1.south)--++(-.5em,-4em)-|(interestedin-1-1.north);
-\draw (member-3-1.south)--++(.5em,-4em)-|(joinsexpedition-1-1.north);
+\draw[thick] (group-2-1.south)--++(-.5em,-2.75em)-|(belongsto-1-1.north);
+\draw[thick] (group-2-1.south)--++(.5em,-2.75em)-|(interestedin-1-2.north);
+\draw[thick] (expedition-3-1.south)--++(-.5em,-3em)-|(belongsto-1-2.north);
+\draw[thick] (expedition-3-1.south)--++(.5em,-3em)-|(joinsexpedition-1-2.north);
+\draw[thick] (member-3-1.south)--++(-.5em,-4em)-|(interestedin-1-1.north);
+\draw[thick] (member-3-1.south)--++(.5em,-4em)-|(joinsexpedition-1-1.north);
 \end{tikzpicture}
 \caption{}
 \label{relationaldatabase}
@@ -596,18 +598,18 @@ In order to recommend $\mathit{Member_1}$ matching interest groups, the similari
 
 \begin{subfigure}[b]{\textwidth}
 \centering
-\begin{tikzpicture}[>=stealth', shorten >=1pt, node distance=2.5em, on grid, every text node part/.style={align=center}, every edge/.style={->}]
-	\node[state] (m0) {Member\\ \small{id: 0\\ name: Kim}};
- 	\node[state] (m1) [right =of m0] {Member\\ \small{id: 1\\ name: Alex}};
- 	\node[state] (g0) [below left =of m0] {Group\\ \small{id: 0\\ name: Group 1}};  
- 	\node[state] (e0) [below right =of m0] {Expedition\\  \small{id: 0\\ name: Expedition 1}};
- 	\node[state] (e1) [right =of e0] {Expedition\\  \small{id: 1\\ name: Expedition 2}};
-	\path (m0) edge node {INTERESTED\_IN} (g0)
-	(m1) edge node {INTERESTED\_IN} (g0)
-	(e0) edge node {BELONGS\_TO} (g0)
-	(e1) edge node {BELONGS\_TO} (g0)
-	(m0) edge node {JOINS\_EXPEDITION} (e1)
-	(m1) edge node {JOINS\_EXPEDITION} (e0);
+\begin{tikzpicture}[ >= stealth', shorten >= 1pt, node distance = 15em, on grid, every text node part/.style = {align = center}]
+ 	\node[state] (g0) {Group\\ \textit\small{id: 0}\\ \textit\small{name: Grp1}};  
+	\node[state] (m1) [above right = of g0] {Member\\ \textit\small{id: 1}\\ \textit\small{name: Alex}};
+ 	\node[state] (e0) [below right = of g0] {Expedition\\ \textit\small{id: 0}\\ \textit\small{name: Exp1}};
+ 	\node[state] (e1) [below left= of g0] {Expedition\\ \textit\small{id: 1}\\ \textit\small{name: Exp2}};
+ 	\node[state] (m0) [above left = of g0] {Member\\ \textit\small{id: 0}\\ \textit\small{name: Kim}};
+	\path[->, thick] (m0) edge node[fill = white, inner sep = 3pt] {INTERESTED\_IN} (g0);
+	\path[->, thick] (m1) edge node[fill = white, inner sep = 3pt] {INTERESTED\_IN} (g0);
+	\path[->, thick] (e0) edge node[fill = white, inner sep = 3pt] {BELONGS\_TO} (g0);
+	\path[->, thick] (e1) edge node[fill = white, inner sep = 3pt] {BELONGS\_TO} (g0);
+	\path[->, thick] (m0) edge node[fill = white, inner sep = 3pt] {JOINS\_EXPEDITION} (e1);
+	\path[->, thick] (m1) edge node[fill = white, inner sep = 3pt] {JOINS\_EXPEDITION} (e0);
 \end{tikzpicture}
 \caption{}
 \label{graph database}
@@ -615,6 +617,11 @@ In order to recommend $\mathit{Member_1}$ matching interest groups, the similari
 \caption[Comparison of relational and graph databases]{Comparison of relational and graph databases.}
 \label{databases}
 \end{figure}
+
+In relational databases, many database tables have to be iterated to model the complex relationships between members, interest groups and expeditions. In this way, database queries are more error-prone and may require an unoptimized number of computational operations.
+This use case is well suited for graph databases as they can represent members, interest groups and activities as nodes and relationships as edges. The graph database resolves all relationships without the help of the programmer and uses optimized algorithms to keep the number of computational operations as small as possible. Manual iterations across multiple database tables are no longer necessary. Figure \ref{databases} compares two exemplary models that represent two members, who are interested in one interest group and participate in separate activities. The graph model clearly increases the clarity.
+
+The graph database Neo4j \citep{neo4j} is one of the most known graph database and allows to perform database queries in a query language called Cypher. Nodes and edges are represented in round and square brackets and are linked using hyphens. Figure \ref{recommendationalogirthminterestgroups} shows the final version of the commented database query in Cypher to recommend ten interest groups to a member based upon the Jaccard similarity.
 
 \begin{figure}
 \centering
@@ -650,6 +657,8 @@ RETURN r
 \caption[Algorithm to recommend interest groups]{The entire algorithm to recommend interest groups to a particular member.}
 \label{recommendationalogirthminterestgroups}
 \end{figure}
+
+In the same way, other members are recommended to a particular member as shown in figure \ref{recommendationalogirthmmembers}. In contrast to the previous algorithm, the list of recommended members is returned without further processing and only consist of members that got no attention by the corresponding member.
 
 \begin{figure}
 \centering
@@ -702,22 +711,135 @@ RETURN e
 \label{recommendationalogirthmexpeditions}
 \end{figure}
 
- (Mit Codebeispielen) Andere Aktivitäten empfehlen, basierend auf bewertete Aktivitäten (explizit, kontextsensitiv)
+While interest groups are location-independent, activities are associated with a geographical location. In order to recommend activities to a particular member, it is now necessary to add attention to their individual location. For this reason, activities can be determined using element-based filtering. With this in mind, all activities are gathered that belong to at least one interest group of the particular member and are scheduled within the next seven days in a radius of 30 kilometers. The activities are sorted in ascending order of date. The distance can be calculated easily as shown below:
+\[
+\mathlarger{D(x_1, y_1, x_2, y_2) = \sqrt{(\Delta x)^2+(\Delta y)^2}}
+\]
+With a small number of activities, the computing costs to calculate all distances will not be high. To ensure that the algorithm remains performant for a large number of activities, it is advisable to sort the activities by their geographical location in an R-tree structure. Each node within the tree defines a geographic rectangle that is becoming more and more specific as its level increases. Activities are placed as leaf nodes at the respective nodes. Now, it is easy to determine all activities within a certain radius. Starting from the root, all the nodes are ignored whose geographical rectangle does not intersect with the query circle. Finally, all remaining leaf nodes are collected and returned.
 
-Weiterhin bestehen geläufige Probleme der Empfehlungsalgorithmen, wie bspw. dem Cold Start und der Filterblase
-Kritische Betrachtung
+The Spatial Plugin \citep{spatial} for Neo4j can be installed to handle this process automatically without the necessity of special programming. Figure \ref{recommendationalogirthmexpeditions} shows the commented database query to recommend relevant activities to a member and also illustrates the usage of the plugin. 
+
+With the algorithms presented here, tendential predictions can be made. Nevertheless, the algorithms are still simple and abusive actions cannot be detected by the algorithm itself. Similar member profiles can be created to make use of the collaborative filtering method to influence recommendations made to a particular member. It is also possible to specify the location and interest group of an activity in such a way that potential recommendations may reach people of a certain neighbourhood and interest.
+
+Besides potential abuse, no additional precautions have been made to avoid filter bubbles\footnote{Filter bubbles occur as soon as people are solely surrounded by items they like due to personalized algorithms.} and cold start problems\footnote{The cold start describes a problem that occurs as soon as a system cannot cannot make reliable inferences due to insufficient interaction data.} along made recommendations.
 
 \section{Required Hardware and Software}
-The complexity of the application is extremely challenging and the implementation by a single person cannot be completed in a predictable time. Solely the co-action of multiple third-party components and the integration of the individual implementation, makes it possible to oversee and operate such a complex system. Thus, this section gives an overview explaining the rough infrastructure of software and hardware for the entire application.
+The complexity of the application is extremely challenging and the implementation by a single person cannot be completed in a predictable time. Solely the co-action of multiple third-party components and the integration of the individual implementation, makes it possible to oversee and operate such a complex system. Thus, this section gives an overview explaining the rough infrastructure of hardware and software for the entire application as shown in figure \ref{application}.
 
-The hardware of the machine is made up by a set of components. On the one hand, a web server is required to store and execute the corresponding database and the non-public and public program code. In theory, the location of the server is irrelevant as long as the location provides a reliable connection to the internet. Due to privacy concerns, it is desirable to use a server located inside Germany.
-On the other hand, all the devices that belong to members and are equipped with modern browsers, can be considered as potential components of the entire machine. These devices use the world wide web to access the public program code from the web server and execute it locally. Resulting database queries and non-public computing operations are again sent to the web server via an application programming interface. In a broader sense, all devices share the computing load this way.
+The first major component is the web server that is required to store and execute the corresponding database and the program code. In theory, the location of a web server is irrelevant as long as the location provides a reliable connection to the internet. Due to privacy concerns, it is desirable to use a web server located inside Germany. The second major component are all the devices that belong to members and are equipped with modern browsers. These clients use the world wide web to access the public program code from the web server and execute it locally. In a broader sense, all these devices share a part of their computing power to run the whole machine. For that reason, these devices shall be considered as potential components of the entire machine. The last major component are external services that provide advanced features to run the whole application properly.
 
-The software also requires a lot of precautions within the program code to implement all these processes. Again, it is necessary to use already implemented third-party modules, which have to be configured and integrated accordingly. The main software component is the Node.js framework\footnote{https://nodejs.org/}, which can perform system wide operations on a server or any other computer by using Javascript. The framework offers various modules via a platform that can be downloaded by the developer. Both, the public program code as well as the non-public program code uses many functionalities that are provided by those downloadable modules. The non-public program code is built upon the hapi.js\footnote{https://hapijs.com/} framework in order to handle the essential features of a web server, for example encryption, routing, authentication, validation or logging. Additional plugins can be integrated to add support for alternative login methods, database controllers or monitoring services. 
-KURZER AUFBAU, DATENBANK, REDIS, DOCKER
+The web server runs a software container platform called Docker \citep{docker} that organizes a set of containers on a shared operating system. Each container is an isolated software package that performs different tasks. The application container is the key element of the machine and stores the entire program code. The main software component of this container is the Node.js \citep{nodejs} framework, which can perform system wide operations on a server or any other computer by using Javascript. The framework offers various third-party modules that can be downloaded via an in-built package manager. Configured and integrated appropriately, modules can improve the maintainability of a complex system as the developer does not need to implement and test such functions by himself and can instead access ready-to-use and tested methods. 
 
-The public program code is based on the Angular\footnote{https://angular.io/} framework.
-ALLES WIRD INITIAL HERUNTERGELADEN UND DANN LOKAL AUSGEFÜHRT, ERLEICHTERT DAS ERSTELLEN VON KOMPONENTEN; WIEDERVERWENDBAR. LÄUFT PERFORMANT AUF MOBILEN GERÄTEN.
+Most of the non-public program code is built upon the hapi.js \citep{hapijs} framework in order to handle the essential features of a web server, for example encryption, routing, authentication, validation or logging. Additional plugins and external services can be integrated to add support for alternative login methods, database controllers or monitoring services. In this way, the framework gives access to several databases within the program code. As indicated in the previous section, all members, interest groups and activities are organized in a graph database called Neo4j. Authentication tokens and other short-term information is managed by a cache database named Redis \citep{redis}. Statistics about the server performance are stored in a time series database called Prometheus\citep{prometheus} and are visible to administrators via a visualization tool by Grafana Labs \citep{grafana}. All databases run in separate containers and are accessible by the framework. For security reasons, the application executes database queries and non-public computing operations on the web server only. The respective operations can be triggered from the world wide web via an application programming interface (API). However, this is only possible once the member has authenticated himself using a valid login method (e-mail, OAuth via Facebook or Google). In addition, the application provides the public program code as well as certain static files, such as images and icons. By using the hapijs framework, appropriate web addresses can be specified accordingly.
+
+\begin{figure}
+\centering
+\def\subdist{1em}
+\def\subpadding{\subdist}
+\def\arrowgap{0.5 * \subdist}
+\def\areapadding{1em}
+\def\areamargin{2.5 * \areapadding}
+\tikzstyle{sub} = [draw, text centered, rounded corners, inner sep = \subpadding]
+\tikzstyle{main} = [sub, fill = black!10]
+\tikzstyle{group} = [rounded corners, draw = black!50, ultra thick, inner sep = \areapadding]
+\tikzstyle{container} = [group, dashed]
+\tikzstyle{area} = [group, double]
+\begin{tikzpicture}[>= stealth', shorten >= 1pt, every text node part/.style = {align = center}, font = \sffamily, text depth = .25ex, align = center, draw]
+    \node (clients) {Clients};
+    \node (angularpublicprogramcode) [main, below = \areapadding of clients]  {Public Program Code};
+    \node (angular) [below = \subdist + \subpadding of angularpublicprogramcode] {Angular};
+    \node (components)[sub, below = \subdist of angular] {\rotatebox{90}{Components}};
+    \node (services) [sub, left = \subdist of components] {\rotatebox{90}{Services}};
+    \node (router)[sub, right = \subdist of components] {\rotatebox{90}{Router}};
+    \begin{pgfonlayer}{background}
+        \node (angulargroup) [sub, fit = (components) (services) (router) (angular)] {};
+    \end{pgfonlayer}    \begin{pgfonlayer}{background}
+        \node (clientarea) [area, fit = (clients) (angularpublicprogramcode) (angulargroup)] {};
+    \end{pgfonlayer}
+    
+    \node (letsencrypt)[main, right = \areamargin + 2 * \areapadding of angularpublicprogramcode.north east, anchor = north west] {Let's Encrypt};
+    \node (google)[main, below = \subdist of letsencrypt.south west, anchor = north west] {Google};
+    \node (mapzen) [main, below = \subdist of google.south west, anchor = north west] {Mapzen};
+    \node (openstreetmap)[main, right = \subdist of google.north east, anchor = north west] {OpenStreetMap};
+    \node (facebook)[main, above  = \subdist of openstreetmap.north east, anchor = south east] {Facebook};
+    \node (aws) [main, below = \subdist of openstreetmap.south east, anchor = north east]  {Amazon\\ Web Services};
+     \node (externalservicesgroup1) [inner sep = 0, fit=(aws) (letsencrypt) (mapzen)] {};
+    \node (externalservices) [above = \areapadding of externalservicesgroup1] {External Services};
+     \begin{pgfonlayer}{background}
+        \node (externalservicesarea) [area, fit=(aws) (externalservices) (letsencrypt) (mapzen)] {};
+    \end{pgfonlayer}
+    
+    \coordinate [above = \areamargin + \subdist + \subpadding of clientarea.north west] (angularclisouth);
+    \node (angularcli) [sub, right = \areapadding + \subpadding of angularclisouth, anchor = south west] {\rotatebox{90}{angular-cli}};
+    \node (webpack)[sub, above = \subdist of angularcli.north east, anchor = south east] {\rotatebox{90}{Webpack}};
+    \node (nodejs) [main, above = \subdist of webpack.north east, anchor = south east]  {\rotatebox{90}{Node.js}};
+    
+    \coordinate [right = \subdist * 2 + \subpadding * 2 of angularcli.south east] (bundleeast);
+    \node (bundle)[sub, above = \subpadding * 2 of bundleeast, anchor = south west] {\rotatebox{90}{\parbox[align=center]{7.5em}{\centering
+    Public\\ Program Code}}};
+    \node (staticfiles)[sub, right = \subdist of bundle] {\rotatebox{90}{Static Files}};
+    \node (api)[sub, right = \subdist of staticfiles] {\rotatebox{90}{API}};
+    \node (hapijsrouter) [inner sep = 0, fit=(bundle) (api) (staticfiles)] {};
+    \node (hapijsrouterdesc) [above = \subpadding of hapijsrouter] {Router};
+    \node (hapijsdesc)[above = \subdist + \subpadding of hapijsrouterdesc] {hapijs};
+    \begin{pgfonlayer}{background}
+        \node (hapijsroutergroup) [sub, fit=(api) (bundle) (hapijsrouterdesc)] {};
+        \node (hapijsgroup) [sub, fit=(hapijsroutergroup) (hapijsdesc)] {};
+    \end{pgfonlayer}
+    \node (applicationcontainerdesc) [anchor = north] at (nodejs.north -| hapijsgroup) {\textit{Application Container}};
+    \begin{pgfonlayer}{background}
+        \node (applicationcontainer) [container, fit=(applicationcontainerdesc) (hapijsgroup) (angularcli)] {};
+    \end{pgfonlayer}
+    
+    \coordinate (prometheussouth) at (applicationcontainer.south -| externalservicesarea.north east);
+    \node (prometheus)[container, left = \areapadding of prometheussouth, anchor = south east] {\textit{Prometheus}\\ \textit{Container}};
+    \node (grafana)[container, above = \subdist of prometheus.north east, anchor = south east] {\textit{Grafana}\\ \textit{Container}};
+    \node (redis)[container, above = \subdist of grafana.north east, anchor = south east]  {\textit{Redis}\\ \textit{Container}};
+    \node (neo4j)[container, above = \subdist of redis.north east, anchor = south east]  {\textit{Neo4j}\\ \textit{Container}};
+    
+    \node (servergroup) [inner sep = 0, fit=(prometheus) (applicationcontainer) (applicationcontainerdesc)] {};
+    \node (serverdesc) [above = \areapadding of servergroup] {Web Server};
+    \begin{pgfonlayer}{background}
+        \node (serverarea) [area, fit=(applicationcontainer) (serverdesc) (prometheus)] {};
+    \end{pgfonlayer}
+    
+    \coordinate[below = 0.5 * \areamargin of serverarea.south] (serverexternalservices);
+    \coordinate[below = 0.25 * \subdist of grafana.south] (grafanaprometheus);
+    \coordinate[left = \subdist + 0.5 * \arrowgap of prometheus.west] (applicationcontainerprometheus0);
+    \coordinate[left = \subdist - 0.5 * \arrowgap of prometheus.west] (applicationcontainerprometheus1);
+    \coordinate[right = \subdist of angularcli.east] (angularclihapijsgroup);
+    \coordinate[left = \subpadding * 2 of hapijsgroup.south east] (hapijsgroupsouth);
+    \coordinate[right = \subdist * 0.5 of staticfiles.east] (staticfilesapi);
+    \coordinate (staticfilesapisouth) at (hapijsroutergroup.south -| staticfilesapi);
+    \coordinate[above = \subdist of staticfilesapisouth] (staticfilesapihapijsgroupsouth);
+    \coordinate[left = 0.5 * \areamargin - \arrowgap of externalservicesarea.west] (externalservicesclient0);
+    \coordinate[left = 0.5 * \areamargin of externalservicesarea.west] (externalservicesclient1);
+    \coordinate[left = 0.5 * \areamargin + \arrowgap of externalservicesarea.west] (externalservicesclient2);
+    \coordinate[above = 0.5 * \arrowgap of angulargroup.east] (angulargroupeast0);
+    \coordinate[below = 0.5 * \arrowgap of angulargroup.east] (angulargroupeast1);
+    \coordinate[above = \arrowgap of hapijsgroup.east] (hapijsgroupeast0);
+    \coordinate[below = \arrowgap of hapijsgroup.east] (hapijsgroupeast1);
+    
+    \draw[->, thick] (hapijsgroupsouth) -- (serverexternalservices -| hapijsgroupsouth) -- (serverexternalservices -| externalservices.north) -- (externalservicesarea.north);
+    \draw[->, thick] (angulargroupeast1) -- (angulargroupeast1 -| externalservicesclient0) -- (externalservicesarea.west -| externalservicesclient0) -- (externalservicesarea.west);
+    \draw[-, thick] (angulargroupeast0) -- (angulargroupeast0 -| externalservicesclient1) -- (serverexternalservices -| externalservicesclient1) -- (serverexternalservices -| staticfilesapihapijsgroupsouth) -- (staticfilesapihapijsgroupsouth) -- (staticfilesapihapijsgroupsouth -| api.south);
+    \draw[<->, thick] (staticfiles.south) -- (staticfilesapihapijsgroupsouth -| staticfiles.south) -- (staticfilesapihapijsgroupsouth -| api.south) -- (api.south);
+    \draw[->, thick] (clientarea.east) -- (clientarea.east -| externalservicesclient2) -- (serverexternalservices -| externalservicesclient2) -- (serverexternalservices -| bundle.south) -- (bundle.south);
+    \draw[->, thick, dashed] (angularcli.east) -- (angularcli.east -| angularclihapijsgroup) -- (bundle.west -| angularclihapijsgroup) -- (bundle.west);
+    \draw[->, thick] (angularpublicprogramcode.south) -- (angulargroup.north);
+    \draw[->, thick, dashed] (nodejs.south) -- (webpack.north);
+    \draw[->, thick, dashed] (webpack.south) -- (angularcli.north);
+    \draw[->, thick] (grafana.south) -- (grafanaprometheus -| grafana.south) -- (grafanaprometheus -| prometheus.north) -- (prometheus.north);
+    \draw[->, thick, dashed] (nodejs.east) -- (nodejs.east -| angularclihapijsgroup) -- (hapijsdesc.west -| angularclihapijsgroup) -- (hapijsdesc.west -| hapijsgroup.west);
+    \draw[->, thick] (hapijsgroupeast0) -- (hapijsgroupeast0 -| applicationcontainerprometheus0) -- (neo4j.west -| applicationcontainerprometheus0) -- (neo4j.west);
+    \draw[->, thick] (hapijsgroup.east) -- (hapijsgroup.east -| applicationcontainerprometheus1) -- (redis.west -| applicationcontainerprometheus1) -- (redis.west);
+    \draw[->, thick] (hapijsgroupeast1) -- (hapijsgroupeast1 -| applicationcontainerprometheus0) -- (prometheus.west -| applicationcontainerprometheus0) -- (prometheus.west);
+\end{tikzpicture}
+\caption[Technical schema of the application]{Technical schema of all main components in the application.}
+\label{application}
+\end{figure}
+
+The public program code is based on the Angular \citep{angular} framework. The framework makes it more convenient to build web browser applications that can be executed locally. With Angular, individual functions and buttons are developed as components and services making it possible to reuse them wherever needed. Therefore, it is necessary to convert the components and services into rudimentary Javascript code. For this purpose, the Node.js instance starts a module bundler called Webpack \citep{webpack} that executes the Angular Compiler and performs various optimizations to reduce the size of the final public program code. Once distributed to the hapijs framework, the public program code can be requested and executed by any device in the world wide web. For this reason, additional requests are mostly referred to the API or to external services, for example to show the location of an expedition on a map. This way, it is rarely necessary to establish new data-intensive connections to the web server, which makes the public program code run very efficiently and sets the basis for good usability, even on devices with limited computing speed.
 
 \chapter{Empirical Method}
 
@@ -773,13 +895,16 @@ virtuell aktuell was ist physisch? ab wann?
 
 \appendix
 \chapter{Appendix}
+
 \newpage
-\section{Study Material}
+\section{System Usability Score}
 \vfill
 \center{\frame{\includegraphics[width=.98\textwidth, page=1]{inlinepdf/sus}}}
 \label{sus}
 \vfill
-\clearpage
+
+\newpage
+\section{Questionaire}
 \vfill
 \center{\frame{\includegraphics[width=.98\textwidth, page=1]{inlinepdf/qualitativequestionaire}}}
 \label{qualitativequestionaire0}
