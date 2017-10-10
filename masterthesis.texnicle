@@ -65,10 +65,10 @@
         <attribute name="name" type="string">masterthesis</attribute>
         <attribute name="folder" type="string">/Users/janwolf/Documents/Workspace/masterthesis</attribute>
         <relationship name="mainfile" type="1/1" destination="FILE" idrefs="z109"></relationship>
-        <relationship name="selected" type="1/1" destination="FILE" idrefs="z109"></relationship>
+        <relationship name="selected" type="1/1" destination="FILE" idrefs="z107"></relationship>
         <relationship name="settings" type="1/1" destination="SETTINGS" idrefs="z103"></relationship>
         <relationship name="uisettings" type="1/1" destination="UISETTINGS" idrefs="z104"></relationship>
-        <relationship name="items" type="0/0" destination="PROJECTITEM" idrefs="z108 z110 z106 z111 z109 z113 z112 z105 z107"></relationship>
+        <relationship name="items" type="0/0" destination="PROJECTITEM" idrefs="z107 z108 z113 z110 z111 z106 z109 z112 z105"></relationship>
     </object>
     <object type="SETTINGS" id="z103">
         <attribute name="stoponerror" type="bool">1</attribute>
@@ -85,7 +85,7 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="UISETTINGS" id="z104">
-        <attribute name="pdfviewscrollrect" type="string">{{0, 12773}, {580, 782}}</attribute>
+        <attribute name="pdfviewscrollrect" type="string">{{3.2254226894590787e-11, 25980.909937835}, {603.99999999996771, 733.4285714243415}}</attribute>
         <attribute name="showpdfthumbnails" type="bool">0</attribute>
         <attribute name="selectedcontrolstab" type="int16">0</attribute>
         <attribute name="maxoutlinedepth" type="int16">7</attribute>
@@ -121,12 +121,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z109 z111 z107 z112 z110 z108"></relationship>
     </object>
     <object type="FILE" id="z107">
-        <attribute name="visiblerect" type="string">{{0, 3795}, {792, 726}}</attribute>
-        <attribute name="cursor" type="string">{5689, 0}</attribute>
-        <attribute name="wasopen" type="bool">1</attribute>
-        <attribute name="lasteditdate" type="date">528837981.58667701482772827148</attribute>
+        <attribute name="visiblerect" type="string">{{0, 3418.5}, {792, 726}}</attribute>
+        <attribute name="cursor" type="string">{5931, 0}</attribute>
+        <attribute name="wasopen" type="bool">0</attribute>
+        <attribute name="lasteditdate" type="date">529337728.35807597637176513672</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">528837982.71462297439575195312</attribute>
+        <attribute name="fileloaddate" type="date">529337885.60892498493194580078</attribute>
         <attribute name="extension" type="string">bib</attribute>
         <attribute name="sortindex" type="int32">5</attribute>
         <attribute name="name" type="string">books.bib</attribute>
@@ -148,12 +148,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z105 z113"></relationship>
     </object>
     <object type="TEXFILE" id="z109">
-        <attribute name="visiblerect" type="string">{{0, 25088}, {792, 726}}</attribute>
-        <attribute name="cursor" type="string">{87094, 0}</attribute>
-        <attribute name="wasopen" type="bool">0</attribute>
-        <attribute name="lasteditdate" type="date">528875659.33117502927780151367</attribute>
+        <attribute name="visiblerect" type="string">{{0, 21969}, {792, 726}}</attribute>
+        <attribute name="cursor" type="string">{91112, 0}</attribute>
+        <attribute name="wasopen" type="bool">1</attribute>
+        <attribute name="lasteditdate" type="date">529351303.77944600582122802734</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">528875681.05536097288131713867</attribute>
+        <attribute name="fileloaddate" type="date">529351304.90233302116394042969</attribute>
         <attribute name="extension" type="string">tex</attribute>
         <attribute name="sortindex" type="int32">3</attribute>
         <attribute name="name" type="string">masterthesis.tex</attribute>

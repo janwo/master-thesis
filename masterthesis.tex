@@ -841,43 +841,43 @@ Most of the non-public program code is built upon the hapi.js \citep{hapijs} fra
 
 The public program code is based on the Angular \citep{angular} framework. The framework makes it more convenient to build web browser applications that can be executed locally. With Angular, individual functions and buttons are developed as components and services making it possible to reuse them wherever needed. Therefore, it is necessary to convert the components and services into rudimentary Javascript code. For this purpose, the Node.js instance starts a module bundler called Webpack \citep{webpack} that executes the Angular Compiler and performs various optimizations to reduce the size of the final public program code. Once distributed to the hapijs framework, the public program code can be requested and executed by any device in the world wide web. For this reason, additional requests are mostly referred to the API or to external services, for example to show the location of an expedition on a map. This way, it is rarely necessary to establish new data-intensive connections to the web server, which makes the public program code run very efficiently and sets the basis for good usability, even on devices with limited computing speed.
 
-\chapter{Empirical Method}
+\chapter{Method}
+This chapter describes used methods to review the proposals of actions, which are mentioned in the previous chapter, and its consequences. The primary method is a case study involving interviews with interested members on the basis of a questionnaire. A prior utilization of the recommendation algorithm ensures the correct processing of the algorithm. Due to the diverse nature of the field, the case study cannot give a complete picture of all the effects involved as it certainly requires an interdisciplinary evaluation with more resources. Nonetheless, it should be capable to generate enough insights to give a general impression of the members opinion. This respects the proposals of actions and the reliability of recommendations made by the application.
 
-\section{Technical Validation}
-\begin{itemize} 
-	\item Beispielhaftes Modell und Anwendung des Algorithmus.
-\end{itemize} 
+\section{Utilizing the recommendation algorithm}
+Before members can register on the platform and receive recommendations, the algorithm should be checked in advance to ensure compliance. For this purpose, a concise data set of member interactions will be defined that allows the manual identification of relevant recommendation elements. Next, the data set is transferred to the database of the application and the elements selected manually are compared with the elements determined by the algorithm. The equality of both element sets confirm a proper functioning of the algorithm. Due to the similar principles of the respective algorithms, just the recommendation algorithm for interest groups needs to be checked and the data set can be limited to interaction data of members with interest groups.
 
-\section{User-centered Validation}
+\section{Participants}
+As mentioned earlier, recommendations using collaborative methods depend on a large number of interaction data. Because of this, the application was published two months before actual interviews had taken place. The application was promoted via several social networks as a new way of organizing one's leisure time activities.
 
-\subsection{Recruitement}
+Beside of this generalized promotion, the application was extra advertised in a few social media groups that primarily focus on leisure activities. The advertising on social networks was accompanied by hundreds of leaflets designed and distributed in canteens, dormitories and throughout events. Within the complete pre-run period, a total number of 205 members signed up onto the application. 
 
-\subsection{Participants}
+Two weeks before the interviews started, an intensified test period was announced to determine whether the absence of other social networks has an impact on the practical value of the application in the daily routine. Thus, members were asked to use the application exclusively during this two-week time. To increase the motivation, cinema gift cards will be drawn as incentives to participants that had been selected for the interviews. Potential interviewees are members that created or joined at least one expedition or interacted with the platform multiple times during the entire test period. 
 
-\subsection{System Usability Score}
-\begin{itemize} 
-	\item Evaluation der Usability
-	\item Ausschließen, dass Empfehlungen bewertet werden und nicht die Defizite der Applikation
-\end{itemize} 
+A total number of 22 members interacted with the platform at least once, six of them interacted with the applications multiple times. Six people had been asked and agreed to participate voluntarily in the interviews.
 
-\subsection{Questionnaire}
+\section{System Usability Score}
+The System Usability Scale was developed in 1986 by John Brooke and is made up of ten questions to evaluate a given system \citep[p.189-194]{brooke1996}. The questionnaire is a common tool to quickly check the usability of a system. Good usability is a prerequisite for saving time as cumbersome functionalities increase the total interaction time unnecessarily. For this reason, a system usability scale will be developed. Every participant is asked to complete a system usability scale during the interview.
+
+\section{Questionnaire}
+
+
 Maßnahmen alle als Teil der Evaluation
 \begin{itemize} 
 	\item Nutzerzentriertes Evaluieren der Empfehlungsalgorithmen.
 	\item Ist es gelungen, die Freizeitgestaltung zu vereinfachen?
 	\item Hast du mind. einen Streifzug unternommen?
+	\item Ausschließen, dass Empfehlungen bewertet werden und nicht die Defizite der Applikation
 	\item Hat es deine Freizeitgestaltung direkt oder indirekt beeinflusst (hatte es impact)?
 \end{itemize} 
 
 \chapter{Results}
 
-\section{Technical Validation}
+\section{Utilizing the recommendation algorithm}In the followingAn example of a similar data set was already given in the previous chapter. 
 
-\section{User-centered Validation}
+\section{System Usability Score}
 
-\subsection{System Usability Score}
-
-\subsection{Questionnaire}
+\section{Questionnaire}
 
 \chapter{Analysis}
 Ergebnisse der Studie wiederholen und in den Kontext stellen
@@ -914,11 +914,15 @@ virtuell aktuell was ist physisch? ab wann?
 \center{\frame{\includegraphics[width=.98\textwidth, page=2]{inlinepdf/qualitativequestionaire}}}
 \label{qualitativequestionaire1}
 \vfill
+\clearpage
+\vfill
+\center{\frame{\includegraphics[width=.98\textwidth, page=3]{inlinepdf/qualitativequestionaire}}}
+\label{qualitativequestionaire2}
 
 % Literaturverzeichnis
 \clearpage
 \pagenumbering{roman}
-\bibliographystyle{mlu_ifg}
+\bibliographystyle{apalike}
 \bibliography{books}
 
 %Abbildungsverzeichnis
