@@ -14,6 +14,7 @@
 \usepackage{tikz}
 \usepackage{scrextend}
 \usepackage{tabularx}
+\usepackage{cellspace} 
 \usepackage[final]{listings}
 \usepackage{relsize}
 \usepackage{pifont}
@@ -21,11 +22,14 @@
 \usepackage{setspace}
 \usepackage{mathtools}
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{sansmath}
 \usepackage[automark]{scrlayer-scrpage}
 
 % Stil der Seiten
 \pagestyle{scrheadings}
 \clearscrheadfoot
+\sansmath
 
 %Abstand der Fussnoten
 \deffootnote{1em}{1em}{\textsuperscript{\thefootnotemark\ }}
@@ -60,6 +64,8 @@
 \renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
 
 % Auflistungen
+\setlength\cellspacetoplimit{.5em}
+\setlength\cellspacebottomlimit{.5em}
 \DeclareTOCStyleEntry[dynnumwidth]{tocline}{figure}
 \newcommand*{\adddot}[1]{#1\unskip.\hfil}
 \setkomafont{labelinglabel}{\textit}
@@ -69,11 +75,14 @@
 \addtokomafont{captionlabel}{\small}
 
 % pgf-Settings
-\usetikzlibrary{matrix,positioning,arrows,automata,fit}
+\usetikzlibrary{matrix,positioning,arrows,automata,fit,pgfplots.statistics}
 \pgfplotsset{compat=newest}
 \pgfplotstableset{col sep=semicolon}
 \pgfdeclarelayer{background}
 \pgfsetlayers{background,main}
+\pgfplotsset{label style={font=\sffamily\small, text width=16em}}
+\pgfplotsset{tick label style={font=\sffamily\small}}
+\pgfplotsset{every axis label/.append style={font=\sffamily\small}}
 
 % Code
 \lstdefinelanguage{cypher}{
@@ -159,7 +168,7 @@ Originating in the protestant work ethic \citep[p.27]{weber2006} and industriali
 
 Positive definitions of leisure focus on the fact, that an activity ``has been chosen primarily for its own sake, for the experience itself'' \citep[p.15]{freysinger2000}. Quality becomes the predominant feature of leisure\footnote{In most cases, it is easy to determine, whether someone enjoys an activity and feels satisfied. Consequently positive definitions are a good way to distinguish between leisure and non-leisure time. But does an individual spend leisure time by doing sports in the gym to loose weight? Does a pop band, who plays for a hobby, have leisure time at a party when asked to play, although they rather would like to enjoy the party without performing? Sometimes it is not possible to distinguish, whether someone is spending leisure or non-leisure time. Only the persons themselves can tell.} and is no longer soley bound to time. Positive definitions of leisure are the most common way of defining leisure internationally.
 
-In international leisure studies the definitions of free time are comparable with negative definitions of leisure mentioned above. The American sociologist \citeauthor{stebbins2007} describes free time as the ``time away from unpleasant obligation'' \cite[p.4]{stebbins2007}, as a quasi subtraction of the unpleasant from one's totally available time. \citeauthor{stebbins2007} definition shows little variation to negative definitions of leisure. In accordance with positive definitions of leisure \citeauthor{stebbins2007} defines leisure as an ``uncoerced  activity engaged in during free time, which people want to do and, in either a satisfying or a fulfilling way (or both), use their abilities and resources to succeed at this''. 
+In international leisure studies the definitions of free time are comparable with negative definitions of leisure mentioned above. The American sociologist \citeauthor{stebbins2007} describes free time as the ``time away from unpleasant obligation'' \cite[p.4]{stebbins2007}, as a quasi subtraction of the unpleasant from one's totally available time. \citeauthor{stebbins2007} definition shows little variation to negative definitions of leisure. In accordance with positive definitions of leisure, \citeauthor{stebbins2007} defines leisure as an ``uncoerced  activity engaged in during free time, which people want to do and, in either a satisfying or a fulfilling way (or both), use their abilities and resources to succeed at this''. 
 
 There are numerous definitions of free time and leisure and the entire field is complex. In this thesis My discussion in this thesis will use the definitions constituted by \citeauthor{stebbins2007} as his statements are well applicable to positive and negative definitions of leisure. In summary, \textit{free time} in this thesis is meant to be the time away from eligible activities, whereas \textit{leisure time} corresponds to executing uncoerced activities leading to fulfillment and satisfaction.
  
@@ -194,8 +203,7 @@ The historical development towards an always-on society strongly influences toda
     ytick = data,
     yticklabels from table={plotdata/topactivities.csv}{Activity},
     yticklabel style={align=right,anchor=east},
-    xlabel={Ratio of people executed the activity by 2016 [\%]},
-    xlabel style={align=right},
+    xlabel={Ratio of people executed activities by 2016 [\%]},
     nodes near coords={\pgfmathprintnumber[fixed zerofill,precision=0]{\pgfplotspointmeta}$\%$}
 ]  
 \addplot [fill=white] table [y expr=\coordindex, x=Percentage]{plotdata/topactivities.csv};
@@ -205,7 +213,7 @@ The historical development towards an always-on society strongly influences toda
 \label{topleisureactivities}
 \end{figure}
 
-The broad range of leisure opportunities and an ongoing densification of time influences the way we choose activities during free time. According to \citeauthor{schulze2005} there are six forms of existence\footnote{\citeauthor{schulze2005} differentiates between six modes of existence between situation and subject. The situation can \textit{constrain} one's actions, for example by law regulations, liquidity or the time of day. Alternatively, a situation can \textit{encourage} and \textit{trigger} actions of a subject. The subject may use \textit{symbolization} to let other subjects interpret it, like showing material wealth by wearing expensive clothes. The subject can change the situation by \textit{choosing} from a given set of possibilities or \textit{influencing} it by changing the set of possibilities manually. \citep[p. 198-206]{schulze2005}}. It seems like today's time pressure lets people rather stay in the form of existence to ``choose'' existing activities instead of ``influence'' things by their own. In other words, instead of being a musician yourself, you go to a musical event and listen to professional artists. This allows time savings and professional music enjoyment at the same time. In a networked world, things are easily accessible from everywhere and people tend to develop higher expectations on leisure activities. This begins primarily for children as soon as they have access to interactive media, which often provide little space for one's own personal level of imagination. Compare a computer game with a book or a construction kit - a computer game with highend graphics can come with complete visual and audiovisual information, whereas the book and the construction kit are incomplete enough to make room for fantasy. Ever-faster communication and global competition support and promote this form of existence. Meanwhile, a large number of leisure activities are available to meet a strong demand. The market has become highly complex for many people. Although recommendations from friends or acquaintances for leisure activities are valuable and trustworthy, it is not uncommon to consult other information sources via multiple channels. According to a conducted study by \citeauthor{freizeitmonitor2016}, six of the top ten most done leisure activities are media-related as shown in figure \ref{topleisureactivities}. This affinity to media and the large number of leisure activities explains the existence of various magazines, radio programs, TV formats and websites\footnote{An incomplete list of examples in these channels: ``Kultur heute'' (program by german radio station ``Deutschlandfunk), ``Das ist los im Norden'' (program by north german radio station ``ffn''), ``MIX'' (german magazine and website - operates in Bremen, Bremerhaven and the surrounding area), ``www.wasgehtheuteab.de'' (german website - operates in Germany), ``eventful.com'' (american website - operates worldwide), ``eventim.de'' (german website - operates worldwide), ``eventbrite.de'' (american website - operates worldwide), ``'ttt - titel thesen temperamente'' (program by german television channel ``ARD'').}. Apart from the strong media consumption, \citeauthor{freizeitmonitor2016} extracts two additional major groups. The following main groups were identified:
+The broad range of leisure opportunities and an ongoing densification of time influences the way we choose activities during free time. According to \citeauthor{schulze2005}, there are six forms of existence\footnote{\citeauthor{schulze2005} differentiates between six modes of existence between situation and subject. The situation can \textit{constrain} one's actions, for example by law regulations, liquidity or the time of day. Alternatively, a situation can \textit{encourage} and \textit{trigger} actions of a subject. The subject may use \textit{symbolization} to let other subjects interpret it, like showing material wealth by wearing expensive clothes. The subject can change the situation by \textit{choosing} from a given set of possibilities or \textit{influencing} it by changing the set of possibilities manually. \citep[p. 198-206]{schulze2005}}. It seems like today's time pressure lets people rather stay in the form of existence to ``choose'' existing activities instead of ``influence'' things by their own. In other words, instead of being a musician yourself, you go to a musical event and listen to professional artists. This allows time savings and professional music enjoyment at the same time. In a networked world, things are easily accessible from everywhere and people tend to develop higher expectations on leisure activities. This begins primarily for children as soon as they have access to interactive media, which often provide little space for one's own personal level of imagination. Compare a computer game with a book or a construction kit - a computer game with highend graphics can come with complete visual and audiovisual information, whereas the book and the construction kit are incomplete enough to make room for fantasy. Ever-faster communication and global competition support and promote this form of existence. Meanwhile, a large number of leisure activities are available to meet a strong demand. The market has become highly complex for many people. Although recommendations from friends or acquaintances for leisure activities are valuable and trustworthy, it is not uncommon to consult other information sources via multiple channels. According to a conducted study by \citeauthor{freizeitmonitor2016}, six of the top ten most done leisure activities are media-related as shown in figure \ref{topleisureactivities}. This affinity to media and the large number of leisure activities explains the existence of various magazines, radio programs, TV formats and websites\footnote{An incomplete list of examples in these channels: ``Kultur heute'' (program by german radio station ``Deutschlandfunk), ``Das ist los im Norden'' (program by north german radio station ``ffn''), ``MIX'' (german magazine and website - operates in Bremen, Bremerhaven and the surrounding area), ``www.wasgehtheuteab.de'' (german website - operates in Germany), ``eventful.com'' (american website - operates worldwide), ``eventim.de'' (german website - operates worldwide), ``eventbrite.de'' (american website - operates worldwide), ``'ttt - titel thesen temperamente'' (program by german television channel ``ARD'').}. Apart from the strong media consumption, \citeauthor{freizeitmonitor2016} extracts two additional major groups. The following main groups were identified:
 
 \begin{labeling}{regeneration}
 \item[media use] This involves the use of classic and new media formats. Especially young people use the internet as a tool to coordinate activities or maintain social contacts.
@@ -213,9 +221,9 @@ The broad range of leisure opportunities and an ongoing densification of time in
 \item[socialize] The purpose of this major group is to spend leisure time together with family, friends and acquaintances.
 \end{labeling}
 
-The same study reveals that 98\% of young adults used the Internet in the last week, which makes the internet the most popular leisure activity in this age group \cite{freizeitmonitor2016}. Thus, the internet is likely to be the most popular source for young adults today. 91\% of young adults said that they had been active in social media in the last week \cite{freizeitmonitor2016}. Facebook is the largest social network and explains on one of its marketing sites that 440 million people use the event features alone on Facebook - 35 million of them daily \citep{facebook2017}. In the year of 2015, around 47 million events were created on Facebook \citep{facebook2017}. A social network can use its strengths in this field to give individualized information to people. The network either returns a list of potential attendees or recommends events of interest, like those organized by friends. In a digitized world, automated recommendations coexist and possibly compete in various fields with those given by acquaintances and friends.
+The same study reveals that 98\% of young adults used the Internet in the last week, which makes the internet the most popular leisure activity in this age group \citep{freizeitmonitor2016}. Thus, the internet is likely to be the most popular source for young adults today. 91\% of young adults said that they had been active in social media in the last week \cite{freizeitmonitor2016}. Facebook is the largest social network and explains on one of its marketing sites that 440 million people use the event features alone on Facebook - 35 million of them daily \citep{facebook2017}. In the year of 2015, around 47 million events were created on Facebook \citep{facebook2017}. A social network can use its strengths in this field to give individualized information to people. The network either returns a list of potential attendees or recommends events of interest, like those organized by friends. In a digitized world, automated recommendations coexist and possibly compete in various fields with those given by acquaintances and friends.
 
-The disadvantage of communicating via social networks, instant messaging services and similar methods is that they make it unnecessary to meet in person anymore. This extensive use of these communication technologies in conjunction with the perceived scarcity of time have an impact on the way we spend our free time. As shown in figure \ref{topfivechangingleisureactivities}, the 5-year comparison shows that primarily common activities show the highest drop rate, whereas solitary activities show the highest growth in this trend. This is worrying, but not an unusual development. The personal presence of people is becoming increasingly unimportant with social networks and comparable technologies, as they seek to establish themselves as a medium in between. Interpersonal relationships also suffer from the already mentioned rationalization of time in which ever arising time gaps are being filled. Social media become the passive communication channel through which people make their experiences available to the public. This way, leisure time has become part of one's self-promotion and is therefore increasingly subject to a performance principle, just like employment does.
+The disadvantage of communicating via social networks, instant messaging services and similar methods is that they make it unnecessary to meet in person anymore. This extensive use of these communication technologies in conjunction with the perceived scarcity of time have an impact on the way we spend our free time. As shown in figure \ref{topfivechangingleisureactivities}, the 5-year comparison shows that primarily common activities show the highest drop rate, whereas solitary activities show the highest growth in this trend. This is worrying, but not an unusual development. The personal presence of people is becoming increasingly unimportant with social networks and comparable technologies as they seek to establish themselves as a medium in between. Interpersonal relationships also suffer from the already mentioned rationalization of time in which ever arising time gaps are being filled. Social media become the passive communication channel through which people make their experiences available to the public. This way, leisure time has become part of one's self-promotion and is therefore increasingly subject to a performance principle, just like employment does.
 
 \begin{figure}
 \begin{tikzpicture}
@@ -229,8 +237,7 @@ The disadvantage of communicating via social networks, instant messaging service
     ytick = data,
     yticklabels from table={plotdata/trendofactivities.csv}{Activity},
     yticklabel style={align=right,anchor=east},
-    xlabel={Ratio of people executed the activity by 2016 compared to 2011 [\%]},
-    xlabel style={align=right},
+    xlabel={Ratio of people executed activities by 2016 compared to 2011 [\%]},
     nodes near coords={\pgfmathprintnumber[fixed zerofill,precision=0]{\pgfplotspointmeta}$\%$}
 ]
 \addplot [fill=white] table [y=Position, x=Percentage]{plotdata/trendofactivities.csv};
@@ -257,11 +264,11 @@ A clear distinction between leisure time and free time can be problematical, onc
 This section lists five statements that aim to decrease the amount of online time in favor of offline time. Every statement is introduced with an underlying explanation.
 
 \paragraph{Statement 1: Stop thriving self-promotion online}
-The first statement to increase leisure time is the intention of a strong restriction on an individual self-promotion. As an essential part of the comprehensible intrinsic need to be liked by others, self-promotion influences the way we clothe and express ourselves. However, it can be overly optimized on social media as the individual is able to decide what to share with the public. The individual can build up their own personalities, manipulate their outer appearance and the surrounding environment. I think it is reasonable to say that individuals economize their self-promotion for likes and shares on social media. This ever-improved false picture let individuals become more and more subject to a greater social pressure to compete with the apparent norm of a gradually optimized presentation of everybody's personality \citep{jay2012}. Thus, the individual spends more time on social media to maintain their profiles and to keep part of the discussion. Studies show that there is a correlation between somebodies relative happiness and the hours spend as well as the number of years registered on Facebook \citep[p.119]{chou2012}.\newline
-In order to decrease the time spent on such activities, the machine has a reduced number of possible spaces thriving self-promotion. Only a profile photo and a short description of the person shall be allowed. This way, new members have the ability to introduce themselves to the community and everybody can get an idea of each other. However, there will be no further interactive elements to shape one's self-promotion. This design prevents possible competitions along members in the context of self-promotion and shall free up space in everybody's free time.
+The first statement to increase leisure time is the intention to restrict opportunities within the application that may thrive the motivation of self-promotion by individuals. As an essential part of the comprehensible intrinsic desire to be liked by others, self-promotion influences the way we clothe and express ourselves. However, it can be overly optimized on social media as the individual is able to decide what to share with the public. The individual can build up their own personalities, manipulate their outer appearance and the surrounding environment. I think it is reasonable to say that individuals economize their self-promotion for likes and shares on social media. This ever-improved false picture lets individuals become more and more subject to a greater social pressure to compete with the apparent norm of a gradually optimized presentation of everybody's personality \citep{jay2012}. Thus, the individual spends more time on social media to maintain their profiles and to keep part of the discussion. Studies show that there is a correlation between somebody's relative happiness and the hours spent as well as the number of years registered on Facebook \citep[p.119]{chou2012}.\newline
+In order to decrease the time spent on such activities, the machine has a reduced number of possible spaces thriving self-promotion. Only a profile photo and a short description of the person shall be allowed. This way, new members have the ability to introduce themselves to the community and everybody can get an idea of each other. However, there will be no further interactive elements to shape one's self-promotion. This design prevents possible competitions among members in the context of self-promotion and shall free up space in everybody's free time.
 
 \paragraph{Statement 2: No social feeds or unrelated features}
-The second statement calls for an avoidance of secondary features that are not essential for organizing activities. Secondary features may include the display of an advertisement, news and any kind of social feeds. A social feed allows individuals to upload videos, status updates or photos. As the essential part of their business models, most social networks engage community members to contribute or interact with the social feed. This way, the social feed is an awarding advertising space. A higher engagement and retention time means more ad-placements and a higher profit. Consequently, social media applications like Facebook and Twitter do not reward anybody to meet in person. On the contrary, the more time individuals spend on their platform, the greater is the probability to receive more likes and comments. Most of the people may not have won much in the end. Instead of being active by themselves, they consume the content of the social feeds. In addition, meeting in person would have the advantage of a more conscious communication as facial gestures are an essential part of it  \citep{vanderkam2017}. That is the reason why job interviews and presentations are most likely done in-person \citep{vanderkam2017}. In addition, studies show that in comparison to textual conversations, in-person meetings let communication partners feel more satisfied and increase the level of mutual attention \citep{vanderkam2017}. \newline
+The second statement calls for an avoidance of secondary features that are not essential for organizing activities. Secondary features may include the display of an advertisement, news and any kind of social feeds. A social feed allows individuals to upload videos, status updates or photos. As the essential part of their business models, most social networks engage community members to contribute or interact with the social feed. This way, the social feed is an awarding advertising space. A higher engagement and retention time means more ad-placements and probably a higher profit. Consequently, social media applications like Facebook and Twitter do not reward anybody to meet in person. On the contrary, the more time individuals spend on their platform, the greater is the probability to receive more likes and comments. Most of the people may not have won much in the end. Instead of being active by themselves, they consume the content of the social feeds. In addition, meeting in person would have the advantage of a more conscious communication as facial gestures are an essential part of it  \citep{vanderkam2017}. That is the reason why job interviews and presentations are most likely done in-person \citep{vanderkam2017}. In addition, studies show that in comparison to textual conversations, in-person meetings let communication partners feel more satisfied and increase the level of mutual attention \citep{vanderkam2017}. \newline
 In the interest of refocusing to in-person meetings, the machine does not mislead individuals to spend time unnecessarily for other purposes. Thus, the application will not feature a social feed or any kind of advertisement.
 
 \paragraph{Statement 3: Make strong efforts to reduce instant messaging}
@@ -282,7 +289,7 @@ On the basis of these principles, one could notice that it is not easy to distin
 
 To complete the terminology, a corresponding name for an activity and the application is needed. Every time wolves start hunting, we speak of an expedition. Likewise, such a metaphor applies perfectly to the machine's structure as well. In the context of this application it should be noted that you cannot take hunting literally. The objective is rather the execution of the activity in general by members of any given interest group. This is why an activity will be called an expedition in the context of the application. 
 
-The name of the application should follow the same terminology. To support the acceptance of the application in german-speaking countries and thereby increase the probability of a meaningful evaluation, the german term "Rudel" (pack) can be used. In order to keep the total number of terms small, the group of interests will be entitled after the german translation as well, which is why a group of interest is renamed to "Rudel" (pack). In order to find the application in search results more easily and to differentiate the name of the application from the group of interests, the term can be slightly varied and shortened. In this case, the name "rudl" seems to be a fitting name for this application.
+The name of the application should follow the same terminology. To support the acceptance of the application in german-speaking countries and thereby increase the probability of a meaningful evaluation, the german term "Rudel" (pack) can be used. In order to keep the total number of terms small, the group of interests will be entitled after the german translation as well, which is why a group of interest is renamed to "Rudel". In order to find the application in search results more easily and to differentiate the name of the application from the group of interests, the term can be slightly varied and shortened. In this case, the name "rudl" seems to be a fitting name for this application.
 
 Now that the general idea and its related terminology has been described, the implementation of the application will be explained in the next section.
 
@@ -302,19 +309,19 @@ The visual language is an underlying rule set for the design of all visual compo
 To ensure that each member associates the metaphor of the pack and the expedition with a positive attitude, it is important to provide a friendly look and feel throughout the entire application. This is why a palette of light colors shall be used. Green nuances influence the primary and secondary colors as shown in figure \ref{colors} to reinforce the metaphor and its relationship to nature. The primary and secondary colors are intended to highlight those components that deserve attention. That includes essential buttons and the logo of the application. In the same manner, the logo of the application draws attention to the concept of packs, expeditions and wolves by illustrating a howling wolf in front of a moon colored in the primary color. In line with the goal of the visual language, simplicity and a high memorability were respected in the design. Figure \ref{icons} shows the final logo with a selection of alternatives and previous iterations.
  
 \begin{figure}
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{icons.png}
 \caption{}
 \label{icons}
-\end{subfigure}
+\end{subfigure}%
 \hfill
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{fonts.png}
 \caption{}
 \label{fonts}
-\end{subfigure}
+\end{subfigure}%
 \caption[Icons and typefaces]{Icons and typefaces as defined by the visual language: Multiple iterations of the logo (\subref{icons}) with different shapes and colors. The non-transparent icon is the final version of the logo. The typeface (\subref{fonts}) consists of two sans serif fonts - Quicksand is used for headings, whereas Lato is used for floating text.}
 \end{figure}
 
@@ -324,35 +331,35 @@ As the visual language can ensure a streamlined design of the application, the f
 
 \subsection{Organisation of Interest Groups}
 \begin{figure}
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{searchinterestgroup.png}
 \caption{}
 \label{searchinterestgroup}
-\end{subfigure}
+\end{subfigure}%
 \hfill
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{createinterestgroup0.png}
 \caption{}
 \label{createinterestgroup0}
-\end{subfigure}
+\end{subfigure}%
 
 \bigskip
 
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{createinterestgroup1.png}
 \caption{}
 \label{createinterestgroup1}
-\end{subfigure}
+\end{subfigure}%
 \hfill
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{interestgroup.png}
 \caption{}
 \label{interestgroup}
-\end{subfigure}
+\end{subfigure}%
 \caption[Organization of interest groups]{The panel of an interest group (\subref{interestgroup}) reveals important information and is accessible via the search interface (\subref{searchinterestgroup}). Interests groups are created in two steps: (\subref{createinterestgroup0}) specify a name for the interest group and (\subref{createinterestgroup1}) specify an icon for the interest group.}
 \end{figure}
 
@@ -366,68 +373,68 @@ The panel of the interest group contains of a head area and three separate secti
 The whole concept of the application remains in the virtual space as long as there is no way to join and create activities. Activities are accessible via the corresponding interest group as described in the previous section. 
 
 \begin{figure}
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{createactivity0.png}
 \caption{}
 \label{createactivity0}
-\end{subfigure}
+\end{subfigure}%
 \hfill
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{createactivity1.png}
 \caption{}
 \label{createactivity1}
-\end{subfigure}
+\end{subfigure}%
 
 \bigskip
 
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{createactivity2.png}
 \caption{}
 \label{createactivity2}
-\end{subfigure}
+\end{subfigure}%
 \hfill
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{createactivity3.png}
 \caption{}
 \label{createactivity3}
-\end{subfigure}
+\end{subfigure}%
 \caption[Creation of activities]{Creation of activities in four steps: (\subref{createactivity0}) Adjust the activity name and access control, (\subref{createactivity1}) redefine the activity icon, (\subref{createactivity2}) set the meeting point and (\subref{createactivity3}) specify date and time of the activity.}
 \end{figure}
 
 \begin{figure}
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{activity.png}
 \caption{}
 \label{activity}
-\end{subfigure}
+\end{subfigure}%
 \hfill
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{activityattendees.png}
 \caption{}
 \label{activityattendees}
-\end{subfigure}
+\end{subfigure}%
 
 \bigskip
 
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{activitydiscussion.png}
 \caption{}
 \label{activitydiscussion}
-\end{subfigure}
+\end{subfigure}%
 \hfill
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{activitymap.png}
 \caption{}
 \label{activitymap}
-\end{subfigure}
+\end{subfigure}%
 \caption[Organisation of activities]{The activity panel (\subref{activity}) comes with a map of the meeting point (\subref{activitymap}), invitation capabilities (\subref{activityattendees}) and a discussion board (\subref{activitydiscussion}) to let members plan their activity in detail.}
 \end{figure}
 
@@ -437,36 +444,36 @@ Every activity panel is structured analogical to an interest group as it contain
 
 \subsection{Profile Management and Notifications}
 \begin{figure}
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{user.png}
 \caption{}
 \label{user}
-\end{subfigure}
+\end{subfigure}%
 \hfill
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{settings.png}
 \caption{}
 \label{settings}
-\end{subfigure}
+\end{subfigure}%
 
 \bigskip
 
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{notifications.png}
 \caption{}
 \label{notifications}
-\end{subfigure}
+\end{subfigure}%
 \hfill
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
-\includegraphics[width=\linewidth]{useractivitys.png}
+\includegraphics[width=\linewidth]{useractivities.png}
 \caption{}
-\label{useractivitys}
-\end{subfigure}
-\caption[Profile Management and Notifications]{Every member has a public profile (\subref{user}), which can be configured via the settings page (\subref{settings}). Every member receives personal notifications (\subref{notifications}) as well as an overview of all joined activities (\subref{useractivitys}).}
+\label{useractivities}
+\end{subfigure}%
+\caption[Profile Management and Notifications]{Every member has a public profile (\subref{user}), which can be configured via the settings page (\subref{settings}). Every member receives personal notifications (\subref{notifications}) as well as an overview of all joined activities (\subref{useractivities}).}
 \end{figure}
 
 Every member in the community has a public profile that can be individualized with a picture and a short description. As shown in figure \ref{user}, every profile contains a list of all joined interest groups and an overview of all corresponding followers and followees. Members can adjust their profile within the settings page as shown in figure \ref{settings}. Additionally, the settings page allow members to delete their account or toggle notification updates via mail.
@@ -474,7 +481,7 @@ Every member in the community has a public profile that can be individualized wi
 Notifications may represent a trivial principle. Carefully applied, they improve the transparency throughout the application. Members do not need to invest time to investigate wether friends, acquaintances or other related members are joining activities or started a discussion. Figure \ref{notifications} demonstrates the overview of notifications that is easily accessible via the top menu. Members will be notified as soon as one of the following events occurred:
 
 \begin{itemize}
-	\item A nearby activity had been created in one of the interest groups that the member joined.	
+	\item A nearby activity had been created in one of the interest groups that the member joined.
 	\item Another member joined or left an activity that the member created.
 	\item A followee of the member joined an activity that the member joined.
 	\item Another member wants to join a restricted activity that the member created.
@@ -489,33 +496,33 @@ Notifications may represent a trivial principle. Carefully applied, they improve
 
 In case the member activated mail notifications via the settings page, notifications are collected on a hourly basis and sent via mail to the members inbox.
 
-The last component in this section is an overview of all upcoming and past activities to which the member will participate or had participated. Figure \ref{useractivitys} shows the section of upcoming activities. In addition to notifications, this overview shall provide an alternative way to access all relevant activities easily.
+The last component in this section is an overview of all upcoming and past activities to which the member will participate or had participated. Figure \ref{useractivities} shows the section of upcoming activities. In addition to notifications, this overview shall provide an alternative way to access all relevant activities.
 
 \subsection{Explorative Components}
 \begin{figure}
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
-\includegraphics[width=\linewidth]{exploreinterestgroup.png}
+\includegraphics[width=\linewidth]{exploreinterestgroups.png}
 \caption{}
-\label{exploreinterestgroup}
-\end{subfigure}
+\label{exploreinterestgroups}
+\end{subfigure}%
 \hfill
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
-\includegraphics[width=\linewidth]{exploreactivitys.png}
+\includegraphics[width=\linewidth]{exploreactivities.png}
 \caption{}
-\label{exploreactivitys}
-\end{subfigure}
+\label{exploreactivities}
+\end{subfigure}%
 
 \bigskip
 
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.45\textwidth}%
 \centering
 \includegraphics[width=\linewidth]{exploreusers.png}
 \caption{}
 \label{exploreusers}
-\end{subfigure}
-\caption[Explorative Components]{Explorative components either display lists of interest groups (\subref{exploreinterestgroup}), activities (\subref{exploreactivitys}) or users (\subref{exploreusers}). All lists are either sorted by popularity, recommendation quality or recency.}
+\end{subfigure}%
+\caption[Explorative Components]{Explorative components either display lists of interest groups (\subref{exploreinterestgroups}), activities (\subref{exploreactivities}) or users (\subref{exploreusers}). All lists are either sorted by popularity, recommendation quality or recency.}
 \label{explore}
 \end{figure}
 
@@ -531,25 +538,25 @@ An analysis of every single interest group or activity describes the procedure o
 Collaborative filtering is based on the behavior of members, for example on any interest group they follow or activity they join. \citep[p.62]{klahold2009} Thereby, the algorithm does not compare the similarity of recommendation elements, but rather compares the interactions between recommendation elements and members. This can be illustrated by a member-item matrices as shown in figure \ref{matrix}.
 
 \begin{figure}
-\begin{subfigure}[t]{0.5\textwidth}
+\begin{subfigure}[t]{0.5\textwidth}%
 \centering
-$\bordermatrix{~ & \mathit{Item_1} & \mathit{Item_2} & \mathit{Item_m} \cr
-\vphantom{\vdots}\mathit{Person_1} & 1 &  & \cdots  \cr
-\vphantom{\vdots}\mathit{Person_2} & 3 & 4 & \cdots \cr
-\vphantom{\vdots}\mathit{Person_n} & \vdotswithin{3} & \vdotswithin{4} & \ddots  }$
+$\bordermatrix{~ & \mathsf{Item_1} & \mathsf{Item_2} & \mathsf{Item_m} \cr
+\vphantom{\vdots}\mathsf{Person_1} & 1 &  & \cdots  \cr
+\vphantom{\vdots}\mathsf{Person_2} & 3 & 4 & \cdots \cr
+\vphantom{\vdots}\mathsf{Person_n} & \vdotswithin{3} & \vdotswithin{4} & \ddots  }$
 \caption{}
 \label{nummatrix}
 \end{subfigure}%
-\begin{subfigure}[t]{0.5\textwidth}
+\begin{subfigure}[t]{0.5\textwidth}%
 \centering
-$\bordermatrix{~ & \mathit{Group_1} & \mathit{Group_2} & \mathit{Group_3} \cr
-\vphantom{\vdots}\mathit{Member_1} &  & \mathit{joined} &  \cr
-\vphantom{\vdots}\mathit{Member_2} & \mathit{left} & \mathit{joined} & \mathit{joined} \cr
-\vphantom{\vdots}\mathit{Member_3} & &  & \mathit{joined} }$
+$\bordermatrix{~ & \mathsf{Group_1} & \mathsf{Group_2} & \mathsf{Group_3} \cr
+\vphantom{\vdots}\mathsf{Member_1} &  & \mathsf{joined} &  \cr
+\vphantom{\vdots}\mathsf{Member_2} & \mathsf{left} & \mathsf{joined} & \mathsf{joined} \cr
+\vphantom{\vdots}\mathsf{Member_3} & &  & \mathsf{joined} }$
 \caption{}
 \label{boolmatrix}
-\end{subfigure}
-\caption[Member-item matrices of collaborative filtering]{Different types of matrices as used in collaborative filtering. (\subref{nummatrix}) Numerical matrix of $m$ items and $n$ persons. (\subref{boolmatrix}) Boolean 3x3 matrix of 3 groups and 3 members.}
+\end{subfigure}%
+\caption[Member-item matrices of collaborative filtering]{Different types of matrices as used in collaborative filtering. (\subref{nummatrix}) Numerical matrix of $\mathsf{m}$ items and $\mathsf{n}$ persons. (\subref{boolmatrix}) Boolean 3x3 matrix of 3 groups and 3 members.}
 \label{matrix}
 \end{figure}
 
@@ -559,17 +566,17 @@ This application is rather simple and allows members to either show interest in 
 
 The Jaccard coefficient measures the similarity between two sample sets and is defined as the size of the intersection divided by the union of two finite sample sets:
 \[
-\mathlarger{J(\mathit{A}, \mathit{B}) = \frac{|\mathit{A} \cap \mathit{B}|}{|\mathit{A} \cup \mathit{B}|}}
+\mathlarger{J(\mathsf{A}, \mathsf{B}) = \frac{|\mathsf{A} \cap \mathsf{B}|}{|\mathsf{A} \cup \mathsf{B}|}}
 \] 
 
-Figure \ref{boolmatrix} shows an exemplary scenario in which members have interacted with different interest groups. The calculation of the Jaccard coefficient between $\mathit{Member_1}$ and $\mathit{Member_2}$ in terms of commonly joined interest groups is:
+Figure \ref{boolmatrix} shows an exemplary scenario in which members have interacted with different interest groups. The calculation of the Jaccard coefficient between $\mathsf{Member_1}$ and $\mathsf{Member_2}$ in terms of commonly joined interest groups is:
 \begin{align*}
-J(\mathit{Member_1}, \mathit{Member_2}) &= \frac{|\mathit{Member_1} \cap \mathit{Member_2}|}{|\mathit{Member_1} \cup \mathit{Member_2}|} \\ &= \frac{|\{\mathit{Group_2}\} \cap \{\mathit{Group_2, Group_3}\}|}{|\{\mathit{Group_2}\} \cup \{\mathit{Group_2, Group_3}\}|} = \frac{|\{\mathit{Group_2}\}|}{|\{\mathit{Group_2, Group_3}\}|} \\ &= 0.5
+J(\mathsf{Member_1}, \mathsf{Member_2}) &= \frac{|\mathsf{Member_1} \cap \mathsf{Member_2}|}{|\mathsf{Member_1} \cup \mathsf{Member_2}|} \\ &= \frac{|\{\mathsf{Group_2}\} \cap \{\mathsf{Group_2, Group_3}\}|}{|\{\mathsf{Group_2}\} \cup \{\mathsf{Group_2, Group_3}\}|} = \frac{|\{\mathsf{Group_2}\}|}{|\{\mathsf{Group_2, Group_3}\}|} \\ &= 0.5
 \end{align*}
-In order to recommend $\mathit{Member_1}$ matching interest groups, the similarity between $\mathit{Member_1}$ and all other members has to be calculated. $\mathit{Member_3}$ receives a coefficient of $0$ and is therefore ranked behind $\mathit{Member_2}$. The next step is to sort all other members in a descending order by their coefficients. In this sequence, all joined interest groups of every member are collected that have never got the attention of $\mathit{Member_1}$. As soon as the requested number of recommendations has been reached, the process stops and the corresponding recommendations can be displayed. In this particular scenario, $\mathit{Group_3}$ is going to be the top item in this list.
+In order to recommend $\mathsf{Member_1}$ matching interest groups, the similarity between $\mathsf{Member_1}$ and all other members has to be calculated. $\mathsf{Member_3}$ receives a coefficient of $\mathsf{0}$ and is therefore ranked behind $\mathsf{Member_2}$. The next step is to sort all other members in a descending order by their coefficients. In this sequence, all joined interest groups of every member are collected that have never got the attention of $\mathsf{Member_1}$. As soon as the requested number of recommendations has been reached, the process stops and the corresponding recommendations can be displayed. In this particular scenario, $\mathsf{Group_3}$ is going to be the top item in this list.
 
 \begin{figure}
-\begin{subfigure}[t]{\textwidth}
+\begin{subfigure}[t]{\textwidth}%
 \centering
 \begin{tikzpicture}[table/.style={matrix of nodes, nodes in empty cells, nodes = {rectangle, anchor = center, minimum height = 1.25em, font = \sffamily, text height = 1.5ex, text depth = .25ex, align = center, draw}}]
 
@@ -579,26 +586,26 @@ In order to recommend $\mathit{Member_1}$ matching interest groups, the similari
 
 \matrix(group) [table, label = above:Group, left = .5em of activity, text width = 3em, column 1/.style = {nodes = {text width = 1.5em}}] {id & name\\0 & Grp1\\};
     
-\matrix(interestedin) [table, label = below:INTERESTED\_IN, below = 5em of activity, text width = 4.5em, column 1/.style = {nodes = {text width = 3em}}] {group & member\\0 & 0\\0 & 1\\};
+\matrix(likesgroup) [table, label = below:LIKES\_GROUP, below = 5em of activity, text width = 4.5em, column 1/.style = {nodes = {text width = 3em}}] {group & member\\0 & 0\\0 & 1\\};
     
-\matrix(belongsto) [table, label = below:BELONGS\_TO, left = .5em of interestedin, text width = 5.5em, column 1/.style = {nodes = {text width = 3em}}] {group & activity\\0 & 0\\0 & 1\\};
+\matrix(belongsto) [table, label = below:BELONGS\_TO, left = .5em of likesgroup, text width = 5.5em, column 1/.style = {nodes = {text width = 3em}}] {group & activity\\0 & 0\\0 & 1\\};
 
-\matrix(joinsactivity) [table, label = below:JOINS\_ACTIVITY, right = .5em of interestedin, text width = 5.5em] {member & activity\\0 & 1\\1 & 0\\};
+\matrix(joinsactivity) [table, label = below:JOINS\_ACTIVITY, right = .5em of likesgroup, text width = 5.5em] {member & activity\\0 & 1\\1 & 0\\};
 
 \draw[thick] (group-2-1.south)--++(-.5em,-2.75em)-|(belongsto-1-1.north);
-\draw[thick] (group-2-1.south)--++(.5em,-2.75em)-|(interestedin-1-2.north);
+\draw[thick] (group-2-1.south)--++(.5em,-2.75em)-|(likesgroup-1-2.north);
 \draw[thick] (activity-3-1.south)--++(-.5em,-3em)-|(belongsto-1-2.north);
 \draw[thick] (activity-3-1.south)--++(.5em,-3em)-|(joinsactivity-1-2.north);
-\draw[thick] (member-3-1.south)--++(-.5em,-4em)-|(interestedin-1-1.north);
+\draw[thick] (member-3-1.south)--++(-.5em,-4em)-|(likesgroup-1-1.north);
 \draw[thick] (member-3-1.south)--++(.5em,-4em)-|(joinsactivity-1-1.north);
 \end{tikzpicture}
 \caption{}
 \label{relationaldatabase}
-\end{subfigure}
+\end{subfigure}%
 
 \bigskip
 
-\begin{subfigure}[b]{\textwidth}
+\begin{subfigure}[b]{\textwidth}%
 \centering
 \begin{tikzpicture}[ >= stealth', shorten >= 1pt, node distance = 15em, on grid, every text node part/.style = {align = center}]
  	\node[state] (g0) {Group\\ \textit\small{id: 0}\\ \textit\small{name: Grp1}};  
@@ -606,8 +613,8 @@ In order to recommend $\mathit{Member_1}$ matching interest groups, the similari
  	\node[state] (a0) [below right = of g0] {Activity\\ \textit\small{id: 0}\\ \textit\small{name: Act1}};
  	\node[state] (a1) [below left= of g0] {Activity\\ \textit\small{id: 1}\\ \textit\small{name: Act2}};
  	\node[state] (m0) [above left = of g0] {Member\\ \textit\small{id: 0}\\ \textit\small{name: Kim}};
-	\path[->, thick] (m0) edge node[fill = white, inner sep = 3pt] {INTERESTED\_IN} (g0);
-	\path[->, thick] (m1) edge node[fill = white, inner sep = 3pt] {INTERESTED\_IN} (g0);
+	\path[->, thick] (m0) edge node[fill = white, inner sep = 3pt] {LIKES\_GROUP} (g0);
+	\path[->, thick] (m1) edge node[fill = white, inner sep = 3pt] {LIKES\_GROUP} (g0);
 	\path[->, thick] (a0) edge node[fill = white, inner sep = 3pt] {BELONGS\_TO} (g0);
 	\path[->, thick] (a1) edge node[fill = white, inner sep = 3pt] {BELONGS\_TO} (g0);
 	\path[->, thick] (m0) edge node[fill = white, inner sep = 3pt] {JOINS\_ACTIVITY} (a1);
@@ -623,25 +630,25 @@ In order to recommend $\mathit{Member_1}$ matching interest groups, the similari
 In relational databases, many database tables have to be iterated to model the complex relationships between members, interest groups and activities. In this way, database queries are more error-prone and may require an unoptimized number of computational operations.
 This use case is well suited for graph databases as they can represent members, interest groups and activities as nodes and relationships as edges. The graph database resolves all relationships without the help of the programmer and uses optimized algorithms to keep the number of computational operations as small as possible. Manual iterations across multiple database tables are no longer necessary. Figure \ref{databases} compares two exemplary models that represent two members, who are interested in one interest group and participate in separate activities. The graph model clearly increases the clarity.
 
-The graph database Neo4j \citep{neo4j} is one of the most known graph database and allows to perform database queries in a query language called Cypher. Nodes and edges are represented in round and square brackets and are linked using hyphens. Figure \ref{recommendationalogirthminterestgroups} shows the final version of the commented database query in Cypher to recommend ten interest groups to a member based upon the Jaccard similarity.
+The graph database Neo4j \citep{neo4j} is one of the most known graph database and allows to perform database queries in a query language called Cypher. Nodes and edges are represented in round and square brackets and are linked using hyphens. Figure \ref{recommendationalogrithminterestgroups} shows the final version of the commented database query in Cypher to recommend ten interest groups to a member based upon the Jaccard similarity.
 
 \begin{figure}
 \centering
 \begin{lstlisting}
 // Find all users that have at least one joined interest group in common with u1.
-MATCH (u1:User {id: $userId})-[:LIKES_RUDEL]->(intersection:Rudel)<-[:LIKES_RUDEL]-(u2:User) 
+MATCH (u1:User {id: $userId})-[:LIKES_GROUP]->(intersection:Group)<-[:LIKES_GROUP]-(u2:User) 
 WHERE u2 <> u1 
 
 // For every user: Count the number of joined interest groups that the corresponding user has in common with u1.
 WITH u1, COUNT(DISTINCT intersection) AS intersection, u2 
 
 // Retrieve and transform all joined interest groups of u1 and the corresponding user to sample sets.
-MATCH (rudel_u1:Rudel)<-[:LIKES_RUDEL]-(u1), (u2)-[:LIKES_RUDEL]->(rudel_u2:Rudel) 
-WITH COLLECT(DISTINCT rudel_u1) AS rudel_u1, u1, intersection, u2, COLLECT(DISTINCT rudel_u2) AS rudel_u2 
+MATCH (group_u1:Group)<-[:LIKES_GROUP]-(u1), (u2)-[:LIKES_GROUP]->(group_u2:Group) 
+WITH COLLECT(DISTINCT group_u1) AS group_u1, u1, intersection, u2, COLLECT(DISTINCT group_u2) AS group_u2 
 
 // Take the union of both sample sets.
-WITH u1, LENGTH(rudel_u1 + filter(x IN rudel_u2 
-WHERE NOT x IN rudel_u1)) AS union, intersection, u2 
+WITH u1, LENGTH(group_u1 + filter(x IN group_u2 
+WHERE NOT x IN group_u1)) AS union, intersection, u2 
 
 // Calculate the Jaccard coefficient of u1 and the corresponding user. 
 WITH TOFLOAT(intersection) / union AS similarity, u1, u2 
@@ -650,35 +657,35 @@ WITH TOFLOAT(intersection) / union AS similarity, u1, u2
 ORDER BY similarity DESC 
 
 // In this sequence, find the ten topmost interest groups that the corresponding users had joined, but got no attention by u1.
-MATCH (r:Rudel)<-[:LIKES_RUDEL]-(u2) 
-WHERE NOT (r)<-[:LIKES_RUDEL]-(u1) AND NOT (r)<-[:DISLIKES_RUDEL]-(u1) 
-WITH DISTINCT r 
+MATCH (g:Group)<-[:LIKES_GROUP]-(u2) 
+WHERE NOT (g)<-[:LIKES_GROUP]-(u1) AND NOT (g)<-[:DISLIKES_GROUP]-(u1) 
+WITH DISTINCT g
 LIMIT 10
-RETURN r
+RETURN g
 \end{lstlisting}
 \caption[Algorithm to recommend interest groups]{The entire algorithm to recommend interest groups to a particular member.}
-\label{recommendationalogirthminterestgroups}
+\label{recommendationalogrithminterestgroups}
 \end{figure}
 
-In the same way, other members are recommended to a particular member as shown in figure \ref{recommendationalogirthmmembers}. In contrast to the previous algorithm, the list of recommended members is returned without further processing and only consist of members that got no attention by the corresponding member.
+In the same way, other members are recommended to a particular member as shown in figure \ref{recommendationalogrithmmembers}. In contrast to the previous algorithm, the list of recommended members is returned without further processing and only consist of members that got no attention by the corresponding member.
 
 \begin{figure}
 \centering
 \begin{lstlisting}
 // Find all users that got no attention by u1 and joined at least one interest group commonly.
-MATCH (u1:User {id: $userId})-[:LIKES_RUDEL]->(intersection:Rudel)<-[:LIKES_RUDEL]-(u2:User) 
+MATCH (u1:User {id: $userId})-[:LIKES_GROUP]->(intersection:Group)<-[:LIKES_GROUP]-(u2:User) 
 WHERE u2 <> u1 AND NOT (u1)-[:LIKES_USER|:DISLIKES_USER]->(u2) 
 
 // For every user: Count the number of joined interest groups that the corresponding user has in common with u1.
 WITH u1, COUNT(DISTINCT intersection) AS intersection, u2 
 
 // Retrieve and transform all joined interest groups of u1 and the corresponding user to sample sets.
-MATCH (rudel_u1:Rudel)<-[:LIKES_RUDEL]-(u1), (u2)-[:LIKES_RUDEL]->(rudel_u2:Rudel) 
-WITH COLLECT(DISTINCT rudel_u1) AS rudel_u1, u1, intersection, u2, COLLECT(DISTINCT rudel_u2) AS rudel_u2 
+MATCH (group_u1:Group)<-[:LIKES_GROUP]-(u1), (u2)-[:LIKES_GROUP]->(group_u2:Group) 
+WITH COLLECT(DISTINCT group_u1) AS group_u1, u1, intersection, u2, COLLECT(DISTINCT group_u2) AS group_u2 
 
 // Take the union of both sample sets.
-WITH u1, LENGTH(rudel_u1 + filter(x IN rudel_u2 
-WHERE NOT x IN rudel_u1)) AS union, intersection, u2 
+WITH u1, LENGTH(group_u1 + filter(x IN group_u2 
+WHERE NOT x IN group_u1)) AS union, intersection, u2 
 
 // Calculate the Jaccard coefficient of u1 and the corresponding user. 
 WITH TOFLOAT(intersection) / union AS similarity, u1, u2 
@@ -697,20 +704,20 @@ RETURN u2
 \begin{lstlisting}
 // Retrieve the nearest activities within the distance of 0.5 kilometers to u.
 MATCH (u:User {id: $user.id})
-WITH u CALL spatial.closest("Expedition", $user.location, 0.5) YIELD node AS e 
-WITH e, u 
+WITH u CALL spatial.closest("Activity", $user.location, 0.5) YIELD node AS a 
+WITH a, u 
 
 // Keep only the activities that belong to a joined interest group of u and are dated within the next seven days.
-WHERE (e)-[:BELONGS_TO_RUDEL]->(:Rudel)<-[:LIKES_RUDEL]-(u) AND NOT (e)<-[:JOINS_EXPEDITION]-(u) AND e.date > TIMESTAMP() AND e.date < TIMESTAMP() + 604800 
-WITH e
+WHERE (a)-[:BELONGS_TO]->(:Group)<-[:LIKES_GROUP]-(u) AND NOT (a)<-[:JOINS_ACTIVITY]-(u) AND a.date > TIMESTAMP() AND a.date < TIMESTAMP() + 604800 
+WITH a
 
 // Return the ten topmost recent activities.
-ORDER BY e.date 
+ORDER BY a.date 
 LIMIT 10
-RETURN e
+RETURN a
 \end{lstlisting}
 \caption[Algorithm to recommend activities]{The entire algorithm to recommend activities to a particular user.}
-\label{recommendationalogirthmactivitys}
+\label{recommendationalogirthmactivities}
 \end{figure}
 
 While interest groups are location-independent, activities are associated with a geographical location. In order to recommend activities to a particular member, it is now necessary to add attention to their individual location. For this reason, activities can be determined using element-based filtering. With this in mind, all activities are gathered that belong to at least one interest group of the particular member and are scheduled within the next seven days in a radius of 30 kilometers. The activities are sorted in ascending order of date. The distance can be calculated easily as shown below:
@@ -719,7 +726,7 @@ While interest groups are location-independent, activities are associated with a
 \]
 With a small number of activities, the computing costs to calculate all distances will not be high. To ensure that the algorithm remains performant for a large number of activities, it is advisable to sort the activities by their geographical location in an R-tree structure. Each node within the tree defines a geographic rectangle that is becoming more and more specific as its level increases. Activities are placed as leaf nodes at the respective nodes. Now, it is easy to determine all activities within a certain radius. Starting from the root, all the nodes are ignored whose geographical rectangle does not intersect with the query circle. Finally, all remaining leaf nodes are collected and returned.
 
-The Spatial Plugin \citep{spatial} for Neo4j can be installed to handle this process automatically without the necessity of special programming. Figure \ref{recommendationalogirthmactivitys} shows the commented database query to recommend relevant activities to a member and also illustrates the usage of the plugin. 
+The Spatial Plugin \citep{spatial} for Neo4j can be installed to handle this process automatically without the necessity of special programming. Figure \ref{recommendationalogirthmactivities} shows the commented database query to recommend relevant activities to a member and also illustrates the usage of the plugin. 
 
 With the algorithms presented here, tendential predictions can be made. Nevertheless, the algorithms are still simple and abusive actions cannot be detected by the algorithm itself. Similar member profiles can be created to make use of the collaborative filtering method to influence recommendations made to a particular member. It is also possible to specify the location and interest group of an activity in such a way that potential recommendations may reach people of a certain neighbourhood and interest.
 
@@ -844,10 +851,8 @@ Most of the non-public program code is built upon the hapi.js \citep{hapijs} fra
 The public program code is based on the Angular \citep{angular} framework. The framework makes it more convenient to build web browser applications that can be executed locally. With Angular, individual functions and buttons are developed as components and services making it possible to reuse them wherever needed. Therefore, it is necessary to convert the components and services into rudimentary Javascript code. For this purpose, the Node.js instance starts a module bundler called Webpack \citep{webpack} that executes the Angular Compiler and performs various optimizations to reduce the size of the final public program code. Once distributed to the hapijs framework, the public program code can be requested and executed by any device in the world wide web. For this reason, additional requests are mostly referred to the API or to external services, for example to show the location of an activity on a map. This way, it is rarely necessary to establish new data-intensive connections to the web server, which makes the public program code run very efficiently and sets the basis for good usability, even on devices with limited computing speed.
 
 \chapter{Method}
-notwendigkeit einer gewissen überprüfen, jedoch nur fllstudie. 
-
-
 This chapter describes used methods to review the guideline, which was mentioned in the previous chapter, and its consequences. The primary method is a case study involving interviews with interested members on the basis of a questionnaire. A prior utilization of the recommendation algorithm ensures the correct processing of the algorithm. Due to the diverse nature of the field, the case study cannot give a complete picture of all the effects involved as it certainly requires an interdisciplinary evaluation with more resources. Nonetheless, it should be capable to generate enough insights to give a general impression of the members opinion. This respects the guideline and the reliability of recommendations made by the application.
+%notwendigkeit einer gewissen überprüfen, jedoch nur fllstudie. 
 
 \section{Utilizing the recommendation algorithm}
 Before members can register on the platform and receive recommendations, the algorithm should be checked in advance to ensure compliance. For this purpose, a concise data set of member interactions will be defined that allows the manual identification of relevant recommendation elements. Next, the data set is transferred to the database of the application and the elements selected manually are compared with the elements determined by the algorithm. The equality of both element sets confirm a proper functioning of the algorithm. Due to the similar principles of the respective algorithms, just the recommendation algorithm for interest groups needs to be checked and the data set can be limited to interaction data of members with interest groups.
@@ -876,13 +881,164 @@ The third thematic field aims to build a mental model of the interviewee. The ap
 The last thematic field consists of rather basic questions that allow the interviewee to name and justify advantages and disadvantages as well as suggestions to improve the application and idea in general. Additionally, the interviewee is asked whether free time has been saved by using the application, especially in the context of leisure time management.
 
 \chapter{Results}
+This chapter presents the collected data that were gathered during the interviews as well as the results produced with the utilization of the recommendation algorithm. The whole source code of the application and all completed questionnaires are stored digitally on the data medium, which had been attached to this thesis. Any additional calculations are also stored on this data medium.
 
-
-\section{Utilizing the recommendation algorithm}In the followingAn example of a similar data set was already given in the previous chapter. 
+\section{Utilizing the recommendation algorithm}
+In the followingAn example of a similar data set was already given in the previous chapter. 
 
 \section{System Usability Score}
+After all system usability scales (see figure \ref{susresults}) had been taken and the corresponding scores were calculated, the application achieved an average score of 83. Comparing previously tested systems and technologies, a score of 68 is considered to be average and it indicates that the application reached an excellent scoring \citep[p. 36]{brooke2013}. As shown in figure \ref{suswhisker}, the overall distribution of all scores can be nicely visualized in a whisker-box-plot. The lowest score in the study was 65 and the best score reached a value of 93. Apart from the calculated score of the second interviewee, there are no noticeable variances.
+
+\begin{figure}
+\begin{subfigure}[t]{\textwidth}%
+\centering
+\begin{tabular}{|Slp{19em}|Sc|Sc|Sc|Sc|Sc|Sc|}
+\hline
+\multicolumn{2}{|l|}{Interviewee} & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+\multirow{20}{*}{\rotatebox{90}{Questions}} & I think I would like to use this system regularly. & 4 & 4 & 4 & 5 & 4 & 4 \\
+& I think the system is unnecessarily complex. & 1 & 4 & 1 & 1 & 2 & 3 \\
+& I think the system was easy to use. & 4 & 3 & 4 & 4 & 5 & 3\\ 
+& I think I would need the support of an expert to use the system. & 2 & 1 & 2 & 1 & 1 & 2 \\ 
+& I felt like the various features of the system are well integrated. & 5 & 3 & 5 & 4 & 5 & 4 \\ 
+& I consider the system to be too inconsistent. & 1 & 4 & 1 & 1 & 2 & 2 \\ 
+& I believe that most people would learn very quickly how to use the system. & 5 & 4 & 4 & 5 & 4 & 4 \\ 
+& I think using the system was very complicated. & 1 & 2 & 1 & 1 & 1 & 2 \\ 
+& I felt very secure using the system. & 5 & 5 & 5 & 4 & 4 & 3 \\ 
+& I had to learn a lot of things before I could work with the system. & 1 & 2 & 2 & 1 & 1 & 1 \\ \hline
+\multicolumn{2}{|l|}{Score} & 93 & 65 & 88 & 93 & 88 & 70 \\ \hline
+\end{tabular}
+\caption{}
+\label{sustable}
+\end{subfigure}%
+
+\bigskip
+
+\begin{subfigure}[b]{\textwidth}%
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth, height=10em, ytick=\empty, boxplot/draw direction=x, xmin=60, xmax=100, xtick={65,70,75,80,85,90,95}]
+\addplot[color=black, mark=*, boxplot prepared={
+      lower whisker=65,
+      lower quartile=74,
+      median=88,
+      average=83,
+      upper quartile=91,
+      upper whisker=93,
+      every median/.style={black, thick}
+    }] coordinates {};
+\end{axis}
+\end{tikzpicture}
+\caption{}
+\label{suswhisker}
+\end{subfigure}%
+\caption[Results of all System Usability Scales]{Results of all System Usability Scales. (\subref{sustable}) Calculation of all System Usability Scores in accordance to \citeauthor{brooke1996} upon the obtained results of the corresponding System Usability Scales. (\subref{suswhisker}) Final scores of all System Usability Scales shown in a box-and-whisker plot. The final score of all System Usability Scales is indicated as $\mathsf{\blacklozenge}$ and reached 83.}
+\label{susresults}
+\end{figure}
 
 \section{Questionnaire}
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=.9\textwidth, height=30em, xtick={1,2,3,4}, xticklabels={{joined\\ interest\\ groups}, {joined\\ activities}, {attended activities}, {exclusively attended activities}}, boxplot/draw direction=y, ymin=-1, ymax=11, ytick={0,1,2,3,4,5,6,7,8,9,10}, x tick label style={text width=7em, align=center}, x label style={align=center, text width=10em}, y label style={align=center, text width=20em}, ylabel={Total number of interest groups / activities}, xlabel={Classification}]
+\addplot[color=black, mark=*, boxplot prepared={
+      lower whisker=3,
+      lower quartile=4,
+      median=6,
+      average=6,
+      upper quartile=8,
+      upper whisker=10,
+      every median/.style={black, thick}
+    }] coordinates {};
+\addplot[color=black, mark=*, boxplot prepared={
+      lower whisker=1,
+      lower quartile=2,
+      median=3,
+      average=3,
+      upper quartile=4,
+      upper whisker=7,
+      every median/.style={black, thick}
+    }] coordinates {};
+\addplot[color=black, mark=*, boxplot prepared={
+      lower whisker=0,
+      lower quartile=1,
+      median=2,
+      average=2,
+      upper quartile=2,
+      upper whisker=4,
+      every median/.style={black, thick}
+    }] coordinates {};
+\addplot[color=black, mark=*, boxplot prepared={
+      lower whisker=0,
+      lower quartile=0,
+      median=1,
+      average=1,
+      upper quartile=2,
+      upper whisker=6,
+      every median/.style={black, thick}
+    }] coordinates {};
+\end{axis}
+\end{tikzpicture}
+\label{totalinterestgroupsandactivities}
+\caption[Results of the number of joined interest groups and activities]{Results of the number of joined interest groups and activities. A distinction is made between joined, visited and exclusively visited activities.}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{0.45\textwidth}%
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=15em, height=30em, xtick={1,2}, xticklabels={{possibly relevant}, {possibly irrelevant}}, boxplot/draw direction=y, ymin=0, ymax=40, ytick={5,10,15,20,25,30,35}, x tick label style={text width=7em, align=center}, y label style={align=center, text width=20em}, x label style={align=center, text width=10em}, ylabel={Marked interest groups out of all interest groups in the test set [\%]}, xlabel={Classification}]
+\addplot[color=black, mark=*, boxplot prepared={
+      lower whisker=10,
+      lower quartile=13,
+      median=25,
+      average=23,
+      upper quartile=34,
+      upper whisker=35,
+      every median/.style={black, thick}
+    }] coordinates {};
+\addplot[color=black, mark=*, boxplot prepared={
+      lower whisker=5,
+      lower quartile=6,
+      median=10,
+      average=14,
+      upper quartile=18,
+      upper whisker=35,
+      every median/.style={black, thick}
+    }] coordinates {};
+\end{axis}
+\end{tikzpicture}
+\caption{}
+\label{markedinterestgroupscomparedtoany}
+\end{subfigure}%
+\begin{subfigure}{0.45\textwidth}%
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=15em, height=30em, xtick={1,2}, xticklabels={{possibly relevant}, {possibly irrelevant}}, boxplot/draw direction=y, ymin=20, ymax=80, ytick={25,30,35,40,45,50,55,60,65,70,75}, y label style={align=center, text width=20em}, x tick label style={text width=7em, align=center}, x label style={align=center, text width=10em}, ylabel={Marked interest groups out of all marked interest groups [\%]}, xlabel={Classification}]
+\addplot[color=black, mark=*, boxplot prepared={
+      lower whisker=50,
+      lower quartile=65,
+      median=67,
+      average=65,
+      upper quartile=67,
+      upper whisker=75,
+      every median/.style={black, thick}
+    }] coordinates {};
+\addplot[color=black, mark=*, boxplot prepared={
+      lower whisker=25,
+      lower quartile=33,
+      median=33,
+      average=35,
+      upper quartile=35,
+      upper whisker=50,
+      every median/.style={black, thick}
+    }] coordinates {};
+\end{axis}
+\end{tikzpicture}
+\caption{}
+\label{markedinterestgroupscomparedtomarkedany}
+\end{subfigure}%
+\caption[Results taken from the survey of recommended interest groups]{Results taken from the survey of recommended interest groups. The interest groups had been classified by the recommendation algorithm into possibly relevant and possibly irrelevant sets.}
+\end{figure}
 
 \chapter{Analysis}
 Ergebnisse der Studie wiederholen und in den Kontext stellen
