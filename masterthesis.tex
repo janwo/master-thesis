@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[hyphens]{url}
 \usepackage[english]{babel}
+\usepackage[table]{xcolor}
 \usepackage{lmodern}
 \usepackage[sort&compress]{natbib}
 \usepackage{graphicx} 
@@ -14,7 +15,9 @@
 \usepackage{tikz}
 \usepackage{scrextend}
 \usepackage{tabularx}
+\usepackage{cancel}
 \usepackage{cellspace} 
+\usepackage{diagbox}
 \usepackage[final]{listings}
 \usepackage{relsize}
 \usepackage{pifont}
@@ -23,13 +26,13 @@
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{sansmath}
+\usepackage{bm}
+\usepackage{sansmathfonts}
 \usepackage[automark]{scrlayer-scrpage}
 
 % Stil der Seiten
 \pagestyle{scrheadings}
 \clearscrheadfoot
-\sansmath
 
 %Abstand der Fussnoten
 \deffootnote{1em}{1em}{\textsuperscript{\thefootnotemark\ }}
@@ -75,7 +78,7 @@
 \addtokomafont{captionlabel}{\small}
 
 % pgf-Settings
-\usetikzlibrary{matrix,positioning,arrows,automata,fit,pgfplots.statistics}
+\usetikzlibrary{matrix,positioning,arrows,automata,fit,pgfplots.statistics,patterns}
 \pgfplotsset{compat=newest}
 \pgfplotstableset{col sep=semicolon}
 \pgfdeclarelayer{background}
@@ -143,16 +146,18 @@ Bremen, 30. Juli 2017}
 \tableofcontents
 
 \chapter*{Abstract}
+The evolving paradigm of continuous availability leads our society to a new confrontation with time and leisure. While the industrialization caused an unseen rationalization of time, today's real-time communication and the increasing expectations of more efficient processes are creating a feeling of time pressure. Studies indicate the rise in solitary activities. Time shall be saved. Social media connects the two of us efficiently on a virtual pathway. The quality of communication slightly transforms into quantity. In this thesis, a guideline and derived application had been developed to let members benefit from today's technological possibilities while using real-time communication as little as possible. Assisted by the collaborative organization of leisure time and recommendation algorithms, this should be tested. A following case study proves that the idea is welcomed and that the recommendation algorithms make significant suggestions for leisure activities to members of the application. This could possibly be an opportunity to slow down communication aside from our jobs and overcome the feeling of time pressure.
+%Unsere Gesellschaft befindet sich durch das manifestierende Paradigma ständiger Erreichbarkeit in einer erneuten Auseinandersetzung mit dem Thema der Zeit und Freizeit. Sorgte früher die Industrailisung für eine nie dagewesene rationalisierung der Zeit, sorgen heute Echtzeitnachrichten und die erwatungen an immer effizienteren prozessen für ein gefühl der zeitknappheit. Studien zeigen den Anstieg an solitären Aktivitäten. Zeit soll gespart werden. Soziale medien verbinden uns auf virtuellem weg. Die qualität der kommunikation transformiert sich verstärkt in quantitatives. In der vorliegende thesis wird eine guideline vorgestellt und anhand dessen eine application implementiert, die es mitgliedern ermöglichen soll, die Freizeitgestatlung mit möglichst geringem einsatz von echtzeitkommunikation zu ermöglichen und dabei trotzdem aus den heutigen technologischen Möglichkeiten zu schöpfen. Mit Hilfe von Empfehlungsalgorithmen und der kollaborativen Organisation von Freizeit, soll dies gelingen. In einer anschließenden case study zeigt sich, dass die Idee begrüßt wird und die Empfehlungsalgorithmen den Mitgliedern signifikante Vorschläge für die Freizeit machen. Möglicherweise wäre diese Form ein Ansatz, die Kommunikation zu entschleunigen und das Gefühl der Zeitknappheit entgegenzuwirken.
 
 \chapter{Introduction}
 \pagenumbering{arabic}
 Gone are the days of leisure and self-determined free time. Gone are the days of accepting boredom and time of waiting. The influence of media changed the way we organize our free time.  
 
-Social networks like Facebook or search engines like Google opened up enough opportunities to choose from and made it unreasonable to feel boredom and vacancy, which was an acceptable part of our free time thirty years ago. Not staying in touch over a certain timeframe is not taken for granted anymore due to the growing number of channels in communication. We stress ourselves, trying to fill any possible gap in our free time. Any intervening period during a bus ride, in the waiting room or alone at home is filled with a constantly growing abundance of minor activities. Maintain your friendships, social web profiles and all manner of incoming information. The digitalization \footnote{With digitalization I refer to the integration of digital technologies into our everyday life by the digitization of everything that can be digitized \citep{digitalization}.} made all this possible and the smartphone is the most popular toolbox to pursue these habits. %quelle (are they already habits?)
+Social networks like Facebook or search engines like Google opened up enough opportunities to choose from and made it unreasonable to feel boredom and vacancy, which was an acceptable part of our free time thirty years ago. Not staying in touch over a certain timeframe is not taken for granted anymore due to the growing number of channels in communication. We stress ourselves, trying to fill any possible gap in our free time. Any intervening period during a bus ride, in the waiting room or alone at home is filled with a constantly growing abundance of minor activities. Maintain your friendships, social web profiles and all manner of incoming information. The digitalization \footnote{With digitalization I refer to the integration of digital technologies into our everyday life by the digitization of everything that can be digitized \citep{digitalization}.} made all this possible and the smartphone is the most popular toolbox to pursue these needs \citep[p.213]{destatis2017}.
 
 This development is continued by examples like shopping malls become larger, the number of sports grows and even ordinary commercial products are sold as a new experience. This confusing number of opportunities make us feel afraid to miss a thing. We are constantly trying to transform interims into productive free time, anyhow refuse ourselves to the unexpected. According to a series of studies \citep[p. 14]{freizeitmonitor2016}, we are constantly increase our personal stress level this way. The apparent impression is built up that we are running out of time. 
 
-This phenomenon has impact on the way we spend our free time. The winning activities for the last five years had been activities you are doing alone, whereas social activities had been the most notably losers. It seems evident that it takes more time to meet and spend time with each other personally, than staying in contact via messengers and social media. However, why do we not use the advantages of computer technology in a way that motivates people to preferably spend their free time in a context of social activities again? Is it possible that an application, the embodiment of the digitalization, can invert the trend towards a free time with social activities in focus? % <-- question / discuss
+This phenomenon has impact on the way we spend our free time. The winning activities for the last five years had been activities you are doing alone, whereas social activities had been the most notably losers. It seems evident that it takes more time to meet and spend time with each other personally, than staying in contact via messengers and social media. However, why do we not use the advantages of computer technology in a way that motivates people to preferably spend their free time in a context of social activities again? Is it possible that an application, the embodiment of the digitalization, can invert the trend towards a free time with social activities in focus? % <-- question / discuss TODO
 
 The thesis will call attention to the constant change of one's free time under decades of digital influence. It will investigate to what extend the ubiquitous accessibility of everyones attention certainly played its part to this development and proposes a possible solution to invert the trend. A puristic application that does not focus on chat components, self-portraits and its time-consuming relatives. The aim is to conceptualize and implement an application that helps to organize one's free time with a small timestamp online and its constant motivation, in contrary to existing solutions like Facebook, to make people meet each other in person again rather than digitally. The thesis will end with an evaluation of the application to validate whether it is a rather drastic and humorously ironic idea to come up with another digital application or a step forward to one's organization free time with more social activities.
 
@@ -253,7 +258,6 @@ Social networks provide a good overview on the large number of leisure activitie
 This chapter presents the conception and implementation of a machine that has the aspiration to provide people an organizational assistance to plan their free time with fellow people. An imaginable scenario is the desire of a person to be active in sports and to practise a sport that is unfortunately less popular. The person resides in a city that does not have a club offering the sport. This is why the person would like to find like-minded people to do sports together. In another case, a group of people would like to attend an event with standard group sizes. To save money, the group is looking for another person to complete the next greater group size. In the last scenario, somebody would like to take a cultural tour around the city and is looking for nearby events, which are not necessarily listed in the event calendar. All scenarios require a dedicated point to call for advice. Existing unidirectional tools, such as the event calendar in magazines, do not provide the necessary level of interactivity to locate interested people. In addition, bi-directional tools, such as social networks, prioritise other issues and do not focus on an effective planning of events. This leads to a higher potential for distraction and therefore increases the chance to spend more time online as needed to organize offline time.
 
 As part of the conception, precaution is taken and reviewed to respect the mentioned developments in free time. To complete the description of the machine, important aspects of the later implementation are explained in detail, in which the concept constitutes its foundation.
-% minimal eingreifend und einschneidend, maximal die Selbständigkeit fördernd.Jeder verbringt und plant seine freizeit unterschiedlich. Eine Frage der Qualität. Ein Schichtarbeiter wird seine Freizeit sicherlich anders gestalten, als ein Beamter, der täglich zur gleichen Zeit nach Hause kommt.
 
 \section{Concept}
 Although smartphone applications are the epitome of digitalization and thus make a decisive contribution to our feeling of time pressure, the machine should be based on a smartphone application. This is intended to investigate whether it is the technology or the design of such applications that causes us to be short of time. The following concept aims to shorten the time spent organizing activities in favor of time spent qualitatively. In this sense, the individual also spends more leisure time. 
@@ -540,23 +544,23 @@ Collaborative filtering is based on the behavior of members, for example on any 
 \begin{figure}
 \begin{subfigure}[t]{0.5\textwidth}%
 \centering
-$\bordermatrix{~ & \mathsf{Item_1} & \mathsf{Item_2} & \mathsf{Item_m} \cr
-\vphantom{\vdots}\mathsf{Person_1} & 1 &  & \cdots  \cr
-\vphantom{\vdots}\mathsf{Person_2} & 3 & 4 & \cdots \cr
-\vphantom{\vdots}\mathsf{Person_n} & \vdotswithin{3} & \vdotswithin{4} & \ddots  }$
+$\bordermatrix{~ & \mathit{Item}_1 & \mathit{Item}_2 & \mathit{Item}_m \cr
+\vphantom{\vdots}\mathit{Person}_1 & 1 &  & \cdots  \cr
+\vphantom{\vdots}\mathit{Person}_2 & 3 & 4 & \cdots \cr
+\vphantom{\vdots}\mathit{Person}_n & \vdotswithin{3} & \vdotswithin{4} & \ddots  }$
 \caption{}
 \label{nummatrix}
 \end{subfigure}%
 \begin{subfigure}[t]{0.5\textwidth}%
 \centering
-$\bordermatrix{~ & \mathsf{Group_1} & \mathsf{Group_2} & \mathsf{Group_3} \cr
-\vphantom{\vdots}\mathsf{Member_1} &  & \mathsf{joined} &  \cr
-\vphantom{\vdots}\mathsf{Member_2} & \mathsf{left} & \mathsf{joined} & \mathsf{joined} \cr
-\vphantom{\vdots}\mathsf{Member_3} & &  & \mathsf{joined} }$
+$\bordermatrix{~ & \mathit{Group}_1 & \mathit{Group}_2 & \mathit{Group}_3 \cr
+\vphantom{\vdots}\mathit{Member}_1 &  & \mathsf{joined} & \mathsf{joined} \cr
+\vphantom{\vdots}\mathit{Member}_2 & \mathsf{joined} & \mathsf{joined} & \mathsf{joined} \cr
+\vphantom{\vdots}\mathit{Member}_3 & \mathsf{left} &  & \mathsf{joined} }$
 \caption{}
 \label{boolmatrix}
 \end{subfigure}%
-\caption[Member-item matrices of collaborative filtering]{Different types of matrices as used in collaborative filtering. (\subref{nummatrix}) Numerical matrix of $\mathsf{m}$ items and $\mathsf{n}$ persons. (\subref{boolmatrix}) Boolean 3x3 matrix of 3 groups and 3 members.}
+\caption[Member-item matrices of collaborative filtering]{Different types of matrices as used in collaborative filtering. (\subref{nummatrix}) Numerical matrix of $m$ items and $n$ persons. (\subref{boolmatrix}) Boolean 3x3 matrix of 3 groups and 3 members.}
 \label{matrix}
 \end{figure}
 
@@ -566,14 +570,14 @@ This application is rather simple and allows members to either show interest in 
 
 The Jaccard coefficient measures the similarity between two sample sets and is defined as the size of the intersection divided by the union of two finite sample sets:
 \[
-\mathlarger{J(\mathsf{A}, \mathsf{B}) = \frac{|\mathsf{A} \cap \mathsf{B}|}{|\mathsf{A} \cup \mathsf{B}|}}
+\mathlarger{J(A, B) = \frac{|A \cap B|}{|A \cup B|}}
 \] 
 
-Figure \ref{boolmatrix} shows an exemplary scenario in which members have interacted with different interest groups. The calculation of the Jaccard coefficient between $\mathsf{Member_1}$ and $\mathsf{Member_2}$ in terms of commonly joined interest groups is:
+Figure \ref{boolmatrix} shows an exemplary scenario in which members have interacted with different interest groups. The calculation of the Jaccard coefficient between $\mathit{Member}_1$ and $\mathit{Member}_2$ in terms of commonly joined interest groups is:
 \begin{align*}
-J(\mathsf{Member_1}, \mathsf{Member_2}) &= \frac{|\mathsf{Member_1} \cap \mathsf{Member_2}|}{|\mathsf{Member_1} \cup \mathsf{Member_2}|} \\ &= \frac{|\{\mathsf{Group_2}\} \cap \{\mathsf{Group_2, Group_3}\}|}{|\{\mathsf{Group_2}\} \cup \{\mathsf{Group_2, Group_3}\}|} = \frac{|\{\mathsf{Group_2}\}|}{|\{\mathsf{Group_2, Group_3}\}|} \\ &= 0.5
+J(\mathit{Member}_1, \mathit{Member}_2) &= \frac{|\mathit{Member}_1 \cap \mathit{Member}_2|}{|\mathit{Member}_1 \cup \mathit{Member}_2|} \\ &= \frac{|\{\mathit{Group}_2, \mathit{Group}_3\} \cap \{\mathit{Group}_1, \mathit{Group}_2, \mathit{Group}_3\}|}{|\{\mathit{Group}_2, \mathit{Group}_3\} \cup \{\mathit{Group}_1, \mathit{Group}_2, \mathit{Group}_3\}|} \\ &= \frac{|\{\mathit{Group}_2, \mathit{Group}_3\}|}{|\{\mathit{\mathit{Group}_1, Group}_2, \mathit{Group}_3\}|} \\ &= 0.\overline{3}
 \end{align*}
-In order to recommend $\mathsf{Member_1}$ matching interest groups, the similarity between $\mathsf{Member_1}$ and all other members has to be calculated. $\mathsf{Member_3}$ receives a coefficient of $\mathsf{0}$ and is therefore ranked behind $\mathsf{Member_2}$. The next step is to sort all other members in a descending order by their coefficients. In this sequence, all joined interest groups of every member are collected that have never got the attention of $\mathsf{Member_1}$. As soon as the requested number of recommendations has been reached, the process stops and the corresponding recommendations can be displayed. In this particular scenario, $\mathsf{Group_3}$ is going to be the top item in this list.
+In order to recommend $\mathit{Member}_1$ matching interest groups, the similarities between $\mathit{Member}_1$ and all other members with at least one common interest group are calculated. $\mathit{Member}_3$ receives a coefficient of $0.5$ and is therefore ranked behind $\mathit{Member}_2$. In the next step, these members are sorted in a descending order by their coefficients and their joined interest groups are collected in accordance to this sequence that have never got the attention of $\mathit{Member}_1$. As soon as the requested number of recommendations has been reached, the process stops and the corresponding recommendations can be displayed. In this particular scenario, $\mathit{Group}_3$ is going to be the top item in this list.
 
 \begin{figure}
 \begin{subfigure}[t]{\textwidth}%
@@ -630,7 +634,7 @@ In order to recommend $\mathsf{Member_1}$ matching interest groups, the similari
 In relational databases, many database tables have to be iterated to model the complex relationships between members, interest groups and activities. In this way, database queries are more error-prone and may require an unoptimized number of computational operations.
 This use case is well suited for graph databases as they can represent members, interest groups and activities as nodes and relationships as edges. The graph database resolves all relationships without the help of the programmer and uses optimized algorithms to keep the number of computational operations as small as possible. Manual iterations across multiple database tables are no longer necessary. Figure \ref{databases} compares two exemplary models that represent two members, who are interested in one interest group and participate in separate activities. The graph model clearly increases the clarity.
 
-The graph database Neo4j \citep{neo4j} is one of the most known graph database and allows to perform database queries in a query language called Cypher. Nodes and edges are represented in round and square brackets and are linked using hyphens. Figure \ref{recommendationalogrithminterestgroups} shows the final version of the commented database query in Cypher to recommend ten interest groups to a member based upon the Jaccard similarity.
+The graph database \mbox{Neo4j} \citep{neo4j} is one of the most known graph database and allows to perform database queries in a query language called Cypher. Nodes and edges are represented in round and square brackets and are linked using hyphens. Figure \ref{recommendationalogrithminterestgroups} shows the final version of the commented database query in Cypher to recommend ten interest groups to a member based upon the Jaccard similarity.
 
 \begin{figure}
 \centering
@@ -720,15 +724,15 @@ RETURN a
 \label{recommendationalogirthmactivities}
 \end{figure}
 
-While interest groups are location-independent, activities are associated with a geographical location. In order to recommend activities to a particular member, it is now necessary to add attention to their individual location. For this reason, activities can be determined using element-based filtering. With this in mind, all activities are gathered that belong to at least one interest group of the particular member and are scheduled within the next seven days in a radius of 30 kilometers. The activities are sorted in ascending order of date. The distance can be calculated easily as shown below:
+While interest groups are location-independent, activities are linked to geographical coordinates. In order to recommend activities to a particular member, it is now necessary to add attention to their individual location. For this reason, activities can be determined using element-based filtering. With this in mind, all activities are gathered that belong to at least one interest group of the particular member and are scheduled within the next seven days in a radius of 30 kilometers. The activities are sorted in ascending order of date. The distance can be calculated easily as shown below:
 \[
 \mathlarger{D(x_1, y_1, x_2, y_2) = \sqrt{(\Delta x)^2+(\Delta y)^2}}
 \]
 With a small number of activities, the computing costs to calculate all distances will not be high. To ensure that the algorithm remains performant for a large number of activities, it is advisable to sort the activities by their geographical location in an R-tree structure. Each node within the tree defines a geographic rectangle that is becoming more and more specific as its level increases. Activities are placed as leaf nodes at the respective nodes. Now, it is easy to determine all activities within a certain radius. Starting from the root, all the nodes are ignored whose geographical rectangle does not intersect with the query circle. Finally, all remaining leaf nodes are collected and returned.
 
-The Spatial Plugin \citep{spatial} for Neo4j can be installed to handle this process automatically without the necessity of special programming. Figure \ref{recommendationalogirthmactivities} shows the commented database query to recommend relevant activities to a member and also illustrates the usage of the plugin. 
+The \mbox{Spatial Plugin} \citep{spatial} for \mbox{Neo4j} can be installed to handle this process automatically without the necessity of special programming. Figure \ref{recommendationalogirthmactivities} shows the commented database query to recommend relevant activities to a member and also illustrates the usage of the plugin. 
 
-With the algorithms presented here, tendential predictions can be made. Nevertheless, the algorithms are still simple and abusive actions cannot be detected by the algorithm itself. Similar member profiles can be created to make use of the collaborative filtering method to influence recommendations made to a particular member. It is also possible to specify the location and interest group of an activity in such a way that potential recommendations may reach people of a certain neighbourhood and interest.
+With the algorithms presented here, tendential predictions can be made. Nevertheless, the algorithms are still simple and abusive actions cannot be detected by the algorithm itself. Similar member profiles can be created to make use of the collaborative filtering method to influence recommendations made to a particular member. It is also possible to specify the location and interest group of an activity in such a way that potential recommendations may reach people of a certain neighborhood and interest.
 
 Besides potential abuse, no additional precautions have been made to avoid filter bubbles\footnote{Filter bubbles occur as soon as people are solely surrounded by items they like due to personalized algorithms.} and cold start problems\footnote{The cold start describes a problem that occurs as soon as a system cannot cannot make reliable inferences due to insufficient interaction data.} along made recommendations.
 
@@ -737,9 +741,9 @@ The complexity of the application is extremely challenging and the implementatio
 
 The first major component is the web server that is required to store and execute the corresponding database and the program code. In theory, the location of a web server is irrelevant as long as the location provides a reliable connection to the internet. Due to privacy concerns, it is desirable to use a web server located inside Germany. The second major component are all the devices that belong to members and are equipped with modern browsers. These clients use the world wide web to access the public program code from the web server and execute it locally. In a broader sense, all these devices share a part of their computing power to run the whole machine. For that reason, these devices shall be considered as potential components of the entire machine. The last major component are external services that provide advanced features to run the whole application properly.
 
-The web server runs a software container platform called Docker \citep{docker} that organizes a set of containers on a shared operating system. Each container is an isolated software package that performs different tasks. The application container is the key element of the machine and stores the entire program code. The main software component of this container is the Node.js \citep{nodejs} framework, which can perform system wide operations on a server or any other computer by using Javascript. The framework offers various third-party modules that can be downloaded via an in-built package manager. Configured and integrated appropriately, modules can improve the maintainability of a complex system as the developer does not need to implement and test such functions by himself and can instead access ready-to-use and tested methods. 
+The web server runs a software container platform called \mbox{Docker} \citep{docker} that organizes a set of containers on a shared operating system. Each container is an isolated software package that performs different tasks. The application container is the key element of the machine and stores the entire program code. The main software component of this container is the \mbox{Node.js}\citep{nodejs} framework, which can perform system wide operations on a server or any other computer by using Javascript. The framework offers various third-party modules that can be downloaded via an in-built package manager. Configured and integrated appropriately, modules can improve the maintainability of a complex system as the developer does not need to implement and test such functions by himself and can instead access ready-to-use and tested methods. 
 
-Most of the non-public program code is built upon the hapi.js \citep{hapijs} framework in order to handle the essential features of a web server, for example encryption, routing, authentication, validation or logging. Additional plugins and external services can be integrated to add support for alternative login methods, database controllers or monitoring services. In this way, the framework gives access to several databases within the program code. As indicated in the previous section, all members, interest groups and activities are organized in a graph database called Neo4j. Authentication tokens and other short-term information is managed by a cache database named Redis \citep{redis}. Statistics about the server performance are stored in a time series database called Prometheus\citep{prometheus} and are visible to administrators via a visualization tool by Grafana Labs \citep{grafana}. All databases run in separate containers and are accessible by the framework. For security reasons, the application executes database queries and non-public computing operations on the web server only. The respective operations can be triggered from the world wide web via an application programming interface (API). However, this is only possible once the member has authenticated himself using a valid login method (e-mail, OAuth via Facebook or Google). In addition, the application provides the public program code as well as certain static files, such as images and icons. By using the hapijs framework, appropriate web addresses can be specified accordingly.
+Most of the non-public program code is built upon the \mbox{hapi.js} \citep{hapijs} framework in order to handle the essential features of a web server, for example encryption, routing, authentication, validation or logging. Additional plugins and external services can be integrated to add support for alternative login methods, database controllers or monitoring services. In this way, the framework gives access to several databases within the program code. As indicated in the previous section, all members, interest groups and activities are organized in a graph database called \mbox{Neo4j}. Authentication tokens and other short-term information is managed by a cache database named \mbox{Redis} \citep{redis}. Statistics about the server performance are stored in a time series database called \mbox{Prometheus} \citep{prometheus} and are visible to administrators via a visualization tool by \mbox{Grafana Labs} \citep{grafana}. All databases run in separate containers and are accessible by the framework. For security reasons, the application executes database queries and non-public computing operations on the web server only. The respective operations can be triggered from the world wide web via an application programming interface (API). However, this is only possible once the member has authenticated himself using a valid login method (e-mail, \mbox{OAuth} via \mbox{Facebook} or \mbox{Google}). In addition, the application provides the public program code as well as certain static files, such as images and icons. By using the \mbox{hapi.js} framework, appropriate web addresses can be specified accordingly.
 
 \begin{figure}
 \centering
@@ -848,14 +852,13 @@ Most of the non-public program code is built upon the hapi.js \citep{hapijs} fra
 \label{application}
 \end{figure}
 
-The public program code is based on the Angular \citep{angular} framework. The framework makes it more convenient to build web browser applications that can be executed locally. With Angular, individual functions and buttons are developed as components and services making it possible to reuse them wherever needed. Therefore, it is necessary to convert the components and services into rudimentary Javascript code. For this purpose, the Node.js instance starts a module bundler called Webpack \citep{webpack} that executes the Angular Compiler and performs various optimizations to reduce the size of the final public program code. Once distributed to the hapijs framework, the public program code can be requested and executed by any device in the world wide web. For this reason, additional requests are mostly referred to the API or to external services, for example to show the location of an activity on a map. This way, it is rarely necessary to establish new data-intensive connections to the web server, which makes the public program code run very efficiently and sets the basis for good usability, even on devices with limited computing speed.
+The public program code is based on the \mbox{Angular} \citep{angular} framework. The framework makes it more convenient to build web browser applications that can be executed locally. With \mbox{Angular}, individual functions and buttons are developed as components and services making it possible to reuse them wherever needed. Therefore, it is necessary to convert the components and services into rudimentary Javascript code. For this purpose, the \mbox{Node.js} instance starts a module bundler called \mbox{Webpack} \citep{webpack} that executes the \mbox{Angular} Compiler and performs various optimizations to reduce the size of the final public program code. Once distributed to the \mbox{hapi.js} framework, the public program code can be requested and executed by any device in the world wide web. For this reason, additional requests are mostly referred to the API or to external services, for example to show the location of an activity on a map. This way, it is rarely necessary to establish new data-intensive connections to the web server, which makes the public program code run very efficiently and sets the basis for good usability, even on devices with limited computing speed.
 
 \chapter{Method}
-This chapter describes used methods to review the guideline, which was mentioned in the previous chapter, and its consequences. The primary method is a case study involving interviews with interested members on the basis of a questionnaire. A prior utilization of the recommendation algorithm ensures the correct processing of the algorithm. Due to the diverse nature of the field, the case study cannot give a complete picture of all the effects involved as it certainly requires an interdisciplinary evaluation with more resources. Nonetheless, it should be capable to generate enough insights to give a general impression of the members opinion. This respects the guideline and the reliability of recommendations made by the application.
-%notwendigkeit einer gewissen überprüfen, jedoch nur fllstudie. 
+Although the application stands for itself and is the experimental realization of the already mentioned guidelines, a slight review of the considerations should take place. This chapter describes used methods to review the guideline and its consequences to members and leisure organization. A case study is the primary method and involves interviews with interested members on the basis of a questionnaire. The second method is a prior utilization of the recommendation algorithm to ensure the correct processing of the algorithm. Due to the diverse nature of the field, the case study cannot give a complete picture of all the effects involved as it certainly requires an interdisciplinary evaluation with more resources. Nonetheless, it should be capable to generate enough insights to give a general impression of the members opinion about the machine and the underlying idea. This respects the guideline and the reliability of recommendations made by the application. 
 
 \section{Utilizing the recommendation algorithm}
-Before members can register on the platform and receive recommendations, the algorithm should be checked in advance to ensure compliance. For this purpose, a concise data set of member interactions will be defined that allows the manual identification of relevant recommendation elements. Next, the data set is transferred to the database of the application and the elements selected manually are compared with the elements determined by the algorithm. The equality of both element sets confirm a proper functioning of the algorithm. Due to the similar principles of the respective algorithms, just the recommendation algorithm for interest groups needs to be checked and the data set can be limited to interaction data of members with interest groups.
+Before members can register on the platform and receive recommendations, the algorithm should be checked in advance to ensure compliance. For this purpose, a concise data set of member interactions will be defined that allows the manual identification of relevant recommendation elements. Next, the data set is transferred to the database of the application and the elements selected manually are compared with the elements determined by the algorithm. The equality of both element sets confirm a proper functioning of the algorithm. Due to the similar principles of the respective algorithms, just the recommendation algorithm for interest groups should be checked and the data set is limited to interaction data of members with interest groups only.
 
 \section{Participants}
 As mentioned earlier, recommendations using collaborative methods depend on a large number of interaction data. Because of this, the application was published two months before actual interviews had taken place. The application was promoted via several social networks as a new way of organizing one's leisure time activities.
@@ -876,21 +879,61 @@ The first field gathers general information on interest groups, activities and t
 
 The second thematic field calls for a review on recommendations made to the interviewee. The first step is to ascertain whether the interviewee has become aware of the recommendations. Afterwards, the interviewee decides whether the recommendations created any kind of patronizing feeling. The second part of this thematic field explores the accuracy of the recommendation algorithm. For this purpose, the interviewee should rate the accuracy and helpfulness of the recommendations on a four-point scale ("Very inaccurate" / "Very unhelpful" to "Very accurate" / "Very helpful"). After this general estimation, a list of interest groups is presented to the interviewee. The list had been created earlier by the interviewer in accordance to the results of the algorithm. The list entries are sorted in an alternating order of probably relevant and irrelevant interest groups. During the interview, the participant should mark all relevant interest groups in the list. After the interview, marked items of each category will be counted by the interviewer to determine whether there is a significant difference between probably relevant and irrelevant interest groups.
 
-The third thematic field aims to build a mental model of the interviewee. The application, events calendar, friends or aquinatances and Facebook are compared in matrices. The interviewee is supposed to compare the organizational tools for leisure activities in accordance to the personal opinion. With this in mind, the first matrix is used to identify differences, whereas the second matrix is intended to address advantages and disadvantages among the tools.
+The third thematic field consists of rather basic questions that allow the interviewee to name and justify advantages and disadvantages as well as suggestions to improve the application and idea in general. Additionally, the interviewee is asked whether free time has been saved by using the application, especially in the context of leisure time management.
 
-The last thematic field consists of rather basic questions that allow the interviewee to name and justify advantages and disadvantages as well as suggestions to improve the application and idea in general. Additionally, the interviewee is asked whether free time has been saved by using the application, especially in the context of leisure time management.
+The last thematic field aims to build a mental model of the interviewee. The application, events calendar, friends or acquaintances and Facebook are compared in matrices. The interviewee is supposed to compare the organizational tools for leisure activities in accordance to the personal opinion. With this in mind, the first matrix is used to identify differences, whereas the second matrix is intended to address advantages and disadvantages among the tools.
 
 \chapter{Results}
-This chapter presents the collected data that were gathered during the interviews as well as the results produced with the utilization of the recommendation algorithm. The whole source code of the application and all completed questionnaires are stored digitally on the data medium, which had been attached to this thesis. Any additional calculations are also stored on this data medium.
+This chapter presents the results produced with the utilization of the recommendation algorithm as well as the collected data that were gathered during the interviews with a total number of six participants. The whole source code of the application and all completed questionnaires are stored digitally on the data medium, which had been attached to this thesis. Any additional calculations are also stored on this data medium.
 
 \section{Utilizing the recommendation algorithm}
-In the followingAn example of a similar data set was already given in the previous chapter. 
+Before the actual test period, the compliant execution of the algorithm is tested by applying a simple interaction data. As stated in previous chapters, each member can join or leave an interest group. Such interactions between members and interest groups are easy to represent in matrices as seen in figure \ref{utilizealgorithm}. As the matrices are particularly small and the calculation of recommendations can be done easily by hand, both matrices show ideal interaction data. To eliminate coincidences as much as possible, the algorithm is supposed to calculate recommendations for a single member twice in accordance to two slightly modified datasets. Because of this, the matrices as shown in \ref{utilizealgorithm} are slightly different and $\mathit{Member}_4$ joins $\mathit{Group}_1$ instead of $\mathit{Group}_2$.
 
-\section{System Usability Score}
-After all system usability scales (see figure \ref{susresults}) had been taken and the corresponding scores were calculated, the application achieved an average score of 83. Comparing previously tested systems and technologies, a score of 68 is considered to be average and it indicates that the application reached an excellent scoring \citep[p. 36]{brooke2013}. As shown in figure \ref{suswhisker}, the overall distribution of all scores can be nicely visualized in a whisker-box-plot. The lowest score in the study was 65 and the best score reached a value of 93. Apart from the calculated score of the second interviewee, there are no noticeable variances.
+In order to obtain the recommended interest groups for $\mathit{Member}_5$ within the matrix of figure \ref{utilizealgorithm0}, all other members with at least one common interest group are sorted by their similarity at first.
+\begin{align*}
+& \mathlarger{J(Member_5, Member_1) = 0.5} \\
+& \mathlarger{J(Member_5, Member_4) = 0.25}
+\end{align*}
+In this sequence, all joined interest groups of these members are collected that got no attention by $\mathit{Member}_5$. $\mathit{Group}_4$ is collected first as it is the only interest group that was joined by $\mathit{Member}_1$ and received no interactions by $\mathit{Member}_5$. $\mathit{Group}_2$ and $\mathit{Group}_6$ take the second places analogously as they were joined by $\mathit{Member}_4$.
+
+The recommended interest groups for $\mathit{Member}_5$ within the matrix of figure \ref{utilizealgorithm1} are calculated the same way. Within this dataset, $\mathit{Member}_4$ is most similar to $\mathit{Member}_5$. $\mathit{Group}_6$ is collected first as it was joined by $\mathit{Member}_4$ and received no interactions by $\mathit{Member}_5$. $\mathit{Group}_4$ comes next due to $\mathit{Member}_1$.
+
+The manual calculation of the recommendations is completed. Having completed the manual calculation of the recommendations, the returned interest groups are compared with those of the algorithm. For this reason, the two datasets are transferred to the graph database and the algorithm is executed for each dataset individually. The attached data medium contains the corresponding graph illustrations and the raw query output from the graph database. The interest groups of the output match the manually calculated interest groups and are sorted equally. Consequently, it can be assumed that the algorithm works properly.
 
 \begin{figure}
 \begin{subfigure}[t]{\textwidth}%
+\centering
+$\bordermatrix{~ & \mathit{Group}_1 & \mathit{Group}_2 & \mathit{Group}_3 & \mathit{Group}_4 & \mathit{Group}_5 & \mathit{Group}_6 & \mathit{Group}_7 \cr
+\vphantom{\vdots}\mathit{Member}_1 & \mathsf{joined} & & \mathsf{joined} & \mathsf{joined} & \mathsf{joined} & & \cr
+\vphantom{\vdots}\mathit{Member}_2 &  & \mathsf{joined} & & \mathsf{joined} & \mathsf{joined} & & \mathsf{joined} \cr
+\vphantom{\vdots}\mathit{Member}_3 & \mathsf{left} & & & \mathsf{joined} & & \mathsf{joined} & \cr
+\vphantom{\vdots}\mathit{Member}_4 & & \mathsf{joined} & \mathsf{joined} & & & \mathsf{joined} & \cr
+\vphantom{\vdots}\bm{{Member}_5} & \mathsf{joined} & 2 & \mathsf{joined} & 1 & \mathsf{left} & 2 & \cr  }$
+\caption{}
+\label{utilizealgorithm0}
+\end{subfigure}%
+
+\bigskip
+
+\begin{subfigure}[b]{\textwidth}%
+\centering
+$\bordermatrix{~ & \mathit{Group}_1 & \mathit{Group}_2 & \mathit{Group}_3 & \mathit{Group}_4 & \mathit{Group}_5 & \mathit{Group}_6 & \mathit{Group}_7 \cr
+\vphantom{\vdots}\mathit{Member}_1 & \mathsf{joined} & & \mathsf{joined} & \mathsf{joined} & \mathsf{joined} & & \cr
+\vphantom{\vdots}\mathit{Member}_2 &  & \mathsf{joined} & & \mathsf{joined} & \mathsf{joined} & & \mathsf{joined} \cr
+\vphantom{\vdots}\mathit{Member}_3 & \mathsf{left} & & & \mathsf{joined} & & \mathsf{joined} & \cr
+\vphantom{\vdots}\mathit{Member}_4 & \mathit{joined} & \cancel{\mathit{joined}} & \mathsf{joined} & & & \mathsf{joined} & \cr
+\vphantom{\vdots}\bm{{Member}_5} & \mathsf{joined} & & \mathsf{joined} & 2 & \mathsf{left} & 1 & \cr  }$   
+\caption{}
+\label{utilizealgorithm1}
+\end{subfigure}%
+\caption[Utilization of the recommendation algorithm]{Utilization of the recommendation algorithm. (\subref{utilizealgorithm0}) (\subref{utilizealgorithm1}) }
+\label{utilizealgorithm}
+\end{figure}
+
+\section{System Usability Score}
+After all system usability scales (see figure \ref{sustable}) had been taken and the corresponding scores were calculated, the application achieved scores that ranges between 65 and 93. Comparing previously tested systems and technologies, a score of 68 is considered to be average \citep[p. 36]{brooke2013}. Merging all scores together, the application reached a mean score of 83 and a median score of 88. The mean score of the application indicates that the application received a good scoring \citep[p. 36]{brooke2013}. 
+
+\begin{figure}
 \centering
 \begin{tabular}{|Slp{19em}|Sc|Sc|Sc|Sc|Sc|Sc|}
 \hline
@@ -907,39 +950,19 @@ After all system usability scales (see figure \ref{susresults}) had been taken a
 & I had to learn a lot of things before I could work with the system. & 1 & 2 & 2 & 1 & 1 & 1 \\ \hline
 \multicolumn{2}{|l|}{Score} & 93 & 65 & 88 & 93 & 88 & 70 \\ \hline
 \end{tabular}
-\caption{}
+\caption[Results of all System Usability Scales]{Calculation of all System Usability Scores in accordance to \citeauthor{brooke1996} upon the obtained results of the corresponding System Usability Scales.}
 \label{sustable}
-\end{subfigure}%
-
-\bigskip
-
-\begin{subfigure}[b]{\textwidth}%
-\centering
-\begin{tikzpicture}
-\begin{axis}[width=\linewidth, height=10em, ytick=\empty, boxplot/draw direction=x, xmin=60, xmax=100, xtick={65,70,75,80,85,90,95}]
-\addplot[color=black, mark=*, boxplot prepared={
-      lower whisker=65,
-      lower quartile=74,
-      median=88,
-      average=83,
-      upper quartile=91,
-      upper whisker=93,
-      every median/.style={black, thick}
-    }] coordinates {};
-\end{axis}
-\end{tikzpicture}
-\caption{}
-\label{suswhisker}
-\end{subfigure}%
-\caption[Results of all System Usability Scales]{Results of all System Usability Scales. (\subref{sustable}) Calculation of all System Usability Scores in accordance to \citeauthor{brooke1996} upon the obtained results of the corresponding System Usability Scales. (\subref{suswhisker}) Final scores of all System Usability Scales shown in a box-and-whisker plot. The final score of all System Usability Scales is indicated as $\mathsf{\blacklozenge}$ and reached 83.}
-\label{susresults}
 \end{figure}
 
 \section{Questionnaire}
+At the time of the interviews a total number of 210 members have registered and created 56 interest groups, 38 activities and 20 posts in ten activities. Sometimes a grouping of the answers was necessary as a result of the large number of replies given by the interviewees. In this case, responses were collected and compared with each other. Similar answers were combined and counted. For further insight to all answers given by the interviewees, the attached data medium provides digital copies of all completed questionnaires.
+
+Within the first thematic field of the questionnaire, the interviewees stated that they joined around six interest groups and three activities in average. Two of these activities were actually attended personally by each interviewee. Activities remained unattended due to poor weather conditions, sickness or because it were forgotten. On average a single activity was solely visited with the help of the application. Figure \ref{totalinterestgroupsandactivities} visualizes these answers and the overall distributions in whisker-box-plots. Four interviewees (67\%) noted that they knew all attendees of their joined activities. 
+
 \begin{figure}
 \centering
 \begin{tikzpicture}
-\begin{axis}[width=.9\textwidth, height=30em, xtick={1,2,3,4}, xticklabels={{joined\\ interest\\ groups}, {joined\\ activities}, {attended activities}, {exclusively attended activities}}, boxplot/draw direction=y, ymin=-1, ymax=11, ytick={0,1,2,3,4,5,6,7,8,9,10}, x tick label style={text width=7em, align=center}, x label style={align=center, text width=10em}, y label style={align=center, text width=20em}, ylabel={Total number of interest groups / activities}, xlabel={Classification}]
+\begin{axis}[width=.9\textwidth, height=30em, xtick={1,2,3,4}, xticklabels={{joined\\ interest\\ groups}, {joined\\ activities}, {attended activities}, {exclusively attended activities}}, boxplot/draw direction=y, ymin=-1, ymax=11, ytick={0,1,2,3,4,5,6,7,8,9,10}, x tick label style={text width=7em, align=center}, x label style={align=center, text width=20em}, y label style={align=center, text width=20em}, ylabel={Total number of interest groups / activities}, xlabel={Classification}]
 \addplot[color=black, mark=*, boxplot prepared={
       lower whisker=3,
       lower quartile=4,
@@ -949,7 +972,7 @@ After all system usability scales (see figure \ref{susresults}) had been taken a
       upper whisker=10,
       every median/.style={black, thick}
     }] coordinates {};
-\addplot[color=black, mark=*, boxplot prepared={
+\addplot[color=gray, mark=*, boxplot prepared={
       lower whisker=1,
       lower quartile=2,
       median=3,
@@ -982,68 +1005,99 @@ After all system usability scales (see figure \ref{susresults}) had been taken a
 \caption[Results of the number of joined interest groups and activities]{Results of the number of joined interest groups and activities. A distinction is made between joined, visited and exclusively visited activities.}
 \end{figure}
 
+The opinions about the limited possibilities to communicate within the application are controversial. Two interviewed people said that the discussions within activities were not needed, but the feature should still remain in the application. The ability to chat independently from activities was considered dispensable by two interviewees, but the same number of people missed this feature in the application. Two interviewees had never seen the discussions before. Additional communication tools along the organization of activities had been used by a total number of five interviewees (83\%) - \mbox{WhatsApp} \citep{whatsapp} was used by all of them, whereas phone calls were made by a single interviewee (17\%) only. The most popular reason given for both technologies was the faster communication.
+
+Within the second thematic area, five interviewees (82\%) indicated that they had noticed the recommendations. None of them felt patronized. Interviewees rated the recommendations on a four-point scale to be ``Rather accurate'' (100\%) , ``Rather helpful'' (80\%) and ``Rather unhelpful'' (20\%).
+
+As the final part of the second thematic field, the assorted list of interest groups had been handed out to the all participants during the interview. Figure \ref{markedinterestgroupstable} shows the analyzed number of the markings made by the interviewees on the list to indicate relevant and irrelevant interest groups. In most cases, the number of markings given to relevant interest groups is doubled compared to those given to irrelevant ones. No interviewee marked more irrelevant interest groups than relevant ones. Figure \ref{markedinterestgroupswhisker} shows the percentage of interest groups marked in accordance with their classification. The percentages were calculated for both classifications and compared with each other using a paired two-sided t-test\footnote{The percentages of both percentages had been conducted pairwise per interviewee and the Shapiro-Wilk \citep[p.466]{hedderich2015} normality test indicated that the percentages of both classifications are distributed normally ($W_{RIG}=0.841, p_{RIG}=0.133, W_{NRIG}=0.823, p_{NRIG}=0.094$). Under these conditions, the paired two-sided t-test is a good method for comparison \citep[p.523]{hedderich2015}.}. The test proved the significant difference ($p=0.028$) along these two classifications and confirmed that the recommendation algorithm made reasonable recommendations.
+
 \begin{figure}
-\begin{subfigure}{0.45\textwidth}%
+\begin{subfigure}{\textwidth}%
+\centering
+\begin{tabular}{|Sl|Sc|Sc|Sc|Sc|Sc|Sc|}
+\hline
+Interviewee & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+Recommended Interest Groups [RIG] & \multicolumn{6}{|c|}{10} \\
+Not recommended Interest Groups [NRIG] & \multicolumn{6}{|c|}{10} \\ \hline
+Marked Interest Groups [MIG] & 3 & 11 & 6 & 8 & 14 & 3 \\ \hline
+Marked RIG & 2 & 7 & 4 & 6 & 7 & 2 \\ 
+Marked RIG of RIG [\%] & 20 & 70 & 40 & 60 & 70 & 20 \\
+Marked RIG of MIG [\%] & 67 & 64 & 67 & 75 & 50 & 67 \\ \hline
+Marked NRIG & 1 & 4 & 2 & 2 & 7 & 1 \\
+Marked NRIG of NRIG [\%] & 10 & 40 & 20 & 20 & 70 & 10 \\ \hline
+\end{tabular}
+\caption{}
+\label{markedinterestgroupstable}
+\end{subfigure}%
+
+\bigskip
+
+\begin{subfigure}{\textwidth}%
 \centering
 \begin{tikzpicture}
-\begin{axis}[width=15em, height=30em, xtick={1,2}, xticklabels={{possibly relevant}, {possibly irrelevant}}, boxplot/draw direction=y, ymin=0, ymax=40, ytick={5,10,15,20,25,30,35}, x tick label style={text width=7em, align=center}, y label style={align=center, text width=20em}, x label style={align=center, text width=10em}, ylabel={Marked interest groups out of all interest groups in the test set [\%]}, xlabel={Classification}]
+\begin{axis}[width=30em, height=15em, ytick={1,2}, yticklabels={{possibly irrelevant},{possibly relevant}}, boxplot/draw direction=x, xmin=5, xmax=75, xtick={10,15,20,25,30,35,40,45,50,55,60,65,70}, y tick label style={text width=7em, align=center, rotate=90}, y label style={align=center, text width=10em},  x label style={align=center, text width=20em}, ylabel={Classification}, xlabel={Marked interest groups in accordance with their classification [\%]}]
 \addplot[color=black, mark=*, boxplot prepared={
       lower whisker=10,
       lower quartile=13,
-      median=25,
-      average=23,
-      upper quartile=34,
-      upper whisker=35,
-      every median/.style={black, thick}
-    }] coordinates {};
-\addplot[color=black, mark=*, boxplot prepared={
-      lower whisker=5,
-      lower quartile=6,
-      median=10,
-      average=14,
-      upper quartile=18,
-      upper whisker=35,
-      every median/.style={black, thick}
-    }] coordinates {};
-\end{axis}
-\end{tikzpicture}
-\caption{}
-\label{markedinterestgroupscomparedtoany}
-\end{subfigure}%
-\begin{subfigure}{0.45\textwidth}%
-\centering
-\begin{tikzpicture}
-\begin{axis}[width=15em, height=30em, xtick={1,2}, xticklabels={{possibly relevant}, {possibly irrelevant}}, boxplot/draw direction=y, ymin=20, ymax=80, ytick={25,30,35,40,45,50,55,60,65,70,75}, y label style={align=center, text width=20em}, x tick label style={text width=7em, align=center}, x label style={align=center, text width=10em}, ylabel={Marked interest groups out of all marked interest groups [\%]}, xlabel={Classification}]
-\addplot[color=black, mark=*, boxplot prepared={
-      lower whisker=50,
-      lower quartile=65,
-      median=67,
-      average=65,
-      upper quartile=67,
-      upper whisker=75,
-      every median/.style={black, thick}
-    }] coordinates {};
-\addplot[color=black, mark=*, boxplot prepared={
-      lower whisker=25,
-      lower quartile=33,
-      median=33,
-      average=35,
+      median=20,
+      average=28,
       upper quartile=35,
-      upper whisker=50,
+      upper whisker=70,
+      every median/.style={black, thick}
+    }] coordinates {};
+\addplot[color=black, mark=*, boxplot prepared={
+      lower whisker=20,
+      lower quartile=25,
+      median=50,
+      average=47,
+      upper quartile=68,
+      upper whisker=70,
       every median/.style={black, thick}
     }] coordinates {};
 \end{axis}
 \end{tikzpicture}
 \caption{}
-\label{markedinterestgroupscomparedtomarkedany}
+\label{markedinterestgroupswhisker}
 \end{subfigure}%
 \caption[Results taken from the survey of recommended interest groups]{Results taken from the survey of recommended interest groups. The interest groups had been classified by the recommendation algorithm into possibly relevant and possibly irrelevant sets.}
 \end{figure}
 
+Once the interview had reached the third thematic field, four interviewees (67\%) specifically appreciated the clear structure and usability of the application. One of them (17\%) got more specific in this context and said that the selectable icons for interest groups and activities increased the memorability. Another person (17\%) appreciated that the application is easy to use on any device regardless of the display size. Also popular and appreciated by three interviewees (50\%) was the appearance of the user interface and the easy way to create and join activities as well as the way of inviting someone easily. Two participants (33\%) of the interview explicitly approved the general concept. One of the participants (17\%) reported that it is a great experience being encouraged to organize an activity with others without feeling the need to keep an eye on the smartphone or computer. The other participant (17\%) was happy to discover new leisure activities and to meet new students.
+
+The terminology of "Rudel" and expeditions was a bit challenging according to three interviewees (50\%). Both either required a certain familiarization with the terms or were afraid that this might cause problems for others. Another interviewee (17\%) stated that the overall activity within the community was small. Any remaining downsides were primarily related to usability issues. Two of the interviewed persons (33\%) had problems with their smartphones to scroll through recommendations on the explore page. As many times it was stated that it was cumbersome to create interest groups by passing the title to the search function. One interviewee (17\%) complained that it was sometimes necessary to login into the application, even though the person did not logout earlier.
+
+The following improvements were proposed by two out of all six interviewees (33\%). This concerned the development of respective applications running natively on popular smartphones, introducing a setting to adjust the level of detail and frequency of notifications, advanced privacy preferences and an improved explore page. The privacy preferences refer to an option to hide expeditions for uninvited members and allow the creation of interest groups with restricted access control. This way, even private activities can be organized without hesitation. Enhancements of the explore page includes the listing of joined expeditions and an intuitive calendar. 
+
+This thematic field ends with the question whether the application had helped to save free time to organize leisure time. A single person (17\%) was confident to save time, because the application recommended interesting events that otherwise would not have come to mind. Furthermore, browsing through activities was an easy alternative to time-consuming searches in search engines or magazines. Two interviewees (33\%) were certain not to save time as they suspected that they will need to invest the same amount of time on the application as on other methods. However, three interviewees (50\%) were undecided in this question. One undecided interviewee (17\%) had the same impression of noticing unknown activities. Another undecided respondent (17\%) appreciated the good usability and derived savings in time. The creation of activities was reported by two respondents (33\%) to be faster and more straightforward compared to Facebook. Nevertheless, one of them (17\%) made the time savings dependent on the number of participants in an activity. As a result of the limited ability to chat within the application, one undecided interviewee (17\%) felt less distracted from the actual purpose of the leisure time organization.
+
+\newcommand\HatchedCell[4][0pt]{%
+  \begin{tikzpicture}[overlay,remember picture]%
+    \fill[#4] ( $ (pic cs:#2) + (0,1.9ex) $ ) rectangle ( $ (pic cs:#3) + (0pt,-#1*\baselineskip-.8ex) $ );
+  \end{tikzpicture}%
+}%
+
+\begin{figure}
+\centering
+\begin{tabular}{|Sl|SlSlSlSlSl|}
+\hline
+Disadvantages\hspace{4em} \rotatebox{90}{Advantages} & \rotatebox{90}{Application} & \rotatebox{90}{Facebook} & \rotatebox{90}{Event Calendar} & \rotatebox{90}{Instant Messenger} & \rotatebox{90}{Friends \& Acquaintances} \\ \hline
+Application & \cellcolor{gray!10} &  &  &  &   \\
+Facebook & & \cellcolor{gray!10} &  &  &  \\
+Event Calendar & & & \cellcolor{gray!10} & 4 & 5 \\ 
+Instant Messenger & & 2 & 1 & \cellcolor{gray!10} & 2 \\ 
+Friends \& Acquaintances & & 1 & 4 & 1 & \cellcolor{gray!10} \\ \hline
+\end{tabular}
+\caption[Mental mo]{}
+\label{sustable}
+\end{figure}
+ 
+The number of answers within the last thematic field made it necessary to concentrate on joint answers given by at least two interviewees.
+
+%aims to build a mental model of the interviewee. The application, events calendar, friends or aquinatances and Facebook are compared in matrices. The interviewee is supposed to compare the organizational tools for leisure activities in accordance to the personal opinion. With this in mind, the first matrix is used to identify differences, whereas the second matrix is intended to address advantages and disadvantages among the tools.
+
 \chapter{Analysis}
 Ergebnisse der Studie wiederholen und in den Kontext stellen
-
-virtuell aktuell was ist physisch? ab wann?
+sobald ohysisch, ist es nicht einfach ein klick, sondern es beduetet arbeit
 
 \chapter{Conclusion}
 \begin{itemize} 

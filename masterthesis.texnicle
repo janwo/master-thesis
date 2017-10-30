@@ -76,7 +76,7 @@
         <attribute name="outputdirectory" type="string"></attribute>
         <attribute name="openconsole" type="bool">0</attribute>
         <attribute name="ncompile" type="int16">1</attribute>
-        <attribute name="language" type="string">Multilingual</attribute>
+        <attribute name="language" type="string">en</attribute>
         <attribute name="enginename" type="string">pdflatex</attribute>
         <attribute name="dops2pdf" type="bool">1</attribute>
         <attribute name="doliveupdate" type="bool">1</attribute>
@@ -85,13 +85,13 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="UISETTINGS" id="z104">
-        <attribute name="pdfviewscrollrect" type="string">{{0, 8621.0586206901426}, {603.99999999996351, 814.35862068349888}}</attribute>
+        <attribute name="pdfviewscrollrect" type="string">{{0, 7821.2924606997931}, {600.92010793493284, 729.68870249121574}}</attribute>
         <attribute name="showpdfthumbnails" type="bool">0</attribute>
         <attribute name="selectedcontrolstab" type="int16">0</attribute>
         <attribute name="maxoutlinedepth" type="int16">7</attribute>
         <attribute name="logoutputlevel" type="int16">0</attribute>
         <attribute name="editorwidth" type="float">792</attribute>
-        <attribute name="controlswidth" type="float">109.5</attribute>
+        <attribute name="controlswidth" type="float">220</attribute>
         <attribute name="consoleview" type="int16">0</attribute>
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
@@ -121,12 +121,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z109 z111 z107 z112 z110 z108"></relationship>
     </object>
     <object type="FILE" id="z107">
-        <attribute name="visiblerect" type="string">{{0, 3489}, {792, 757}}</attribute>
-        <attribute name="cursor" type="string">{6021, 0}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 3908}, {792, 726}}</attribute>
+        <attribute name="cursor" type="string">{6574, 0}</attribute>
         <attribute name="wasopen" type="bool">1</attribute>
-        <attribute name="lasteditdate" type="date">530007561.53452998399734497070</attribute>
+        <attribute name="lasteditdate" type="date">530808400.73922097682952880859</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">530007562.86238002777099609375</attribute>
+        <attribute name="fileloaddate" type="date">530808461.05748897790908813477</attribute>
         <attribute name="extension" type="string">bib</attribute>
         <attribute name="sortindex" type="int32">5</attribute>
         <attribute name="name" type="string">books.bib</attribute>
@@ -148,12 +148,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z105 z113"></relationship>
     </object>
     <object type="TEXFILE" id="z109">
-        <attribute name="visiblerect" type="string">{{0, 24226}, {792, 726}}</attribute>
-        <attribute name="cursor" type="string">{101501, 0}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 27947}, {792, 726}}</attribute>
+        <attribute name="cursor" type="string">{117251, 0}</attribute>
         <attribute name="wasopen" type="bool">0</attribute>
-        <attribute name="lasteditdate" type="date">530105340.26068997383117675781</attribute>
+        <attribute name="lasteditdate" type="date">531041384.56145799160003662109</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">530105341.00081801414489746094</attribute>
+        <attribute name="fileloaddate" type="date">531041385.11116498708724975586</attribute>
         <attribute name="extension" type="string">tex</attribute>
         <attribute name="sortindex" type="int32">3</attribute>
         <attribute name="name" type="string">masterthesis.tex</attribute>
