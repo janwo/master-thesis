@@ -3,7 +3,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[hyphens]{url}
 \usepackage[english]{babel}
-\usepackage[table]{xcolor}
 \usepackage{lmodern}
 \usepackage[sort&compress]{natbib}
 \usepackage{graphicx} 
@@ -11,6 +10,7 @@
 \usepackage{rotating}
 \usepackage{pgfplots}
 \usepackage{transparent}
+\usepackage{array}
 \usepackage{multirow}
 \usepackage{tikz}
 \usepackage{scrextend}
@@ -69,6 +69,10 @@
 % Auflistungen
 \setlength\cellspacetoplimit{.5em}
 \setlength\cellspacebottomlimit{.5em}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\def\tabularxcolumn#1{m{#1}}
+\addparagraphcolumntypes{X}
+\addparagraphcolumntypes{Y}
 \DeclareTOCStyleEntry[dynnumwidth]{tocline}{figure}
 \newcommand*{\adddot}[1]{#1\unskip.\hfil}
 \setkomafont{labelinglabel}{\textit}
@@ -881,7 +885,7 @@ The second thematic field calls for a review on recommendations made to the inte
 
 The third thematic field consists of rather basic questions that allow the interviewee to name and justify advantages and disadvantages as well as suggestions to improve the application and idea in general. Additionally, the interviewee is asked whether free time has been saved by using the application, especially in the context of leisure time management.
 
-The last thematic field aims to build a mental model of the interviewee. The application, events calendar, friends or acquaintances and Facebook are compared in matrices. The interviewee is supposed to compare the organizational tools for leisure activities in accordance to the personal opinion. With this in mind, the first matrix is used to identify differences, whereas the second matrix is intended to address advantages and disadvantages among the tools.
+The last thematic field aims to contextualize the application around other methods. The application, events calendar, friends or acquaintances and Facebook are compared in matrices. The interviewee is supposed to compare the organizational tools for leisure activities in accordance to the personal opinion. With this in mind, the first matrix is used to identify differences, whereas the second matrix is intended to address advantages and disadvantages among the tools.
 
 \chapter{Results}
 This chapter presents the results produced with the utilization of the recommendation algorithm as well as the collected data that were gathered during the interviews with a total number of six participants. The whole source code of the application and all completed questionnaires are stored digitally on the data medium, which had been attached to this thesis. Any additional calculations are also stored on this data medium.
@@ -935,7 +939,7 @@ After all system usability scales (see figure \ref{sustable}) had been taken and
 
 \begin{figure}
 \centering
-\begin{tabular}{|Slp{19em}|Sc|Sc|Sc|Sc|Sc|Sc|}
+\begin{tabularx}{\linewidth}{|Sc|S{m{19em}}|S{Y}|S{Y}|S{Y}|S{Y}|S{Y}|S{Y}|}
 \hline
 \multicolumn{2}{|l|}{Interviewee} & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
 \multirow{20}{*}{\rotatebox{90}{Questions}} & I think I would like to use this system regularly. & 4 & 4 & 4 & 5 & 4 & 4 \\
@@ -949,7 +953,7 @@ After all system usability scales (see figure \ref{sustable}) had been taken and
 & I felt very secure using the system. & 5 & 5 & 5 & 4 & 4 & 3 \\ 
 & I had to learn a lot of things before I could work with the system. & 1 & 2 & 2 & 1 & 1 & 1 \\ \hline
 \multicolumn{2}{|l|}{Score} & 93 & 65 & 88 & 93 & 88 & 70 \\ \hline
-\end{tabular}
+\end{tabularx}
 \caption[Results of all System Usability Scales]{Calculation of all System Usability Scores in accordance to \citeauthor{brooke1996} upon the obtained results of the corresponding System Usability Scales.}
 \label{sustable}
 \end{figure}
@@ -1014,18 +1018,18 @@ As the final part of the second thematic field, the assorted list of interest gr
 \begin{figure}
 \begin{subfigure}{\textwidth}%
 \centering
-\begin{tabular}{|Sl|Sc|Sc|Sc|Sc|Sc|Sc|}
+\begin{tabularx}{\linewidth}{|S{l}|S{Y}|S{Y}|S{Y}|S{Y}|S{Y}|S{Y}|}
 \hline
 Interviewee & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
-Recommended Interest Groups [RIG] & \multicolumn{6}{|c|}{10} \\
-Not recommended Interest Groups [NRIG] & \multicolumn{6}{|c|}{10} \\ \hline
+Recommended Interest Groups [RIG] & \multicolumn{6}{c|}{10} \\
+Not recommended Interest Groups [NRIG] & \multicolumn{6}{c|}{10} \\ \hline
 Marked Interest Groups [MIG] & 3 & 11 & 6 & 8 & 14 & 3 \\ \hline
 Marked RIG & 2 & 7 & 4 & 6 & 7 & 2 \\ 
 Marked RIG of RIG [\%] & 20 & 70 & 40 & 60 & 70 & 20 \\
 Marked RIG of MIG [\%] & 67 & 64 & 67 & 75 & 50 & 67 \\ \hline
 Marked NRIG & 1 & 4 & 2 & 2 & 7 & 1 \\
 Marked NRIG of NRIG [\%] & 10 & 40 & 20 & 20 & 70 & 10 \\ \hline
-\end{tabular}
+\end{tabularx}
 \caption{}
 \label{markedinterestgroupstable}
 \end{subfigure}%
@@ -1070,43 +1074,35 @@ The following improvements were proposed by two out of all six interviewees (33\
 
 This thematic field ends with the question whether the application had helped to save free time to organize leisure time. A single person (17\%) was confident to save time, because the application recommended interesting events that otherwise would not have come to mind. Furthermore, browsing through activities was an easy alternative to time-consuming searches in search engines or magazines. Two interviewees (33\%) were certain not to save time as they suspected that they will need to invest the same amount of time on the application as on other methods. However, three interviewees (50\%) were undecided in this question. One undecided interviewee (17\%) had the same impression of noticing unknown activities. Another undecided respondent (17\%) appreciated the good usability and derived savings in time. The creation of activities was reported by two respondents (33\%) to be faster and more straightforward compared to Facebook. Nevertheless, one of them (17\%) made the time savings dependent on the number of participants in an activity. As a result of the limited ability to chat within the application, one undecided interviewee (17\%) felt less distracted from the actual purpose of the leisure time organization.
 
-\newcommand\HatchedCell[4][0pt]{%
-  \begin{tikzpicture}[overlay,remember picture]%
-    \fill[#4] ( $ (pic cs:#2) + (0,1.9ex) $ ) rectangle ( $ (pic cs:#3) + (0pt,-#1*\baselineskip-.8ex) $ );
-  \end{tikzpicture}%
-}%
-
 \begin{figure}
 \centering
-\begin{tabular}{|Sl|SlSlSlSlSl|}
+\begin{tabularx}{\linewidth}{|Sc|S{X}|S{X}|S{X}|}
 \hline
-Disadvantages\hspace{4em} \rotatebox{90}{Advantages} & \rotatebox{90}{Application} & \rotatebox{90}{Facebook} & \rotatebox{90}{Event Calendar} & \rotatebox{90}{Instant Messenger} & \rotatebox{90}{Friends \& Acquaintances} \\ \hline
-Application & \cellcolor{gray!10} &  &  &  &   \\
-Facebook & & \cellcolor{gray!10} &  &  &  \\
-Event Calendar & & & \cellcolor{gray!10} & 4 & 5 \\ 
-Instant Messenger & & 2 & 1 & \cellcolor{gray!10} & 2 \\ 
-Friends \& Acquaintances & & 1 & 4 & 1 & \cellcolor{gray!10} \\ \hline
-\end{tabular}
-\caption[Mental mo]{}
-\label{sustable}
+\multirow{2}{*}{\rotatebox[origin=c]{90}{Method}} & \multicolumn{3}{Sc|}{Comparison to application} \\[1.4em]
+& Differences & Advantages & Disadvantages \\ \hline
+\rotatebox[origin=c]{90}{Facebook} & Facebook provides a less specific service (3 people, 50\%) and its members often know each other in person (2 people, 33\%). & More members has been registered yet (3 people, 50\%). & More difficult to keep overview (3 people, 50\%) and more advertisement (2 people, 33\%). \\
+\rotatebox[origin=c]{90}{Event Calendar} & Event calendar provides pre-scheduled events that cannot be influenced any longer (4 people, 67\%). & Calendrical layout (3 people, 50\%) and a large choice of activities (2 people, 33\%). & Recommendation of activities is not personalized (2 people, 33\%) and likely no ability to contribute (2 people, 33\%). \\ 
+\rotatebox[origin=c]{90}{Instant Messenger} & The main focus of instant messengers is the communication between individuals (4 people, 67\%). & More instant feedback (5 people, 83\%). & More difficult to keep overview (2 people, 33\%) and likely not made for event planning (2 people, 33\%). \\ 
+\rotatebox[origin=c]{90}{Friends \& Acquaintances} & Level of intimacy (3 people, 50\%) and directness of feedback (2 people, 33\%). & Planning can start more spontaneously (3 people, 50\%), the communication feels intimate (2 people, 33\%) and meetings are face-to-face (2 people, 33\%). & The number of recommended activities is smaller (3 people, 50\%), a greater effort is needed while planning in big groups (2 people, 33\%) and it is more difficult to check or report attendance status (2 people, 33\%). \\ \hline
+\end{tabularx}
+\label{questionnairetable}
+\caption[Answers of the questionnaire on differences and pros and cons of the application in comparison to other methods]{Answers given by two or more interviewees on differences and pros and cons of the application in comparison to other organizational methods for leisure activities.}
 \end{figure}
  
-The number of answers within the last thematic field made it necessary to concentrate on joint answers given by at least two interviewees.
-
-%aims to build a mental model of the interviewee. The application, events calendar, friends or aquinatances and Facebook are compared in matrices. The interviewee is supposed to compare the organizational tools for leisure activities in accordance to the personal opinion. With this in mind, the first matrix is used to identify differences, whereas the second matrix is intended to address advantages and disadvantages among the tools.
+The number of answers within the last thematic field made it necessary to concentrate on joint answers given by at least two interviewees. In spite of the reduction, many answers remain. For a clear overview of all remaining answers, a tabular layout was used to illustrate differences as well as advantages and disadvantages of the application in comparison to other methods. Figure \ref{questionnairetable} represents the table with corresponding answers and frequencies.
 
 \chapter{Analysis}
-Ergebnisse der Studie wiederholen und in den Kontext stellen
-sobald ohysisch, ist es nicht einfach ein klick, sondern es beduetet arbeit
+
+
+%Ergebnisse der Studie wiederholen und in den Kontext stellen
+%sobald ohysisch, ist es nicht einfach ein klick, sondern es beduetet arbeit
 
 \chapter{Conclusion}
-\begin{itemize} 
-	\item Thema, wie in der Einführung, aufgreifen
-	\item Ausblick formulieren
-	\begin{itemize} 
-		\item Implementation von Bucketlisten?
-	\end{itemize} 
-\end{itemize} 
+
+
+%Thema, wie in der Einführung, aufgreifen
+%Ausblick formulieren
+%Implementation von Bucketlisten?
 
 \appendix
 \chapter{Appendix}
@@ -1145,12 +1141,11 @@ sobald ohysisch, ist es nicht einfach ein klick, sondern es beduetet arbeit
 
 % Erklärung
 \chapter*{Declaration of academic honesty}
-\thispagestyle{empty}
-XXXX
-\begin{center}
-\begin{tabular}{lp{2em}l} 
+Hereby. I declare that I had written this master thesis on my own without using any other sources and tools than the ones listed. This thesis was neither published nor submitted to any other authority.
+
+\begin{tabularx}{\linewidth}{S{Y}ScS{Y}} 
  \hspace{5cm}   && \hspace{4cm} \\\cline{1-1}\cline{3-3} 
- Bremen, \today    && Jan-Hendrik Wolf 
-\end{tabular} 
-\end{center}
+ Bremen, \today && Jan-Hendrik Wolf 
+\end{tabularx}
+
 \end{document}
