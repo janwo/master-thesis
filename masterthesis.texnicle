@@ -5,7 +5,7 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>3576E653-D745-4B07-8BA2-FA96517366C3</UUID>
-        <nextObjectID>113</nextObjectID>
+        <nextObjectID>114</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
@@ -85,7 +85,7 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="UISETTINGS" id="z104">
-        <attribute name="pdfviewscrollrect" type="string">{{0.93458111209846828, 5155.1494143877226}, {601.8702361914136, 730.84242965966496}}</attribute>
+        <attribute name="pdfviewscrollrect" type="string">{{3.2254226894590787e-11, 54607.602484646945}, {603.99999999996771, 733.3975153530555}}</attribute>
         <attribute name="showpdfthumbnails" type="bool">0</attribute>
         <attribute name="selectedcontrolstab" type="int16">0</attribute>
         <attribute name="maxoutlinedepth" type="int16">7</attribute>
@@ -121,8 +121,8 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z109 z111 z107 z112 z110 z108"></relationship>
     </object>
     <object type="FILE" id="z107">
-        <attribute name="visiblerect" type="string">{{0, 3908}, {792, 726}}</attribute>
-        <attribute name="cursor" type="string">{6574, 0}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 3718.5}, {792, 757}}</attribute>
+        <attribute name="cursor" type="string">{6248, 0}</attribute>
         <attribute name="wasopen" type="bool">1</attribute>
         <attribute name="lasteditdate" type="date">530808400.73922097682952880859</attribute>
         <attribute name="istext" type="bool">1</attribute>
@@ -148,12 +148,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z105 z113"></relationship>
     </object>
     <object type="TEXFILE" id="z109">
-        <attribute name="visiblerect" type="string">{{0, 28234}, {792, 726}}</attribute>
-        <attribute name="cursor" type="string">{119875, 0}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 24593}, {792, 757}}</attribute>
+        <attribute name="cursor" type="string">{105485, 0}</attribute>
         <attribute name="wasopen" type="bool">0</attribute>
-        <attribute name="lasteditdate" type="date">531088835.31363797187805175781</attribute>
+        <attribute name="lasteditdate" type="date">531092390.01788002252578735352</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">531088836.77793097496032714844</attribute>
+        <attribute name="fileloaddate" type="date">531092390.67661297321319580078</attribute>
         <attribute name="extension" type="string">tex</attribute>
         <attribute name="sortindex" type="int32">3</attribute>
         <attribute name="name" type="string">masterthesis.tex</attribute>
@@ -163,7 +163,7 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
         <relationship name="mainfileofproject" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
         <relationship name="children" type="0/0" destination="PROJECTITEM"></relationship>
-        <relationship name="bookmarks" type="0/0" destination="BOOKMARK"></relationship>
+        <relationship name="bookmarks" type="0/0" destination="BOOKMARK" idrefs="z114"></relationship>
     </object>
     <object type="FILE" id="z110">
         <attribute name="wasopen" type="bool">-1</attribute>
@@ -230,5 +230,11 @@
         <relationship name="mainfileofproject" type="1/1" destination="PROJECT"></relationship>
         <relationship name="children" type="0/0" destination="PROJECTITEM"></relationship>
         <relationship name="bookmarks" type="0/0" destination="BOOKMARK"></relationship>
+    </object>
+    <object type="BOOKMARK" id="z114">
+        <attribute name="text" type="string">
+</attribute>
+        <attribute name="linenumber" type="int64">1009</attribute>
+        <relationship name="parentfile" type="1/1" destination="FILE" idrefs="z109"></relationship>
     </object>
 </database>
