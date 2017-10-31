@@ -68,11 +68,11 @@
         <relationship name="selected" type="1/1" destination="FILE" idrefs="z109"></relationship>
         <relationship name="settings" type="1/1" destination="SETTINGS" idrefs="z103"></relationship>
         <relationship name="uisettings" type="1/1" destination="UISETTINGS" idrefs="z104"></relationship>
-        <relationship name="items" type="0/0" destination="PROJECTITEM" idrefs="z105 z112 z109 z107 z113 z108 z110 z111 z106"></relationship>
+        <relationship name="items" type="0/0" destination="PROJECTITEM" idrefs="z105 z107 z110 z109 z111 z106 z112 z113 z108"></relationship>
     </object>
     <object type="SETTINGS" id="z103">
         <attribute name="stoponerror" type="bool">1</attribute>
-        <attribute name="showstatusbar" type="bool">1</attribute>
+        <attribute name="showstatusbar" type="bool">0</attribute>
         <attribute name="outputdirectory" type="string"></attribute>
         <attribute name="openconsole" type="bool">0</attribute>
         <attribute name="ncompile" type="int16">1</attribute>
@@ -85,7 +85,7 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="UISETTINGS" id="z104">
-        <attribute name="pdfviewscrollrect" type="string">{{3.2254226894590787e-11, 54607.602484646945}, {603.99999999996771, 733.3975153530555}}</attribute>
+        <attribute name="pdfviewscrollrect" type="string">{{3.2254226894590787e-11, 58012.605590247898}, {603.99999999996771, 733.39440975210164}}</attribute>
         <attribute name="showpdfthumbnails" type="bool">0</attribute>
         <attribute name="selectedcontrolstab" type="int16">0</attribute>
         <attribute name="maxoutlinedepth" type="int16">7</attribute>
@@ -123,10 +123,10 @@
     <object type="FILE" id="z107">
         <attribute name="visiblerect" type="string">{{0, 3718.5}, {792, 757}}</attribute>
         <attribute name="cursor" type="string">{6248, 0}</attribute>
-        <attribute name="wasopen" type="bool">1</attribute>
+        <attribute name="wasopen" type="bool">0</attribute>
         <attribute name="lasteditdate" type="date">530808400.73922097682952880859</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">530808461.05748897790908813477</attribute>
+        <attribute name="fileloaddate" type="date">531133338.95299899578094482422</attribute>
         <attribute name="extension" type="string">bib</attribute>
         <attribute name="sortindex" type="int32">5</attribute>
         <attribute name="name" type="string">books.bib</attribute>
@@ -148,12 +148,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z105 z113"></relationship>
     </object>
     <object type="TEXFILE" id="z109">
-        <attribute name="visiblerect" type="string">{{0, 24593}, {792, 757}}</attribute>
-        <attribute name="cursor" type="string">{105485, 0}</attribute>
-        <attribute name="wasopen" type="bool">0</attribute>
-        <attribute name="lasteditdate" type="date">531092390.01788002252578735352</attribute>
+        <attribute name="visiblerect" type="string">{{0, 13870}, {792, 726}}</attribute>
+        <attribute name="cursor" type="string">{58974, 0}</attribute>
+        <attribute name="wasopen" type="bool">1</attribute>
+        <attribute name="lasteditdate" type="date">531148297.07685601711273193359</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">531092390.67661297321319580078</attribute>
+        <attribute name="fileloaddate" type="date">531148317.02297401428222656250</attribute>
         <attribute name="extension" type="string">tex</attribute>
         <attribute name="sortindex" type="int32">3</attribute>
         <attribute name="name" type="string">masterthesis.tex</attribute>
@@ -232,7 +232,7 @@
         <relationship name="bookmarks" type="0/0" destination="BOOKMARK"></relationship>
     </object>
     <object type="BOOKMARK" id="z114">
-        <attribute name="text" type="string">
+        <attribute name="text" type="string">Marked RIG of MIG [\\%] \u2600 67 \u2600 64 \u2600 67 \u2600 75 \u2600 50 \u2600 67 \\\\ \\hline
 </attribute>
         <attribute name="linenumber" type="int64">1009</attribute>
         <relationship name="parentfile" type="1/1" destination="FILE" idrefs="z109"></relationship>
