@@ -65,7 +65,7 @@
         <attribute name="name" type="string">masterthesis</attribute>
         <attribute name="folder" type="string">/Users/janwolf/Documents/Workspace/masterthesis</attribute>
         <relationship name="mainfile" type="1/1" destination="FILE" idrefs="z109"></relationship>
-        <relationship name="selected" type="1/1" destination="FILE" idrefs="z109"></relationship>
+        <relationship name="selected" type="1/1" destination="FILE" idrefs="z107"></relationship>
         <relationship name="settings" type="1/1" destination="SETTINGS" idrefs="z103"></relationship>
         <relationship name="uisettings" type="1/1" destination="UISETTINGS" idrefs="z104"></relationship>
         <relationship name="items" type="0/0" destination="PROJECTITEM" idrefs="z113 z106 z108 z109 z110 z107 z105 z112"></relationship>
@@ -85,7 +85,7 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="UISETTINGS" id="z104">
-        <attribute name="pdfviewscrollrect" type="string">{{0, 0}, {0, 0}}</attribute>
+        <attribute name="pdfviewscrollrect" type="string">{{0, 3297.6514954308473}, {603.99999999999352, 614.21066319821921}}</attribute>
         <attribute name="showpdfthumbnails" type="bool">0</attribute>
         <attribute name="selectedcontrolstab" type="int16">0</attribute>
         <attribute name="maxoutlinedepth" type="int16">7</attribute>
@@ -121,12 +121,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z109 z107 z112 z110 z108"></relationship>
     </object>
     <object type="FILE" id="z107">
-        <attribute name="visiblerect" type="string">{{0, 224}, {667, 726}}</attribute>
-        <attribute name="cursor" type="string">{779, 0}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 207.5}, {667, 726}}</attribute>
+        <attribute name="cursor" type="string">{778, 0}</attribute>
         <attribute name="wasopen" type="bool">0</attribute>
-        <attribute name="lasteditdate" type="date">531267402.14790898561477661133</attribute>
+        <attribute name="lasteditdate" type="date">531267826.46203500032424926758</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">531267403.83338499069213867188</attribute>
+        <attribute name="fileloaddate" type="date">531267829.54663002490997314453</attribute>
         <attribute name="extension" type="string">bib</attribute>
         <attribute name="sortindex" type="int32">4</attribute>
         <attribute name="name" type="string">books.bib</attribute>
@@ -148,12 +148,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z113 z105"></relationship>
     </object>
     <object type="TEXFILE" id="z109">
-        <attribute name="visiblerect" type="string">{{0, 4341.5}, {667, 726}}</attribute>
-        <attribute name="cursor" type="string">{119783, 0}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 30681}, {667, 726}}</attribute>
+        <attribute name="cursor" type="string">{119823, 0}</attribute>
         <attribute name="wasopen" type="bool">1</attribute>
-        <attribute name="lasteditdate" type="date">531267001.78419297933578491211</attribute>
+        <attribute name="lasteditdate" type="date">531267818.40266698598861694336</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">531267001.59522098302841186523</attribute>
+        <attribute name="fileloaddate" type="date">531267819.79263401031494140625</attribute>
         <attribute name="extension" type="string">tex</attribute>
         <attribute name="sortindex" type="int32">2</attribute>
         <attribute name="name" type="string">masterthesis.tex</attribute>
@@ -214,7 +214,7 @@
         <relationship name="bookmarks" type="0/0" destination="BOOKMARK"></relationship>
     </object>
     <object type="BOOKMARK" id="z114">
-        <attribute name="text" type="string">Within the second thematic area, five interviewees (82\\%) indicated that they had noticed recommendations in the application. None of them felt patronized. Interviewees rated the recommendations on a four-point scale to be ``Rather accurate'' (Five interviewees, 100\\%) , ``Rather helpful'' (Four interviewees, 80\\%) and ``Rather unhelpful'' (One interviewee, 20\\%).
+        <attribute name="text" type="string">The opinions about the limited possibilities to communicate within the application are controversial. Two interviewed people said that the discussions within activities were not needed, but the feature should still remain in the application. The ability to chat independently from activities was considered dispensable by two interviewees, but the same number of people missed this feature in the application. Two interviewees had never seen the discussions before. Additional communication tools among the organization of activities had been used by a total number of five interviewees (83\\%) — \\mbox{WhatsApp} \\citep{whatsapp} was used by all of them, whereas phone calls were made by a single interviewee (17\\%) only. The most popular reason given for both technologies was the faster communication.
 </attribute>
         <attribute name="linenumber" type="int64">1009</attribute>
         <relationship name="parentfile" type="1/1" destination="FILE" idrefs="z109"></relationship>
