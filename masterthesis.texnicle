@@ -85,7 +85,7 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="UISETTINGS" id="z104">
-        <attribute name="pdfviewscrollrect" type="string">{{0, 57788.286377960663}, {604, 957.47528869056259}}</attribute>
+        <attribute name="pdfviewscrollrect" type="string">{{0, 9414.6590745515277}, {604, 801.98947672387294}}</attribute>
         <attribute name="showpdfthumbnails" type="bool">0</attribute>
         <attribute name="selectedcontrolstab" type="int16">0</attribute>
         <attribute name="maxoutlinedepth" type="int16">7</attribute>
@@ -121,7 +121,7 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z109 z111 z107 z112 z110 z108"></relationship>
     </object>
     <object type="FILE" id="z107">
-        <attribute name="visiblerect" type="string">{{0, 2565}, {792, 726}}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 2384.5}, {792, 726}}</attribute>
         <attribute name="cursor" type="string">{6287, 3}</attribute>
         <attribute name="wasopen" type="bool">0</attribute>
         <attribute name="lasteditdate" type="date">531164894.57083600759506225586</attribute>
@@ -148,12 +148,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z105 z113"></relationship>
     </object>
     <object type="TEXFILE" id="z109">
-        <attribute name="visiblerect" type="string">{{0, 28109}, {792, 726}}</attribute>
-        <attribute name="cursor" type="string">{120035, 0}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 28126}, {792, 726}}</attribute>
+        <attribute name="cursor" type="string">{119609, 0}</attribute>
         <attribute name="wasopen" type="bool">1</attribute>
-        <attribute name="lasteditdate" type="date">531239314.57265800237655639648</attribute>
+        <attribute name="lasteditdate" type="date">531246074.12531197071075439453</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">531239374.72305601835250854492</attribute>
+        <attribute name="fileloaddate" type="date">531246075.53942900896072387695</attribute>
         <attribute name="extension" type="string">tex</attribute>
         <attribute name="sortindex" type="int32">3</attribute>
         <attribute name="name" type="string">masterthesis.tex</attribute>
@@ -232,7 +232,7 @@
         <relationship name="bookmarks" type="0/0" destination="BOOKMARK"></relationship>
     </object>
     <object type="BOOKMARK" id="z114">
-        <attribute name="text" type="string">Marked RIG of MIG [\\%] \u2600 67 \u2600 64 \u2600 67 \u2600 75 \u2600 50 \u2600 67 \\\\ \\hline
+        <attribute name="text" type="string">Interviewee \u2600 1 \u2600 2 \u2600 3 \u2600 4 \u2600 5 \u2600 6 \\\\ \\hline
 </attribute>
         <attribute name="linenumber" type="int64">1009</attribute>
         <relationship name="parentfile" type="1/1" destination="FILE" idrefs="z109"></relationship>
