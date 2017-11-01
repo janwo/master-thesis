@@ -85,7 +85,7 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="UISETTINGS" id="z104">
-        <attribute name="pdfviewscrollrect" type="string">{{0, 57953.298755258096}, {575.17842323647153, 792.70124474190379}}</attribute>
+        <attribute name="pdfviewscrollrect" type="string">{{0, 57788.286377960663}, {604, 957.47528869056259}}</attribute>
         <attribute name="showpdfthumbnails" type="bool">0</attribute>
         <attribute name="selectedcontrolstab" type="int16">0</attribute>
         <attribute name="maxoutlinedepth" type="int16">7</attribute>
@@ -121,8 +121,8 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z109 z111 z107 z112 z110 z108"></relationship>
     </object>
     <object type="FILE" id="z107">
-        <attribute name="visiblerect" type="string">{{0, 2418}, {792, 726}}</attribute>
-        <attribute name="cursor" type="string">{4445, 0}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 2565}, {792, 726}}</attribute>
+        <attribute name="cursor" type="string">{6287, 3}</attribute>
         <attribute name="wasopen" type="bool">0</attribute>
         <attribute name="lasteditdate" type="date">531164894.57083600759506225586</attribute>
         <attribute name="istext" type="bool">1</attribute>
@@ -148,12 +148,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z105 z113"></relationship>
     </object>
     <object type="TEXFILE" id="z109">
-        <attribute name="visiblerect" type="string">{{0, 21738}, {792, 608}}</attribute>
-        <attribute name="cursor" type="string">{92484, 0}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 28109}, {792, 726}}</attribute>
+        <attribute name="cursor" type="string">{120035, 0}</attribute>
         <attribute name="wasopen" type="bool">1</attribute>
-        <attribute name="lasteditdate" type="date">531166384.97707998752593994141</attribute>
+        <attribute name="lasteditdate" type="date">531239314.57265800237655639648</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">531166445.03084498643875122070</attribute>
+        <attribute name="fileloaddate" type="date">531239374.72305601835250854492</attribute>
         <attribute name="extension" type="string">tex</attribute>
         <attribute name="sortindex" type="int32">3</attribute>
         <attribute name="name" type="string">masterthesis.tex</attribute>
