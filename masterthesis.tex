@@ -4,7 +4,6 @@
 \usepackage[hyphens]{url}
 \usepackage[english]{babel}
 \usepackage{lmodern}
-\usepackage[sort&compress]{natbib}
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{rotating}
@@ -13,7 +12,7 @@
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{tikz}
-\usepackage{scrextend}
+\usepackage{csquotes}
 \usepackage{tabularx}
 \usepackage{cancel}
 \usepackage{cellspace}
@@ -29,6 +28,15 @@
 \usepackage{bm}
 \usepackage{sansmathfonts}
 \usepackage[automark]{scrlayer-scrpage}
+\usepackage[
+    backend=bibtex,
+    style=authoryear,
+    natbib=true,
+    url=false, 
+    dashed=false,
+    eprint=false
+]{biblatex}
+\addbibresource{books.bib}
 
 % Stil der Seiten
 \pagestyle{scrheadings}
@@ -46,6 +54,7 @@
 
 % Zeilenabstand
 \onehalfspacing
+\setlength\bibitemsep{1.5\itemsep}
 
 % Tiefe der Überschriften (Anzeige im Verzeichnis / Anzeige der Nummerierung)
 \setcounter{tocdepth}{3}
@@ -733,7 +742,7 @@ The first major component is the web server that is required to store and execut
 
 The web server runs a software container platform called \mbox{Docker} \citep{docker} that organizes a set of containers on a shared operating system. Each container is an isolated software package that performs different tasks. The application container is the key element of the machine and stores the entire program code. The main software component of this container is the \mbox{Node.js}\citep{nodejs} framework, which can perform system wide operations on a server or any other computer by using \mbox{Javascript}. The framework offers various third-party modules that can be downloaded via an in-built package manager. Configured and integrated appropriately, modules can improve the maintainability of a complex system as the developer does not need to implement and test such functions by himself and can instead access ready-to-use and tested methods.
 
-Most of the non-public program code is built upon the \mbox{hapi.js} \citep{hapijs} framework in order to handle the essential features of a web server, for example encryption, routing, authentication, validation or logging. Additional plugins and external services can be integrated to add support for alternative login methods, database controllers or monitoring services. In this way, the framework gives access to several databases within the program code. As indicated in the previous section, all members, interest groups and activities are organized in a graph database called \mbox{Neo4j}. Authentication tokens and other short-term details are managed by a cache database named \mbox{Redis} \citep{redis}. Statistics about the server performance are stored in a time series database called \mbox{Prometheus} \citep{prometheus} and are visible to administrators via a visualization tool by \mbox{Grafana Labs} \citep{grafana}. All databases run in separate containers and are accessible by the framework. For security reasons, the application executes database queries and non-public computing operations on the web server only. The respective operations can be triggered from the world wide web via an application programming interface (API). However, this is only possible once the member has authenticated himself using a valid login method (e-mail, \mbox{OAuth} via \mbox{Facebook} or \mbox{Google}). In addition, the application provides the public program code as well as certain static files, such as images and icons.
+Most of the non-public program code is built upon the \mbox{hapi.js} \citep{hapijs} framework in order to handle the essential features of a web server, for example encryption, routing, authentication, validation or logging. Additional plugins and external services can be integrated to add support for alternative login methods, database controllers or monitoring services. In this way, the framework gives access to several databases within the program code. As indicated in the previous section, all members, interest groups and activities are organized in a graph database called \mbox{Neo4j}. Authentication tokens and other short-term details are managed by a cache database named \mbox{Redis} \citep{redis}. Statistics about the server performance are stored in a time series database called \mbox{Prometheus} \cite{prometheus} and are visible to administrators via a visualization tool by \mbox{Grafana Labs} \citep{grafana}. All databases run in separate containers and are accessible by the framework. For security reasons, the application executes database queries and non-public computing operations on the web server only. The respective operations can be triggered from the world wide web via an application programming interface (API). However, this is only possible once the member has authenticated himself using a valid login method (e-mail, \mbox{OAuth} via \mbox{Facebook} or \mbox{Google}). In addition, the application provides the public program code as well as certain static files, such as images and icons.
 
 \begin{figure}
 \centering
@@ -1066,13 +1075,13 @@ This thematic field ends with the question whether the application had helped to
 \hline
 \multirow{2}{*}{\rotatebox[origin=c]{90}{Method}} & \multicolumn{3}{Sc|}{Comparison to application} \\[1.4em]
 & Differences & Advantages & Disadvantages \\ \hline
-\rotatebox[origin=c]{90}{Facebook} & Facebook provides a less specific service (Three people, 50\%) and its members often know each other in person (Two people, 33\%). & More members has been registered yet (Three people, 50\%). & More difficult to keep overview (Three people, 50\%) and more advertisement (Two people, 33\%). \\
-\rotatebox[origin=c]{90}{Event Calendar} & Event calendar provides pre-scheduled activities that cannot be influenced any longer (Four people, 67\%). & Calendrical layout (Three people, 50\%) and a large choice of activities (Two people, 33\%). & Recommendation of activities is not personalized (Two people, 33\%) and likely no ability to contribute (Two people, 33\%). \\
-\rotatebox[origin=c]{90}{Instant Messenger} & The main focus of instant messengers is the communication between individuals (Four people, 67\%). & More instant feedback (Five people, 83\%). & More difficult to keep overview (Two people, 33\%) and likely not made for activity planning (Two people, 33\%). \\
-\rotatebox[origin=c]{90}{Friends \& Acquaintances} & Level of intimacy (Three people, 50\%) and directness of feedback (Two people, 33\%). & Planning can start more spontaneously (Three people, 50\%), the communication feels intimate (Two people, 33\%) and meetings are face-to-face (Two people, 33\%). & The number of recommended activities is smaller (Three people, 50\%), a greater effort is needed while planning in big groups (Two people, 33\%) and it is more difficult to check or report attendance status (Two people, 33\%). \\ \hline
+\rotatebox[origin=c]{90}{Facebook} & Facebook provides a less specified service (Three people, 50\%) and following members often know each other in person (Two people, 33\%). & Already many members registered (Three people, 50\%). & More difficult to keep an eye on everything (Three people, 50\%) and more advertisement is shown (Two people, 33\%). \\
+\rotatebox[origin=c]{90}{Event Calendar} & Event calendar lists pre-scheduled activities that cannot be influenced any longer (Four people, 67\%). & Calendar style (Three people, 50\%) and a large selection of activities (Two people, 33\%). & Shown activities are not personalized at all (Two people, 33\%) and likely no ability to contribute (Two people, 33\%). \\
+\rotatebox[origin=c]{90}{Instant Messenger} & A instant messenger focus on the personal communication (Four people, 67\%). & Feedback is given at a higher speed (Five people, 83\%). & More difficult to keep overview (Two people, 33\%) and not made for activity planning (Two people, 33\%). \\
+\rotatebox[origin=c]{90}{Friends \& Acquaintances} & General level of intimacy (Three people, 50\%) and directness of provided feedback (Two people, 33\%). & Planning starts more spontaneously (Three people, 50\%), the communication feels more intimate (Two people, 33\%) and meetings are face-to-face (Two people, 33\%). & The number of recommended activities is smaller (Three people, 50\%), a greater effort is needed to plan in large groups (Two people, 33\%) and it is more difficult to check or report attendance status (Two people, 33\%). \\ \hline
 \end{tabularx}
-\caption[Answers by interviewees about differences, advantages and disadvantages of the application compared to other methods]{Answers given by two or more interviewees on differences as well as advantages and disadvantages of the application compared to other organizational methods for leisure activities.}
 \label{questionnairetable}
+\caption[Answers by interviewees about differences, advantages and disadvantages of the application compared to other methods]{Answers given by two or more interviewees on differences as well as advantages and disadvantages of the application compared to other organizational methods for leisure activities.}
 \end{figure}
 
 The number of answers within the last thematic field made it necessary to concentrate on joint answers given by at least two interviewees. In spite of the reduction, many answers remain. For a clear overview of all remaining answers, a tabular layout was used to illustrate differences as well as advantages and disadvantages of the application in comparison to other methods. Figure \ref{questionnairetable} shows the table with corresponding answers and frequencies.
@@ -1131,10 +1140,9 @@ sus
 % Literaturverzeichnis
 \clearpage
 \pagenumbering{roman}
-\bibliographystyle{apalike}
-\bibliography{books}
+\printbibliography
 
-%Abbildungsverzeichnis
+% Abbildungsverzeichnis
 \listoffigures
 
 % Erklärung
