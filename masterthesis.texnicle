@@ -85,7 +85,7 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="UISETTINGS" id="z104">
-        <attribute name="pdfviewscrollrect" type="string">{{0, 10253.757205099711}, {603.99999999994702, 825.02707422994172}}</attribute>
+        <attribute name="pdfviewscrollrect" type="string">{{0, 57921.226201016056}, {603.99999999994702, 824.77379898394429}}</attribute>
         <attribute name="showpdfthumbnails" type="bool">0</attribute>
         <attribute name="selectedcontrolstab" type="int16">0</attribute>
         <attribute name="maxoutlinedepth" type="int16">7</attribute>
@@ -148,12 +148,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z113 z105"></relationship>
     </object>
     <object type="TEXFILE" id="z109">
-        <attribute name="visiblerect" type="string">{{0, 26862}, {863.5, 757}}</attribute>
-        <attribute name="cursor" type="string">{119566, 0}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 27472}, {863.5, 726}}</attribute>
+        <attribute name="cursor" type="string">{124387, 0}</attribute>
         <attribute name="wasopen" type="bool">1</attribute>
-        <attribute name="lasteditdate" type="date">531319075.91987800598144531250</attribute>
+        <attribute name="lasteditdate" type="date">531328440.61391097307205200195</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">531319077.22385197877883911133</attribute>
+        <attribute name="fileloaddate" type="date">531328504.17878001928329467773</attribute>
         <attribute name="extension" type="string">tex</attribute>
         <attribute name="sortindex" type="int32">2</attribute>
         <attribute name="name" type="string">masterthesis.tex</attribute>
