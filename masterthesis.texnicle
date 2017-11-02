@@ -85,7 +85,7 @@
         <relationship name="project" type="1/1" destination="PROJECT" idrefs="z102"></relationship>
     </object>
     <object type="UISETTINGS" id="z104">
-        <attribute name="pdfviewscrollrect" type="string">{{0, 50501.785152950593}, {603.99999999994702, 825.02707411000301}}</attribute>
+        <attribute name="pdfviewscrollrect" type="string">{{0, 10253.757205099711}, {603.99999999994702, 825.02707422994172}}</attribute>
         <attribute name="showpdfthumbnails" type="bool">0</attribute>
         <attribute name="selectedcontrolstab" type="int16">0</attribute>
         <attribute name="maxoutlinedepth" type="int16">7</attribute>
@@ -121,7 +121,7 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z109 z107 z112 z110 z108"></relationship>
     </object>
     <object type="FILE" id="z107">
-        <attribute name="visiblerect" type="string">{{0, 0}, {863.5, 726}}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 0}, {863.5, 757}}</attribute>
         <attribute name="cursor" type="string">{436, 0}</attribute>
         <attribute name="wasopen" type="bool">0</attribute>
         <attribute name="lasteditdate" type="date">531300295.88753801584243774414</attribute>
@@ -148,12 +148,12 @@
         <relationship name="children" type="0/0" destination="PROJECTITEM" idrefs="z113 z105"></relationship>
     </object>
     <object type="TEXFILE" id="z109">
-        <attribute name="visiblerect" type="string">{{0, 334}, {863.5, 726}}</attribute>
-        <attribute name="cursor" type="string">{989, 0}</attribute>
+        <attribute name="visiblerect" type="string">{{0, 26862}, {863.5, 757}}</attribute>
+        <attribute name="cursor" type="string">{119566, 0}</attribute>
         <attribute name="wasopen" type="bool">1</attribute>
-        <attribute name="lasteditdate" type="date">531300870.52982801198959350586</attribute>
+        <attribute name="lasteditdate" type="date">531319075.91987800598144531250</attribute>
         <attribute name="istext" type="bool">1</attribute>
-        <attribute name="fileloaddate" type="date">531300871.24806600809097290039</attribute>
+        <attribute name="fileloaddate" type="date">531319077.22385197877883911133</attribute>
         <attribute name="extension" type="string">tex</attribute>
         <attribute name="sortindex" type="int32">2</attribute>
         <attribute name="name" type="string">masterthesis.tex</attribute>
@@ -214,7 +214,7 @@
         <relationship name="bookmarks" type="0/0" destination="BOOKMARK"></relationship>
     </object>
     <object type="BOOKMARK" id="z114">
-        <attribute name="text" type="string">\\caption[Total number and distribution of joined interest groups and activities by the interviewees]{Total number and distribution of joined interest groups and activities by the interviewees. A distinction is made between joined, visited and exclusively visited activities.}
+        <attribute name="text" type="string">\\end{axis}
 </attribute>
         <attribute name="linenumber" type="int64">1009</attribute>
         <relationship name="parentfile" type="1/1" destination="FILE" idrefs="z109"></relationship>
