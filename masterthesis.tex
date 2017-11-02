@@ -1,5 +1,6 @@
 \documentclass[12pt,numbers=noenddot,parskip,bibliography=totocnumbered,listof=totocnumbered,draft]{scrreprt}
 \usepackage[paper=a4paper,left=30mm,right=25mm,top=30mm,bottom=30mm]{geometry}
+\usepackage[automark]{scrlayer-scrpage}
 \usepackage[utf8]{inputenc}
 \usepackage[hyphens]{url}
 \usepackage[english]{babel}
@@ -16,25 +17,26 @@
 \usepackage{tabularx}
 \usepackage{cancel}
 \usepackage{cellspace}
-\usepackage{diagbox}
 \usepackage[final]{listings}
 \usepackage{relsize}
 \usepackage{pifont}
 \usepackage{enumitem}
-\usepackage{setspace}
+\usepackage{bm}
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{bm}
 \usepackage{sansmathfonts}
-\usepackage[automark]{scrlayer-scrpage}
+\usepackage{setspace}
 \usepackage[
     backend=bibtex,
     style=authoryear,
+    isbn=false,
+    doi=false,
     natbib=true,
-    url=false, 
+    sortcites=true,
+    url=true, 
+    urldate=long,
     maxbibnames=5,
-    firstinits=true,
     dashed=false,
     eprint=false
 ]{biblatex}
@@ -76,6 +78,10 @@
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
 \interfootnotelinepenalty10000
+
+% URL-Umbrüche
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
 
 % Schriftarten
 \addtokomafont{pagenumber}{\sffamily \upshape}
@@ -1082,8 +1088,8 @@ This thematic field ends with the question whether the application had helped to
 \rotatebox[origin=c]{90}{Instant Messenger} & A instant messenger focus on the personal communication (Four people, 67\%). & Feedback is given at a higher speed (Five people, 83\%). & More difficult to keep overview (Two people, 33\%) and not made for activity planning (Two people, 33\%). \\
 \rotatebox[origin=c]{90}{Friends \& Acquaintances} & General level of intimacy (Three people, 50\%) and directness of provided feedback (Two people, 33\%). & Planning starts more spontaneously (Three people, 50\%), the communication feels more intimate (Two people, 33\%) and meetings are face-to-face (Two people, 33\%). & The number of recommended activities is smaller (Three people, 50\%), a greater effort is needed to plan in large groups (Two people, 33\%) and it is more difficult to check or report attendance status (Two people, 33\%). \\ \hline
 \end{tabularx}
-\label{questionnairetable}
 \caption[Answers by interviewees about differences, advantages and disadvantages of the application compared to other methods]{Answers given by two or more interviewees on differences as well as advantages and disadvantages of the application compared to other organizational methods for leisure activities.}
+\label{questionnairetable}
 \end{figure}
 
 The number of answers within the last thematic field made it necessary to concentrate on joint answers given by at least two interviewees. In spite of the reduction, many answers remain. For a clear overview of all remaining answers, a tabular layout was used to illustrate differences as well as advantages and disadvantages of the application in comparison to other methods. Figure \ref{questionnairetable} shows the table with corresponding answers and frequencies.
@@ -1142,6 +1148,7 @@ sus
 % Literaturverzeichnis
 \clearpage
 \pagenumbering{roman}
+\sloppy
 \printbibliography
 
 % Abbildungsverzeichnis
